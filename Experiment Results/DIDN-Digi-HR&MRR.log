@@ -1,0 +1,2322 @@
+test name: para-8
+changes made:
+	1. from para-3, change tree_num to 128, depth to 5
+	2. cancel weight decay
+Namespace(alpha1=0.1, alpha2=0.1, alpha3=0.1, batch_size=512, dataset_path='./DIDN/datasets/diginetica/', embed_dim=64, epoch=256, hidden_size=64, lr=0.001, lr_dc=0.1, lr_dc_step=80, max_len=19, neighbor_num=5, pos_num=2000, position_embed_dim=64, test=False, topk=20, valid_portion=0.1)
+Loading data...
+--------------------------------------------------
+Dataset info:
+Number of sessions: 647523
+--------------------------------------------------
+--------------------------------------------------
+Dataset info:
+Number of sessions: 71947
+--------------------------------------------------
+--------------------------------------------------
+Dataset info:
+Number of sessions: 68977
+--------------------------------------------------
+[TRAIN] epoch 1/256 batch loss: 10.8843 (avg 10.8843) (14.16 im/s)
+[TRAIN] epoch 1/256 batch loss: 10.5853 (avg 10.6473) (26.67 im/s)
+[TRAIN] epoch 1/256 batch loss: 10.3827 (avg 10.5843) (26.28 im/s)
+[TRAIN] epoch 1/256 batch loss: 10.4228 (avg 10.5229) (26.30 im/s)
+[TRAIN] epoch 1/256 batch loss: 10.2045 (avg 10.4659) (26.56 im/s)
+[TRAIN] epoch 1/256 batch loss: 10.1810 (avg 10.4134) (26.60 im/s)
+[TRAIN] epoch 1/256 batch loss: 10.0000 (avg 10.3606) (25.88 im/s)
+Epoch 0 validation: Recall@20: 0.1471, MRR@20: 0.1025 
+
+[TRAIN] epoch 2/256 batch loss: 9.9616 (avg 9.9616) (24.00 im/s)
+[TRAIN] epoch 2/256 batch loss: 9.8490 (avg 9.9374) (26.71 im/s)
+[TRAIN] epoch 2/256 batch loss: 9.8949 (avg 9.8961) (26.53 im/s)
+[TRAIN] epoch 2/256 batch loss: 9.7014 (avg 9.8600) (26.72 im/s)
+[TRAIN] epoch 2/256 batch loss: 9.5718 (avg 9.8274) (26.31 im/s)
+[TRAIN] epoch 2/256 batch loss: 9.6556 (avg 9.7973) (26.95 im/s)
+[TRAIN] epoch 2/256 batch loss: 9.4816 (avg 9.7700) (25.18 im/s)
+Epoch 1 validation: Recall@20: 0.1674, MRR@20: 0.1112 
+
+[TRAIN] epoch 3/256 batch loss: 9.4991 (avg 9.4991) (22.53 im/s)
+[TRAIN] epoch 3/256 batch loss: 9.3570 (avg 9.5249) (26.31 im/s)
+[TRAIN] epoch 3/256 batch loss: 9.5131 (avg 9.5020) (26.73 im/s)
+[TRAIN] epoch 3/256 batch loss: 9.3818 (avg 9.4863) (24.10 im/s)
+[TRAIN] epoch 3/256 batch loss: 9.5288 (avg 9.4662) (26.88 im/s)
+[TRAIN] epoch 3/256 batch loss: 9.3526 (avg 9.4461) (26.79 im/s)
+[TRAIN] epoch 3/256 batch loss: 9.3699 (avg 9.4241) (23.64 im/s)
+Epoch 2 validation: Recall@20: 0.1992, MRR@20: 0.1209 
+
+[TRAIN] epoch 4/256 batch loss: 9.2651 (avg 9.2651) (23.43 im/s)
+[TRAIN] epoch 4/256 batch loss: 9.2025 (avg 9.2261) (28.70 im/s)
+[TRAIN] epoch 4/256 batch loss: 9.2926 (avg 9.2039) (28.72 im/s)
+[TRAIN] epoch 4/256 batch loss: 9.0262 (avg 9.1818) (28.71 im/s)
+[TRAIN] epoch 4/256 batch loss: 8.9290 (avg 9.1542) (26.95 im/s)
+[TRAIN] epoch 4/256 batch loss: 9.0536 (avg 9.1327) (26.67 im/s)
+[TRAIN] epoch 4/256 batch loss: 9.0267 (avg 9.1116) (26.32 im/s)
+Epoch 3 validation: Recall@20: 0.2294, MRR@20: 0.1280 
+
+[TRAIN] epoch 5/256 batch loss: 8.7509 (avg 8.7509) (21.66 im/s)
+[TRAIN] epoch 5/256 batch loss: 8.6556 (avg 8.8923) (26.68 im/s)
+[TRAIN] epoch 5/256 batch loss: 8.8815 (avg 8.8726) (26.06 im/s)
+[TRAIN] epoch 5/256 batch loss: 8.7020 (avg 8.8500) (26.74 im/s)
+[TRAIN] epoch 5/256 batch loss: 8.6470 (avg 8.8243) (28.32 im/s)
+[TRAIN] epoch 5/256 batch loss: 8.9728 (avg 8.8013) (26.60 im/s)
+[TRAIN] epoch 5/256 batch loss: 8.8530 (avg 8.7775) (26.35 im/s)
+Epoch 4 validation: Recall@20: 0.2654, MRR@20: 0.1363 
+
+[TRAIN] epoch 6/256 batch loss: 8.6790 (avg 8.6790) (23.49 im/s)
+[TRAIN] epoch 6/256 batch loss: 8.4390 (avg 8.5384) (26.60 im/s)
+[TRAIN] epoch 6/256 batch loss: 8.2490 (avg 8.5239) (26.28 im/s)
+[TRAIN] epoch 6/256 batch loss: 8.5081 (avg 8.4988) (26.56 im/s)
+[TRAIN] epoch 6/256 batch loss: 8.1665 (avg 8.4804) (26.96 im/s)
+[TRAIN] epoch 6/256 batch loss: 8.1144 (avg 8.4585) (28.53 im/s)
+[TRAIN] epoch 6/256 batch loss: 8.2074 (avg 8.4356) (26.86 im/s)
+Epoch 5 validation: Recall@20: 0.3015, MRR@20: 0.1444 
+
+[TRAIN] epoch 7/256 batch loss: 7.9570 (avg 7.9570) (23.58 im/s)
+[TRAIN] epoch 7/256 batch loss: 8.0749 (avg 8.1926) (28.44 im/s)
+[TRAIN] epoch 7/256 batch loss: 8.2444 (avg 8.1710) (26.11 im/s)
+[TRAIN] epoch 7/256 batch loss: 7.9535 (avg 8.1551) (25.89 im/s)
+[TRAIN] epoch 7/256 batch loss: 8.1271 (avg 8.1356) (26.59 im/s)
+[TRAIN] epoch 7/256 batch loss: 8.0627 (avg 8.1200) (26.81 im/s)
+[TRAIN] epoch 7/256 batch loss: 8.0313 (avg 8.0988) (23.85 im/s)
+Epoch 6 validation: Recall@20: 0.3321, MRR@20: 0.1507 
+
+[TRAIN] epoch 8/256 batch loss: 7.9106 (avg 7.9106) (23.23 im/s)
+[TRAIN] epoch 8/256 batch loss: 7.8150 (avg 7.8781) (27.03 im/s)
+[TRAIN] epoch 8/256 batch loss: 7.7728 (avg 7.8645) (23.96 im/s)
+[TRAIN] epoch 8/256 batch loss: 7.8585 (avg 7.8479) (26.97 im/s)
+[TRAIN] epoch 8/256 batch loss: 7.7126 (avg 7.8239) (23.42 im/s)
+[TRAIN] epoch 8/256 batch loss: 7.6176 (avg 7.8088) (26.54 im/s)
+[TRAIN] epoch 8/256 batch loss: 7.5431 (avg 7.7893) (26.22 im/s)
+Epoch 7 validation: Recall@20: 0.3583, MRR@20: 0.1559 
+
+[TRAIN] epoch 9/256 batch loss: 7.5843 (avg 7.5843) (24.31 im/s)
+[TRAIN] epoch 9/256 batch loss: 7.4305 (avg 7.5794) (26.87 im/s)
+[TRAIN] epoch 9/256 batch loss: 7.7090 (avg 7.5712) (26.81 im/s)
+[TRAIN] epoch 9/256 batch loss: 7.7643 (avg 7.5510) (26.91 im/s)
+[TRAIN] epoch 9/256 batch loss: 7.7196 (avg 7.5371) (28.34 im/s)
+[TRAIN] epoch 9/256 batch loss: 7.4941 (avg 7.5212) (26.63 im/s)
+[TRAIN] epoch 9/256 batch loss: 7.2170 (avg 7.5044) (23.87 im/s)
+Epoch 8 validation: Recall@20: 0.3826, MRR@20: 0.1608 
+
+[TRAIN] epoch 10/256 batch loss: 7.3488 (avg 7.3488) (22.95 im/s)
+[TRAIN] epoch 10/256 batch loss: 7.3031 (avg 7.3139) (26.03 im/s)
+[TRAIN] epoch 10/256 batch loss: 7.1336 (avg 7.3052) (26.99 im/s)
+[TRAIN] epoch 10/256 batch loss: 6.9238 (avg 7.2894) (26.86 im/s)
+[TRAIN] epoch 10/256 batch loss: 7.0514 (avg 7.2765) (26.57 im/s)
+[TRAIN] epoch 10/256 batch loss: 7.0121 (avg 7.2606) (26.33 im/s)
+[TRAIN] epoch 10/256 batch loss: 7.5133 (avg 7.2456) (23.99 im/s)
+Epoch 9 validation: Recall@20: 0.4048, MRR@20: 0.1658 
+
+[TRAIN] epoch 11/256 batch loss: 7.3378 (avg 7.3378) (22.75 im/s)
+[TRAIN] epoch 11/256 batch loss: 6.9823 (avg 7.1024) (25.23 im/s)
+[TRAIN] epoch 11/256 batch loss: 6.9331 (avg 7.0776) (26.31 im/s)
+[TRAIN] epoch 11/256 batch loss: 6.9334 (avg 7.0671) (23.81 im/s)
+[TRAIN] epoch 11/256 batch loss: 6.8625 (avg 7.0528) (26.35 im/s)
+[TRAIN] epoch 11/256 batch loss: 6.8396 (avg 7.0373) (26.93 im/s)
+[TRAIN] epoch 11/256 batch loss: 6.8867 (avg 7.0230) (26.46 im/s)
+Epoch 10 validation: Recall@20: 0.4251, MRR@20: 0.1698 
+
+[TRAIN] epoch 12/256 batch loss: 6.7668 (avg 6.7668) (22.52 im/s)
+[TRAIN] epoch 12/256 batch loss: 6.9854 (avg 6.8595) (26.77 im/s)
+[TRAIN] epoch 12/256 batch loss: 6.8095 (avg 6.8579) (23.74 im/s)
+[TRAIN] epoch 12/256 batch loss: 6.7931 (avg 6.8482) (26.72 im/s)
+[TRAIN] epoch 12/256 batch loss: 6.7576 (avg 6.8415) (26.05 im/s)
+[TRAIN] epoch 12/256 batch loss: 6.7161 (avg 6.8336) (26.76 im/s)
+[TRAIN] epoch 12/256 batch loss: 6.7169 (avg 6.8246) (24.03 im/s)
+Epoch 11 validation: Recall@20: 0.4415, MRR@20: 0.1726 
+
+[TRAIN] epoch 13/256 batch loss: 6.8449 (avg 6.8449) (23.66 im/s)
+[TRAIN] epoch 13/256 batch loss: 6.8292 (avg 6.6876) (26.32 im/s)
+[TRAIN] epoch 13/256 batch loss: 6.5703 (avg 6.6788) (26.78 im/s)
+[TRAIN] epoch 13/256 batch loss: 6.6366 (avg 6.6747) (23.92 im/s)
+[TRAIN] epoch 13/256 batch loss: 6.4301 (avg 6.6655) (26.36 im/s)
+[TRAIN] epoch 13/256 batch loss: 6.5760 (avg 6.6585) (23.93 im/s)
+[TRAIN] epoch 13/256 batch loss: 6.4469 (avg 6.6480) (26.82 im/s)
+Epoch 12 validation: Recall@20: 0.4567, MRR@20: 0.1754 
+
+[TRAIN] epoch 14/256 batch loss: 6.4151 (avg 6.4151) (21.64 im/s)
+[TRAIN] epoch 14/256 batch loss: 6.4353 (avg 6.5432) (26.82 im/s)
+[TRAIN] epoch 14/256 batch loss: 6.5184 (avg 6.5364) (25.89 im/s)
+[TRAIN] epoch 14/256 batch loss: 6.4720 (avg 6.5253) (26.08 im/s)
+[TRAIN] epoch 14/256 batch loss: 6.7227 (avg 6.5179) (26.79 im/s)
+[TRAIN] epoch 14/256 batch loss: 6.6431 (avg 6.5105) (26.38 im/s)
+[TRAIN] epoch 14/256 batch loss: 6.4128 (avg 6.5009) (28.48 im/s)
+Epoch 13 validation: Recall@20: 0.4682, MRR@20: 0.1783 
+
+[TRAIN] epoch 15/256 batch loss: 6.2596 (avg 6.2596) (24.12 im/s)
+[TRAIN] epoch 15/256 batch loss: 6.4943 (avg 6.3893) (25.93 im/s)
+[TRAIN] epoch 15/256 batch loss: 6.3119 (avg 6.3813) (26.75 im/s)
+[TRAIN] epoch 15/256 batch loss: 6.3316 (avg 6.3805) (26.75 im/s)
+[TRAIN] epoch 15/256 batch loss: 6.5081 (avg 6.3733) (26.87 im/s)
+[TRAIN] epoch 15/256 batch loss: 6.3549 (avg 6.3682) (26.25 im/s)
+[TRAIN] epoch 15/256 batch loss: 6.2589 (avg 6.3637) (26.90 im/s)
+Epoch 14 validation: Recall@20: 0.4780, MRR@20: 0.1806 
+
+[TRAIN] epoch 16/256 batch loss: 6.2392 (avg 6.2392) (23.99 im/s)
+[TRAIN] epoch 16/256 batch loss: 6.3801 (avg 6.2536) (26.68 im/s)
+[TRAIN] epoch 16/256 batch loss: 6.5029 (avg 6.2523) (26.24 im/s)
+[TRAIN] epoch 16/256 batch loss: 6.1426 (avg 6.2542) (28.54 im/s)
+[TRAIN] epoch 16/256 batch loss: 6.1987 (avg 6.2495) (26.86 im/s)
+[TRAIN] epoch 16/256 batch loss: 6.3370 (avg 6.2485) (26.81 im/s)
+[TRAIN] epoch 16/256 batch loss: 6.4278 (avg 6.2452) (28.24 im/s)
+Epoch 15 validation: Recall@20: 0.4870, MRR@20: 0.1821 
+
+[TRAIN] epoch 17/256 batch loss: 6.0879 (avg 6.0879) (22.43 im/s)
+[TRAIN] epoch 17/256 batch loss: 6.1319 (avg 6.1342) (26.76 im/s)
+[TRAIN] epoch 17/256 batch loss: 6.2768 (avg 6.1418) (23.84 im/s)
+[TRAIN] epoch 17/256 batch loss: 6.1230 (avg 6.1461) (27.18 im/s)
+[TRAIN] epoch 17/256 batch loss: 5.9973 (avg 6.1444) (26.15 im/s)
+[TRAIN] epoch 17/256 batch loss: 6.0787 (avg 6.1436) (26.52 im/s)
+[TRAIN] epoch 17/256 batch loss: 5.9829 (avg 6.1413) (23.57 im/s)
+Epoch 16 validation: Recall@20: 0.4951, MRR@20: 0.1837 
+
+[TRAIN] epoch 18/256 batch loss: 6.1229 (avg 6.1229) (23.68 im/s)
+[TRAIN] epoch 18/256 batch loss: 6.3235 (avg 6.0482) (27.01 im/s)
+[TRAIN] epoch 18/256 batch loss: 6.1587 (avg 6.0457) (23.47 im/s)
+[TRAIN] epoch 18/256 batch loss: 6.1747 (avg 6.0501) (26.84 im/s)
+[TRAIN] epoch 18/256 batch loss: 6.1413 (avg 6.0502) (26.35 im/s)
+[TRAIN] epoch 18/256 batch loss: 6.1114 (avg 6.0500) (26.28 im/s)
+[TRAIN] epoch 18/256 batch loss: 5.8674 (avg 6.0485) (26.74 im/s)
+Epoch 17 validation: Recall@20: 0.5017, MRR@20: 0.1850 
+
+[TRAIN] epoch 19/256 batch loss: 6.0325 (avg 6.0325) (22.96 im/s)
+[TRAIN] epoch 19/256 batch loss: 5.9366 (avg 5.9660) (25.39 im/s)
+[TRAIN] epoch 19/256 batch loss: 5.9876 (avg 5.9658) (25.07 im/s)
+[TRAIN] epoch 19/256 batch loss: 5.8640 (avg 5.9681) (26.06 im/s)
+[TRAIN] epoch 19/256 batch loss: 5.8988 (avg 5.9653) (28.07 im/s)
+[TRAIN] epoch 19/256 batch loss: 6.0105 (avg 5.9675) (26.87 im/s)
+[TRAIN] epoch 19/256 batch loss: 5.9716 (avg 5.9659) (26.35 im/s)
+Epoch 18 validation: Recall@20: 0.5090, MRR@20: 0.1867 
+
+[TRAIN] epoch 20/256 batch loss: 5.8297 (avg 5.8297) (23.57 im/s)
+[TRAIN] epoch 20/256 batch loss: 6.0800 (avg 5.9005) (23.73 im/s)
+[TRAIN] epoch 20/256 batch loss: 5.9571 (avg 5.8902) (26.72 im/s)
+[TRAIN] epoch 20/256 batch loss: 6.0264 (avg 5.8887) (24.14 im/s)
+[TRAIN] epoch 20/256 batch loss: 6.0468 (avg 5.8897) (26.56 im/s)
+[TRAIN] epoch 20/256 batch loss: 5.9339 (avg 5.8871) (26.94 im/s)
+[TRAIN] epoch 20/256 batch loss: 5.8311 (avg 5.8891) (23.93 im/s)
+Epoch 19 validation: Recall@20: 0.5149, MRR@20: 0.1885 
+
+[TRAIN] epoch 21/256 batch loss: 5.9469 (avg 5.9469) (23.84 im/s)
+[TRAIN] epoch 21/256 batch loss: 5.7130 (avg 5.8273) (23.97 im/s)
+[TRAIN] epoch 21/256 batch loss: 5.6101 (avg 5.8266) (23.92 im/s)
+[TRAIN] epoch 21/256 batch loss: 5.9158 (avg 5.8261) (26.80 im/s)
+[TRAIN] epoch 21/256 batch loss: 5.8394 (avg 5.8265) (26.90 im/s)
+[TRAIN] epoch 21/256 batch loss: 5.8495 (avg 5.8261) (26.06 im/s)
+[TRAIN] epoch 21/256 batch loss: 5.8894 (avg 5.8248) (26.83 im/s)
+Epoch 20 validation: Recall@20: 0.5204, MRR@20: 0.1894 
+
+[TRAIN] epoch 22/256 batch loss: 5.8080 (avg 5.8080) (24.89 im/s)
+[TRAIN] epoch 22/256 batch loss: 5.8986 (avg 5.7610) (25.79 im/s)
+[TRAIN] epoch 22/256 batch loss: 5.8660 (avg 5.7633) (26.72 im/s)
+[TRAIN] epoch 22/256 batch loss: 5.7556 (avg 5.7575) (27.28 im/s)
+[TRAIN] epoch 22/256 batch loss: 5.8184 (avg 5.7604) (26.92 im/s)
+[TRAIN] epoch 22/256 batch loss: 5.8592 (avg 5.7636) (26.36 im/s)
+[TRAIN] epoch 22/256 batch loss: 5.7326 (avg 5.7626) (26.86 im/s)
+Epoch 21 validation: Recall@20: 0.5248, MRR@20: 0.1905 
+
+[TRAIN] epoch 23/256 batch loss: 5.7393 (avg 5.7393) (23.15 im/s)
+[TRAIN] epoch 23/256 batch loss: 5.7317 (avg 5.6807) (28.37 im/s)
+[TRAIN] epoch 23/256 batch loss: 5.9567 (avg 5.7009) (28.50 im/s)
+[TRAIN] epoch 23/256 batch loss: 5.5069 (avg 5.7050) (26.89 im/s)
+[TRAIN] epoch 23/256 batch loss: 5.5568 (avg 5.7134) (26.86 im/s)
+[TRAIN] epoch 23/256 batch loss: 5.4644 (avg 5.7125) (26.84 im/s)
+[TRAIN] epoch 23/256 batch loss: 5.5874 (avg 5.7121) (26.76 im/s)
+Epoch 22 validation: Recall@20: 0.5285, MRR@20: 0.1915 
+
+[TRAIN] epoch 24/256 batch loss: 5.9082 (avg 5.9082) (22.95 im/s)
+[TRAIN] epoch 24/256 batch loss: 5.6999 (avg 5.6560) (26.67 im/s)
+[TRAIN] epoch 24/256 batch loss: 5.5475 (avg 5.6521) (26.26 im/s)
+[TRAIN] epoch 24/256 batch loss: 5.6857 (avg 5.6570) (26.84 im/s)
+[TRAIN] epoch 24/256 batch loss: 5.6536 (avg 5.6593) (26.77 im/s)
+[TRAIN] epoch 24/256 batch loss: 5.7554 (avg 5.6592) (27.06 im/s)
+[TRAIN] epoch 24/256 batch loss: 5.6202 (avg 5.6602) (26.42 im/s)
+Epoch 23 validation: Recall@20: 0.5318, MRR@20: 0.1921 
+
+[TRAIN] epoch 25/256 batch loss: 5.8826 (avg 5.8826) (23.93 im/s)
+[TRAIN] epoch 25/256 batch loss: 5.6255 (avg 5.5941) (27.00 im/s)
+[TRAIN] epoch 25/256 batch loss: 5.5880 (avg 5.6010) (26.14 im/s)
+[TRAIN] epoch 25/256 batch loss: 5.7790 (avg 5.6101) (26.67 im/s)
+[TRAIN] epoch 25/256 batch loss: 5.5081 (avg 5.6105) (26.73 im/s)
+[TRAIN] epoch 25/256 batch loss: 5.7020 (avg 5.6114) (26.98 im/s)
+[TRAIN] epoch 25/256 batch loss: 6.0204 (avg 5.6131) (23.88 im/s)
+Epoch 24 validation: Recall@20: 0.5351, MRR@20: 0.1931 
+
+[TRAIN] epoch 26/256 batch loss: 5.5071 (avg 5.5071) (23.66 im/s)
+[TRAIN] epoch 26/256 batch loss: 5.7098 (avg 5.5567) (24.02 im/s)
+[TRAIN] epoch 26/256 batch loss: 5.5596 (avg 5.5547) (24.09 im/s)
+[TRAIN] epoch 26/256 batch loss: 5.7252 (avg 5.5584) (26.89 im/s)
+[TRAIN] epoch 26/256 batch loss: 5.5809 (avg 5.5652) (26.71 im/s)
+[TRAIN] epoch 26/256 batch loss: 5.5919 (avg 5.5685) (26.75 im/s)
+[TRAIN] epoch 26/256 batch loss: 5.4449 (avg 5.5725) (26.65 im/s)
+Epoch 25 validation: Recall@20: 0.5382, MRR@20: 0.1930 
+
+[TRAIN] epoch 27/256 batch loss: 5.6185 (avg 5.6185) (24.95 im/s)
+[TRAIN] epoch 27/256 batch loss: 5.5254 (avg 5.5110) (26.69 im/s)
+[TRAIN] epoch 27/256 batch loss: 5.5587 (avg 5.5083) (26.17 im/s)
+[TRAIN] epoch 27/256 batch loss: 5.4980 (avg 5.5222) (26.10 im/s)
+[TRAIN] epoch 27/256 batch loss: 5.5667 (avg 5.5292) (26.74 im/s)
+[TRAIN] epoch 27/256 batch loss: 5.7271 (avg 5.5324) (26.59 im/s)
+[TRAIN] epoch 27/256 batch loss: 5.6674 (avg 5.5350) (26.24 im/s)
+Epoch 26 validation: Recall@20: 0.5413, MRR@20: 0.1942 
+
+[TRAIN] epoch 28/256 batch loss: 5.6877 (avg 5.6877) (23.47 im/s)
+[TRAIN] epoch 28/256 batch loss: 5.2123 (avg 5.4874) (26.74 im/s)
+[TRAIN] epoch 28/256 batch loss: 5.7839 (avg 5.4929) (26.30 im/s)
+[TRAIN] epoch 28/256 batch loss: 5.7182 (avg 5.4956) (26.80 im/s)
+[TRAIN] epoch 28/256 batch loss: 5.5668 (avg 5.4936) (26.78 im/s)
+[TRAIN] epoch 28/256 batch loss: 5.6814 (avg 5.4954) (26.28 im/s)
+[TRAIN] epoch 28/256 batch loss: 5.1002 (avg 5.5002) (26.91 im/s)
+Epoch 27 validation: Recall@20: 0.5434, MRR@20: 0.1951 
+
+[TRAIN] epoch 29/256 batch loss: 5.3374 (avg 5.3374) (23.11 im/s)
+[TRAIN] epoch 29/256 batch loss: 5.5932 (avg 5.4374) (26.30 im/s)
+[TRAIN] epoch 29/256 batch loss: 5.1616 (avg 5.4537) (26.37 im/s)
+[TRAIN] epoch 29/256 batch loss: 5.5747 (avg 5.4587) (26.42 im/s)
+[TRAIN] epoch 29/256 batch loss: 5.3647 (avg 5.4640) (26.29 im/s)
+[TRAIN] epoch 29/256 batch loss: 5.6250 (avg 5.4665) (26.78 im/s)
+[TRAIN] epoch 29/256 batch loss: 5.6457 (avg 5.4684) (28.36 im/s)
+Epoch 28 validation: Recall@20: 0.5457, MRR@20: 0.1955 
+
+[TRAIN] epoch 30/256 batch loss: 5.2040 (avg 5.2040) (22.97 im/s)
+[TRAIN] epoch 30/256 batch loss: 5.3967 (avg 5.4036) (25.73 im/s)
+[TRAIN] epoch 30/256 batch loss: 5.3057 (avg 5.4154) (26.67 im/s)
+[TRAIN] epoch 30/256 batch loss: 5.5273 (avg 5.4185) (26.40 im/s)
+[TRAIN] epoch 30/256 batch loss: 5.6022 (avg 5.4272) (25.85 im/s)
+[TRAIN] epoch 30/256 batch loss: 5.3470 (avg 5.4315) (25.51 im/s)
+[TRAIN] epoch 30/256 batch loss: 5.5167 (avg 5.4365) (27.01 im/s)
+Epoch 29 validation: Recall@20: 0.5473, MRR@20: 0.1962 
+
+[TRAIN] epoch 31/256 batch loss: 5.4466 (avg 5.4466) (23.75 im/s)
+[TRAIN] epoch 31/256 batch loss: 5.3886 (avg 5.3905) (26.69 im/s)
+[TRAIN] epoch 31/256 batch loss: 5.3605 (avg 5.3956) (26.96 im/s)
+[TRAIN] epoch 31/256 batch loss: 5.4255 (avg 5.3987) (26.68 im/s)
+[TRAIN] epoch 31/256 batch loss: 5.3563 (avg 5.4020) (26.44 im/s)
+[TRAIN] epoch 31/256 batch loss: 5.3535 (avg 5.4049) (26.39 im/s)
+[TRAIN] epoch 31/256 batch loss: 5.3527 (avg 5.4060) (25.03 im/s)
+Epoch 30 validation: Recall@20: 0.5509, MRR@20: 0.1964 
+
+[TRAIN] epoch 32/256 batch loss: 5.2713 (avg 5.2713) (21.57 im/s)
+[TRAIN] epoch 32/256 batch loss: 5.4040 (avg 5.3630) (28.49 im/s)
+[TRAIN] epoch 32/256 batch loss: 5.2803 (avg 5.3610) (26.80 im/s)
+[TRAIN] epoch 32/256 batch loss: 5.2750 (avg 5.3615) (26.76 im/s)
+[TRAIN] epoch 32/256 batch loss: 5.4207 (avg 5.3667) (26.74 im/s)
+[TRAIN] epoch 32/256 batch loss: 5.3380 (avg 5.3706) (26.78 im/s)
+[TRAIN] epoch 32/256 batch loss: 5.1941 (avg 5.3739) (28.49 im/s)
+Epoch 31 validation: Recall@20: 0.5508, MRR@20: 0.1965 
+
+[TRAIN] epoch 33/256 batch loss: 5.4407 (avg 5.4407) (23.94 im/s)
+[TRAIN] epoch 33/256 batch loss: 5.2583 (avg 5.3300) (26.77 im/s)
+[TRAIN] epoch 33/256 batch loss: 5.2571 (avg 5.3316) (26.42 im/s)
+[TRAIN] epoch 33/256 batch loss: 5.3959 (avg 5.3404) (26.63 im/s)
+[TRAIN] epoch 33/256 batch loss: 5.4843 (avg 5.3445) (26.90 im/s)
+[TRAIN] epoch 33/256 batch loss: 5.4070 (avg 5.3477) (26.98 im/s)
+[TRAIN] epoch 33/256 batch loss: 5.5462 (avg 5.3522) (26.80 im/s)
+Epoch 32 validation: Recall@20: 0.5535, MRR@20: 0.1973 
+
+[TRAIN] epoch 34/256 batch loss: 5.3391 (avg 5.3391) (22.52 im/s)
+[TRAIN] epoch 34/256 batch loss: 5.4391 (avg 5.3180) (26.67 im/s)
+[TRAIN] epoch 34/256 batch loss: 5.1693 (avg 5.3199) (26.78 im/s)
+[TRAIN] epoch 34/256 batch loss: 5.3620 (avg 5.3254) (26.70 im/s)
+[TRAIN] epoch 34/256 batch loss: 5.4755 (avg 5.3298) (26.70 im/s)
+[TRAIN] epoch 34/256 batch loss: 5.0264 (avg 5.3302) (26.78 im/s)
+[TRAIN] epoch 34/256 batch loss: 5.4073 (avg 5.3309) (26.38 im/s)
+Epoch 33 validation: Recall@20: 0.5544, MRR@20: 0.1980 
+
+[TRAIN] epoch 35/256 batch loss: 5.1980 (avg 5.1980) (24.14 im/s)
+[TRAIN] epoch 35/256 batch loss: 5.2954 (avg 5.2854) (23.85 im/s)
+[TRAIN] epoch 35/256 batch loss: 5.3980 (avg 5.2885) (27.91 im/s)
+[TRAIN] epoch 35/256 batch loss: 5.4854 (avg 5.2919) (28.55 im/s)
+[TRAIN] epoch 35/256 batch loss: 5.1817 (avg 5.2968) (23.90 im/s)
+[TRAIN] epoch 35/256 batch loss: 5.2275 (avg 5.3025) (26.61 im/s)
+[TRAIN] epoch 35/256 batch loss: 5.1873 (avg 5.3062) (26.01 im/s)
+Epoch 34 validation: Recall@20: 0.5545, MRR@20: 0.1973 
+
+[TRAIN] epoch 36/256 batch loss: 5.2931 (avg 5.2931) (24.60 im/s)
+[TRAIN] epoch 36/256 batch loss: 5.0715 (avg 5.2568) (26.81 im/s)
+[TRAIN] epoch 36/256 batch loss: 5.2145 (avg 5.2682) (26.85 im/s)
+[TRAIN] epoch 36/256 batch loss: 5.3070 (avg 5.2737) (26.66 im/s)
+[TRAIN] epoch 36/256 batch loss: 5.3352 (avg 5.2793) (26.72 im/s)
+[TRAIN] epoch 36/256 batch loss: 5.3807 (avg 5.2868) (26.03 im/s)
+[TRAIN] epoch 36/256 batch loss: 5.2905 (avg 5.2892) (26.93 im/s)
+Epoch 35 validation: Recall@20: 0.5560, MRR@20: 0.1979 
+
+[TRAIN] epoch 37/256 batch loss: 5.2316 (avg 5.2316) (23.44 im/s)
+[TRAIN] epoch 37/256 batch loss: 5.4534 (avg 5.2504) (26.74 im/s)
+[TRAIN] epoch 37/256 batch loss: 5.1430 (avg 5.2542) (25.35 im/s)
+[TRAIN] epoch 37/256 batch loss: 5.4799 (avg 5.2590) (26.90 im/s)
+[TRAIN] epoch 37/256 batch loss: 5.2671 (avg 5.2613) (26.75 im/s)
+[TRAIN] epoch 37/256 batch loss: 5.1653 (avg 5.2652) (26.90 im/s)
+[TRAIN] epoch 37/256 batch loss: 5.3146 (avg 5.2686) (27.22 im/s)
+Epoch 36 validation: Recall@20: 0.5560, MRR@20: 0.1984 
+
+[TRAIN] epoch 38/256 batch loss: 5.0784 (avg 5.0784) (24.26 im/s)
+[TRAIN] epoch 38/256 batch loss: 5.1995 (avg 5.2249) (27.83 im/s)
+[TRAIN] epoch 38/256 batch loss: 5.3806 (avg 5.2365) (26.89 im/s)
+[TRAIN] epoch 38/256 batch loss: 5.1913 (avg 5.2382) (27.65 im/s)
+[TRAIN] epoch 38/256 batch loss: 5.0458 (avg 5.2411) (29.80 im/s)
+[TRAIN] epoch 38/256 batch loss: 5.4646 (avg 5.2450) (27.53 im/s)
+[TRAIN] epoch 38/256 batch loss: 5.2546 (avg 5.2502) (27.21 im/s)
+Epoch 37 validation: Recall@20: 0.5589, MRR@20: 0.1987 
+
+[TRAIN] epoch 39/256 batch loss: 5.1757 (avg 5.1757) (24.56 im/s)
+[TRAIN] epoch 39/256 batch loss: 5.2233 (avg 5.1999) (24.73 im/s)
+[TRAIN] epoch 39/256 batch loss: 5.2271 (avg 5.2098) (27.74 im/s)
+[TRAIN] epoch 39/256 batch loss: 5.2206 (avg 5.2218) (27.79 im/s)
+[TRAIN] epoch 39/256 batch loss: 5.1820 (avg 5.2263) (27.74 im/s)
+[TRAIN] epoch 39/256 batch loss: 5.4066 (avg 5.2294) (27.61 im/s)
+[TRAIN] epoch 39/256 batch loss: 5.3584 (avg 5.2346) (27.02 im/s)
+Epoch 38 validation: Recall@20: 0.5608, MRR@20: 0.1993 
+
+[TRAIN] epoch 40/256 batch loss: 5.2795 (avg 5.2795) (25.40 im/s)
+[TRAIN] epoch 40/256 batch loss: 5.1511 (avg 5.1920) (24.68 im/s)
+[TRAIN] epoch 40/256 batch loss: 5.2520 (avg 5.2012) (27.82 im/s)
+[TRAIN] epoch 40/256 batch loss: 5.2772 (avg 5.2055) (27.43 im/s)
+[TRAIN] epoch 40/256 batch loss: 5.1751 (avg 5.2088) (27.44 im/s)
+[TRAIN] epoch 40/256 batch loss: 5.3345 (avg 5.2141) (27.40 im/s)
+[TRAIN] epoch 40/256 batch loss: 5.2163 (avg 5.2182) (25.92 im/s)
+Epoch 39 validation: Recall@20: 0.5606, MRR@20: 0.1992 
+
+[TRAIN] epoch 41/256 batch loss: 5.1768 (avg 5.1768) (24.63 im/s)
+[TRAIN] epoch 41/256 batch loss: 5.0186 (avg 5.1693) (27.81 im/s)
+[TRAIN] epoch 41/256 batch loss: 4.9304 (avg 5.1794) (26.07 im/s)
+[TRAIN] epoch 41/256 batch loss: 5.2713 (avg 5.1820) (24.71 im/s)
+[TRAIN] epoch 41/256 batch loss: 5.2124 (avg 5.1913) (27.74 im/s)
+[TRAIN] epoch 41/256 batch loss: 5.1145 (avg 5.1953) (27.76 im/s)
+[TRAIN] epoch 41/256 batch loss: 5.1042 (avg 5.1984) (27.76 im/s)
+Epoch 40 validation: Recall@20: 0.5617, MRR@20: 0.1995 
+
+[TRAIN] epoch 42/256 batch loss: 5.1290 (avg 5.1290) (25.75 im/s)
+[TRAIN] epoch 42/256 batch loss: 5.1958 (avg 5.1793) (27.70 im/s)
+[TRAIN] epoch 42/256 batch loss: 5.2117 (avg 5.1735) (27.78 im/s)
+[TRAIN] epoch 42/256 batch loss: 5.1978 (avg 5.1737) (27.76 im/s)
+[TRAIN] epoch 42/256 batch loss: 5.0496 (avg 5.1786) (27.60 im/s)
+[TRAIN] epoch 42/256 batch loss: 5.2825 (avg 5.1847) (27.89 im/s)
+[TRAIN] epoch 42/256 batch loss: 5.2075 (avg 5.1886) (27.48 im/s)
+Epoch 41 validation: Recall@20: 0.5633, MRR@20: 0.1995 
+
+[TRAIN] epoch 43/256 batch loss: 5.1465 (avg 5.1465) (21.68 im/s)
+[TRAIN] epoch 43/256 batch loss: 5.0413 (avg 5.1476) (27.03 im/s)
+[TRAIN] epoch 43/256 batch loss: 5.3272 (avg 5.1495) (27.95 im/s)
+[TRAIN] epoch 43/256 batch loss: 5.2720 (avg 5.1565) (27.70 im/s)
+[TRAIN] epoch 43/256 batch loss: 5.1338 (avg 5.1641) (27.32 im/s)
+[TRAIN] epoch 43/256 batch loss: 5.1607 (avg 5.1665) (27.46 im/s)
+[TRAIN] epoch 43/256 batch loss: 5.1454 (avg 5.1724) (27.76 im/s)
+Epoch 42 validation: Recall@20: 0.5636, MRR@20: 0.2002 
+
+[TRAIN] epoch 44/256 batch loss: 5.2584 (avg 5.2584) (25.87 im/s)
+[TRAIN] epoch 44/256 batch loss: 5.1635 (avg 5.1331) (29.60 im/s)
+[TRAIN] epoch 44/256 batch loss: 5.2033 (avg 5.1331) (27.64 im/s)
+[TRAIN] epoch 44/256 batch loss: 4.8109 (avg 5.1467) (24.75 im/s)
+[TRAIN] epoch 44/256 batch loss: 5.1709 (avg 5.1490) (27.30 im/s)
+[TRAIN] epoch 44/256 batch loss: 5.0953 (avg 5.1529) (27.83 im/s)
+[TRAIN] epoch 44/256 batch loss: 5.2208 (avg 5.1596) (27.78 im/s)
+Epoch 43 validation: Recall@20: 0.5649, MRR@20: 0.2001 
+
+[TRAIN] epoch 45/256 batch loss: 5.2029 (avg 5.2029) (26.56 im/s)
+[TRAIN] epoch 45/256 batch loss: 5.1113 (avg 5.1165) (28.96 im/s)
+[TRAIN] epoch 45/256 batch loss: 5.2727 (avg 5.1258) (27.35 im/s)
+[TRAIN] epoch 45/256 batch loss: 5.3001 (avg 5.1354) (24.10 im/s)
+[TRAIN] epoch 45/256 batch loss: 5.1903 (avg 5.1388) (27.63 im/s)
+[TRAIN] epoch 45/256 batch loss: 4.9450 (avg 5.1432) (27.66 im/s)
+[TRAIN] epoch 45/256 batch loss: 5.0247 (avg 5.1493) (27.68 im/s)
+Epoch 44 validation: Recall@20: 0.5646, MRR@20: 0.2003 
+
+[TRAIN] epoch 46/256 batch loss: 4.9965 (avg 4.9965) (25.04 im/s)
+[TRAIN] epoch 46/256 batch loss: 5.2850 (avg 5.1110) (29.64 im/s)
+[TRAIN] epoch 46/256 batch loss: 5.0783 (avg 5.1145) (27.97 im/s)
+[TRAIN] epoch 46/256 batch loss: 5.1009 (avg 5.1201) (27.57 im/s)
+[TRAIN] epoch 46/256 batch loss: 5.2293 (avg 5.1229) (27.23 im/s)
+[TRAIN] epoch 46/256 batch loss: 5.2002 (avg 5.1276) (27.08 im/s)
+[TRAIN] epoch 46/256 batch loss: 5.2471 (avg 5.1315) (25.70 im/s)
+Epoch 45 validation: Recall@20: 0.5665, MRR@20: 0.2007 
+
+[TRAIN] epoch 47/256 batch loss: 5.1111 (avg 5.1111) (24.35 im/s)
+[TRAIN] epoch 47/256 batch loss: 5.1055 (avg 5.0931) (27.84 im/s)
+[TRAIN] epoch 47/256 batch loss: 5.2341 (avg 5.1013) (29.04 im/s)
+[TRAIN] epoch 47/256 batch loss: 5.2063 (avg 5.1101) (27.78 im/s)
+[TRAIN] epoch 47/256 batch loss: 5.3986 (avg 5.1171) (27.70 im/s)
+[TRAIN] epoch 47/256 batch loss: 4.9703 (avg 5.1219) (24.76 im/s)
+[TRAIN] epoch 47/256 batch loss: 5.2482 (avg 5.1241) (27.82 im/s)
+Epoch 46 validation: Recall@20: 0.5648, MRR@20: 0.2006 
+
+[TRAIN] epoch 48/256 batch loss: 5.0974 (avg 5.0974) (24.36 im/s)
+[TRAIN] epoch 48/256 batch loss: 5.1463 (avg 5.0933) (29.63 im/s)
+[TRAIN] epoch 48/256 batch loss: 4.9776 (avg 5.0952) (27.82 im/s)
+[TRAIN] epoch 48/256 batch loss: 5.4372 (avg 5.1022) (27.85 im/s)
+[TRAIN] epoch 48/256 batch loss: 5.0500 (avg 5.1031) (27.97 im/s)
+[TRAIN] epoch 48/256 batch loss: 5.0488 (avg 5.1092) (27.72 im/s)
+[TRAIN] epoch 48/256 batch loss: 5.1324 (avg 5.1128) (27.34 im/s)
+Epoch 47 validation: Recall@20: 0.5672, MRR@20: 0.2006 
+
+[TRAIN] epoch 49/256 batch loss: 5.1282 (avg 5.1282) (24.84 im/s)
+[TRAIN] epoch 49/256 batch loss: 4.9645 (avg 5.0819) (27.65 im/s)
+[TRAIN] epoch 49/256 batch loss: 5.0681 (avg 5.0769) (27.22 im/s)
+[TRAIN] epoch 49/256 batch loss: 5.2474 (avg 5.0856) (27.78 im/s)
+[TRAIN] epoch 49/256 batch loss: 4.9721 (avg 5.0908) (27.69 im/s)
+[TRAIN] epoch 49/256 batch loss: 5.1289 (avg 5.0967) (27.49 im/s)
+[TRAIN] epoch 49/256 batch loss: 4.9817 (avg 5.0995) (26.68 im/s)
+Epoch 48 validation: Recall@20: 0.5662, MRR@20: 0.2010 
+
+[TRAIN] epoch 50/256 batch loss: 5.0246 (avg 5.0246) (24.25 im/s)
+[TRAIN] epoch 50/256 batch loss: 5.1117 (avg 5.0468) (27.58 im/s)
+[TRAIN] epoch 50/256 batch loss: 5.1712 (avg 5.0676) (27.16 im/s)
+[TRAIN] epoch 50/256 batch loss: 4.9872 (avg 5.0712) (27.84 im/s)
+[TRAIN] epoch 50/256 batch loss: 4.9463 (avg 5.0780) (27.90 im/s)
+[TRAIN] epoch 50/256 batch loss: 4.9799 (avg 5.0836) (24.72 im/s)
+[TRAIN] epoch 50/256 batch loss: 5.0870 (avg 5.0900) (27.74 im/s)
+Epoch 49 validation: Recall@20: 0.5663, MRR@20: 0.2010 
+
+[TRAIN] epoch 51/256 batch loss: 5.1111 (avg 5.1111) (22.72 im/s)
+[TRAIN] epoch 51/256 batch loss: 5.0280 (avg 5.0465) (27.72 im/s)
+[TRAIN] epoch 51/256 batch loss: 4.9822 (avg 5.0563) (29.85 im/s)
+[TRAIN] epoch 51/256 batch loss: 5.0354 (avg 5.0589) (27.71 im/s)
+[TRAIN] epoch 51/256 batch loss: 5.0937 (avg 5.0690) (29.64 im/s)
+[TRAIN] epoch 51/256 batch loss: 4.9629 (avg 5.0725) (27.74 im/s)
+[TRAIN] epoch 51/256 batch loss: 5.2792 (avg 5.0771) (27.72 im/s)
+Epoch 50 validation: Recall@20: 0.5677, MRR@20: 0.2013 
+
+[TRAIN] epoch 52/256 batch loss: 4.9620 (avg 4.9620) (25.93 im/s)
+[TRAIN] epoch 52/256 batch loss: 5.1514 (avg 5.0352) (27.71 im/s)
+[TRAIN] epoch 52/256 batch loss: 4.9753 (avg 5.0478) (27.49 im/s)
+[TRAIN] epoch 52/256 batch loss: 5.0110 (avg 5.0566) (29.63 im/s)
+[TRAIN] epoch 52/256 batch loss: 5.0360 (avg 5.0639) (27.47 im/s)
+[TRAIN] epoch 52/256 batch loss: 5.0717 (avg 5.0682) (27.31 im/s)
+[TRAIN] epoch 52/256 batch loss: 5.1837 (avg 5.0730) (27.76 im/s)
+Epoch 51 validation: Recall@20: 0.5683, MRR@20: 0.2012 
+
+[TRAIN] epoch 53/256 batch loss: 5.0410 (avg 5.0410) (25.73 im/s)
+[TRAIN] epoch 53/256 batch loss: 5.0242 (avg 5.0365) (27.78 im/s)
+[TRAIN] epoch 53/256 batch loss: 4.8292 (avg 5.0374) (27.54 im/s)
+[TRAIN] epoch 53/256 batch loss: 5.1042 (avg 5.0434) (27.87 im/s)
+[TRAIN] epoch 53/256 batch loss: 5.0695 (avg 5.0490) (27.62 im/s)
+[TRAIN] epoch 53/256 batch loss: 5.1812 (avg 5.0530) (27.97 im/s)
+[TRAIN] epoch 53/256 batch loss: 4.9962 (avg 5.0597) (27.11 im/s)
+Epoch 52 validation: Recall@20: 0.5691, MRR@20: 0.2012 
+
+[TRAIN] epoch 54/256 batch loss: 5.0307 (avg 5.0307) (24.37 im/s)
+[TRAIN] epoch 54/256 batch loss: 5.0783 (avg 5.0267) (27.76 im/s)
+[TRAIN] epoch 54/256 batch loss: 5.1981 (avg 5.0323) (27.70 im/s)
+[TRAIN] epoch 54/256 batch loss: 5.2429 (avg 5.0359) (26.88 im/s)
+[TRAIN] epoch 54/256 batch loss: 5.1339 (avg 5.0427) (29.62 im/s)
+[TRAIN] epoch 54/256 batch loss: 5.0682 (avg 5.0453) (27.76 im/s)
+[TRAIN] epoch 54/256 batch loss: 5.0336 (avg 5.0511) (27.68 im/s)
+Epoch 53 validation: Recall@20: 0.5693, MRR@20: 0.2012 
+
+[TRAIN] epoch 55/256 batch loss: 4.8692 (avg 4.8692) (24.68 im/s)
+[TRAIN] epoch 55/256 batch loss: 4.9760 (avg 5.0064) (29.61 im/s)
+[TRAIN] epoch 55/256 batch loss: 5.0574 (avg 5.0180) (27.74 im/s)
+[TRAIN] epoch 55/256 batch loss: 5.1054 (avg 5.0267) (27.26 im/s)
+[TRAIN] epoch 55/256 batch loss: 5.2151 (avg 5.0302) (27.69 im/s)
+[TRAIN] epoch 55/256 batch loss: 4.9265 (avg 5.0369) (26.72 im/s)
+[TRAIN] epoch 55/256 batch loss: 5.0296 (avg 5.0410) (26.73 im/s)
+Epoch 54 validation: Recall@20: 0.5690, MRR@20: 0.2021 
+
+[TRAIN] epoch 56/256 batch loss: 4.7464 (avg 4.7464) (23.58 im/s)
+[TRAIN] epoch 56/256 batch loss: 5.0348 (avg 5.0083) (14.85 im/s)
+[TRAIN] epoch 56/256 batch loss: 5.2490 (avg 5.0093) (27.98 im/s)
+[TRAIN] epoch 56/256 batch loss: 5.1343 (avg 5.0198) (27.00 im/s)
+[TRAIN] epoch 56/256 batch loss: 4.9667 (avg 5.0264) (26.88 im/s)
+[TRAIN] epoch 56/256 batch loss: 5.0381 (avg 5.0297) (27.92 im/s)
+[TRAIN] epoch 56/256 batch loss: 5.0294 (avg 5.0326) (27.90 im/s)
+Epoch 55 validation: Recall@20: 0.5700, MRR@20: 0.2016 
+
+[TRAIN] epoch 57/256 batch loss: 4.9916 (avg 4.9916) (25.83 im/s)
+[TRAIN] epoch 57/256 batch loss: 4.8928 (avg 4.9871) (27.68 im/s)
+[TRAIN] epoch 57/256 batch loss: 5.0327 (avg 5.0010) (27.71 im/s)
+[TRAIN] epoch 57/256 batch loss: 5.0992 (avg 5.0065) (27.72 im/s)
+[TRAIN] epoch 57/256 batch loss: 5.1399 (avg 5.0106) (27.72 im/s)
+[TRAIN] epoch 57/256 batch loss: 5.0194 (avg 5.0167) (27.26 im/s)
+[TRAIN] epoch 57/256 batch loss: 5.0758 (avg 5.0237) (27.31 im/s)
+Epoch 56 validation: Recall@20: 0.5707, MRR@20: 0.2019 
+
+[TRAIN] epoch 58/256 batch loss: 5.0827 (avg 5.0827) (24.60 im/s)
+[TRAIN] epoch 58/256 batch loss: 4.8876 (avg 4.9873) (27.27 im/s)
+[TRAIN] epoch 58/256 batch loss: 5.1930 (avg 4.9942) (24.71 im/s)
+[TRAIN] epoch 58/256 batch loss: 4.8944 (avg 4.9986) (27.71 im/s)
+[TRAIN] epoch 58/256 batch loss: 5.0286 (avg 5.0030) (27.63 im/s)
+[TRAIN] epoch 58/256 batch loss: 4.9473 (avg 5.0089) (27.65 im/s)
+[TRAIN] epoch 58/256 batch loss: 5.0762 (avg 5.0170) (27.75 im/s)
+Epoch 57 validation: Recall@20: 0.5704, MRR@20: 0.2019 
+
+[TRAIN] epoch 59/256 batch loss: 5.1472 (avg 5.1472) (26.35 im/s)
+[TRAIN] epoch 59/256 batch loss: 4.9750 (avg 4.9912) (27.59 im/s)
+[TRAIN] epoch 59/256 batch loss: 4.8639 (avg 4.9934) (27.51 im/s)
+[TRAIN] epoch 59/256 batch loss: 5.0641 (avg 4.9937) (25.95 im/s)
+[TRAIN] epoch 59/256 batch loss: 4.9477 (avg 5.0001) (27.72 im/s)
+[TRAIN] epoch 59/256 batch loss: 4.7783 (avg 5.0068) (27.54 im/s)
+[TRAIN] epoch 59/256 batch loss: 5.0576 (avg 5.0107) (27.31 im/s)
+Epoch 58 validation: Recall@20: 0.5707, MRR@20: 0.2015 
+
+[TRAIN] epoch 60/256 batch loss: 4.8294 (avg 4.8294) (23.04 im/s)
+[TRAIN] epoch 60/256 batch loss: 5.0314 (avg 4.9822) (29.84 im/s)
+[TRAIN] epoch 60/256 batch loss: 4.7103 (avg 4.9842) (27.53 im/s)
+[TRAIN] epoch 60/256 batch loss: 5.1621 (avg 4.9963) (27.19 im/s)
+[TRAIN] epoch 60/256 batch loss: 4.9399 (avg 4.9984) (29.78 im/s)
+[TRAIN] epoch 60/256 batch loss: 5.1332 (avg 5.0011) (29.80 im/s)
+[TRAIN] epoch 60/256 batch loss: 4.9940 (avg 5.0031) (29.78 im/s)
+Epoch 59 validation: Recall@20: 0.5720, MRR@20: 0.2018 
+
+[TRAIN] epoch 61/256 batch loss: 5.0157 (avg 5.0157) (26.80 im/s)
+[TRAIN] epoch 61/256 batch loss: 4.9840 (avg 4.9582) (27.33 im/s)
+[TRAIN] epoch 61/256 batch loss: 5.1378 (avg 4.9747) (27.94 im/s)
+[TRAIN] epoch 61/256 batch loss: 4.9767 (avg 4.9795) (25.92 im/s)
+[TRAIN] epoch 61/256 batch loss: 4.9780 (avg 4.9859) (28.29 im/s)
+[TRAIN] epoch 61/256 batch loss: 5.0768 (avg 4.9910) (26.98 im/s)
+[TRAIN] epoch 61/256 batch loss: 5.4162 (avg 4.9982) (26.55 im/s)
+Epoch 60 validation: Recall@20: 0.5715, MRR@20: 0.2016 
+
+[TRAIN] epoch 62/256 batch loss: 4.7739 (avg 4.7739) (24.64 im/s)
+[TRAIN] epoch 62/256 batch loss: 5.0323 (avg 4.9669) (27.73 im/s)
+[TRAIN] epoch 62/256 batch loss: 4.9997 (avg 4.9670) (24.72 im/s)
+[TRAIN] epoch 62/256 batch loss: 4.9212 (avg 4.9696) (27.69 im/s)
+[TRAIN] epoch 62/256 batch loss: 4.9866 (avg 4.9791) (26.99 im/s)
+[TRAIN] epoch 62/256 batch loss: 4.9326 (avg 4.9839) (27.63 im/s)
+[TRAIN] epoch 62/256 batch loss: 5.1052 (avg 4.9880) (27.93 im/s)
+Epoch 61 validation: Recall@20: 0.5719, MRR@20: 0.2020 
+
+[TRAIN] epoch 63/256 batch loss: 4.9214 (avg 4.9214) (24.38 im/s)
+[TRAIN] epoch 63/256 batch loss: 4.8825 (avg 4.9535) (24.67 im/s)
+[TRAIN] epoch 63/256 batch loss: 5.2901 (avg 4.9604) (27.51 im/s)
+[TRAIN] epoch 63/256 batch loss: 4.9725 (avg 4.9656) (27.66 im/s)
+[TRAIN] epoch 63/256 batch loss: 4.9401 (avg 4.9718) (27.53 im/s)
+[TRAIN] epoch 63/256 batch loss: 5.1022 (avg 4.9764) (27.82 im/s)
+[TRAIN] epoch 63/256 batch loss: 4.9061 (avg 4.9827) (27.80 im/s)
+Epoch 62 validation: Recall@20: 0.5709, MRR@20: 0.2020 
+
+[TRAIN] epoch 64/256 batch loss: 5.1180 (avg 5.1180) (24.18 im/s)
+[TRAIN] epoch 64/256 batch loss: 4.9324 (avg 4.9420) (27.78 im/s)
+[TRAIN] epoch 64/256 batch loss: 4.8854 (avg 4.9670) (27.79 im/s)
+[TRAIN] epoch 64/256 batch loss: 4.9257 (avg 4.9693) (27.56 im/s)
+[TRAIN] epoch 64/256 batch loss: 4.8634 (avg 4.9730) (29.85 im/s)
+[TRAIN] epoch 64/256 batch loss: 5.0893 (avg 4.9758) (27.46 im/s)
+[TRAIN] epoch 64/256 batch loss: 5.0856 (avg 4.9805) (26.63 im/s)
+Epoch 63 validation: Recall@20: 0.5705, MRR@20: 0.2021 
+
+[TRAIN] epoch 65/256 batch loss: 5.0188 (avg 5.0188) (23.91 im/s)
+[TRAIN] epoch 65/256 batch loss: 4.7884 (avg 4.9415) (27.65 im/s)
+[TRAIN] epoch 65/256 batch loss: 4.9815 (avg 4.9422) (24.68 im/s)
+[TRAIN] epoch 65/256 batch loss: 5.0350 (avg 4.9546) (27.39 im/s)
+[TRAIN] epoch 65/256 batch loss: 4.9581 (avg 4.9598) (27.36 im/s)
+[TRAIN] epoch 65/256 batch loss: 4.7094 (avg 4.9649) (29.50 im/s)
+[TRAIN] epoch 65/256 batch loss: 4.7840 (avg 4.9690) (27.86 im/s)
+Epoch 64 validation: Recall@20: 0.5715, MRR@20: 0.2026 
+
+[TRAIN] epoch 66/256 batch loss: 4.8812 (avg 4.8812) (24.21 im/s)
+[TRAIN] epoch 66/256 batch loss: 4.7687 (avg 4.9209) (24.78 im/s)
+[TRAIN] epoch 66/256 batch loss: 5.0081 (avg 4.9341) (27.62 im/s)
+[TRAIN] epoch 66/256 batch loss: 4.7757 (avg 4.9469) (27.62 im/s)
+[TRAIN] epoch 66/256 batch loss: 4.8753 (avg 4.9523) (27.76 im/s)
+[TRAIN] epoch 66/256 batch loss: 4.8571 (avg 4.9601) (27.48 im/s)
+[TRAIN] epoch 66/256 batch loss: 4.8873 (avg 4.9653) (27.58 im/s)
+Epoch 65 validation: Recall@20: 0.5719, MRR@20: 0.2024 
+
+[TRAIN] epoch 67/256 batch loss: 4.9151 (avg 4.9151) (25.61 im/s)
+[TRAIN] epoch 67/256 batch loss: 5.2414 (avg 4.9255) (27.53 im/s)
+[TRAIN] epoch 67/256 batch loss: 4.7620 (avg 4.9383) (24.71 im/s)
+[TRAIN] epoch 67/256 batch loss: 5.1007 (avg 4.9453) (26.85 im/s)
+[TRAIN] epoch 67/256 batch loss: 5.0655 (avg 4.9514) (27.75 im/s)
+[TRAIN] epoch 67/256 batch loss: 4.9821 (avg 4.9595) (24.72 im/s)
+[TRAIN] epoch 67/256 batch loss: 4.9924 (avg 4.9613) (27.18 im/s)
+Epoch 66 validation: Recall@20: 0.5719, MRR@20: 0.2023 
+
+[TRAIN] epoch 68/256 batch loss: 4.9674 (avg 4.9674) (21.54 im/s)
+[TRAIN] epoch 68/256 batch loss: 4.9704 (avg 4.9156) (24.70 im/s)
+[TRAIN] epoch 68/256 batch loss: 4.9574 (avg 4.9292) (24.46 im/s)
+[TRAIN] epoch 68/256 batch loss: 4.9330 (avg 4.9390) (27.72 im/s)
+[TRAIN] epoch 68/256 batch loss: 4.7295 (avg 4.9429) (27.38 im/s)
+[TRAIN] epoch 68/256 batch loss: 5.0480 (avg 4.9476) (27.61 im/s)
+[TRAIN] epoch 68/256 batch loss: 4.8203 (avg 4.9517) (27.54 im/s)
+Epoch 67 validation: Recall@20: 0.5721, MRR@20: 0.2019 
+
+[TRAIN] epoch 69/256 batch loss: 5.0648 (avg 5.0648) (22.37 im/s)
+[TRAIN] epoch 69/256 batch loss: 5.0233 (avg 4.9280) (27.68 im/s)
+[TRAIN] epoch 69/256 batch loss: 4.9578 (avg 4.9240) (27.76 im/s)
+[TRAIN] epoch 69/256 batch loss: 4.8314 (avg 4.9308) (27.78 im/s)
+[TRAIN] epoch 69/256 batch loss: 4.9968 (avg 4.9388) (27.90 im/s)
+[TRAIN] epoch 69/256 batch loss: 4.6870 (avg 4.9426) (27.71 im/s)
+[TRAIN] epoch 69/256 batch loss: 5.0720 (avg 4.9471) (27.56 im/s)
+Epoch 68 validation: Recall@20: 0.5727, MRR@20: 0.2019 
+
+[TRAIN] epoch 70/256 batch loss: 4.9176 (avg 4.9176) (23.91 im/s)
+[TRAIN] epoch 70/256 batch loss: 4.7362 (avg 4.9187) (27.87 im/s)
+[TRAIN] epoch 70/256 batch loss: 4.7826 (avg 4.9243) (27.82 im/s)
+[TRAIN] epoch 70/256 batch loss: 4.9418 (avg 4.9266) (27.79 im/s)
+[TRAIN] epoch 70/256 batch loss: 4.9450 (avg 4.9356) (27.80 im/s)
+[TRAIN] epoch 70/256 batch loss: 5.1007 (avg 4.9398) (29.59 im/s)
+[TRAIN] epoch 70/256 batch loss: 4.8336 (avg 4.9428) (26.77 im/s)
+Epoch 69 validation: Recall@20: 0.5731, MRR@20: 0.2024 
+
+[TRAIN] epoch 71/256 batch loss: 4.9293 (avg 4.9293) (23.23 im/s)
+[TRAIN] epoch 71/256 batch loss: 4.8504 (avg 4.8810) (26.29 im/s)
+[TRAIN] epoch 71/256 batch loss: 4.8910 (avg 4.9095) (27.65 im/s)
+[TRAIN] epoch 71/256 batch loss: 5.1682 (avg 4.9156) (26.11 im/s)
+[TRAIN] epoch 71/256 batch loss: 5.0689 (avg 4.9224) (24.68 im/s)
+[TRAIN] epoch 71/256 batch loss: 4.9220 (avg 4.9301) (27.79 im/s)
+[TRAIN] epoch 71/256 batch loss: 5.0394 (avg 4.9357) (24.73 im/s)
+Epoch 70 validation: Recall@20: 0.5735, MRR@20: 0.2020 
+
+[TRAIN] epoch 72/256 batch loss: 4.7934 (avg 4.7934) (22.34 im/s)
+[TRAIN] epoch 72/256 batch loss: 4.8347 (avg 4.8998) (27.34 im/s)
+[TRAIN] epoch 72/256 batch loss: 4.8335 (avg 4.9087) (27.54 im/s)
+[TRAIN] epoch 72/256 batch loss: 5.0727 (avg 4.9169) (27.20 im/s)
+[TRAIN] epoch 72/256 batch loss: 4.8249 (avg 4.9224) (27.66 im/s)
+[TRAIN] epoch 72/256 batch loss: 4.8834 (avg 4.9274) (27.79 im/s)
+[TRAIN] epoch 72/256 batch loss: 5.0757 (avg 4.9317) (27.59 im/s)
+Epoch 71 validation: Recall@20: 0.5727, MRR@20: 0.2021 
+
+[TRAIN] epoch 73/256 batch loss: 4.9853 (avg 4.9853) (24.87 im/s)
+[TRAIN] epoch 73/256 batch loss: 4.8574 (avg 4.8944) (27.65 im/s)
+[TRAIN] epoch 73/256 batch loss: 4.8712 (avg 4.9033) (27.47 im/s)
+[TRAIN] epoch 73/256 batch loss: 4.9363 (avg 4.9115) (27.90 im/s)
+[TRAIN] epoch 73/256 batch loss: 4.7966 (avg 4.9184) (27.17 im/s)
+[TRAIN] epoch 73/256 batch loss: 5.1224 (avg 4.9233) (24.35 im/s)
+[TRAIN] epoch 73/256 batch loss: 5.0522 (avg 4.9288) (27.72 im/s)
+Epoch 72 validation: Recall@20: 0.5729, MRR@20: 0.2021 
+
+[TRAIN] epoch 74/256 batch loss: 4.9509 (avg 4.9509) (22.37 im/s)
+[TRAIN] epoch 74/256 batch loss: 5.0033 (avg 4.8929) (26.86 im/s)
+[TRAIN] epoch 74/256 batch loss: 4.7546 (avg 4.8965) (27.67 im/s)
+[TRAIN] epoch 74/256 batch loss: 4.8310 (avg 4.9033) (27.51 im/s)
+[TRAIN] epoch 74/256 batch loss: 4.9249 (avg 4.9124) (27.80 im/s)
+[TRAIN] epoch 74/256 batch loss: 4.9863 (avg 4.9158) (27.55 im/s)
+[TRAIN] epoch 74/256 batch loss: 4.8093 (avg 4.9209) (27.72 im/s)
+Epoch 73 validation: Recall@20: 0.5724, MRR@20: 0.2021 
+
+[TRAIN] epoch 75/256 batch loss: 4.7775 (avg 4.7775) (24.30 im/s)
+[TRAIN] epoch 75/256 batch loss: 4.8573 (avg 4.8814) (26.91 im/s)
+[TRAIN] epoch 75/256 batch loss: 4.8103 (avg 4.8901) (26.01 im/s)
+[TRAIN] epoch 75/256 batch loss: 5.0597 (avg 4.9007) (27.71 im/s)
+[TRAIN] epoch 75/256 batch loss: 4.7940 (avg 4.9031) (27.73 im/s)
+[TRAIN] epoch 75/256 batch loss: 5.1241 (avg 4.9101) (27.68 im/s)
+[TRAIN] epoch 75/256 batch loss: 4.9846 (avg 4.9168) (27.89 im/s)
+Epoch 74 validation: Recall@20: 0.5741, MRR@20: 0.2019 
+
+[TRAIN] epoch 76/256 batch loss: 4.9244 (avg 4.9244) (26.60 im/s)
+[TRAIN] epoch 76/256 batch loss: 4.8063 (avg 4.8738) (27.62 im/s)
+[TRAIN] epoch 76/256 batch loss: 4.9911 (avg 4.8886) (27.81 im/s)
+[TRAIN] epoch 76/256 batch loss: 4.7869 (avg 4.8939) (27.60 im/s)
+[TRAIN] epoch 76/256 batch loss: 4.9171 (avg 4.9022) (27.42 im/s)
+[TRAIN] epoch 76/256 batch loss: 4.8976 (avg 4.9070) (27.61 im/s)
+[TRAIN] epoch 76/256 batch loss: 5.0868 (avg 4.9125) (27.41 im/s)
+Epoch 75 validation: Recall@20: 0.5743, MRR@20: 0.2022 
+
+[TRAIN] epoch 77/256 batch loss: 4.9491 (avg 4.9491) (24.90 im/s)
+[TRAIN] epoch 77/256 batch loss: 4.9436 (avg 4.8790) (27.22 im/s)
+[TRAIN] epoch 77/256 batch loss: 4.9487 (avg 4.8888) (24.56 im/s)
+[TRAIN] epoch 77/256 batch loss: 4.9846 (avg 4.8948) (27.96 im/s)
+[TRAIN] epoch 77/256 batch loss: 4.9288 (avg 4.9025) (27.64 im/s)
+[TRAIN] epoch 77/256 batch loss: 4.7822 (avg 4.9058) (27.86 im/s)
+[TRAIN] epoch 77/256 batch loss: 4.8835 (avg 4.9075) (29.53 im/s)
+Epoch 76 validation: Recall@20: 0.5737, MRR@20: 0.2024 
+
+[TRAIN] epoch 78/256 batch loss: 4.8947 (avg 4.8947) (24.85 im/s)
+[TRAIN] epoch 78/256 batch loss: 4.8271 (avg 4.8812) (27.71 im/s)
+[TRAIN] epoch 78/256 batch loss: 4.9513 (avg 4.8764) (27.13 im/s)
+[TRAIN] epoch 78/256 batch loss: 4.9042 (avg 4.8843) (25.56 im/s)
+[TRAIN] epoch 78/256 batch loss: 4.8496 (avg 4.8889) (27.90 im/s)
+[TRAIN] epoch 78/256 batch loss: 4.9867 (avg 4.8964) (27.75 im/s)
+[TRAIN] epoch 78/256 batch loss: 4.9690 (avg 4.9015) (27.64 im/s)
+Epoch 77 validation: Recall@20: 0.5742, MRR@20: 0.2023 
+
+[TRAIN] epoch 79/256 batch loss: 4.8104 (avg 4.8104) (25.16 im/s)
+[TRAIN] epoch 79/256 batch loss: 4.9947 (avg 4.8580) (27.16 im/s)
+[TRAIN] epoch 79/256 batch loss: 4.8830 (avg 4.8724) (24.74 im/s)
+[TRAIN] epoch 79/256 batch loss: 4.8777 (avg 4.8781) (27.72 im/s)
+[TRAIN] epoch 79/256 batch loss: 4.8455 (avg 4.8851) (24.73 im/s)
+[TRAIN] epoch 79/256 batch loss: 4.8630 (avg 4.8930) (27.66 im/s)
+[TRAIN] epoch 79/256 batch loss: 5.0746 (avg 4.8969) (27.76 im/s)
+Epoch 78 validation: Recall@20: 0.5741, MRR@20: 0.2020 
+
+[TRAIN] epoch 80/256 batch loss: 4.8125 (avg 4.8125) (24.01 im/s)
+[TRAIN] epoch 80/256 batch loss: 4.8787 (avg 4.8739) (27.80 im/s)
+[TRAIN] epoch 80/256 batch loss: 5.0489 (avg 4.8765) (27.44 im/s)
+[TRAIN] epoch 80/256 batch loss: 4.9116 (avg 4.8815) (26.94 im/s)
+[TRAIN] epoch 80/256 batch loss: 4.9768 (avg 4.8874) (27.30 im/s)
+[TRAIN] epoch 80/256 batch loss: 4.8822 (avg 4.8904) (27.31 im/s)
+[TRAIN] epoch 80/256 batch loss: 4.8794 (avg 4.8952) (27.17 im/s)
+Epoch 79 validation: Recall@20: 0.5751, MRR@20: 0.2027 
+
+[TRAIN] epoch 81/256 batch loss: 4.9158 (avg 4.9158) (24.07 im/s)
+[TRAIN] epoch 81/256 batch loss: 4.7326 (avg 4.8402) (27.68 im/s)
+[TRAIN] epoch 81/256 batch loss: 4.8622 (avg 4.8421) (24.22 im/s)
+[TRAIN] epoch 81/256 batch loss: 4.9928 (avg 4.8369) (27.79 im/s)
+[TRAIN] epoch 81/256 batch loss: 4.6692 (avg 4.8371) (24.40 im/s)
+[TRAIN] epoch 81/256 batch loss: 4.7076 (avg 4.8415) (26.79 im/s)
+[TRAIN] epoch 81/256 batch loss: 4.9755 (avg 4.8412) (24.69 im/s)
+Epoch 80 validation: Recall@20: 0.5763, MRR@20: 0.2031 
+
+[TRAIN] epoch 82/256 batch loss: 4.9329 (avg 4.9329) (23.40 im/s)
+[TRAIN] epoch 82/256 batch loss: 4.8143 (avg 4.8225) (27.85 im/s)
+[TRAIN] epoch 82/256 batch loss: 4.9900 (avg 4.8234) (27.71 im/s)
+[TRAIN] epoch 82/256 batch loss: 4.7799 (avg 4.8280) (27.38 im/s)
+[TRAIN] epoch 82/256 batch loss: 4.6493 (avg 4.8311) (24.57 im/s)
+[TRAIN] epoch 82/256 batch loss: 4.7047 (avg 4.8330) (28.00 im/s)
+[TRAIN] epoch 82/256 batch loss: 4.8288 (avg 4.8335) (27.71 im/s)
+Epoch 81 validation: Recall@20: 0.5761, MRR@20: 0.2033 
+
+[TRAIN] epoch 83/256 batch loss: 4.9656 (avg 4.9656) (24.12 im/s)
+[TRAIN] epoch 83/256 batch loss: 4.7533 (avg 4.8178) (24.74 im/s)
+[TRAIN] epoch 83/256 batch loss: 5.0468 (avg 4.8292) (27.43 im/s)
+[TRAIN] epoch 83/256 batch loss: 4.8745 (avg 4.8311) (27.43 im/s)
+[TRAIN] epoch 83/256 batch loss: 4.7728 (avg 4.8305) (27.58 im/s)
+[TRAIN] epoch 83/256 batch loss: 4.7598 (avg 4.8320) (27.56 im/s)
+[TRAIN] epoch 83/256 batch loss: 5.0372 (avg 4.8320) (27.61 im/s)
+Epoch 82 validation: Recall@20: 0.5762, MRR@20: 0.2032 
+
+[TRAIN] epoch 84/256 batch loss: 4.9092 (avg 4.9092) (23.32 im/s)
+[TRAIN] epoch 84/256 batch loss: 4.9460 (avg 4.8394) (26.18 im/s)
+[TRAIN] epoch 84/256 batch loss: 4.8528 (avg 4.8270) (26.20 im/s)
+[TRAIN] epoch 84/256 batch loss: 4.8164 (avg 4.8260) (27.78 im/s)
+[TRAIN] epoch 84/256 batch loss: 4.8350 (avg 4.8281) (27.71 im/s)
+[TRAIN] epoch 84/256 batch loss: 4.8219 (avg 4.8273) (27.72 im/s)
+[TRAIN] epoch 84/256 batch loss: 4.6648 (avg 4.8278) (27.73 im/s)
+Epoch 83 validation: Recall@20: 0.5766, MRR@20: 0.2031 
+
+[TRAIN] epoch 85/256 batch loss: 4.8700 (avg 4.8700) (26.02 im/s)
+[TRAIN] epoch 85/256 batch loss: 4.7037 (avg 4.8206) (27.50 im/s)
+[TRAIN] epoch 85/256 batch loss: 4.8034 (avg 4.8194) (27.68 im/s)
+[TRAIN] epoch 85/256 batch loss: 4.7045 (avg 4.8239) (27.74 im/s)
+[TRAIN] epoch 85/256 batch loss: 4.7201 (avg 4.8270) (27.66 im/s)
+[TRAIN] epoch 85/256 batch loss: 4.9112 (avg 4.8281) (27.71 im/s)
+[TRAIN] epoch 85/256 batch loss: 4.8072 (avg 4.8264) (27.73 im/s)
+Epoch 84 validation: Recall@20: 0.5765, MRR@20: 0.2031 
+
+[TRAIN] epoch 86/256 batch loss: 4.8809 (avg 4.8809) (24.28 im/s)
+[TRAIN] epoch 86/256 batch loss: 4.7704 (avg 4.8349) (27.66 im/s)
+[TRAIN] epoch 86/256 batch loss: 4.8253 (avg 4.8245) (27.69 im/s)
+[TRAIN] epoch 86/256 batch loss: 4.7118 (avg 4.8256) (24.49 im/s)
+[TRAIN] epoch 86/256 batch loss: 4.8220 (avg 4.8272) (24.52 im/s)
+[TRAIN] epoch 86/256 batch loss: 4.7766 (avg 4.8273) (27.74 im/s)
+[TRAIN] epoch 86/256 batch loss: 4.9631 (avg 4.8285) (27.77 im/s)
+Epoch 85 validation: Recall@20: 0.5769, MRR@20: 0.2033 
+
+[TRAIN] epoch 87/256 batch loss: 4.8663 (avg 4.8663) (26.19 im/s)
+[TRAIN] epoch 87/256 batch loss: 4.8508 (avg 4.8128) (27.21 im/s)
+[TRAIN] epoch 87/256 batch loss: 4.8099 (avg 4.8186) (26.94 im/s)
+[TRAIN] epoch 87/256 batch loss: 4.9482 (avg 4.8246) (26.62 im/s)
+[TRAIN] epoch 87/256 batch loss: 4.8008 (avg 4.8242) (26.64 im/s)
+[TRAIN] epoch 87/256 batch loss: 4.9115 (avg 4.8248) (27.58 im/s)
+[TRAIN] epoch 87/256 batch loss: 4.7170 (avg 4.8236) (27.53 im/s)
+Epoch 86 validation: Recall@20: 0.5767, MRR@20: 0.2033 
+
+[TRAIN] epoch 88/256 batch loss: 4.7592 (avg 4.7592) (24.08 im/s)
+[TRAIN] epoch 88/256 batch loss: 4.8964 (avg 4.8095) (28.27 im/s)
+[TRAIN] epoch 88/256 batch loss: 4.8097 (avg 4.8137) (27.12 im/s)
+[TRAIN] epoch 88/256 batch loss: 4.6323 (avg 4.8172) (26.63 im/s)
+[TRAIN] epoch 88/256 batch loss: 4.7767 (avg 4.8205) (26.65 im/s)
+[TRAIN] epoch 88/256 batch loss: 4.6751 (avg 4.8193) (27.70 im/s)
+[TRAIN] epoch 88/256 batch loss: 4.9876 (avg 4.8219) (27.84 im/s)
+Epoch 87 validation: Recall@20: 0.5765, MRR@20: 0.2034 
+
+[TRAIN] epoch 89/256 batch loss: 4.8582 (avg 4.8582) (24.54 im/s)
+[TRAIN] epoch 89/256 batch loss: 4.9530 (avg 4.8082) (27.33 im/s)
+[TRAIN] epoch 89/256 batch loss: 4.7577 (avg 4.8192) (27.75 im/s)
+[TRAIN] epoch 89/256 batch loss: 4.7005 (avg 4.8189) (27.70 im/s)
+[TRAIN] epoch 89/256 batch loss: 4.7681 (avg 4.8198) (27.89 im/s)
+[TRAIN] epoch 89/256 batch loss: 4.8401 (avg 4.8216) (27.61 im/s)
+[TRAIN] epoch 89/256 batch loss: 4.7667 (avg 4.8230) (27.17 im/s)
+Epoch 88 validation: Recall@20: 0.5771, MRR@20: 0.2033 
+
+[TRAIN] epoch 90/256 batch loss: 4.8204 (avg 4.8204) (24.75 im/s)
+[TRAIN] epoch 90/256 batch loss: 4.8248 (avg 4.8149) (27.64 im/s)
+[TRAIN] epoch 90/256 batch loss: 4.8661 (avg 4.8173) (27.72 im/s)
+[TRAIN] epoch 90/256 batch loss: 4.8699 (avg 4.8178) (24.44 im/s)
+[TRAIN] epoch 90/256 batch loss: 4.9024 (avg 4.8183) (27.69 im/s)
+[TRAIN] epoch 90/256 batch loss: 4.7505 (avg 4.8192) (27.53 im/s)
+[TRAIN] epoch 90/256 batch loss: 4.9075 (avg 4.8219) (27.74 im/s)
+Epoch 89 validation: Recall@20: 0.5769, MRR@20: 0.2032 
+
+[TRAIN] epoch 91/256 batch loss: 4.8169 (avg 4.8169) (23.75 im/s)
+[TRAIN] epoch 91/256 batch loss: 4.8340 (avg 4.8148) (29.63 im/s)
+[TRAIN] epoch 91/256 batch loss: 4.6449 (avg 4.8118) (27.26 im/s)
+[TRAIN] epoch 91/256 batch loss: 5.0306 (avg 4.8144) (27.92 im/s)
+[TRAIN] epoch 91/256 batch loss: 4.9321 (avg 4.8197) (27.59 im/s)
+[TRAIN] epoch 91/256 batch loss: 4.6836 (avg 4.8185) (24.72 im/s)
+[TRAIN] epoch 91/256 batch loss: 4.8216 (avg 4.8203) (27.61 im/s)
+Epoch 90 validation: Recall@20: 0.5765, MRR@20: 0.2032 
+
+[TRAIN] epoch 92/256 batch loss: 4.7697 (avg 4.7697) (24.55 im/s)
+[TRAIN] epoch 92/256 batch loss: 4.7060 (avg 4.8172) (27.10 im/s)
+[TRAIN] epoch 92/256 batch loss: 4.7593 (avg 4.8184) (27.78 im/s)
+[TRAIN] epoch 92/256 batch loss: 4.9156 (avg 4.8215) (29.60 im/s)
+[TRAIN] epoch 92/256 batch loss: 4.8722 (avg 4.8225) (27.86 im/s)
+[TRAIN] epoch 92/256 batch loss: 4.6782 (avg 4.8223) (27.65 im/s)
+[TRAIN] epoch 92/256 batch loss: 4.9241 (avg 4.8204) (27.51 im/s)
+Epoch 91 validation: Recall@20: 0.5772, MRR@20: 0.2035 
+
+[TRAIN] epoch 93/256 batch loss: 5.1208 (avg 5.1208) (24.22 im/s)
+[TRAIN] epoch 93/256 batch loss: 4.7293 (avg 4.8181) (27.24 im/s)
+[TRAIN] epoch 93/256 batch loss: 5.0187 (avg 4.8216) (26.79 im/s)
+[TRAIN] epoch 93/256 batch loss: 4.9600 (avg 4.8203) (27.65 im/s)
+[TRAIN] epoch 93/256 batch loss: 4.8097 (avg 4.8203) (27.76 im/s)
+[TRAIN] epoch 93/256 batch loss: 4.7097 (avg 4.8209) (27.83 im/s)
+[TRAIN] epoch 93/256 batch loss: 4.7906 (avg 4.8211) (29.60 im/s)
+Epoch 92 validation: Recall@20: 0.5771, MRR@20: 0.2033 
+
+[TRAIN] epoch 94/256 batch loss: 4.6990 (avg 4.6990) (26.42 im/s)
+[TRAIN] epoch 94/256 batch loss: 4.7839 (avg 4.8184) (26.79 im/s)
+[TRAIN] epoch 94/256 batch loss: 4.7041 (avg 4.8145) (27.36 im/s)
+[TRAIN] epoch 94/256 batch loss: 4.7376 (avg 4.8179) (27.70 im/s)
+[TRAIN] epoch 94/256 batch loss: 5.0249 (avg 4.8167) (24.30 im/s)
+[TRAIN] epoch 94/256 batch loss: 4.8017 (avg 4.8166) (27.73 im/s)
+[TRAIN] epoch 94/256 batch loss: 5.0010 (avg 4.8169) (24.60 im/s)
+Epoch 93 validation: Recall@20: 0.5765, MRR@20: 0.2033 
+
+[TRAIN] epoch 95/256 batch loss: 4.8493 (avg 4.8493) (22.16 im/s)
+[TRAIN] epoch 95/256 batch loss: 4.8635 (avg 4.7989) (24.04 im/s)
+[TRAIN] epoch 95/256 batch loss: 4.7325 (avg 4.8075) (24.08 im/s)
+[TRAIN] epoch 95/256 batch loss: 4.8603 (avg 4.8133) (24.12 im/s)
+[TRAIN] epoch 95/256 batch loss: 4.7812 (avg 4.8150) (24.39 im/s)
+[TRAIN] epoch 95/256 batch loss: 4.7682 (avg 4.8154) (24.08 im/s)
+[TRAIN] epoch 95/256 batch loss: 4.7490 (avg 4.8161) (24.51 im/s)
+Epoch 94 validation: Recall@20: 0.5768, MRR@20: 0.2033 
+
+[TRAIN] epoch 96/256 batch loss: 4.9173 (avg 4.9173) (24.21 im/s)
+[TRAIN] epoch 96/256 batch loss: 4.9207 (avg 4.8131) (27.56 im/s)
+[TRAIN] epoch 96/256 batch loss: 4.8356 (avg 4.8151) (27.57 im/s)
+[TRAIN] epoch 96/256 batch loss: 4.9906 (avg 4.8164) (24.50 im/s)
+[TRAIN] epoch 96/256 batch loss: 4.9142 (avg 4.8185) (24.32 im/s)
+[TRAIN] epoch 96/256 batch loss: 4.8323 (avg 4.8176) (24.49 im/s)
+[TRAIN] epoch 96/256 batch loss: 4.8754 (avg 4.8176) (24.40 im/s)
+Epoch 95 validation: Recall@20: 0.5765, MRR@20: 0.2032 
+
+[TRAIN] epoch 97/256 batch loss: 4.7741 (avg 4.7741) (24.61 im/s)
+[TRAIN] epoch 97/256 batch loss: 4.8203 (avg 4.8037) (27.36 im/s)
+[TRAIN] epoch 97/256 batch loss: 4.7960 (avg 4.8115) (27.55 im/s)
+[TRAIN] epoch 97/256 batch loss: 4.7428 (avg 4.8157) (27.77 im/s)
+[TRAIN] epoch 97/256 batch loss: 4.8526 (avg 4.8171) (27.84 im/s)
+[TRAIN] epoch 97/256 batch loss: 4.8548 (avg 4.8160) (24.47 im/s)
+[TRAIN] epoch 97/256 batch loss: 4.7735 (avg 4.8167) (24.51 im/s)
+Epoch 96 validation: Recall@20: 0.5766, MRR@20: 0.2033 
+
+[TRAIN] epoch 98/256 batch loss: 4.8591 (avg 4.8591) (24.65 im/s)
+[TRAIN] epoch 98/256 batch loss: 4.6855 (avg 4.8160) (27.83 im/s)
+[TRAIN] epoch 98/256 batch loss: 4.8019 (avg 4.8086) (24.68 im/s)
+[TRAIN] epoch 98/256 batch loss: 4.9274 (avg 4.8134) (24.28 im/s)
+[TRAIN] epoch 98/256 batch loss: 4.9475 (avg 4.8142) (27.52 im/s)
+[TRAIN] epoch 98/256 batch loss: 5.0711 (avg 4.8140) (27.96 im/s)
+[TRAIN] epoch 98/256 batch loss: 4.6613 (avg 4.8146) (27.97 im/s)
+Epoch 97 validation: Recall@20: 0.5767, MRR@20: 0.2031 
+
+[TRAIN] epoch 99/256 batch loss: 4.8920 (avg 4.8920) (22.21 im/s)
+[TRAIN] epoch 99/256 batch loss: 4.8263 (avg 4.7981) (26.99 im/s)
+[TRAIN] epoch 99/256 batch loss: 4.8317 (avg 4.8098) (27.53 im/s)
+[TRAIN] epoch 99/256 batch loss: 4.8111 (avg 4.8135) (27.04 im/s)
+[TRAIN] epoch 99/256 batch loss: 4.7655 (avg 4.8141) (26.83 im/s)
+[TRAIN] epoch 99/256 batch loss: 5.0140 (avg 4.8137) (26.95 im/s)
+[TRAIN] epoch 99/256 batch loss: 4.9747 (avg 4.8137) (27.34 im/s)
+Epoch 98 validation: Recall@20: 0.5769, MRR@20: 0.2033 
+
+[TRAIN] epoch 100/256 batch loss: 4.8850 (avg 4.8850) (24.06 im/s)
+[TRAIN] epoch 100/256 batch loss: 4.7493 (avg 4.8106) (27.78 im/s)
+[TRAIN] epoch 100/256 batch loss: 4.7758 (avg 4.8047) (27.50 im/s)
+[TRAIN] epoch 100/256 batch loss: 4.7637 (avg 4.8076) (25.67 im/s)
+[TRAIN] epoch 100/256 batch loss: 4.9695 (avg 4.8080) (27.78 im/s)
+[TRAIN] epoch 100/256 batch loss: 4.9129 (avg 4.8085) (29.65 im/s)
+[TRAIN] epoch 100/256 batch loss: 4.7508 (avg 4.8097) (27.73 im/s)
+Epoch 99 validation: Recall@20: 0.5771, MRR@20: 0.2034 
+
+[TRAIN] epoch 101/256 batch loss: 4.9315 (avg 4.9315) (24.30 im/s)
+[TRAIN] epoch 101/256 batch loss: 4.7850 (avg 4.8127) (27.36 im/s)
+[TRAIN] epoch 101/256 batch loss: 4.6142 (avg 4.8067) (27.98 im/s)
+[TRAIN] epoch 101/256 batch loss: 4.7471 (avg 4.8105) (27.71 im/s)
+[TRAIN] epoch 101/256 batch loss: 4.7017 (avg 4.8110) (27.60 im/s)
+[TRAIN] epoch 101/256 batch loss: 4.8484 (avg 4.8143) (27.64 im/s)
+[TRAIN] epoch 101/256 batch loss: 4.9227 (avg 4.8150) (27.36 im/s)
+Epoch 100 validation: Recall@20: 0.5773, MRR@20: 0.2036 
+
+[TRAIN] epoch 102/256 batch loss: 4.8973 (avg 4.8973) (25.81 im/s)
+[TRAIN] epoch 102/256 batch loss: 4.8305 (avg 4.8095) (27.72 im/s)
+[TRAIN] epoch 102/256 batch loss: 4.7951 (avg 4.8075) (27.83 im/s)
+[TRAIN] epoch 102/256 batch loss: 4.8485 (avg 4.8060) (27.76 im/s)
+[TRAIN] epoch 102/256 batch loss: 4.8022 (avg 4.8096) (27.85 im/s)
+[TRAIN] epoch 102/256 batch loss: 5.0181 (avg 4.8098) (27.78 im/s)
+[TRAIN] epoch 102/256 batch loss: 4.7368 (avg 4.8112) (27.76 im/s)
+Epoch 101 validation: Recall@20: 0.5769, MRR@20: 0.2035 
+
+[TRAIN] epoch 103/256 batch loss: 4.8192 (avg 4.8192) (24.73 im/s)
+[TRAIN] epoch 103/256 batch loss: 4.8307 (avg 4.8108) (27.77 im/s)
+[TRAIN] epoch 103/256 batch loss: 4.6467 (avg 4.8147) (24.64 im/s)
+[TRAIN] epoch 103/256 batch loss: 4.7822 (avg 4.8100) (27.41 im/s)
+[TRAIN] epoch 103/256 batch loss: 4.7594 (avg 4.8102) (27.79 im/s)
+[TRAIN] epoch 103/256 batch loss: 4.8845 (avg 4.8118) (26.13 im/s)
+[TRAIN] epoch 103/256 batch loss: 4.5393 (avg 4.8123) (27.20 im/s)
+Epoch 102 validation: Recall@20: 0.5768, MRR@20: 0.2033 
+
+[TRAIN] epoch 104/256 batch loss: 4.9670 (avg 4.9670) (23.28 im/s)
+[TRAIN] epoch 104/256 batch loss: 4.7903 (avg 4.8073) (27.69 im/s)
+[TRAIN] epoch 104/256 batch loss: 4.8315 (avg 4.7998) (27.21 im/s)
+[TRAIN] epoch 104/256 batch loss: 4.7333 (avg 4.8041) (24.67 im/s)
+[TRAIN] epoch 104/256 batch loss: 4.8378 (avg 4.8025) (27.71 im/s)
+[TRAIN] epoch 104/256 batch loss: 4.8075 (avg 4.8063) (27.70 im/s)
+[TRAIN] epoch 104/256 batch loss: 4.8581 (avg 4.8092) (27.18 im/s)
+Epoch 103 validation: Recall@20: 0.5772, MRR@20: 0.2033 
+
+[TRAIN] epoch 105/256 batch loss: 5.0244 (avg 5.0244) (24.29 im/s)
+[TRAIN] epoch 105/256 batch loss: 4.7895 (avg 4.8021) (24.19 im/s)
+[TRAIN] epoch 105/256 batch loss: 4.7730 (avg 4.8083) (27.80 im/s)
+[TRAIN] epoch 105/256 batch loss: 4.7376 (avg 4.8096) (26.76 im/s)
+[TRAIN] epoch 105/256 batch loss: 4.8703 (avg 4.8130) (27.73 im/s)
+[TRAIN] epoch 105/256 batch loss: 4.7146 (avg 4.8124) (27.10 im/s)
+[TRAIN] epoch 105/256 batch loss: 4.7052 (avg 4.8099) (27.21 im/s)
+Epoch 104 validation: Recall@20: 0.5772, MRR@20: 0.2034 
+
+[TRAIN] epoch 106/256 batch loss: 4.8364 (avg 4.8364) (23.70 im/s)
+[TRAIN] epoch 106/256 batch loss: 4.6163 (avg 4.8090) (27.75 im/s)
+[TRAIN] epoch 106/256 batch loss: 4.7349 (avg 4.8137) (27.87 im/s)
+[TRAIN] epoch 106/256 batch loss: 4.6721 (avg 4.8125) (27.74 im/s)
+[TRAIN] epoch 106/256 batch loss: 4.8423 (avg 4.8112) (26.97 im/s)
+[TRAIN] epoch 106/256 batch loss: 4.8779 (avg 4.8105) (27.63 im/s)
+[TRAIN] epoch 106/256 batch loss: 4.6317 (avg 4.8091) (27.10 im/s)
+Epoch 105 validation: Recall@20: 0.5769, MRR@20: 0.2035 
+
+[TRAIN] epoch 107/256 batch loss: 4.8357 (avg 4.8357) (23.17 im/s)
+[TRAIN] epoch 107/256 batch loss: 4.7563 (avg 4.8093) (25.57 im/s)
+[TRAIN] epoch 107/256 batch loss: 4.7371 (avg 4.8024) (27.10 im/s)
+[TRAIN] epoch 107/256 batch loss: 4.7484 (avg 4.8027) (27.70 im/s)
+[TRAIN] epoch 107/256 batch loss: 4.8399 (avg 4.8045) (27.94 im/s)
+[TRAIN] epoch 107/256 batch loss: 4.7322 (avg 4.8055) (27.50 im/s)
+[TRAIN] epoch 107/256 batch loss: 4.7923 (avg 4.8063) (26.74 im/s)
+Epoch 106 validation: Recall@20: 0.5766, MRR@20: 0.2034 
+
+[TRAIN] epoch 108/256 batch loss: 4.8283 (avg 4.8283) (24.66 im/s)
+[TRAIN] epoch 108/256 batch loss: 4.5924 (avg 4.8005) (27.93 im/s)
+[TRAIN] epoch 108/256 batch loss: 4.9419 (avg 4.8013) (29.68 im/s)
+[TRAIN] epoch 108/256 batch loss: 4.7423 (avg 4.8019) (27.69 im/s)
+[TRAIN] epoch 108/256 batch loss: 4.7886 (avg 4.8059) (27.27 im/s)
+[TRAIN] epoch 108/256 batch loss: 4.7991 (avg 4.8061) (27.62 im/s)
+[TRAIN] epoch 108/256 batch loss: 4.8840 (avg 4.8068) (27.74 im/s)
+Epoch 107 validation: Recall@20: 0.5767, MRR@20: 0.2035 
+
+[TRAIN] epoch 109/256 batch loss: 4.8281 (avg 4.8281) (24.50 im/s)
+[TRAIN] epoch 109/256 batch loss: 4.6543 (avg 4.8048) (27.72 im/s)
+[TRAIN] epoch 109/256 batch loss: 4.6687 (avg 4.8046) (27.86 im/s)
+[TRAIN] epoch 109/256 batch loss: 4.7954 (avg 4.8045) (27.32 im/s)
+[TRAIN] epoch 109/256 batch loss: 4.8520 (avg 4.8060) (27.69 im/s)
+[TRAIN] epoch 109/256 batch loss: 4.8546 (avg 4.8059) (27.53 im/s)
+[TRAIN] epoch 109/256 batch loss: 4.6492 (avg 4.8074) (26.84 im/s)
+Epoch 108 validation: Recall@20: 0.5765, MRR@20: 0.2032 
+
+[TRAIN] epoch 110/256 batch loss: 4.7192 (avg 4.7192) (24.64 im/s)
+[TRAIN] epoch 110/256 batch loss: 4.8067 (avg 4.7964) (27.71 im/s)
+[TRAIN] epoch 110/256 batch loss: 4.9412 (avg 4.8000) (24.10 im/s)
+[TRAIN] epoch 110/256 batch loss: 4.7292 (avg 4.8055) (24.56 im/s)
+[TRAIN] epoch 110/256 batch loss: 4.7429 (avg 4.8037) (27.76 im/s)
+[TRAIN] epoch 110/256 batch loss: 4.6700 (avg 4.8054) (27.52 im/s)
+[TRAIN] epoch 110/256 batch loss: 4.7763 (avg 4.8061) (24.63 im/s)
+Epoch 109 validation: Recall@20: 0.5769, MRR@20: 0.2032 
+
+[TRAIN] epoch 111/256 batch loss: 4.7292 (avg 4.7292) (23.80 im/s)
+[TRAIN] epoch 111/256 batch loss: 4.6919 (avg 4.7903) (27.61 im/s)
+[TRAIN] epoch 111/256 batch loss: 4.7784 (avg 4.8009) (27.52 im/s)
+[TRAIN] epoch 111/256 batch loss: 4.7753 (avg 4.8065) (27.89 im/s)
+[TRAIN] epoch 111/256 batch loss: 4.6866 (avg 4.8062) (27.65 im/s)
+[TRAIN] epoch 111/256 batch loss: 4.9300 (avg 4.8073) (27.69 im/s)
+[TRAIN] epoch 111/256 batch loss: 4.7681 (avg 4.8071) (29.26 im/s)
+Epoch 110 validation: Recall@20: 0.5771, MRR@20: 0.2034 
+
+[TRAIN] epoch 112/256 batch loss: 4.8119 (avg 4.8119) (23.81 im/s)
+[TRAIN] epoch 112/256 batch loss: 4.7045 (avg 4.7958) (27.32 im/s)
+[TRAIN] epoch 112/256 batch loss: 4.6939 (avg 4.8014) (27.70 im/s)
+[TRAIN] epoch 112/256 batch loss: 4.6596 (avg 4.7997) (24.72 im/s)
+[TRAIN] epoch 112/256 batch loss: 4.6494 (avg 4.8065) (27.68 im/s)
+[TRAIN] epoch 112/256 batch loss: 4.7809 (avg 4.8056) (27.01 im/s)
+[TRAIN] epoch 112/256 batch loss: 4.6533 (avg 4.8043) (27.76 im/s)
+Epoch 111 validation: Recall@20: 0.5766, MRR@20: 0.2035 
+
+[TRAIN] epoch 113/256 batch loss: 4.8532 (avg 4.8532) (25.66 im/s)
+[TRAIN] epoch 113/256 batch loss: 4.7539 (avg 4.7914) (25.92 im/s)
+[TRAIN] epoch 113/256 batch loss: 4.6583 (avg 4.8006) (26.84 im/s)
+[TRAIN] epoch 113/256 batch loss: 4.8856 (avg 4.8031) (27.03 im/s)
+[TRAIN] epoch 113/256 batch loss: 4.7588 (avg 4.8056) (27.36 im/s)
+[TRAIN] epoch 113/256 batch loss: 4.8231 (avg 4.8051) (27.84 im/s)
+[TRAIN] epoch 113/256 batch loss: 4.8052 (avg 4.8054) (27.42 im/s)
+Epoch 112 validation: Recall@20: 0.5773, MRR@20: 0.2034 
+
+[TRAIN] epoch 114/256 batch loss: 5.0209 (avg 5.0209) (25.26 im/s)
+[TRAIN] epoch 114/256 batch loss: 4.6897 (avg 4.8024) (27.94 im/s)
+[TRAIN] epoch 114/256 batch loss: 4.7487 (avg 4.7988) (27.57 im/s)
+[TRAIN] epoch 114/256 batch loss: 4.8267 (avg 4.8001) (26.35 im/s)
+[TRAIN] epoch 114/256 batch loss: 4.6704 (avg 4.8032) (26.85 im/s)
+[TRAIN] epoch 114/256 batch loss: 4.8543 (avg 4.8049) (27.58 im/s)
+[TRAIN] epoch 114/256 batch loss: 4.7352 (avg 4.8044) (26.84 im/s)
+Epoch 113 validation: Recall@20: 0.5770, MRR@20: 0.2035 
+
+[TRAIN] epoch 115/256 batch loss: 4.8155 (avg 4.8155) (25.65 im/s)
+[TRAIN] epoch 115/256 batch loss: 4.8068 (avg 4.7843) (26.15 im/s)
+[TRAIN] epoch 115/256 batch loss: 4.8049 (avg 4.7925) (27.76 im/s)
+[TRAIN] epoch 115/256 batch loss: 4.7755 (avg 4.7955) (27.66 im/s)
+[TRAIN] epoch 115/256 batch loss: 4.6933 (avg 4.7995) (27.15 im/s)
+[TRAIN] epoch 115/256 batch loss: 4.7740 (avg 4.8030) (27.72 im/s)
+[TRAIN] epoch 115/256 batch loss: 4.8325 (avg 4.8030) (27.60 im/s)
+Epoch 114 validation: Recall@20: 0.5770, MRR@20: 0.2033 
+
+[TRAIN] epoch 116/256 batch loss: 4.6486 (avg 4.6486) (24.35 im/s)
+[TRAIN] epoch 116/256 batch loss: 4.6679 (avg 4.7917) (15.07 im/s)
+[TRAIN] epoch 116/256 batch loss: 4.7535 (avg 4.7988) (27.96 im/s)
+[TRAIN] epoch 116/256 batch loss: 4.6583 (avg 4.7983) (27.63 im/s)
+[TRAIN] epoch 116/256 batch loss: 4.7933 (avg 4.7994) (27.71 im/s)
+[TRAIN] epoch 116/256 batch loss: 4.7192 (avg 4.8003) (27.85 im/s)
+[TRAIN] epoch 116/256 batch loss: 4.5761 (avg 4.8029) (29.83 im/s)
+Epoch 115 validation: Recall@20: 0.5772, MRR@20: 0.2034 
+
+[TRAIN] epoch 117/256 batch loss: 4.6923 (avg 4.6923) (22.92 im/s)
+[TRAIN] epoch 117/256 batch loss: 4.8606 (avg 4.8047) (27.06 im/s)
+[TRAIN] epoch 117/256 batch loss: 4.5411 (avg 4.8061) (27.74 im/s)
+[TRAIN] epoch 117/256 batch loss: 4.9820 (avg 4.8042) (27.67 im/s)
+[TRAIN] epoch 117/256 batch loss: 4.7195 (avg 4.8058) (27.86 im/s)
+[TRAIN] epoch 117/256 batch loss: 4.9497 (avg 4.8027) (27.73 im/s)
+[TRAIN] epoch 117/256 batch loss: 4.8611 (avg 4.8023) (29.48 im/s)
+Epoch 116 validation: Recall@20: 0.5771, MRR@20: 0.2033 
+
+[TRAIN] epoch 118/256 batch loss: 4.9362 (avg 4.9362) (25.95 im/s)
+[TRAIN] epoch 118/256 batch loss: 4.7834 (avg 4.7845) (27.26 im/s)
+[TRAIN] epoch 118/256 batch loss: 4.6486 (avg 4.7951) (28.81 im/s)
+[TRAIN] epoch 118/256 batch loss: 4.9077 (avg 4.7988) (27.71 im/s)
+[TRAIN] epoch 118/256 batch loss: 4.5641 (avg 4.8030) (27.07 im/s)
+[TRAIN] epoch 118/256 batch loss: 4.7518 (avg 4.8017) (27.83 im/s)
+[TRAIN] epoch 118/256 batch loss: 4.7624 (avg 4.8019) (27.82 im/s)
+Epoch 117 validation: Recall@20: 0.5770, MRR@20: 0.2034 
+
+[TRAIN] epoch 119/256 batch loss: 4.6588 (avg 4.6588) (24.37 im/s)
+[TRAIN] epoch 119/256 batch loss: 4.9239 (avg 4.7974) (25.67 im/s)
+[TRAIN] epoch 119/256 batch loss: 4.7583 (avg 4.7945) (27.70 im/s)
+[TRAIN] epoch 119/256 batch loss: 4.7736 (avg 4.7967) (27.68 im/s)
+[TRAIN] epoch 119/256 batch loss: 4.7553 (avg 4.7977) (26.91 im/s)
+[TRAIN] epoch 119/256 batch loss: 4.8806 (avg 4.8004) (27.53 im/s)
+[TRAIN] epoch 119/256 batch loss: 4.9906 (avg 4.7996) (27.70 im/s)
+Epoch 118 validation: Recall@20: 0.5773, MRR@20: 0.2034 
+
+[TRAIN] epoch 120/256 batch loss: 4.7863 (avg 4.7863) (26.31 im/s)
+[TRAIN] epoch 120/256 batch loss: 4.6891 (avg 4.8032) (29.65 im/s)
+[TRAIN] epoch 120/256 batch loss: 4.9782 (avg 4.7994) (27.74 im/s)
+[TRAIN] epoch 120/256 batch loss: 5.0676 (avg 4.7999) (27.72 im/s)
+[TRAIN] epoch 120/256 batch loss: 4.9307 (avg 4.8010) (27.85 im/s)
+[TRAIN] epoch 120/256 batch loss: 4.6430 (avg 4.8043) (27.75 im/s)
+[TRAIN] epoch 120/256 batch loss: 4.9257 (avg 4.8028) (27.58 im/s)
+Epoch 119 validation: Recall@20: 0.5771, MRR@20: 0.2035 
+
+[TRAIN] epoch 121/256 batch loss: 4.8790 (avg 4.8790) (26.21 im/s)
+[TRAIN] epoch 121/256 batch loss: 4.9028 (avg 4.8045) (24.65 im/s)
+[TRAIN] epoch 121/256 batch loss: 4.8250 (avg 4.8020) (27.72 im/s)
+[TRAIN] epoch 121/256 batch loss: 4.9127 (avg 4.8015) (27.76 im/s)
+[TRAIN] epoch 121/256 batch loss: 4.7457 (avg 4.8049) (27.85 im/s)
+[TRAIN] epoch 121/256 batch loss: 4.8233 (avg 4.8031) (27.73 im/s)
+[TRAIN] epoch 121/256 batch loss: 4.7800 (avg 4.8020) (27.91 im/s)
+Epoch 120 validation: Recall@20: 0.5770, MRR@20: 0.2035 
+
+[TRAIN] epoch 122/256 batch loss: 4.6050 (avg 4.6050) (24.44 im/s)
+[TRAIN] epoch 122/256 batch loss: 4.8244 (avg 4.7956) (27.87 im/s)
+[TRAIN] epoch 122/256 batch loss: 4.7376 (avg 4.7966) (27.83 im/s)
+[TRAIN] epoch 122/256 batch loss: 4.9425 (avg 4.7983) (27.64 im/s)
+[TRAIN] epoch 122/256 batch loss: 5.0924 (avg 4.7962) (27.70 im/s)
+[TRAIN] epoch 122/256 batch loss: 4.9680 (avg 4.7981) (27.66 im/s)
+[TRAIN] epoch 122/256 batch loss: 5.0624 (avg 4.7983) (27.67 im/s)
+Epoch 121 validation: Recall@20: 0.5772, MRR@20: 0.2036 
+
+[TRAIN] epoch 123/256 batch loss: 4.7346 (avg 4.7346) (21.41 im/s)
+[TRAIN] epoch 123/256 batch loss: 4.7896 (avg 4.7974) (27.46 im/s)
+[TRAIN] epoch 123/256 batch loss: 4.9290 (avg 4.7951) (26.91 im/s)
+[TRAIN] epoch 123/256 batch loss: 4.6808 (avg 4.7914) (29.85 im/s)
+[TRAIN] epoch 123/256 batch loss: 4.7795 (avg 4.7941) (26.71 im/s)
+[TRAIN] epoch 123/256 batch loss: 4.7452 (avg 4.7955) (27.87 im/s)
+[TRAIN] epoch 123/256 batch loss: 4.7195 (avg 4.7965) (27.72 im/s)
+Epoch 122 validation: Recall@20: 0.5774, MRR@20: 0.2036 
+
+[TRAIN] epoch 124/256 batch loss: 4.8313 (avg 4.8313) (24.46 im/s)
+[TRAIN] epoch 124/256 batch loss: 4.7395 (avg 4.7975) (27.93 im/s)
+[TRAIN] epoch 124/256 batch loss: 4.9358 (avg 4.7943) (27.46 im/s)
+[TRAIN] epoch 124/256 batch loss: 4.7900 (avg 4.7941) (27.75 im/s)
+[TRAIN] epoch 124/256 batch loss: 4.9313 (avg 4.7972) (29.67 im/s)
+[TRAIN] epoch 124/256 batch loss: 4.7341 (avg 4.7985) (28.26 im/s)
+[TRAIN] epoch 124/256 batch loss: 4.7485 (avg 4.7978) (27.24 im/s)
+Epoch 123 validation: Recall@20: 0.5772, MRR@20: 0.2036 
+
+[TRAIN] epoch 125/256 batch loss: 4.6224 (avg 4.6224) (24.51 im/s)
+[TRAIN] epoch 125/256 batch loss: 4.6905 (avg 4.7903) (27.51 im/s)
+[TRAIN] epoch 125/256 batch loss: 4.7872 (avg 4.7868) (27.91 im/s)
+[TRAIN] epoch 125/256 batch loss: 4.6447 (avg 4.7881) (29.61 im/s)
+[TRAIN] epoch 125/256 batch loss: 4.7323 (avg 4.7900) (27.87 im/s)
+[TRAIN] epoch 125/256 batch loss: 4.8235 (avg 4.7950) (27.59 im/s)
+[TRAIN] epoch 125/256 batch loss: 4.7189 (avg 4.7965) (27.64 im/s)
+Epoch 124 validation: Recall@20: 0.5768, MRR@20: 0.2036 
+
+[TRAIN] epoch 126/256 batch loss: 4.7937 (avg 4.7937) (23.49 im/s)
+[TRAIN] epoch 126/256 batch loss: 4.7836 (avg 4.8053) (29.53 im/s)
+[TRAIN] epoch 126/256 batch loss: 4.7484 (avg 4.8022) (27.58 im/s)
+[TRAIN] epoch 126/256 batch loss: 4.6726 (avg 4.7964) (27.48 im/s)
+[TRAIN] epoch 126/256 batch loss: 4.9444 (avg 4.7968) (27.56 im/s)
+[TRAIN] epoch 126/256 batch loss: 4.7663 (avg 4.7962) (27.36 im/s)
+[TRAIN] epoch 126/256 batch loss: 4.6179 (avg 4.7970) (29.66 im/s)
+Epoch 125 validation: Recall@20: 0.5771, MRR@20: 0.2034 
+
+[TRAIN] epoch 127/256 batch loss: 4.6580 (avg 4.6580) (25.92 im/s)
+[TRAIN] epoch 127/256 batch loss: 4.8001 (avg 4.7891) (29.59 im/s)
+[TRAIN] epoch 127/256 batch loss: 4.7446 (avg 4.7854) (27.91 im/s)
+[TRAIN] epoch 127/256 batch loss: 4.8912 (avg 4.7853) (27.86 im/s)
+[TRAIN] epoch 127/256 batch loss: 4.7614 (avg 4.7881) (27.69 im/s)
+[TRAIN] epoch 127/256 batch loss: 4.9250 (avg 4.7915) (29.13 im/s)
+[TRAIN] epoch 127/256 batch loss: 4.8901 (avg 4.7934) (27.87 im/s)
+Epoch 126 validation: Recall@20: 0.5775, MRR@20: 0.2034 
+
+[TRAIN] epoch 128/256 batch loss: 4.7964 (avg 4.7964) (24.94 im/s)
+[TRAIN] epoch 128/256 batch loss: 4.7214 (avg 4.7881) (24.51 im/s)
+[TRAIN] epoch 128/256 batch loss: 4.6281 (avg 4.7914) (24.65 im/s)
+[TRAIN] epoch 128/256 batch loss: 4.8161 (avg 4.7887) (26.92 im/s)
+[TRAIN] epoch 128/256 batch loss: 4.7629 (avg 4.7914) (27.85 im/s)
+[TRAIN] epoch 128/256 batch loss: 4.7602 (avg 4.7947) (27.72 im/s)
+[TRAIN] epoch 128/256 batch loss: 4.7879 (avg 4.7962) (27.84 im/s)
+Epoch 127 validation: Recall@20: 0.5773, MRR@20: 0.2033 
+
+[TRAIN] epoch 129/256 batch loss: 4.8672 (avg 4.8672) (25.75 im/s)
+[TRAIN] epoch 129/256 batch loss: 4.7287 (avg 4.7941) (27.72 im/s)
+[TRAIN] epoch 129/256 batch loss: 5.0065 (avg 4.7947) (27.38 im/s)
+[TRAIN] epoch 129/256 batch loss: 4.7590 (avg 4.7955) (24.66 im/s)
+[TRAIN] epoch 129/256 batch loss: 4.9682 (avg 4.7969) (27.87 im/s)
+[TRAIN] epoch 129/256 batch loss: 4.8452 (avg 4.7950) (27.01 im/s)
+[TRAIN] epoch 129/256 batch loss: 4.8894 (avg 4.7943) (27.76 im/s)
+Epoch 128 validation: Recall@20: 0.5772, MRR@20: 0.2035 
+
+[TRAIN] epoch 130/256 batch loss: 4.5998 (avg 4.5998) (24.59 im/s)
+[TRAIN] epoch 130/256 batch loss: 4.8285 (avg 4.8026) (27.73 im/s)
+[TRAIN] epoch 130/256 batch loss: 4.6842 (avg 4.7974) (27.45 im/s)
+[TRAIN] epoch 130/256 batch loss: 4.7198 (avg 4.7960) (27.85 im/s)
+[TRAIN] epoch 130/256 batch loss: 4.7080 (avg 4.7954) (29.80 im/s)
+[TRAIN] epoch 130/256 batch loss: 4.8021 (avg 4.7967) (29.80 im/s)
+[TRAIN] epoch 130/256 batch loss: 4.7917 (avg 4.7949) (27.76 im/s)
+Epoch 129 validation: Recall@20: 0.5771, MRR@20: 0.2034 
+
+[TRAIN] epoch 131/256 batch loss: 4.7400 (avg 4.7400) (24.50 im/s)
+[TRAIN] epoch 131/256 batch loss: 4.7702 (avg 4.7905) (27.88 im/s)
+[TRAIN] epoch 131/256 batch loss: 4.7730 (avg 4.7968) (27.65 im/s)
+[TRAIN] epoch 131/256 batch loss: 4.9300 (avg 4.7952) (26.84 im/s)
+[TRAIN] epoch 131/256 batch loss: 4.8767 (avg 4.7946) (29.58 im/s)
+[TRAIN] epoch 131/256 batch loss: 4.7345 (avg 4.7940) (27.24 im/s)
+[TRAIN] epoch 131/256 batch loss: 4.7037 (avg 4.7948) (27.21 im/s)
+Epoch 130 validation: Recall@20: 0.5774, MRR@20: 0.2034 
+
+[TRAIN] epoch 132/256 batch loss: 4.7643 (avg 4.7643) (23.62 im/s)
+[TRAIN] epoch 132/256 batch loss: 4.6194 (avg 4.7823) (24.80 im/s)
+[TRAIN] epoch 132/256 batch loss: 4.7014 (avg 4.7827) (27.65 im/s)
+[TRAIN] epoch 132/256 batch loss: 4.9241 (avg 4.7876) (29.67 im/s)
+[TRAIN] epoch 132/256 batch loss: 4.8758 (avg 4.7915) (24.31 im/s)
+[TRAIN] epoch 132/256 batch loss: 4.9573 (avg 4.7919) (29.24 im/s)
+[TRAIN] epoch 132/256 batch loss: 4.7814 (avg 4.7917) (27.93 im/s)
+Epoch 131 validation: Recall@20: 0.5775, MRR@20: 0.2034 
+
+[TRAIN] epoch 133/256 batch loss: 4.9318 (avg 4.9318) (23.75 im/s)
+[TRAIN] epoch 133/256 batch loss: 4.7844 (avg 4.7959) (27.78 im/s)
+[TRAIN] epoch 133/256 batch loss: 4.9207 (avg 4.7947) (27.42 im/s)
+[TRAIN] epoch 133/256 batch loss: 4.6185 (avg 4.7906) (27.47 im/s)
+[TRAIN] epoch 133/256 batch loss: 4.7088 (avg 4.7938) (27.96 im/s)
+[TRAIN] epoch 133/256 batch loss: 4.8007 (avg 4.7925) (27.76 im/s)
+[TRAIN] epoch 133/256 batch loss: 4.9206 (avg 4.7925) (27.77 im/s)
+Epoch 132 validation: Recall@20: 0.5775, MRR@20: 0.2033 
+
+[TRAIN] epoch 134/256 batch loss: 4.8196 (avg 4.8196) (24.20 im/s)
+[TRAIN] epoch 134/256 batch loss: 4.8434 (avg 4.7849) (29.45 im/s)
+[TRAIN] epoch 134/256 batch loss: 4.7576 (avg 4.7927) (24.73 im/s)
+[TRAIN] epoch 134/256 batch loss: 4.6609 (avg 4.7939) (24.64 im/s)
+[TRAIN] epoch 134/256 batch loss: 4.7458 (avg 4.7947) (27.19 im/s)
+[TRAIN] epoch 134/256 batch loss: 4.8411 (avg 4.7950) (27.22 im/s)
+[TRAIN] epoch 134/256 batch loss: 4.6500 (avg 4.7920) (27.39 im/s)
+Epoch 133 validation: Recall@20: 0.5776, MRR@20: 0.2034 
+
+[TRAIN] epoch 135/256 batch loss: 4.9402 (avg 4.9402) (23.56 im/s)
+[TRAIN] epoch 135/256 batch loss: 4.7501 (avg 4.8023) (29.61 im/s)
+[TRAIN] epoch 135/256 batch loss: 4.9376 (avg 4.7917) (25.83 im/s)
+[TRAIN] epoch 135/256 batch loss: 4.6643 (avg 4.7907) (27.70 im/s)
+[TRAIN] epoch 135/256 batch loss: 4.6896 (avg 4.7922) (24.85 im/s)
+[TRAIN] epoch 135/256 batch loss: 4.7781 (avg 4.7922) (27.84 im/s)
+[TRAIN] epoch 135/256 batch loss: 4.8781 (avg 4.7920) (27.79 im/s)
+Epoch 134 validation: Recall@20: 0.5772, MRR@20: 0.2035 
+
+[TRAIN] epoch 136/256 batch loss: 4.8274 (avg 4.8274) (24.64 im/s)
+[TRAIN] epoch 136/256 batch loss: 4.9737 (avg 4.7761) (27.30 im/s)
+[TRAIN] epoch 136/256 batch loss: 4.9596 (avg 4.7900) (27.71 im/s)
+[TRAIN] epoch 136/256 batch loss: 4.9702 (avg 4.7895) (27.83 im/s)
+[TRAIN] epoch 136/256 batch loss: 4.9105 (avg 4.7896) (27.83 im/s)
+[TRAIN] epoch 136/256 batch loss: 4.7816 (avg 4.7930) (27.82 im/s)
+[TRAIN] epoch 136/256 batch loss: 4.5933 (avg 4.7958) (27.47 im/s)
+Epoch 135 validation: Recall@20: 0.5776, MRR@20: 0.2034 
+
+[TRAIN] epoch 137/256 batch loss: 5.0028 (avg 5.0028) (24.85 im/s)
+[TRAIN] epoch 137/256 batch loss: 4.7290 (avg 4.7778) (27.57 im/s)
+[TRAIN] epoch 137/256 batch loss: 4.5892 (avg 4.7771) (29.30 im/s)
+[TRAIN] epoch 137/256 batch loss: 4.6393 (avg 4.7849) (27.61 im/s)
+[TRAIN] epoch 137/256 batch loss: 4.7925 (avg 4.7879) (27.81 im/s)
+[TRAIN] epoch 137/256 batch loss: 4.9073 (avg 4.7902) (27.72 im/s)
+[TRAIN] epoch 137/256 batch loss: 4.9482 (avg 4.7900) (24.30 im/s)
+Epoch 136 validation: Recall@20: 0.5772, MRR@20: 0.2033 
+
+[TRAIN] epoch 138/256 batch loss: 4.9543 (avg 4.9543) (24.06 im/s)
+[TRAIN] epoch 138/256 batch loss: 4.8952 (avg 4.7862) (26.40 im/s)
+[TRAIN] epoch 138/256 batch loss: 4.8824 (avg 4.7887) (27.58 im/s)
+[TRAIN] epoch 138/256 batch loss: 4.9291 (avg 4.7923) (27.82 im/s)
+[TRAIN] epoch 138/256 batch loss: 4.7142 (avg 4.7906) (27.23 im/s)
+[TRAIN] epoch 138/256 batch loss: 4.7424 (avg 4.7934) (27.37 im/s)
+[TRAIN] epoch 138/256 batch loss: 4.7620 (avg 4.7913) (27.29 im/s)
+Epoch 137 validation: Recall@20: 0.5775, MRR@20: 0.2035 
+
+[TRAIN] epoch 139/256 batch loss: 4.6541 (avg 4.6541) (24.09 im/s)
+[TRAIN] epoch 139/256 batch loss: 4.8474 (avg 4.7851) (27.61 im/s)
+[TRAIN] epoch 139/256 batch loss: 4.6529 (avg 4.7874) (27.65 im/s)
+[TRAIN] epoch 139/256 batch loss: 4.7616 (avg 4.7884) (27.59 im/s)
+[TRAIN] epoch 139/256 batch loss: 4.9712 (avg 4.7866) (27.97 im/s)
+[TRAIN] epoch 139/256 batch loss: 4.8148 (avg 4.7890) (27.64 im/s)
+[TRAIN] epoch 139/256 batch loss: 4.5521 (avg 4.7884) (27.59 im/s)
+Epoch 138 validation: Recall@20: 0.5777, MRR@20: 0.2034 
+
+[TRAIN] epoch 140/256 batch loss: 4.8490 (avg 4.8490) (23.70 im/s)
+[TRAIN] epoch 140/256 batch loss: 4.8058 (avg 4.7835) (27.72 im/s)
+[TRAIN] epoch 140/256 batch loss: 4.8010 (avg 4.7875) (27.59 im/s)
+[TRAIN] epoch 140/256 batch loss: 4.5336 (avg 4.7883) (27.21 im/s)
+[TRAIN] epoch 140/256 batch loss: 4.7421 (avg 4.7882) (27.74 im/s)
+[TRAIN] epoch 140/256 batch loss: 4.5964 (avg 4.7866) (27.45 im/s)
+[TRAIN] epoch 140/256 batch loss: 4.6253 (avg 4.7871) (27.51 im/s)
+Epoch 139 validation: Recall@20: 0.5775, MRR@20: 0.2034 
+
+[TRAIN] epoch 141/256 batch loss: 4.8713 (avg 4.8713) (24.15 im/s)
+[TRAIN] epoch 141/256 batch loss: 4.8831 (avg 4.7858) (27.41 im/s)
+[TRAIN] epoch 141/256 batch loss: 4.8754 (avg 4.7895) (27.77 im/s)
+[TRAIN] epoch 141/256 batch loss: 4.8640 (avg 4.7854) (27.81 im/s)
+[TRAIN] epoch 141/256 batch loss: 4.9425 (avg 4.7830) (27.26 im/s)
+[TRAIN] epoch 141/256 batch loss: 4.6233 (avg 4.7830) (24.74 im/s)
+[TRAIN] epoch 141/256 batch loss: 4.8689 (avg 4.7851) (27.79 im/s)
+Epoch 140 validation: Recall@20: 0.5773, MRR@20: 0.2033 
+
+[TRAIN] epoch 142/256 batch loss: 4.5812 (avg 4.5812) (25.17 im/s)
+[TRAIN] epoch 142/256 batch loss: 4.6223 (avg 4.7818) (27.65 im/s)
+[TRAIN] epoch 142/256 batch loss: 4.7459 (avg 4.7792) (27.76 im/s)
+[TRAIN] epoch 142/256 batch loss: 4.8149 (avg 4.7830) (29.39 im/s)
+[TRAIN] epoch 142/256 batch loss: 4.7522 (avg 4.7853) (27.48 im/s)
+[TRAIN] epoch 142/256 batch loss: 4.7983 (avg 4.7856) (27.63 im/s)
+[TRAIN] epoch 142/256 batch loss: 4.7809 (avg 4.7862) (28.12 im/s)
+Epoch 141 validation: Recall@20: 0.5776, MRR@20: 0.2035 
+
+[TRAIN] epoch 143/256 batch loss: 4.9119 (avg 4.9119) (25.47 im/s)
+[TRAIN] epoch 143/256 batch loss: 4.9079 (avg 4.7830) (27.75 im/s)
+[TRAIN] epoch 143/256 batch loss: 4.6848 (avg 4.7785) (24.21 im/s)
+[TRAIN] epoch 143/256 batch loss: 4.9470 (avg 4.7823) (24.42 im/s)
+[TRAIN] epoch 143/256 batch loss: 4.8957 (avg 4.7824) (27.85 im/s)
+[TRAIN] epoch 143/256 batch loss: 4.8838 (avg 4.7838) (27.78 im/s)
+[TRAIN] epoch 143/256 batch loss: 4.7766 (avg 4.7854) (27.60 im/s)
+Epoch 142 validation: Recall@20: 0.5774, MRR@20: 0.2035 
+
+[TRAIN] epoch 144/256 batch loss: 4.9077 (avg 4.9077) (24.05 im/s)
+[TRAIN] epoch 144/256 batch loss: 4.6780 (avg 4.7817) (27.22 im/s)
+[TRAIN] epoch 144/256 batch loss: 4.7893 (avg 4.7868) (27.76 im/s)
+[TRAIN] epoch 144/256 batch loss: 4.8086 (avg 4.7874) (27.81 im/s)
+[TRAIN] epoch 144/256 batch loss: 4.8553 (avg 4.7869) (24.34 im/s)
+[TRAIN] epoch 144/256 batch loss: 4.8151 (avg 4.7874) (27.70 im/s)
+[TRAIN] epoch 144/256 batch loss: 4.7122 (avg 4.7870) (27.12 im/s)
+Epoch 143 validation: Recall@20: 0.5775, MRR@20: 0.2037 
+
+[TRAIN] epoch 145/256 batch loss: 4.7713 (avg 4.7713) (23.50 im/s)
+[TRAIN] epoch 145/256 batch loss: 4.9089 (avg 4.7616) (27.90 im/s)
+[TRAIN] epoch 145/256 batch loss: 4.8648 (avg 4.7668) (27.86 im/s)
+[TRAIN] epoch 145/256 batch loss: 4.7182 (avg 4.7751) (27.81 im/s)
+[TRAIN] epoch 145/256 batch loss: 4.9115 (avg 4.7767) (27.61 im/s)
+[TRAIN] epoch 145/256 batch loss: 4.6573 (avg 4.7809) (27.61 im/s)
+[TRAIN] epoch 145/256 batch loss: 4.7597 (avg 4.7823) (27.31 im/s)
+Epoch 144 validation: Recall@20: 0.5776, MRR@20: 0.2038 
+
+[TRAIN] epoch 146/256 batch loss: 4.5865 (avg 4.5865) (22.99 im/s)
+[TRAIN] epoch 146/256 batch loss: 4.5913 (avg 4.7717) (27.81 im/s)
+[TRAIN] epoch 146/256 batch loss: 4.7846 (avg 4.7763) (27.06 im/s)
+[TRAIN] epoch 146/256 batch loss: 4.7925 (avg 4.7801) (27.67 im/s)
+[TRAIN] epoch 146/256 batch loss: 5.0235 (avg 4.7849) (27.81 im/s)
+[TRAIN] epoch 146/256 batch loss: 4.8028 (avg 4.7834) (27.70 im/s)
+[TRAIN] epoch 146/256 batch loss: 4.8442 (avg 4.7829) (29.82 im/s)
+Epoch 145 validation: Recall@20: 0.5771, MRR@20: 0.2036 
+
+[TRAIN] epoch 147/256 batch loss: 4.9750 (avg 4.9750) (23.70 im/s)
+[TRAIN] epoch 147/256 batch loss: 4.7639 (avg 4.7735) (29.66 im/s)
+[TRAIN] epoch 147/256 batch loss: 4.7761 (avg 4.7756) (28.01 im/s)
+[TRAIN] epoch 147/256 batch loss: 4.7896 (avg 4.7798) (27.38 im/s)
+[TRAIN] epoch 147/256 batch loss: 4.7206 (avg 4.7781) (27.76 im/s)
+[TRAIN] epoch 147/256 batch loss: 4.5562 (avg 4.7803) (27.65 im/s)
+[TRAIN] epoch 147/256 batch loss: 4.8005 (avg 4.7843) (27.86 im/s)
+Epoch 146 validation: Recall@20: 0.5775, MRR@20: 0.2036 
+
+[TRAIN] epoch 148/256 batch loss: 5.0774 (avg 5.0774) (24.19 im/s)
+[TRAIN] epoch 148/256 batch loss: 4.5988 (avg 4.7874) (27.43 im/s)
+[TRAIN] epoch 148/256 batch loss: 4.8301 (avg 4.7871) (26.99 im/s)
+[TRAIN] epoch 148/256 batch loss: 4.6208 (avg 4.7818) (27.73 im/s)
+[TRAIN] epoch 148/256 batch loss: 4.6834 (avg 4.7834) (27.17 im/s)
+[TRAIN] epoch 148/256 batch loss: 4.7866 (avg 4.7824) (27.42 im/s)
+[TRAIN] epoch 148/256 batch loss: 4.6694 (avg 4.7835) (27.95 im/s)
+Epoch 147 validation: Recall@20: 0.5775, MRR@20: 0.2036 
+
+[TRAIN] epoch 149/256 batch loss: 4.8222 (avg 4.8222) (24.34 im/s)
+[TRAIN] epoch 149/256 batch loss: 4.8884 (avg 4.7751) (27.43 im/s)
+[TRAIN] epoch 149/256 batch loss: 4.7537 (avg 4.7724) (27.33 im/s)
+[TRAIN] epoch 149/256 batch loss: 4.7984 (avg 4.7752) (27.68 im/s)
+[TRAIN] epoch 149/256 batch loss: 4.9869 (avg 4.7767) (27.73 im/s)
+[TRAIN] epoch 149/256 batch loss: 4.5310 (avg 4.7795) (27.82 im/s)
+[TRAIN] epoch 149/256 batch loss: 4.8047 (avg 4.7819) (27.87 im/s)
+Epoch 148 validation: Recall@20: 0.5773, MRR@20: 0.2035 
+
+[TRAIN] epoch 150/256 batch loss: 4.6308 (avg 4.6308) (24.11 im/s)
+[TRAIN] epoch 150/256 batch loss: 4.8851 (avg 4.7773) (27.56 im/s)
+[TRAIN] epoch 150/256 batch loss: 4.7433 (avg 4.7762) (27.69 im/s)
+[TRAIN] epoch 150/256 batch loss: 4.6796 (avg 4.7769) (27.50 im/s)
+[TRAIN] epoch 150/256 batch loss: 4.7690 (avg 4.7797) (27.74 im/s)
+[TRAIN] epoch 150/256 batch loss: 4.8211 (avg 4.7812) (27.70 im/s)
+[TRAIN] epoch 150/256 batch loss: 4.6057 (avg 4.7830) (27.67 im/s)
+Epoch 149 validation: Recall@20: 0.5774, MRR@20: 0.2035 
+
+[TRAIN] epoch 151/256 batch loss: 4.8733 (avg 4.8733) (23.51 im/s)
+[TRAIN] epoch 151/256 batch loss: 4.8408 (avg 4.7744) (27.61 im/s)
+[TRAIN] epoch 151/256 batch loss: 4.7466 (avg 4.7764) (27.82 im/s)
+[TRAIN] epoch 151/256 batch loss: 4.8507 (avg 4.7782) (24.46 im/s)
+[TRAIN] epoch 151/256 batch loss: 4.7916 (avg 4.7810) (26.00 im/s)
+[TRAIN] epoch 151/256 batch loss: 4.8029 (avg 4.7809) (27.34 im/s)
+[TRAIN] epoch 151/256 batch loss: 4.6752 (avg 4.7840) (24.74 im/s)
+Epoch 150 validation: Recall@20: 0.5773, MRR@20: 0.2036 
+
+[TRAIN] epoch 152/256 batch loss: 4.6848 (avg 4.6848) (24.29 im/s)
+[TRAIN] epoch 152/256 batch loss: 4.6761 (avg 4.7708) (26.10 im/s)
+[TRAIN] epoch 152/256 batch loss: 4.9711 (avg 4.7820) (27.04 im/s)
+[TRAIN] epoch 152/256 batch loss: 4.8122 (avg 4.7783) (27.56 im/s)
+[TRAIN] epoch 152/256 batch loss: 4.7206 (avg 4.7813) (27.82 im/s)
+[TRAIN] epoch 152/256 batch loss: 4.8926 (avg 4.7843) (27.41 im/s)
+[TRAIN] epoch 152/256 batch loss: 4.8352 (avg 4.7855) (27.83 im/s)
+Epoch 151 validation: Recall@20: 0.5773, MRR@20: 0.2037 
+
+[TRAIN] epoch 153/256 batch loss: 4.6299 (avg 4.6299) (23.57 im/s)
+[TRAIN] epoch 153/256 batch loss: 4.7391 (avg 4.7845) (26.84 im/s)
+[TRAIN] epoch 153/256 batch loss: 4.8555 (avg 4.7875) (27.14 im/s)
+[TRAIN] epoch 153/256 batch loss: 4.8201 (avg 4.7835) (27.73 im/s)
+[TRAIN] epoch 153/256 batch loss: 4.6889 (avg 4.7822) (27.76 im/s)
+[TRAIN] epoch 153/256 batch loss: 4.8434 (avg 4.7823) (27.73 im/s)
+[TRAIN] epoch 153/256 batch loss: 4.5093 (avg 4.7821) (25.70 im/s)
+Epoch 152 validation: Recall@20: 0.5778, MRR@20: 0.2036 
+
+[TRAIN] epoch 154/256 batch loss: 4.7649 (avg 4.7649) (24.15 im/s)
+[TRAIN] epoch 154/256 batch loss: 4.6885 (avg 4.7735) (27.26 im/s)
+[TRAIN] epoch 154/256 batch loss: 4.7940 (avg 4.7817) (27.05 im/s)
+[TRAIN] epoch 154/256 batch loss: 4.9048 (avg 4.7771) (27.65 im/s)
+[TRAIN] epoch 154/256 batch loss: 4.7347 (avg 4.7775) (27.50 im/s)
+[TRAIN] epoch 154/256 batch loss: 4.9176 (avg 4.7788) (27.46 im/s)
+[TRAIN] epoch 154/256 batch loss: 4.5516 (avg 4.7814) (27.77 im/s)
+Epoch 153 validation: Recall@20: 0.5778, MRR@20: 0.2037 
+
+[TRAIN] epoch 155/256 batch loss: 4.7840 (avg 4.7840) (24.29 im/s)
+[TRAIN] epoch 155/256 batch loss: 4.8432 (avg 4.7843) (27.46 im/s)
+[TRAIN] epoch 155/256 batch loss: 4.6491 (avg 4.7772) (27.83 im/s)
+[TRAIN] epoch 155/256 batch loss: 4.6913 (avg 4.7781) (27.48 im/s)
+[TRAIN] epoch 155/256 batch loss: 4.7708 (avg 4.7761) (27.77 im/s)
+[TRAIN] epoch 155/256 batch loss: 4.8343 (avg 4.7772) (27.76 im/s)
+[TRAIN] epoch 155/256 batch loss: 4.5924 (avg 4.7799) (27.84 im/s)
+Epoch 154 validation: Recall@20: 0.5777, MRR@20: 0.2036 
+
+[TRAIN] epoch 156/256 batch loss: 4.6631 (avg 4.6631) (23.98 im/s)
+[TRAIN] epoch 156/256 batch loss: 4.7499 (avg 4.7830) (27.05 im/s)
+[TRAIN] epoch 156/256 batch loss: 4.9169 (avg 4.7806) (25.98 im/s)
+[TRAIN] epoch 156/256 batch loss: 4.7753 (avg 4.7778) (27.76 im/s)
+[TRAIN] epoch 156/256 batch loss: 4.9710 (avg 4.7787) (27.85 im/s)
+[TRAIN] epoch 156/256 batch loss: 4.9688 (avg 4.7812) (26.75 im/s)
+[TRAIN] epoch 156/256 batch loss: 4.7927 (avg 4.7828) (27.71 im/s)
+Epoch 155 validation: Recall@20: 0.5780, MRR@20: 0.2037 
+
+[TRAIN] epoch 157/256 batch loss: 4.7621 (avg 4.7621) (23.34 im/s)
+[TRAIN] epoch 157/256 batch loss: 4.9517 (avg 4.7812) (27.01 im/s)
+[TRAIN] epoch 157/256 batch loss: 4.8402 (avg 4.7809) (26.50 im/s)
+[TRAIN] epoch 157/256 batch loss: 4.8320 (avg 4.7781) (27.46 im/s)
+[TRAIN] epoch 157/256 batch loss: 4.6742 (avg 4.7789) (27.23 im/s)
+[TRAIN] epoch 157/256 batch loss: 4.6802 (avg 4.7797) (27.59 im/s)
+[TRAIN] epoch 157/256 batch loss: 4.7394 (avg 4.7806) (27.85 im/s)
+Epoch 156 validation: Recall@20: 0.5785, MRR@20: 0.2036 
+
+[TRAIN] epoch 158/256 batch loss: 4.8657 (avg 4.8657) (26.10 im/s)
+[TRAIN] epoch 158/256 batch loss: 4.6835 (avg 4.7704) (27.73 im/s)
+[TRAIN] epoch 158/256 batch loss: 4.8430 (avg 4.7735) (27.57 im/s)
+[TRAIN] epoch 158/256 batch loss: 4.9100 (avg 4.7782) (29.43 im/s)
+[TRAIN] epoch 158/256 batch loss: 4.6321 (avg 4.7794) (26.78 im/s)
+[TRAIN] epoch 158/256 batch loss: 4.6580 (avg 4.7797) (29.62 im/s)
+[TRAIN] epoch 158/256 batch loss: 4.8809 (avg 4.7810) (27.54 im/s)
+Epoch 157 validation: Recall@20: 0.5775, MRR@20: 0.2037 
+
+[TRAIN] epoch 159/256 batch loss: 4.8040 (avg 4.8040) (23.91 im/s)
+[TRAIN] epoch 159/256 batch loss: 4.6784 (avg 4.7751) (27.81 im/s)
+[TRAIN] epoch 159/256 batch loss: 4.7608 (avg 4.7829) (29.82 im/s)
+[TRAIN] epoch 159/256 batch loss: 4.7955 (avg 4.7776) (29.80 im/s)
+[TRAIN] epoch 159/256 batch loss: 4.7416 (avg 4.7798) (27.67 im/s)
+[TRAIN] epoch 159/256 batch loss: 4.8351 (avg 4.7799) (27.72 im/s)
+[TRAIN] epoch 159/256 batch loss: 4.7327 (avg 4.7809) (27.72 im/s)
+Epoch 158 validation: Recall@20: 0.5778, MRR@20: 0.2037 
+
+[TRAIN] epoch 160/256 batch loss: 4.5614 (avg 4.5614) (23.52 im/s)
+[TRAIN] epoch 160/256 batch loss: 4.5732 (avg 4.7730) (27.74 im/s)
+[TRAIN] epoch 160/256 batch loss: 4.6865 (avg 4.7761) (27.39 im/s)
+[TRAIN] epoch 160/256 batch loss: 4.7948 (avg 4.7770) (26.91 im/s)
+[TRAIN] epoch 160/256 batch loss: 4.6949 (avg 4.7767) (26.16 im/s)
+[TRAIN] epoch 160/256 batch loss: 4.8946 (avg 4.7784) (24.75 im/s)
+[TRAIN] epoch 160/256 batch loss: 4.8533 (avg 4.7774) (27.53 im/s)
+Epoch 159 validation: Recall@20: 0.5779, MRR@20: 0.2036 
+
+[TRAIN] epoch 161/256 batch loss: 4.6427 (avg 4.6427) (23.75 im/s)
+[TRAIN] epoch 161/256 batch loss: 4.8495 (avg 4.7701) (27.22 im/s)
+[TRAIN] epoch 161/256 batch loss: 4.7684 (avg 4.7670) (27.68 im/s)
+[TRAIN] epoch 161/256 batch loss: 4.7094 (avg 4.7670) (29.63 im/s)
+[TRAIN] epoch 161/256 batch loss: 4.8141 (avg 4.7690) (27.94 im/s)
+[TRAIN] epoch 161/256 batch loss: 4.8247 (avg 4.7689) (27.83 im/s)
+[TRAIN] epoch 161/256 batch loss: 4.8195 (avg 4.7695) (27.72 im/s)
+Epoch 160 validation: Recall@20: 0.5780, MRR@20: 0.2037 
+
+[TRAIN] epoch 162/256 batch loss: 4.7405 (avg 4.7405) (23.82 im/s)
+[TRAIN] epoch 162/256 batch loss: 4.8068 (avg 4.7698) (27.73 im/s)
+[TRAIN] epoch 162/256 batch loss: 4.9032 (avg 4.7758) (27.86 im/s)
+[TRAIN] epoch 162/256 batch loss: 4.5265 (avg 4.7717) (27.54 im/s)
+[TRAIN] epoch 162/256 batch loss: 4.7408 (avg 4.7731) (27.47 im/s)
+[TRAIN] epoch 162/256 batch loss: 4.6835 (avg 4.7724) (24.17 im/s)
+[TRAIN] epoch 162/256 batch loss: 4.7495 (avg 4.7731) (27.79 im/s)
+Epoch 161 validation: Recall@20: 0.5782, MRR@20: 0.2036 
+
+[TRAIN] epoch 163/256 batch loss: 4.8369 (avg 4.8369) (24.26 im/s)
+[TRAIN] epoch 163/256 batch loss: 4.8573 (avg 4.7752) (27.40 im/s)
+[TRAIN] epoch 163/256 batch loss: 4.7846 (avg 4.7777) (27.71 im/s)
+[TRAIN] epoch 163/256 batch loss: 4.6718 (avg 4.7705) (26.82 im/s)
+[TRAIN] epoch 163/256 batch loss: 4.7943 (avg 4.7712) (29.78 im/s)
+[TRAIN] epoch 163/256 batch loss: 4.7048 (avg 4.7724) (24.66 im/s)
+[TRAIN] epoch 163/256 batch loss: 4.7224 (avg 4.7723) (27.36 im/s)
+Epoch 162 validation: Recall@20: 0.5783, MRR@20: 0.2036 
+
+[TRAIN] epoch 164/256 batch loss: 4.8077 (avg 4.8077) (21.92 im/s)
+[TRAIN] epoch 164/256 batch loss: 4.7755 (avg 4.7755) (27.04 im/s)
+[TRAIN] epoch 164/256 batch loss: 4.6981 (avg 4.7776) (29.48 im/s)
+[TRAIN] epoch 164/256 batch loss: 4.6681 (avg 4.7743) (27.85 im/s)
+[TRAIN] epoch 164/256 batch loss: 4.7658 (avg 4.7711) (27.68 im/s)
+[TRAIN] epoch 164/256 batch loss: 4.8030 (avg 4.7727) (24.22 im/s)
+[TRAIN] epoch 164/256 batch loss: 4.6066 (avg 4.7734) (24.65 im/s)
+Epoch 163 validation: Recall@20: 0.5781, MRR@20: 0.2036 
+
+[TRAIN] epoch 165/256 batch loss: 4.6084 (avg 4.6084) (24.68 im/s)
+[TRAIN] epoch 165/256 batch loss: 4.7091 (avg 4.7674) (27.68 im/s)
+[TRAIN] epoch 165/256 batch loss: 4.8033 (avg 4.7679) (27.17 im/s)
+[TRAIN] epoch 165/256 batch loss: 4.8303 (avg 4.7691) (27.89 im/s)
+[TRAIN] epoch 165/256 batch loss: 4.8344 (avg 4.7701) (27.58 im/s)
+[TRAIN] epoch 165/256 batch loss: 4.6723 (avg 4.7699) (27.97 im/s)
+[TRAIN] epoch 165/256 batch loss: 4.7542 (avg 4.7719) (27.14 im/s)
+Epoch 164 validation: Recall@20: 0.5782, MRR@20: 0.2037 
+
+[TRAIN] epoch 166/256 batch loss: 4.9168 (avg 4.9168) (23.48 im/s)
+[TRAIN] epoch 166/256 batch loss: 4.8018 (avg 4.7587) (29.80 im/s)
+[TRAIN] epoch 166/256 batch loss: 4.7954 (avg 4.7611) (29.61 im/s)
+[TRAIN] epoch 166/256 batch loss: 4.5337 (avg 4.7673) (27.77 im/s)
+[TRAIN] epoch 166/256 batch loss: 4.8405 (avg 4.7696) (27.84 im/s)
+[TRAIN] epoch 166/256 batch loss: 4.8686 (avg 4.7695) (27.83 im/s)
+[TRAIN] epoch 166/256 batch loss: 4.8281 (avg 4.7693) (27.67 im/s)
+Epoch 165 validation: Recall@20: 0.5783, MRR@20: 0.2036 
+
+[TRAIN] epoch 167/256 batch loss: 4.9004 (avg 4.9004) (24.09 im/s)
+[TRAIN] epoch 167/256 batch loss: 4.6561 (avg 4.7793) (27.55 im/s)
+[TRAIN] epoch 167/256 batch loss: 5.0955 (avg 4.7743) (24.83 im/s)
+[TRAIN] epoch 167/256 batch loss: 4.7051 (avg 4.7731) (25.95 im/s)
+[TRAIN] epoch 167/256 batch loss: 4.7867 (avg 4.7739) (29.80 im/s)
+[TRAIN] epoch 167/256 batch loss: 4.6797 (avg 4.7729) (27.53 im/s)
+[TRAIN] epoch 167/256 batch loss: 4.6812 (avg 4.7732) (27.71 im/s)
+Epoch 166 validation: Recall@20: 0.5780, MRR@20: 0.2037 
+
+[TRAIN] epoch 168/256 batch loss: 4.8084 (avg 4.8084) (23.48 im/s)
+[TRAIN] epoch 168/256 batch loss: 4.7432 (avg 4.7669) (27.39 im/s)
+[TRAIN] epoch 168/256 batch loss: 4.8306 (avg 4.7625) (24.30 im/s)
+[TRAIN] epoch 168/256 batch loss: 4.9003 (avg 4.7666) (27.20 im/s)
+[TRAIN] epoch 168/256 batch loss: 4.6798 (avg 4.7684) (27.74 im/s)
+[TRAIN] epoch 168/256 batch loss: 4.8178 (avg 4.7717) (27.62 im/s)
+[TRAIN] epoch 168/256 batch loss: 4.8057 (avg 4.7723) (24.60 im/s)
+Epoch 167 validation: Recall@20: 0.5781, MRR@20: 0.2038 
+
+[TRAIN] epoch 169/256 batch loss: 4.8252 (avg 4.8252) (26.37 im/s)
+[TRAIN] epoch 169/256 batch loss: 4.8244 (avg 4.7740) (29.80 im/s)
+[TRAIN] epoch 169/256 batch loss: 4.9818 (avg 4.7680) (29.80 im/s)
+[TRAIN] epoch 169/256 batch loss: 4.8614 (avg 4.7676) (29.72 im/s)
+[TRAIN] epoch 169/256 batch loss: 4.7178 (avg 4.7698) (29.59 im/s)
+[TRAIN] epoch 169/256 batch loss: 5.1175 (avg 4.7700) (29.60 im/s)
+[TRAIN] epoch 169/256 batch loss: 4.7891 (avg 4.7706) (29.61 im/s)
+Epoch 168 validation: Recall@20: 0.5779, MRR@20: 0.2038 
+
+[TRAIN] epoch 170/256 batch loss: 4.7811 (avg 4.7811) (26.26 im/s)
+[TRAIN] epoch 170/256 batch loss: 4.7344 (avg 4.7735) (29.63 im/s)
+[TRAIN] epoch 170/256 batch loss: 4.8203 (avg 4.7733) (29.64 im/s)
+[TRAIN] epoch 170/256 batch loss: 4.4717 (avg 4.7713) (29.65 im/s)
+[TRAIN] epoch 170/256 batch loss: 4.7237 (avg 4.7692) (29.63 im/s)
+[TRAIN] epoch 170/256 batch loss: 4.6362 (avg 4.7698) (29.62 im/s)
+[TRAIN] epoch 170/256 batch loss: 4.6659 (avg 4.7716) (29.62 im/s)
+Epoch 169 validation: Recall@20: 0.5779, MRR@20: 0.2038 
+
+[TRAIN] epoch 171/256 batch loss: 4.8461 (avg 4.8461) (26.04 im/s)
+[TRAIN] epoch 171/256 batch loss: 4.5993 (avg 4.7725) (29.62 im/s)
+[TRAIN] epoch 171/256 batch loss: 4.8211 (avg 4.7701) (29.65 im/s)
+[TRAIN] epoch 171/256 batch loss: 4.7961 (avg 4.7703) (29.49 im/s)
+[TRAIN] epoch 171/256 batch loss: 5.0523 (avg 4.7682) (29.59 im/s)
+[TRAIN] epoch 171/256 batch loss: 4.7266 (avg 4.7683) (29.64 im/s)
+[TRAIN] epoch 171/256 batch loss: 5.0328 (avg 4.7709) (29.62 im/s)
+Epoch 170 validation: Recall@20: 0.5781, MRR@20: 0.2038 
+
+[TRAIN] epoch 172/256 batch loss: 4.6497 (avg 4.6497) (26.19 im/s)
+[TRAIN] epoch 172/256 batch loss: 4.7464 (avg 4.7696) (29.65 im/s)
+[TRAIN] epoch 172/256 batch loss: 4.5887 (avg 4.7649) (29.65 im/s)
+[TRAIN] epoch 172/256 batch loss: 4.7543 (avg 4.7670) (29.62 im/s)
+[TRAIN] epoch 172/256 batch loss: 4.7681 (avg 4.7656) (29.66 im/s)
+[TRAIN] epoch 172/256 batch loss: 4.6458 (avg 4.7685) (29.65 im/s)
+[TRAIN] epoch 172/256 batch loss: 4.8119 (avg 4.7700) (29.64 im/s)
+Epoch 171 validation: Recall@20: 0.5781, MRR@20: 0.2038 
+
+[TRAIN] epoch 173/256 batch loss: 4.9488 (avg 4.9488) (26.07 im/s)
+[TRAIN] epoch 173/256 batch loss: 4.7560 (avg 4.7647) (29.58 im/s)
+[TRAIN] epoch 173/256 batch loss: 4.8807 (avg 4.7683) (27.62 im/s)
+[TRAIN] epoch 173/256 batch loss: 4.8132 (avg 4.7689) (27.57 im/s)
+[TRAIN] epoch 173/256 batch loss: 4.7449 (avg 4.7727) (27.60 im/s)
+[TRAIN] epoch 173/256 batch loss: 4.5308 (avg 4.7711) (27.56 im/s)
+[TRAIN] epoch 173/256 batch loss: 4.8357 (avg 4.7708) (27.39 im/s)
+Epoch 172 validation: Recall@20: 0.5782, MRR@20: 0.2038 
+
+[TRAIN] epoch 174/256 batch loss: 4.9426 (avg 4.9426) (25.90 im/s)
+[TRAIN] epoch 174/256 batch loss: 4.8598 (avg 4.7645) (27.70 im/s)
+[TRAIN] epoch 174/256 batch loss: 4.9124 (avg 4.7633) (27.18 im/s)
+[TRAIN] epoch 174/256 batch loss: 4.7459 (avg 4.7624) (27.63 im/s)
+[TRAIN] epoch 174/256 batch loss: 4.8854 (avg 4.7657) (29.83 im/s)
+[TRAIN] epoch 174/256 batch loss: 4.8011 (avg 4.7696) (29.84 im/s)
+[TRAIN] epoch 174/256 batch loss: 4.8433 (avg 4.7699) (29.82 im/s)
+Epoch 173 validation: Recall@20: 0.5781, MRR@20: 0.2037 
+
+[TRAIN] epoch 175/256 batch loss: 4.6666 (avg 4.6666) (26.27 im/s)
+[TRAIN] epoch 175/256 batch loss: 4.8414 (avg 4.7636) (29.85 im/s)
+[TRAIN] epoch 175/256 batch loss: 4.9572 (avg 4.7749) (29.82 im/s)
+[TRAIN] epoch 175/256 batch loss: 4.6352 (avg 4.7716) (29.86 im/s)
+[TRAIN] epoch 175/256 batch loss: 4.6820 (avg 4.7700) (29.84 im/s)
+[TRAIN] epoch 175/256 batch loss: 4.6657 (avg 4.7699) (27.55 im/s)
+[TRAIN] epoch 175/256 batch loss: 4.5851 (avg 4.7702) (27.54 im/s)
+Epoch 174 validation: Recall@20: 0.5780, MRR@20: 0.2037 
+
+[TRAIN] epoch 176/256 batch loss: 4.9502 (avg 4.9502) (25.57 im/s)
+[TRAIN] epoch 176/256 batch loss: 4.6967 (avg 4.7686) (16.26 im/s)
+[TRAIN] epoch 176/256 batch loss: 4.7649 (avg 4.7711) (29.64 im/s)
+[TRAIN] epoch 176/256 batch loss: 4.7592 (avg 4.7704) (26.39 im/s)
+[TRAIN] epoch 176/256 batch loss: 4.8941 (avg 4.7709) (27.58 im/s)
+[TRAIN] epoch 176/256 batch loss: 4.8252 (avg 4.7690) (27.25 im/s)
+[TRAIN] epoch 176/256 batch loss: 4.8459 (avg 4.7692) (26.97 im/s)
+Epoch 175 validation: Recall@20: 0.5779, MRR@20: 0.2038 
+
+[TRAIN] epoch 177/256 batch loss: 4.6324 (avg 4.6324) (25.78 im/s)
+[TRAIN] epoch 177/256 batch loss: 4.7445 (avg 4.7730) (28.40 im/s)
+[TRAIN] epoch 177/256 batch loss: 4.6965 (avg 4.7695) (24.16 im/s)
+[TRAIN] epoch 177/256 batch loss: 4.7906 (avg 4.7713) (29.61 im/s)
+[TRAIN] epoch 177/256 batch loss: 4.6783 (avg 4.7705) (26.12 im/s)
+[TRAIN] epoch 177/256 batch loss: 4.8533 (avg 4.7698) (27.60 im/s)
+[TRAIN] epoch 177/256 batch loss: 4.8891 (avg 4.7716) (27.46 im/s)
+Epoch 176 validation: Recall@20: 0.5782, MRR@20: 0.2038 
+
+[TRAIN] epoch 178/256 batch loss: 4.5905 (avg 4.5905) (24.34 im/s)
+[TRAIN] epoch 178/256 batch loss: 4.9952 (avg 4.7732) (27.49 im/s)
+[TRAIN] epoch 178/256 batch loss: 4.7497 (avg 4.7742) (24.54 im/s)
+[TRAIN] epoch 178/256 batch loss: 4.8262 (avg 4.7694) (26.47 im/s)
+[TRAIN] epoch 178/256 batch loss: 4.8220 (avg 4.7700) (24.06 im/s)
+[TRAIN] epoch 178/256 batch loss: 4.6834 (avg 4.7697) (27.26 im/s)
+[TRAIN] epoch 178/256 batch loss: 4.6271 (avg 4.7719) (27.17 im/s)
+Epoch 177 validation: Recall@20: 0.5782, MRR@20: 0.2038 
+
+[TRAIN] epoch 179/256 batch loss: 4.6707 (avg 4.6707) (21.42 im/s)
+[TRAIN] epoch 179/256 batch loss: 4.8103 (avg 4.7847) (27.39 im/s)
+[TRAIN] epoch 179/256 batch loss: 4.7725 (avg 4.7714) (27.54 im/s)
+[TRAIN] epoch 179/256 batch loss: 4.6334 (avg 4.7725) (27.58 im/s)
+[TRAIN] epoch 179/256 batch loss: 4.8952 (avg 4.7738) (27.56 im/s)
+[TRAIN] epoch 179/256 batch loss: 4.7660 (avg 4.7751) (24.50 im/s)
+[TRAIN] epoch 179/256 batch loss: 4.8493 (avg 4.7733) (24.53 im/s)
+Epoch 178 validation: Recall@20: 0.5780, MRR@20: 0.2037 
+
+[TRAIN] epoch 180/256 batch loss: 4.9401 (avg 4.9401) (21.71 im/s)
+[TRAIN] epoch 180/256 batch loss: 4.8164 (avg 4.7706) (27.53 im/s)
+[TRAIN] epoch 180/256 batch loss: 4.7671 (avg 4.7717) (27.53 im/s)
+[TRAIN] epoch 180/256 batch loss: 4.8083 (avg 4.7710) (27.41 im/s)
+[TRAIN] epoch 180/256 batch loss: 4.7745 (avg 4.7719) (27.13 im/s)
+[TRAIN] epoch 180/256 batch loss: 4.8114 (avg 4.7728) (26.30 im/s)
+[TRAIN] epoch 180/256 batch loss: 4.7847 (avg 4.7720) (26.24 im/s)
+Epoch 179 validation: Recall@20: 0.5781, MRR@20: 0.2038 
+
+[TRAIN] epoch 181/256 batch loss: 4.6109 (avg 4.6109) (23.81 im/s)
+[TRAIN] epoch 181/256 batch loss: 4.8572 (avg 4.7694) (29.46 im/s)
+[TRAIN] epoch 181/256 batch loss: 4.7833 (avg 4.7698) (29.52 im/s)
+[TRAIN] epoch 181/256 batch loss: 4.8470 (avg 4.7731) (27.80 im/s)
+[TRAIN] epoch 181/256 batch loss: 4.7315 (avg 4.7716) (27.53 im/s)
+[TRAIN] epoch 181/256 batch loss: 4.8155 (avg 4.7726) (27.30 im/s)
+[TRAIN] epoch 181/256 batch loss: 4.6325 (avg 4.7734) (27.35 im/s)
+Epoch 180 validation: Recall@20: 0.5782, MRR@20: 0.2037 
+
+[TRAIN] epoch 182/256 batch loss: 4.7376 (avg 4.7376) (26.31 im/s)
+[TRAIN] epoch 182/256 batch loss: 4.9314 (avg 4.7637) (27.47 im/s)
+[TRAIN] epoch 182/256 batch loss: 4.7954 (avg 4.7634) (27.71 im/s)
+[TRAIN] epoch 182/256 batch loss: 4.8019 (avg 4.7664) (27.39 im/s)
+[TRAIN] epoch 182/256 batch loss: 4.7095 (avg 4.7645) (27.16 im/s)
+[TRAIN] epoch 182/256 batch loss: 4.7987 (avg 4.7677) (29.54 im/s)
+[TRAIN] epoch 182/256 batch loss: 4.8194 (avg 4.7687) (27.68 im/s)
+Epoch 181 validation: Recall@20: 0.5782, MRR@20: 0.2038 
+
+[TRAIN] epoch 183/256 batch loss: 4.7901 (avg 4.7901) (25.90 im/s)
+[TRAIN] epoch 183/256 batch loss: 4.6485 (avg 4.7663) (27.02 im/s)
+[TRAIN] epoch 183/256 batch loss: 4.8877 (avg 4.7695) (27.50 im/s)
+[TRAIN] epoch 183/256 batch loss: 4.5545 (avg 4.7701) (27.48 im/s)
+[TRAIN] epoch 183/256 batch loss: 4.8265 (avg 4.7707) (27.55 im/s)
+[TRAIN] epoch 183/256 batch loss: 4.7363 (avg 4.7695) (27.46 im/s)
+[TRAIN] epoch 183/256 batch loss: 4.8020 (avg 4.7697) (27.37 im/s)
+Epoch 182 validation: Recall@20: 0.5782, MRR@20: 0.2038 
+
+[TRAIN] epoch 184/256 batch loss: 4.9567 (avg 4.9567) (24.05 im/s)
+[TRAIN] epoch 184/256 batch loss: 4.8148 (avg 4.7722) (27.45 im/s)
+[TRAIN] epoch 184/256 batch loss: 4.8469 (avg 4.7678) (27.52 im/s)
+[TRAIN] epoch 184/256 batch loss: 4.9295 (avg 4.7691) (29.48 im/s)
+[TRAIN] epoch 184/256 batch loss: 4.8687 (avg 4.7689) (29.54 im/s)
+[TRAIN] epoch 184/256 batch loss: 4.6126 (avg 4.7702) (27.56 im/s)
+[TRAIN] epoch 184/256 batch loss: 4.5640 (avg 4.7693) (29.72 im/s)
+Epoch 183 validation: Recall@20: 0.5784, MRR@20: 0.2038 
+
+[TRAIN] epoch 185/256 batch loss: 4.7551 (avg 4.7551) (24.22 im/s)
+[TRAIN] epoch 185/256 batch loss: 4.9486 (avg 4.7822) (27.50 im/s)
+[TRAIN] epoch 185/256 batch loss: 4.7909 (avg 4.7815) (27.52 im/s)
+[TRAIN] epoch 185/256 batch loss: 4.6443 (avg 4.7754) (27.63 im/s)
+[TRAIN] epoch 185/256 batch loss: 4.7274 (avg 4.7719) (27.43 im/s)
+[TRAIN] epoch 185/256 batch loss: 4.8062 (avg 4.7704) (27.48 im/s)
+[TRAIN] epoch 185/256 batch loss: 4.8324 (avg 4.7688) (27.43 im/s)
+Epoch 184 validation: Recall@20: 0.5782, MRR@20: 0.2038 
+
+[TRAIN] epoch 186/256 batch loss: 4.8011 (avg 4.8011) (26.07 im/s)
+[TRAIN] epoch 186/256 batch loss: 4.7224 (avg 4.7699) (29.52 im/s)
+[TRAIN] epoch 186/256 batch loss: 4.7892 (avg 4.7713) (29.48 im/s)
+[TRAIN] epoch 186/256 batch loss: 4.7312 (avg 4.7738) (29.57 im/s)
+[TRAIN] epoch 186/256 batch loss: 4.7846 (avg 4.7765) (27.49 im/s)
+[TRAIN] epoch 186/256 batch loss: 4.8670 (avg 4.7706) (29.52 im/s)
+[TRAIN] epoch 186/256 batch loss: 4.8287 (avg 4.7694) (29.53 im/s)
+Epoch 185 validation: Recall@20: 0.5781, MRR@20: 0.2038 
+
+[TRAIN] epoch 187/256 batch loss: 4.8300 (avg 4.8300) (25.40 im/s)
+[TRAIN] epoch 187/256 batch loss: 4.8454 (avg 4.7859) (29.53 im/s)
+[TRAIN] epoch 187/256 batch loss: 4.9057 (avg 4.7764) (29.52 im/s)
+[TRAIN] epoch 187/256 batch loss: 4.7384 (avg 4.7724) (29.56 im/s)
+[TRAIN] epoch 187/256 batch loss: 4.8290 (avg 4.7712) (29.42 im/s)
+[TRAIN] epoch 187/256 batch loss: 4.8871 (avg 4.7702) (27.56 im/s)
+[TRAIN] epoch 187/256 batch loss: 4.8917 (avg 4.7727) (27.46 im/s)
+Epoch 186 validation: Recall@20: 0.5781, MRR@20: 0.2038 
+
+[TRAIN] epoch 188/256 batch loss: 4.7855 (avg 4.7855) (26.08 im/s)
+[TRAIN] epoch 188/256 batch loss: 4.8244 (avg 4.7792) (29.56 im/s)
+[TRAIN] epoch 188/256 batch loss: 4.6521 (avg 4.7676) (29.54 im/s)
+[TRAIN] epoch 188/256 batch loss: 4.7943 (avg 4.7658) (27.57 im/s)
+[TRAIN] epoch 188/256 batch loss: 4.9295 (avg 4.7679) (27.57 im/s)
+[TRAIN] epoch 188/256 batch loss: 4.8193 (avg 4.7710) (27.58 im/s)
+[TRAIN] epoch 188/256 batch loss: 4.6353 (avg 4.7690) (27.58 im/s)
+Epoch 187 validation: Recall@20: 0.5783, MRR@20: 0.2037 
+
+[TRAIN] epoch 189/256 batch loss: 4.9222 (avg 4.9222) (24.26 im/s)
+[TRAIN] epoch 189/256 batch loss: 4.8984 (avg 4.7722) (27.73 im/s)
+[TRAIN] epoch 189/256 batch loss: 4.6616 (avg 4.7705) (27.58 im/s)
+[TRAIN] epoch 189/256 batch loss: 4.9135 (avg 4.7688) (27.30 im/s)
+[TRAIN] epoch 189/256 batch loss: 4.8022 (avg 4.7689) (29.50 im/s)
+[TRAIN] epoch 189/256 batch loss: 4.6285 (avg 4.7673) (29.55 im/s)
+[TRAIN] epoch 189/256 batch loss: 4.9024 (avg 4.7675) (29.49 im/s)
+Epoch 188 validation: Recall@20: 0.5781, MRR@20: 0.2038 
+
+[TRAIN] epoch 190/256 batch loss: 4.7641 (avg 4.7641) (26.15 im/s)
+[TRAIN] epoch 190/256 batch loss: 4.7351 (avg 4.7671) (27.66 im/s)
+[TRAIN] epoch 190/256 batch loss: 4.8397 (avg 4.7704) (27.40 im/s)
+[TRAIN] epoch 190/256 batch loss: 4.8127 (avg 4.7726) (27.46 im/s)
+[TRAIN] epoch 190/256 batch loss: 4.7773 (avg 4.7729) (27.54 im/s)
+[TRAIN] epoch 190/256 batch loss: 4.7600 (avg 4.7728) (27.50 im/s)
+[TRAIN] epoch 190/256 batch loss: 4.7302 (avg 4.7706) (27.53 im/s)
+Epoch 189 validation: Recall@20: 0.5783, MRR@20: 0.2038 
+
+[TRAIN] epoch 191/256 batch loss: 4.7396 (avg 4.7396) (26.05 im/s)
+[TRAIN] epoch 191/256 batch loss: 4.9956 (avg 4.7716) (29.57 im/s)
+[TRAIN] epoch 191/256 batch loss: 4.9435 (avg 4.7732) (29.53 im/s)
+[TRAIN] epoch 191/256 batch loss: 4.6723 (avg 4.7703) (29.58 im/s)
+[TRAIN] epoch 191/256 batch loss: 4.9365 (avg 4.7683) (29.58 im/s)
+[TRAIN] epoch 191/256 batch loss: 4.7376 (avg 4.7709) (29.53 im/s)
+[TRAIN] epoch 191/256 batch loss: 4.7289 (avg 4.7713) (27.40 im/s)
+Epoch 190 validation: Recall@20: 0.5781, MRR@20: 0.2037 
+
+[TRAIN] epoch 192/256 batch loss: 4.6784 (avg 4.6784) (26.16 im/s)
+[TRAIN] epoch 192/256 batch loss: 4.9067 (avg 4.7714) (29.52 im/s)
+[TRAIN] epoch 192/256 batch loss: 5.0357 (avg 4.7649) (29.53 im/s)
+[TRAIN] epoch 192/256 batch loss: 4.7991 (avg 4.7687) (29.56 im/s)
+[TRAIN] epoch 192/256 batch loss: 4.8569 (avg 4.7676) (29.76 im/s)
+[TRAIN] epoch 192/256 batch loss: 4.7406 (avg 4.7651) (29.71 im/s)
+[TRAIN] epoch 192/256 batch loss: 4.8792 (avg 4.7680) (27.65 im/s)
+Epoch 191 validation: Recall@20: 0.5785, MRR@20: 0.2038 
+
+[TRAIN] epoch 193/256 batch loss: 4.7757 (avg 4.7757) (24.32 im/s)
+[TRAIN] epoch 193/256 batch loss: 4.8094 (avg 4.7706) (29.77 im/s)
+[TRAIN] epoch 193/256 batch loss: 4.8129 (avg 4.7703) (27.46 im/s)
+[TRAIN] epoch 193/256 batch loss: 4.8238 (avg 4.7680) (27.44 im/s)
+[TRAIN] epoch 193/256 batch loss: 4.8066 (avg 4.7700) (27.84 im/s)
+[TRAIN] epoch 193/256 batch loss: 4.7070 (avg 4.7697) (27.63 im/s)
+[TRAIN] epoch 193/256 batch loss: 4.8710 (avg 4.7677) (27.67 im/s)
+Epoch 192 validation: Recall@20: 0.5782, MRR@20: 0.2037 
+
+[TRAIN] epoch 194/256 batch loss: 4.8076 (avg 4.8076) (26.04 im/s)
+[TRAIN] epoch 194/256 batch loss: 4.6928 (avg 4.7615) (27.45 im/s)
+[TRAIN] epoch 194/256 batch loss: 4.9002 (avg 4.7668) (29.71 im/s)
+[TRAIN] epoch 194/256 batch loss: 4.7833 (avg 4.7685) (29.73 im/s)
+[TRAIN] epoch 194/256 batch loss: 4.6899 (avg 4.7672) (29.73 im/s)
+[TRAIN] epoch 194/256 batch loss: 4.6408 (avg 4.7688) (29.73 im/s)
+[TRAIN] epoch 194/256 batch loss: 4.7633 (avg 4.7678) (29.68 im/s)
+Epoch 193 validation: Recall@20: 0.5782, MRR@20: 0.2037 
+
+[TRAIN] epoch 195/256 batch loss: 4.8253 (avg 4.8253) (26.43 im/s)
+[TRAIN] epoch 195/256 batch loss: 4.9649 (avg 4.7617) (29.76 im/s)
+[TRAIN] epoch 195/256 batch loss: 4.7888 (avg 4.7613) (29.75 im/s)
+[TRAIN] epoch 195/256 batch loss: 4.7799 (avg 4.7589) (29.76 im/s)
+[TRAIN] epoch 195/256 batch loss: 4.8416 (avg 4.7622) (29.75 im/s)
+[TRAIN] epoch 195/256 batch loss: 4.9211 (avg 4.7646) (29.71 im/s)
+[TRAIN] epoch 195/256 batch loss: 4.7665 (avg 4.7665) (29.74 im/s)
+Epoch 194 validation: Recall@20: 0.5782, MRR@20: 0.2038 
+
+[TRAIN] epoch 196/256 batch loss: 4.7944 (avg 4.7944) (26.30 im/s)
+[TRAIN] epoch 196/256 batch loss: 4.6248 (avg 4.7737) (29.76 im/s)
+[TRAIN] epoch 196/256 batch loss: 4.6727 (avg 4.7706) (29.72 im/s)
+[TRAIN] epoch 196/256 batch loss: 4.7765 (avg 4.7690) (29.69 im/s)
+[TRAIN] epoch 196/256 batch loss: 4.7673 (avg 4.7705) (27.53 im/s)
+[TRAIN] epoch 196/256 batch loss: 4.7469 (avg 4.7689) (27.46 im/s)
+[TRAIN] epoch 196/256 batch loss: 4.7103 (avg 4.7681) (27.79 im/s)
+Epoch 195 validation: Recall@20: 0.5781, MRR@20: 0.2038 
+
+[TRAIN] epoch 197/256 batch loss: 4.8094 (avg 4.8094) (25.64 im/s)
+[TRAIN] epoch 197/256 batch loss: 4.9326 (avg 4.7681) (27.62 im/s)
+[TRAIN] epoch 197/256 batch loss: 4.7103 (avg 4.7666) (27.37 im/s)
+[TRAIN] epoch 197/256 batch loss: 4.8389 (avg 4.7684) (27.58 im/s)
+[TRAIN] epoch 197/256 batch loss: 4.8126 (avg 4.7677) (27.65 im/s)
+[TRAIN] epoch 197/256 batch loss: 4.7957 (avg 4.7669) (29.75 im/s)
+[TRAIN] epoch 197/256 batch loss: 4.7025 (avg 4.7665) (27.47 im/s)
+Epoch 196 validation: Recall@20: 0.5783, MRR@20: 0.2037 
+
+[TRAIN] epoch 198/256 batch loss: 4.6757 (avg 4.6757) (23.95 im/s)
+[TRAIN] epoch 198/256 batch loss: 4.7858 (avg 4.7600) (27.54 im/s)
+[TRAIN] epoch 198/256 batch loss: 4.7436 (avg 4.7635) (27.75 im/s)
+[TRAIN] epoch 198/256 batch loss: 4.8696 (avg 4.7696) (27.21 im/s)
+[TRAIN] epoch 198/256 batch loss: 4.7850 (avg 4.7702) (27.46 im/s)
+[TRAIN] epoch 198/256 batch loss: 4.7033 (avg 4.7697) (27.57 im/s)
+[TRAIN] epoch 198/256 batch loss: 4.9383 (avg 4.7697) (27.47 im/s)
+Epoch 197 validation: Recall@20: 0.5779, MRR@20: 0.2037 
+
+[TRAIN] epoch 199/256 batch loss: 4.7920 (avg 4.7920) (24.65 im/s)
+[TRAIN] epoch 199/256 batch loss: 4.6671 (avg 4.7822) (27.48 im/s)
+[TRAIN] epoch 199/256 batch loss: 4.5874 (avg 4.7720) (27.51 im/s)
+[TRAIN] epoch 199/256 batch loss: 4.9929 (avg 4.7707) (27.66 im/s)
+[TRAIN] epoch 199/256 batch loss: 4.9249 (avg 4.7705) (27.53 im/s)
+[TRAIN] epoch 199/256 batch loss: 4.9468 (avg 4.7710) (27.46 im/s)
+[TRAIN] epoch 199/256 batch loss: 4.6906 (avg 4.7702) (29.77 im/s)
+Epoch 198 validation: Recall@20: 0.5782, MRR@20: 0.2038 
+
+[TRAIN] epoch 200/256 batch loss: 4.6861 (avg 4.6861) (25.66 im/s)
+[TRAIN] epoch 200/256 batch loss: 4.7689 (avg 4.7641) (27.56 im/s)
+[TRAIN] epoch 200/256 batch loss: 4.7082 (avg 4.7643) (27.60 im/s)
+[TRAIN] epoch 200/256 batch loss: 4.7492 (avg 4.7620) (27.16 im/s)
+[TRAIN] epoch 200/256 batch loss: 4.7614 (avg 4.7659) (27.59 im/s)
+[TRAIN] epoch 200/256 batch loss: 4.8247 (avg 4.7661) (27.67 im/s)
+[TRAIN] epoch 200/256 batch loss: 4.7721 (avg 4.7680) (27.56 im/s)
+Epoch 199 validation: Recall@20: 0.5784, MRR@20: 0.2038 
+
+[TRAIN] epoch 201/256 batch loss: 4.6572 (avg 4.6572) (25.90 im/s)
+[TRAIN] epoch 201/256 batch loss: 4.6941 (avg 4.7744) (29.73 im/s)
+[TRAIN] epoch 201/256 batch loss: 4.7716 (avg 4.7697) (27.46 im/s)
+[TRAIN] epoch 201/256 batch loss: 4.7503 (avg 4.7684) (27.44 im/s)
+[TRAIN] epoch 201/256 batch loss: 4.5702 (avg 4.7669) (29.56 im/s)
+[TRAIN] epoch 201/256 batch loss: 4.8632 (avg 4.7691) (29.51 im/s)
+[TRAIN] epoch 201/256 batch loss: 4.5431 (avg 4.7710) (29.55 im/s)
+Epoch 200 validation: Recall@20: 0.5781, MRR@20: 0.2037 
+
+[TRAIN] epoch 202/256 batch loss: 4.6419 (avg 4.6419) (25.96 im/s)
+[TRAIN] epoch 202/256 batch loss: 4.8160 (avg 4.7588) (29.52 im/s)
+[TRAIN] epoch 202/256 batch loss: 4.7019 (avg 4.7694) (29.44 im/s)
+[TRAIN] epoch 202/256 batch loss: 4.8517 (avg 4.7706) (29.56 im/s)
+[TRAIN] epoch 202/256 batch loss: 4.6906 (avg 4.7683) (29.55 im/s)
+[TRAIN] epoch 202/256 batch loss: 4.7686 (avg 4.7682) (29.51 im/s)
+[TRAIN] epoch 202/256 batch loss: 4.8329 (avg 4.7699) (27.02 im/s)
+Epoch 201 validation: Recall@20: 0.5781, MRR@20: 0.2037 
+
+[TRAIN] epoch 203/256 batch loss: 4.9581 (avg 4.9581) (25.70 im/s)
+[TRAIN] epoch 203/256 batch loss: 4.7820 (avg 4.7772) (27.70 im/s)
+[TRAIN] epoch 203/256 batch loss: 4.5860 (avg 4.7669) (27.69 im/s)
+[TRAIN] epoch 203/256 batch loss: 4.8798 (avg 4.7670) (27.14 im/s)
+[TRAIN] epoch 203/256 batch loss: 4.8028 (avg 4.7687) (27.50 im/s)
+[TRAIN] epoch 203/256 batch loss: 4.8490 (avg 4.7679) (27.30 im/s)
+[TRAIN] epoch 203/256 batch loss: 4.7946 (avg 4.7687) (29.75 im/s)
+Epoch 202 validation: Recall@20: 0.5783, MRR@20: 0.2037 
+
+[TRAIN] epoch 204/256 batch loss: 4.8107 (avg 4.8107) (25.75 im/s)
+[TRAIN] epoch 204/256 batch loss: 4.7684 (avg 4.7653) (29.51 im/s)
+[TRAIN] epoch 204/256 batch loss: 4.5571 (avg 4.7698) (27.44 im/s)
+[TRAIN] epoch 204/256 batch loss: 4.8335 (avg 4.7712) (27.50 im/s)
+[TRAIN] epoch 204/256 batch loss: 4.6388 (avg 4.7689) (29.53 im/s)
+[TRAIN] epoch 204/256 batch loss: 4.6779 (avg 4.7667) (27.48 im/s)
+[TRAIN] epoch 204/256 batch loss: 4.6416 (avg 4.7664) (27.32 im/s)
+Epoch 203 validation: Recall@20: 0.5784, MRR@20: 0.2037 
+
+[TRAIN] epoch 205/256 batch loss: 4.9715 (avg 4.9715) (25.52 im/s)
+[TRAIN] epoch 205/256 batch loss: 4.6545 (avg 4.7703) (27.33 im/s)
+[TRAIN] epoch 205/256 batch loss: 4.8938 (avg 4.7638) (27.27 im/s)
+[TRAIN] epoch 205/256 batch loss: 5.0439 (avg 4.7683) (27.60 im/s)
+[TRAIN] epoch 205/256 batch loss: 4.7439 (avg 4.7690) (27.63 im/s)
+[TRAIN] epoch 205/256 batch loss: 4.7591 (avg 4.7677) (26.90 im/s)
+[TRAIN] epoch 205/256 batch loss: 4.9727 (avg 4.7689) (27.84 im/s)
+Epoch 204 validation: Recall@20: 0.5782, MRR@20: 0.2037 
+
+[TRAIN] epoch 206/256 batch loss: 5.0249 (avg 5.0249) (24.14 im/s)
+[TRAIN] epoch 206/256 batch loss: 4.6162 (avg 4.7695) (27.65 im/s)
+[TRAIN] epoch 206/256 batch loss: 4.7913 (avg 4.7697) (27.09 im/s)
+[TRAIN] epoch 206/256 batch loss: 4.7655 (avg 4.7716) (29.74 im/s)
+[TRAIN] epoch 206/256 batch loss: 4.7929 (avg 4.7681) (27.56 im/s)
+[TRAIN] epoch 206/256 batch loss: 4.6710 (avg 4.7677) (27.43 im/s)
+[TRAIN] epoch 206/256 batch loss: 4.5684 (avg 4.7674) (27.50 im/s)
+Epoch 205 validation: Recall@20: 0.5780, MRR@20: 0.2037 
+
+[TRAIN] epoch 207/256 batch loss: 4.6867 (avg 4.6867) (26.11 im/s)
+[TRAIN] epoch 207/256 batch loss: 4.8365 (avg 4.7541) (27.30 im/s)
+[TRAIN] epoch 207/256 batch loss: 4.7317 (avg 4.7623) (27.34 im/s)
+[TRAIN] epoch 207/256 batch loss: 4.8231 (avg 4.7661) (27.71 im/s)
+[TRAIN] epoch 207/256 batch loss: 4.8908 (avg 4.7662) (27.15 im/s)
+[TRAIN] epoch 207/256 batch loss: 4.6807 (avg 4.7673) (28.66 im/s)
+[TRAIN] epoch 207/256 batch loss: 4.7972 (avg 4.7677) (27.46 im/s)
+Epoch 206 validation: Recall@20: 0.5782, MRR@20: 0.2038 
+
+[TRAIN] epoch 208/256 batch loss: 4.7364 (avg 4.7364) (23.71 im/s)
+[TRAIN] epoch 208/256 batch loss: 4.9988 (avg 4.7751) (27.47 im/s)
+[TRAIN] epoch 208/256 batch loss: 4.6037 (avg 4.7695) (27.32 im/s)
+[TRAIN] epoch 208/256 batch loss: 5.0227 (avg 4.7723) (27.18 im/s)
+[TRAIN] epoch 208/256 batch loss: 4.7690 (avg 4.7692) (29.78 im/s)
+[TRAIN] epoch 208/256 batch loss: 4.8190 (avg 4.7717) (29.62 im/s)
+[TRAIN] epoch 208/256 batch loss: 4.6873 (avg 4.7689) (29.65 im/s)
+Epoch 207 validation: Recall@20: 0.5783, MRR@20: 0.2037 
+
+[TRAIN] epoch 209/256 batch loss: 4.6464 (avg 4.6464) (26.31 im/s)
+[TRAIN] epoch 209/256 batch loss: 4.8284 (avg 4.7750) (29.77 im/s)
+[TRAIN] epoch 209/256 batch loss: 4.7619 (avg 4.7747) (29.80 im/s)
+[TRAIN] epoch 209/256 batch loss: 4.7951 (avg 4.7718) (29.76 im/s)
+[TRAIN] epoch 209/256 batch loss: 4.6687 (avg 4.7686) (29.66 im/s)
+[TRAIN] epoch 209/256 batch loss: 4.9268 (avg 4.7681) (29.66 im/s)
+[TRAIN] epoch 209/256 batch loss: 4.7748 (avg 4.7705) (29.76 im/s)
+Epoch 208 validation: Recall@20: 0.5779, MRR@20: 0.2038 
+
+[TRAIN] epoch 210/256 batch loss: 4.8303 (avg 4.8303) (26.05 im/s)
+[TRAIN] epoch 210/256 batch loss: 4.8440 (avg 4.7773) (29.71 im/s)
+[TRAIN] epoch 210/256 batch loss: 4.7447 (avg 4.7742) (29.77 im/s)
+[TRAIN] epoch 210/256 batch loss: 4.8275 (avg 4.7714) (29.74 im/s)
+[TRAIN] epoch 210/256 batch loss: 4.8346 (avg 4.7696) (29.78 im/s)
+[TRAIN] epoch 210/256 batch loss: 4.8343 (avg 4.7718) (29.75 im/s)
+[TRAIN] epoch 210/256 batch loss: 4.8995 (avg 4.7700) (29.76 im/s)
+Epoch 209 validation: Recall@20: 0.5782, MRR@20: 0.2037 
+
+[TRAIN] epoch 211/256 batch loss: 4.7352 (avg 4.7352) (24.57 im/s)
+[TRAIN] epoch 211/256 batch loss: 4.6613 (avg 4.7510) (27.62 im/s)
+[TRAIN] epoch 211/256 batch loss: 4.6067 (avg 4.7651) (27.09 im/s)
+[TRAIN] epoch 211/256 batch loss: 4.9101 (avg 4.7657) (27.47 im/s)
+[TRAIN] epoch 211/256 batch loss: 4.7874 (avg 4.7647) (27.56 im/s)
+[TRAIN] epoch 211/256 batch loss: 4.8137 (avg 4.7668) (29.56 im/s)
+[TRAIN] epoch 211/256 batch loss: 4.7338 (avg 4.7681) (27.69 im/s)
+Epoch 210 validation: Recall@20: 0.5781, MRR@20: 0.2037 
+
+[TRAIN] epoch 212/256 batch loss: 4.6255 (avg 4.6255) (24.12 im/s)
+[TRAIN] epoch 212/256 batch loss: 4.7808 (avg 4.7593) (27.45 im/s)
+[TRAIN] epoch 212/256 batch loss: 4.7829 (avg 4.7728) (27.43 im/s)
+[TRAIN] epoch 212/256 batch loss: 4.7489 (avg 4.7728) (27.46 im/s)
+[TRAIN] epoch 212/256 batch loss: 4.7481 (avg 4.7725) (27.49 im/s)
+[TRAIN] epoch 212/256 batch loss: 4.6202 (avg 4.7724) (27.39 im/s)
+[TRAIN] epoch 212/256 batch loss: 4.8412 (avg 4.7715) (27.36 im/s)
+Epoch 211 validation: Recall@20: 0.5780, MRR@20: 0.2038 
+
+[TRAIN] epoch 213/256 batch loss: 4.8161 (avg 4.8161) (23.85 im/s)
+[TRAIN] epoch 213/256 batch loss: 4.9628 (avg 4.7612) (27.52 im/s)
+[TRAIN] epoch 213/256 batch loss: 4.8913 (avg 4.7620) (27.63 im/s)
+[TRAIN] epoch 213/256 batch loss: 4.7019 (avg 4.7611) (27.55 im/s)
+[TRAIN] epoch 213/256 batch loss: 4.6807 (avg 4.7616) (27.47 im/s)
+[TRAIN] epoch 213/256 batch loss: 4.6556 (avg 4.7635) (27.54 im/s)
+[TRAIN] epoch 213/256 batch loss: 4.8305 (avg 4.7657) (27.52 im/s)
+Epoch 212 validation: Recall@20: 0.5779, MRR@20: 0.2037 
+
+[TRAIN] epoch 214/256 batch loss: 4.9102 (avg 4.9102) (24.52 im/s)
+[TRAIN] epoch 214/256 batch loss: 4.8063 (avg 4.7706) (29.55 im/s)
+[TRAIN] epoch 214/256 batch loss: 4.7104 (avg 4.7735) (27.47 im/s)
+[TRAIN] epoch 214/256 batch loss: 4.7313 (avg 4.7677) (27.46 im/s)
+[TRAIN] epoch 214/256 batch loss: 4.5976 (avg 4.7675) (27.46 im/s)
+[TRAIN] epoch 214/256 batch loss: 4.8832 (avg 4.7696) (28.83 im/s)
+[TRAIN] epoch 214/256 batch loss: 4.7582 (avg 4.7685) (27.46 im/s)
+Epoch 213 validation: Recall@20: 0.5780, MRR@20: 0.2037 
+
+[TRAIN] epoch 215/256 batch loss: 4.7093 (avg 4.7093) (25.49 im/s)
+[TRAIN] epoch 215/256 batch loss: 4.7136 (avg 4.7774) (27.47 im/s)
+[TRAIN] epoch 215/256 batch loss: 4.6991 (avg 4.7730) (27.49 im/s)
+[TRAIN] epoch 215/256 batch loss: 4.8638 (avg 4.7703) (27.54 im/s)
+[TRAIN] epoch 215/256 batch loss: 4.8126 (avg 4.7697) (27.46 im/s)
+[TRAIN] epoch 215/256 batch loss: 4.7070 (avg 4.7684) (27.52 im/s)
+[TRAIN] epoch 215/256 batch loss: 4.9310 (avg 4.7693) (27.57 im/s)
+Epoch 214 validation: Recall@20: 0.5781, MRR@20: 0.2037 
+
+[TRAIN] epoch 216/256 batch loss: 4.7355 (avg 4.7355) (25.75 im/s)
+[TRAIN] epoch 216/256 batch loss: 4.8489 (avg 4.7615) (27.51 im/s)
+[TRAIN] epoch 216/256 batch loss: 4.8643 (avg 4.7639) (27.60 im/s)
+[TRAIN] epoch 216/256 batch loss: 4.8947 (avg 4.7660) (26.71 im/s)
+[TRAIN] epoch 216/256 batch loss: 4.9185 (avg 4.7670) (29.21 im/s)
+[TRAIN] epoch 216/256 batch loss: 4.8912 (avg 4.7679) (27.36 im/s)
+[TRAIN] epoch 216/256 batch loss: 4.9019 (avg 4.7688) (29.57 im/s)
+Epoch 215 validation: Recall@20: 0.5783, MRR@20: 0.2038 
+
+[TRAIN] epoch 217/256 batch loss: 4.7074 (avg 4.7074) (26.11 im/s)
+[TRAIN] epoch 217/256 batch loss: 4.8135 (avg 4.7713) (29.57 im/s)
+[TRAIN] epoch 217/256 batch loss: 4.8788 (avg 4.7724) (29.54 im/s)
+[TRAIN] epoch 217/256 batch loss: 4.7523 (avg 4.7682) (29.59 im/s)
+[TRAIN] epoch 217/256 batch loss: 4.6849 (avg 4.7709) (29.57 im/s)
+[TRAIN] epoch 217/256 batch loss: 4.6744 (avg 4.7725) (29.58 im/s)
+[TRAIN] epoch 217/256 batch loss: 4.8118 (avg 4.7703) (29.57 im/s)
+Epoch 216 validation: Recall@20: 0.5779, MRR@20: 0.2037 
+
+[TRAIN] epoch 218/256 batch loss: 4.8579 (avg 4.8579) (25.73 im/s)
+[TRAIN] epoch 218/256 batch loss: 4.6615 (avg 4.7692) (29.57 im/s)
+[TRAIN] epoch 218/256 batch loss: 4.8972 (avg 4.7670) (29.57 im/s)
+[TRAIN] epoch 218/256 batch loss: 4.8675 (avg 4.7699) (29.59 im/s)
+[TRAIN] epoch 218/256 batch loss: 4.5819 (avg 4.7689) (29.59 im/s)
+[TRAIN] epoch 218/256 batch loss: 4.7925 (avg 4.7692) (27.58 im/s)
+[TRAIN] epoch 218/256 batch loss: 4.8340 (avg 4.7699) (27.46 im/s)
+Epoch 217 validation: Recall@20: 0.5781, MRR@20: 0.2038 
+
+[TRAIN] epoch 219/256 batch loss: 4.7560 (avg 4.7560) (24.23 im/s)
+[TRAIN] epoch 219/256 batch loss: 4.9856 (avg 4.7655) (29.55 im/s)
+[TRAIN] epoch 219/256 batch loss: 4.8407 (avg 4.7586) (27.66 im/s)
+[TRAIN] epoch 219/256 batch loss: 4.8233 (avg 4.7618) (27.79 im/s)
+[TRAIN] epoch 219/256 batch loss: 4.8269 (avg 4.7653) (29.54 im/s)
+[TRAIN] epoch 219/256 batch loss: 4.7222 (avg 4.7652) (29.57 im/s)
+[TRAIN] epoch 219/256 batch loss: 4.7197 (avg 4.7675) (29.53 im/s)
+Epoch 218 validation: Recall@20: 0.5781, MRR@20: 0.2037 
+
+[TRAIN] epoch 220/256 batch loss: 4.6418 (avg 4.6418) (26.03 im/s)
+[TRAIN] epoch 220/256 batch loss: 4.5362 (avg 4.7687) (29.56 im/s)
+[TRAIN] epoch 220/256 batch loss: 4.8391 (avg 4.7715) (29.57 im/s)
+[TRAIN] epoch 220/256 batch loss: 4.8587 (avg 4.7698) (27.69 im/s)
+[TRAIN] epoch 220/256 batch loss: 4.8928 (avg 4.7735) (27.86 im/s)
+[TRAIN] epoch 220/256 batch loss: 4.6784 (avg 4.7702) (27.66 im/s)
+[TRAIN] epoch 220/256 batch loss: 4.6659 (avg 4.7701) (27.87 im/s)
+Epoch 219 validation: Recall@20: 0.5782, MRR@20: 0.2037 
+
+[TRAIN] epoch 221/256 batch loss: 4.8008 (avg 4.8008) (25.32 im/s)
+[TRAIN] epoch 221/256 batch loss: 4.7910 (avg 4.7685) (29.57 im/s)
+[TRAIN] epoch 221/256 batch loss: 5.0122 (avg 4.7712) (27.39 im/s)
+[TRAIN] epoch 221/256 batch loss: 4.7278 (avg 4.7693) (27.34 im/s)
+[TRAIN] epoch 221/256 batch loss: 4.8088 (avg 4.7690) (26.87 im/s)
+[TRAIN] epoch 221/256 batch loss: 4.7038 (avg 4.7670) (27.24 im/s)
+[TRAIN] epoch 221/256 batch loss: 4.8541 (avg 4.7680) (27.59 im/s)
+Epoch 220 validation: Recall@20: 0.5780, MRR@20: 0.2037 
+
+[TRAIN] epoch 222/256 batch loss: 4.7238 (avg 4.7238) (26.19 im/s)
+[TRAIN] epoch 222/256 batch loss: 4.7847 (avg 4.7662) (27.46 im/s)
+[TRAIN] epoch 222/256 batch loss: 4.6971 (avg 4.7657) (27.53 im/s)
+[TRAIN] epoch 222/256 batch loss: 4.7855 (avg 4.7649) (27.54 im/s)
+[TRAIN] epoch 222/256 batch loss: 4.9117 (avg 4.7645) (27.45 im/s)
+[TRAIN] epoch 222/256 batch loss: 4.8214 (avg 4.7647) (27.51 im/s)
+[TRAIN] epoch 222/256 batch loss: 4.7506 (avg 4.7656) (27.50 im/s)
+Epoch 221 validation: Recall@20: 0.5781, MRR@20: 0.2038 
+
+[TRAIN] epoch 223/256 batch loss: 4.6632 (avg 4.6632) (24.20 im/s)
+[TRAIN] epoch 223/256 batch loss: 4.7904 (avg 4.7634) (27.58 im/s)
+[TRAIN] epoch 223/256 batch loss: 4.7449 (avg 4.7649) (29.75 im/s)
+[TRAIN] epoch 223/256 batch loss: 4.8748 (avg 4.7617) (29.76 im/s)
+[TRAIN] epoch 223/256 batch loss: 4.5439 (avg 4.7658) (29.78 im/s)
+[TRAIN] epoch 223/256 batch loss: 4.8413 (avg 4.7652) (29.77 im/s)
+[TRAIN] epoch 223/256 batch loss: 4.7918 (avg 4.7660) (29.73 im/s)
+Epoch 222 validation: Recall@20: 0.5780, MRR@20: 0.2038 
+
+[TRAIN] epoch 224/256 batch loss: 4.8843 (avg 4.8843) (24.26 im/s)
+[TRAIN] epoch 224/256 batch loss: 4.7654 (avg 4.7691) (26.43 im/s)
+[TRAIN] epoch 224/256 batch loss: 4.7982 (avg 4.7710) (26.95 im/s)
+[TRAIN] epoch 224/256 batch loss: 4.8630 (avg 4.7668) (26.67 im/s)
+[TRAIN] epoch 224/256 batch loss: 4.8659 (avg 4.7694) (27.62 im/s)
+[TRAIN] epoch 224/256 batch loss: 4.6452 (avg 4.7682) (26.99 im/s)
+[TRAIN] epoch 224/256 batch loss: 4.8207 (avg 4.7672) (27.25 im/s)
+Epoch 223 validation: Recall@20: 0.5780, MRR@20: 0.2038 
+
+[TRAIN] epoch 225/256 batch loss: 4.7638 (avg 4.7638) (24.60 im/s)
+[TRAIN] epoch 225/256 batch loss: 4.8514 (avg 4.7655) (26.60 im/s)
+[TRAIN] epoch 225/256 batch loss: 4.5965 (avg 4.7658) (26.88 im/s)
+[TRAIN] epoch 225/256 batch loss: 4.6446 (avg 4.7633) (25.88 im/s)
+[TRAIN] epoch 225/256 batch loss: 4.6767 (avg 4.7643) (27.13 im/s)
+[TRAIN] epoch 225/256 batch loss: 4.8464 (avg 4.7644) (27.12 im/s)
+[TRAIN] epoch 225/256 batch loss: 4.9863 (avg 4.7660) (24.86 im/s)
+Epoch 224 validation: Recall@20: 0.5779, MRR@20: 0.2037 
+
+[TRAIN] epoch 226/256 batch loss: 4.7433 (avg 4.7433) (22.42 im/s)
+[TRAIN] epoch 226/256 batch loss: 4.6747 (avg 4.7683) (27.19 im/s)
+[TRAIN] epoch 226/256 batch loss: 4.7362 (avg 4.7680) (26.68 im/s)
+[TRAIN] epoch 226/256 batch loss: 4.8124 (avg 4.7671) (28.47 im/s)
+[TRAIN] epoch 226/256 batch loss: 4.9279 (avg 4.7711) (27.22 im/s)
+[TRAIN] epoch 226/256 batch loss: 4.7800 (avg 4.7691) (27.32 im/s)
+[TRAIN] epoch 226/256 batch loss: 4.7665 (avg 4.7686) (28.44 im/s)
+Epoch 225 validation: Recall@20: 0.5782, MRR@20: 0.2037 
+
+[TRAIN] epoch 227/256 batch loss: 4.8354 (avg 4.8354) (23.95 im/s)
+[TRAIN] epoch 227/256 batch loss: 4.8072 (avg 4.7803) (26.98 im/s)
+[TRAIN] epoch 227/256 batch loss: 4.6153 (avg 4.7703) (27.02 im/s)
+[TRAIN] epoch 227/256 batch loss: 4.6654 (avg 4.7671) (26.95 im/s)
+[TRAIN] epoch 227/256 batch loss: 4.6756 (avg 4.7666) (28.60 im/s)
+[TRAIN] epoch 227/256 batch loss: 4.8136 (avg 4.7655) (27.33 im/s)
+[TRAIN] epoch 227/256 batch loss: 4.6644 (avg 4.7660) (28.44 im/s)
+Epoch 226 validation: Recall@20: 0.5779, MRR@20: 0.2036 
+
+[TRAIN] epoch 228/256 batch loss: 4.8057 (avg 4.8057) (24.33 im/s)
+[TRAIN] epoch 228/256 batch loss: 4.6937 (avg 4.7537) (26.83 im/s)
+[TRAIN] epoch 228/256 batch loss: 4.7016 (avg 4.7577) (27.19 im/s)
+[TRAIN] epoch 228/256 batch loss: 4.7542 (avg 4.7631) (25.13 im/s)
+[TRAIN] epoch 228/256 batch loss: 4.7964 (avg 4.7643) (26.52 im/s)
+[TRAIN] epoch 228/256 batch loss: 4.7987 (avg 4.7674) (26.70 im/s)
+[TRAIN] epoch 228/256 batch loss: 4.7401 (avg 4.7690) (26.73 im/s)
+Epoch 227 validation: Recall@20: 0.5781, MRR@20: 0.2037 
+
+[TRAIN] epoch 229/256 batch loss: 4.7033 (avg 4.7033) (23.61 im/s)
+[TRAIN] epoch 229/256 batch loss: 4.6148 (avg 4.7672) (27.07 im/s)
+[TRAIN] epoch 229/256 batch loss: 4.7282 (avg 4.7659) (26.93 im/s)
+[TRAIN] epoch 229/256 batch loss: 4.9696 (avg 4.7659) (27.10 im/s)
+[TRAIN] epoch 229/256 batch loss: 4.7773 (avg 4.7643) (27.98 im/s)
+[TRAIN] epoch 229/256 batch loss: 4.6895 (avg 4.7655) (27.29 im/s)
+[TRAIN] epoch 229/256 batch loss: 4.5059 (avg 4.7661) (26.85 im/s)
+Epoch 228 validation: Recall@20: 0.5781, MRR@20: 0.2037 
+
+[TRAIN] epoch 230/256 batch loss: 4.8068 (avg 4.8068) (24.47 im/s)
+[TRAIN] epoch 230/256 batch loss: 4.6983 (avg 4.7645) (26.99 im/s)
+[TRAIN] epoch 230/256 batch loss: 4.7403 (avg 4.7663) (26.43 im/s)
+[TRAIN] epoch 230/256 batch loss: 4.7709 (avg 4.7674) (26.32 im/s)
+[TRAIN] epoch 230/256 batch loss: 4.9442 (avg 4.7683) (27.79 im/s)
+[TRAIN] epoch 230/256 batch loss: 4.7325 (avg 4.7661) (26.64 im/s)
+[TRAIN] epoch 230/256 batch loss: 4.7721 (avg 4.7666) (26.72 im/s)
+Epoch 229 validation: Recall@20: 0.5782, MRR@20: 0.2037 
+
+[TRAIN] epoch 231/256 batch loss: 4.7074 (avg 4.7074) (24.29 im/s)
+[TRAIN] epoch 231/256 batch loss: 4.7006 (avg 4.7539) (27.07 im/s)
+[TRAIN] epoch 231/256 batch loss: 4.9860 (avg 4.7599) (26.89 im/s)
+[TRAIN] epoch 231/256 batch loss: 4.8324 (avg 4.7600) (27.39 im/s)
+[TRAIN] epoch 231/256 batch loss: 4.8240 (avg 4.7624) (27.04 im/s)
+[TRAIN] epoch 231/256 batch loss: 4.8857 (avg 4.7647) (26.97 im/s)
+[TRAIN] epoch 231/256 batch loss: 4.8369 (avg 4.7671) (28.04 im/s)
+Epoch 230 validation: Recall@20: 0.5781, MRR@20: 0.2037 
+
+[TRAIN] epoch 232/256 batch loss: 4.8952 (avg 4.8952) (23.76 im/s)
+[TRAIN] epoch 232/256 batch loss: 4.8683 (avg 4.7690) (27.81 im/s)
+[TRAIN] epoch 232/256 batch loss: 4.8727 (avg 4.7657) (26.45 im/s)
+[TRAIN] epoch 232/256 batch loss: 4.5496 (avg 4.7700) (28.02 im/s)
+[TRAIN] epoch 232/256 batch loss: 4.8302 (avg 4.7680) (25.97 im/s)
+[TRAIN] epoch 232/256 batch loss: 4.6018 (avg 4.7703) (26.48 im/s)
+[TRAIN] epoch 232/256 batch loss: 4.6247 (avg 4.7701) (26.91 im/s)
+Epoch 231 validation: Recall@20: 0.5782, MRR@20: 0.2037 
+
+[TRAIN] epoch 233/256 batch loss: 4.7433 (avg 4.7433) (24.09 im/s)
+[TRAIN] epoch 233/256 batch loss: 4.9956 (avg 4.7660) (27.39 im/s)
+[TRAIN] epoch 233/256 batch loss: 4.7924 (avg 4.7583) (27.57 im/s)
+[TRAIN] epoch 233/256 batch loss: 4.7024 (avg 4.7605) (27.96 im/s)
+[TRAIN] epoch 233/256 batch loss: 4.8024 (avg 4.7612) (27.60 im/s)
+[TRAIN] epoch 233/256 batch loss: 4.7558 (avg 4.7639) (27.36 im/s)
+[TRAIN] epoch 233/256 batch loss: 4.8999 (avg 4.7653) (28.11 im/s)
+Epoch 232 validation: Recall@20: 0.5781, MRR@20: 0.2037 
+
+[TRAIN] epoch 234/256 batch loss: 4.6403 (avg 4.6403) (23.22 im/s)
+[TRAIN] epoch 234/256 batch loss: 4.6547 (avg 4.7466) (26.57 im/s)
+[TRAIN] epoch 234/256 batch loss: 4.6376 (avg 4.7592) (26.97 im/s)
+[TRAIN] epoch 234/256 batch loss: 4.8345 (avg 4.7614) (28.46 im/s)
+[TRAIN] epoch 234/256 batch loss: 4.6302 (avg 4.7611) (27.03 im/s)
+[TRAIN] epoch 234/256 batch loss: 4.7151 (avg 4.7637) (26.78 im/s)
+[TRAIN] epoch 234/256 batch loss: 4.7566 (avg 4.7652) (26.60 im/s)
+Epoch 233 validation: Recall@20: 0.5782, MRR@20: 0.2037 
+
+[TRAIN] epoch 235/256 batch loss: 4.7023 (avg 4.7023) (25.00 im/s)
+[TRAIN] epoch 235/256 batch loss: 4.9031 (avg 4.7774) (27.53 im/s)
+[TRAIN] epoch 235/256 batch loss: 4.6429 (avg 4.7679) (26.55 im/s)
+[TRAIN] epoch 235/256 batch loss: 4.9992 (avg 4.7653) (26.74 im/s)
+[TRAIN] epoch 235/256 batch loss: 4.8423 (avg 4.7636) (27.38 im/s)
+[TRAIN] epoch 235/256 batch loss: 4.6778 (avg 4.7643) (26.92 im/s)
+[TRAIN] epoch 235/256 batch loss: 4.7803 (avg 4.7648) (27.25 im/s)
+Epoch 234 validation: Recall@20: 0.5782, MRR@20: 0.2037 
+
+[TRAIN] epoch 236/256 batch loss: 4.7583 (avg 4.7583) (22.77 im/s)
+[TRAIN] epoch 236/256 batch loss: 4.7137 (avg 4.7453) (15.30 im/s)
+[TRAIN] epoch 236/256 batch loss: 4.9556 (avg 4.7612) (26.53 im/s)
+[TRAIN] epoch 236/256 batch loss: 4.5911 (avg 4.7653) (26.49 im/s)
+[TRAIN] epoch 236/256 batch loss: 4.7383 (avg 4.7652) (26.09 im/s)
+[TRAIN] epoch 236/256 batch loss: 4.7938 (avg 4.7679) (26.73 im/s)
+[TRAIN] epoch 236/256 batch loss: 4.8336 (avg 4.7680) (27.35 im/s)
+Epoch 235 validation: Recall@20: 0.5781, MRR@20: 0.2037 
+
+[TRAIN] epoch 237/256 batch loss: 4.7106 (avg 4.7106) (24.86 im/s)
+[TRAIN] epoch 237/256 batch loss: 4.8045 (avg 4.7576) (27.58 im/s)
+[TRAIN] epoch 237/256 batch loss: 4.6006 (avg 4.7611) (26.15 im/s)
+[TRAIN] epoch 237/256 batch loss: 4.5870 (avg 4.7631) (26.72 im/s)
+[TRAIN] epoch 237/256 batch loss: 4.7729 (avg 4.7648) (27.13 im/s)
+[TRAIN] epoch 237/256 batch loss: 4.6687 (avg 4.7648) (27.13 im/s)
+[TRAIN] epoch 237/256 batch loss: 4.6972 (avg 4.7652) (26.70 im/s)
+Epoch 236 validation: Recall@20: 0.5781, MRR@20: 0.2037 
+
+[TRAIN] epoch 238/256 batch loss: 4.9757 (avg 4.9757) (24.17 im/s)
+[TRAIN] epoch 238/256 batch loss: 4.7971 (avg 4.7630) (26.93 im/s)
+[TRAIN] epoch 238/256 batch loss: 4.7357 (avg 4.7670) (26.72 im/s)
+[TRAIN] epoch 238/256 batch loss: 4.4585 (avg 4.7669) (26.70 im/s)
+[TRAIN] epoch 238/256 batch loss: 4.8008 (avg 4.7699) (26.93 im/s)
+[TRAIN] epoch 238/256 batch loss: 4.9033 (avg 4.7680) (26.43 im/s)
+[TRAIN] epoch 238/256 batch loss: 4.5405 (avg 4.7675) (26.66 im/s)
+Epoch 237 validation: Recall@20: 0.5782, MRR@20: 0.2038 
+
+[TRAIN] epoch 239/256 batch loss: 4.6479 (avg 4.6479) (23.63 im/s)
+[TRAIN] epoch 239/256 batch loss: 4.7689 (avg 4.7759) (27.07 im/s)
+[TRAIN] epoch 239/256 batch loss: 4.8580 (avg 4.7682) (27.33 im/s)
+[TRAIN] epoch 239/256 batch loss: 4.9034 (avg 4.7668) (27.75 im/s)
+[TRAIN] epoch 239/256 batch loss: 4.7436 (avg 4.7677) (26.78 im/s)
+[TRAIN] epoch 239/256 batch loss: 4.6777 (avg 4.7673) (27.07 im/s)
+[TRAIN] epoch 239/256 batch loss: 4.8152 (avg 4.7657) (26.30 im/s)
+Epoch 238 validation: Recall@20: 0.5783, MRR@20: 0.2038 
+
+[TRAIN] epoch 240/256 batch loss: 4.9030 (avg 4.9030) (23.22 im/s)
+[TRAIN] epoch 240/256 batch loss: 4.7554 (avg 4.7548) (27.46 im/s)
+[TRAIN] epoch 240/256 batch loss: 4.8730 (avg 4.7644) (27.43 im/s)
+[TRAIN] epoch 240/256 batch loss: 4.7135 (avg 4.7670) (27.00 im/s)
+[TRAIN] epoch 240/256 batch loss: 4.9038 (avg 4.7696) (27.04 im/s)
+[TRAIN] epoch 240/256 batch loss: 4.7666 (avg 4.7693) (27.36 im/s)
+[TRAIN] epoch 240/256 batch loss: 4.6729 (avg 4.7686) (26.43 im/s)
+Epoch 239 validation: Recall@20: 0.5781, MRR@20: 0.2038 
+
+[TRAIN] epoch 241/256 batch loss: 4.6926 (avg 4.6926) (23.59 im/s)
+[TRAIN] epoch 241/256 batch loss: 4.6394 (avg 4.7592) (26.78 im/s)
+[TRAIN] epoch 241/256 batch loss: 4.8584 (avg 4.7606) (26.76 im/s)
+[TRAIN] epoch 241/256 batch loss: 4.6807 (avg 4.7663) (27.00 im/s)
+[TRAIN] epoch 241/256 batch loss: 4.8754 (avg 4.7655) (27.34 im/s)
+[TRAIN] epoch 241/256 batch loss: 4.7031 (avg 4.7686) (28.56 im/s)
+[TRAIN] epoch 241/256 batch loss: 4.6332 (avg 4.7663) (27.15 im/s)
+Epoch 240 validation: Recall@20: 0.5781, MRR@20: 0.2037 
+
+[TRAIN] epoch 242/256 batch loss: 4.7056 (avg 4.7056) (23.34 im/s)
+[TRAIN] epoch 242/256 batch loss: 4.5695 (avg 4.7639) (26.59 im/s)
+[TRAIN] epoch 242/256 batch loss: 4.5727 (avg 4.7710) (26.31 im/s)
+[TRAIN] epoch 242/256 batch loss: 4.7083 (avg 4.7662) (26.53 im/s)
+[TRAIN] epoch 242/256 batch loss: 4.7937 (avg 4.7706) (27.47 im/s)
+[TRAIN] epoch 242/256 batch loss: 4.8203 (avg 4.7687) (26.94 im/s)
+[TRAIN] epoch 242/256 batch loss: 4.7932 (avg 4.7654) (27.75 im/s)
+Epoch 241 validation: Recall@20: 0.5782, MRR@20: 0.2038 
+
+[TRAIN] epoch 243/256 batch loss: 4.7540 (avg 4.7540) (24.45 im/s)
+[TRAIN] epoch 243/256 batch loss: 4.8195 (avg 4.7649) (27.92 im/s)
+[TRAIN] epoch 243/256 batch loss: 5.0107 (avg 4.7708) (26.91 im/s)
+[TRAIN] epoch 243/256 batch loss: 4.7905 (avg 4.7687) (26.67 im/s)
+[TRAIN] epoch 243/256 batch loss: 4.8142 (avg 4.7669) (26.25 im/s)
+[TRAIN] epoch 243/256 batch loss: 4.7893 (avg 4.7671) (27.44 im/s)
+[TRAIN] epoch 243/256 batch loss: 4.5533 (avg 4.7663) (26.51 im/s)
+Epoch 242 validation: Recall@20: 0.5782, MRR@20: 0.2037 
+
+[TRAIN] epoch 244/256 batch loss: 4.5865 (avg 4.5865) (23.74 im/s)
+[TRAIN] epoch 244/256 batch loss: 4.6904 (avg 4.7405) (26.86 im/s)
+[TRAIN] epoch 244/256 batch loss: 4.5950 (avg 4.7593) (29.07 im/s)
+[TRAIN] epoch 244/256 batch loss: 4.9360 (avg 4.7651) (27.37 im/s)
+[TRAIN] epoch 244/256 batch loss: 4.6881 (avg 4.7678) (27.25 im/s)
+[TRAIN] epoch 244/256 batch loss: 4.7000 (avg 4.7648) (26.41 im/s)
+[TRAIN] epoch 244/256 batch loss: 4.7265 (avg 4.7663) (26.99 im/s)
+Epoch 243 validation: Recall@20: 0.5782, MRR@20: 0.2037 
+
+[TRAIN] epoch 245/256 batch loss: 4.8164 (avg 4.8164) (23.15 im/s)
+[TRAIN] epoch 245/256 batch loss: 4.7361 (avg 4.7744) (26.93 im/s)
+[TRAIN] epoch 245/256 batch loss: 4.8416 (avg 4.7656) (26.78 im/s)
+[TRAIN] epoch 245/256 batch loss: 4.9609 (avg 4.7677) (26.01 im/s)
+[TRAIN] epoch 245/256 batch loss: 4.8713 (avg 4.7689) (27.14 im/s)
+[TRAIN] epoch 245/256 batch loss: 4.7654 (avg 4.7666) (26.48 im/s)
+[TRAIN] epoch 245/256 batch loss: 4.8636 (avg 4.7674) (27.41 im/s)
+Epoch 244 validation: Recall@20: 0.5782, MRR@20: 0.2038 
+
+[TRAIN] epoch 246/256 batch loss: 4.7800 (avg 4.7800) (24.60 im/s)
+[TRAIN] epoch 246/256 batch loss: 4.7444 (avg 4.7703) (26.84 im/s)
+[TRAIN] epoch 246/256 batch loss: 4.8125 (avg 4.7676) (27.06 im/s)
+[TRAIN] epoch 246/256 batch loss: 4.8042 (avg 4.7652) (28.60 im/s)
+[TRAIN] epoch 246/256 batch loss: 4.9873 (avg 4.7639) (27.19 im/s)
+[TRAIN] epoch 246/256 batch loss: 4.7811 (avg 4.7623) (27.44 im/s)
+[TRAIN] epoch 246/256 batch loss: 4.6707 (avg 4.7635) (27.86 im/s)
+Epoch 245 validation: Recall@20: 0.5783, MRR@20: 0.2037 
+
+[TRAIN] epoch 247/256 batch loss: 4.8214 (avg 4.8214) (23.43 im/s)
+[TRAIN] epoch 247/256 batch loss: 4.6824 (avg 4.7617) (26.65 im/s)
+[TRAIN] epoch 247/256 batch loss: 4.6444 (avg 4.7686) (26.46 im/s)
+[TRAIN] epoch 247/256 batch loss: 4.7471 (avg 4.7685) (27.07 im/s)
+[TRAIN] epoch 247/256 batch loss: 4.7862 (avg 4.7683) (26.77 im/s)
+[TRAIN] epoch 247/256 batch loss: 4.7933 (avg 4.7651) (28.66 im/s)
+[TRAIN] epoch 247/256 batch loss: 4.6121 (avg 4.7650) (26.29 im/s)
+Epoch 246 validation: Recall@20: 0.5783, MRR@20: 0.2037 
+
+[TRAIN] epoch 248/256 batch loss: 4.8119 (avg 4.8119) (23.01 im/s)
+[TRAIN] epoch 248/256 batch loss: 4.5370 (avg 4.7635) (26.96 im/s)
+[TRAIN] epoch 248/256 batch loss: 4.8527 (avg 4.7647) (27.09 im/s)
+[TRAIN] epoch 248/256 batch loss: 4.6304 (avg 4.7669) (27.25 im/s)
+[TRAIN] epoch 248/256 batch loss: 4.6052 (avg 4.7650) (26.53 im/s)
+[TRAIN] epoch 248/256 batch loss: 4.7255 (avg 4.7636) (26.82 im/s)
+[TRAIN] epoch 248/256 batch loss: 4.6468 (avg 4.7651) (27.59 im/s)
+Epoch 247 validation: Recall@20: 0.5784, MRR@20: 0.2037 
+
+[TRAIN] epoch 249/256 batch loss: 4.6534 (avg 4.6534) (23.82 im/s)
+[TRAIN] epoch 249/256 batch loss: 4.7386 (avg 4.7545) (27.53 im/s)
+[TRAIN] epoch 249/256 batch loss: 4.5942 (avg 4.7652) (27.10 im/s)
+[TRAIN] epoch 249/256 batch loss: 4.8631 (avg 4.7683) (26.28 im/s)
+[TRAIN] epoch 249/256 batch loss: 4.6296 (avg 4.7696) (27.60 im/s)
+[TRAIN] epoch 249/256 batch loss: 4.8571 (avg 4.7655) (27.60 im/s)
+[TRAIN] epoch 249/256 batch loss: 4.8024 (avg 4.7661) (26.44 im/s)
+Epoch 248 validation: Recall@20: 0.5782, MRR@20: 0.2038 
+
+[TRAIN] epoch 250/256 batch loss: 4.8504 (avg 4.8504) (24.44 im/s)
+[TRAIN] epoch 250/256 batch loss: 4.7294 (avg 4.7611) (27.58 im/s)
+[TRAIN] epoch 250/256 batch loss: 5.1130 (avg 4.7576) (26.63 im/s)
+[TRAIN] epoch 250/256 batch loss: 4.7991 (avg 4.7615) (26.45 im/s)
+[TRAIN] epoch 250/256 batch loss: 4.6441 (avg 4.7637) (26.96 im/s)
+[TRAIN] epoch 250/256 batch loss: 4.9897 (avg 4.7655) (27.19 im/s)
+[TRAIN] epoch 250/256 batch loss: 4.6581 (avg 4.7648) (27.64 im/s)
+Epoch 249 validation: Recall@20: 0.5782, MRR@20: 0.2037 
+
+[TRAIN] epoch 251/256 batch loss: 4.6454 (avg 4.6454) (23.66 im/s)
+[TRAIN] epoch 251/256 batch loss: 4.8983 (avg 4.7693) (28.09 im/s)
+[TRAIN] epoch 251/256 batch loss: 4.9194 (avg 4.7611) (26.50 im/s)
+[TRAIN] epoch 251/256 batch loss: 4.7916 (avg 4.7621) (28.16 im/s)
+[TRAIN] epoch 251/256 batch loss: 4.8597 (avg 4.7643) (26.76 im/s)
+[TRAIN] epoch 251/256 batch loss: 4.8751 (avg 4.7629) (26.85 im/s)
+[TRAIN] epoch 251/256 batch loss: 4.7975 (avg 4.7627) (25.69 im/s)
+Epoch 250 validation: Recall@20: 0.5782, MRR@20: 0.2037 
+
+[TRAIN] epoch 252/256 batch loss: 5.0416 (avg 5.0416) (23.43 im/s)
+[TRAIN] epoch 252/256 batch loss: 4.6031 (avg 4.7705) (26.67 im/s)
+[TRAIN] epoch 252/256 batch loss: 4.8002 (avg 4.7645) (27.13 im/s)
+[TRAIN] epoch 252/256 batch loss: 4.8509 (avg 4.7641) (26.45 im/s)
+[TRAIN] epoch 252/256 batch loss: 4.7054 (avg 4.7651) (26.63 im/s)
+[TRAIN] epoch 252/256 batch loss: 4.7933 (avg 4.7645) (26.96 im/s)
+[TRAIN] epoch 252/256 batch loss: 4.5585 (avg 4.7643) (26.63 im/s)
+Epoch 251 validation: Recall@20: 0.5784, MRR@20: 0.2037 
+
+[TRAIN] epoch 253/256 batch loss: 4.7207 (avg 4.7207) (23.34 im/s)
+[TRAIN] epoch 253/256 batch loss: 4.7124 (avg 4.7637) (29.07 im/s)
+[TRAIN] epoch 253/256 batch loss: 4.7453 (avg 4.7600) (27.28 im/s)
+[TRAIN] epoch 253/256 batch loss: 4.6819 (avg 4.7627) (28.49 im/s)
+[TRAIN] epoch 253/256 batch loss: 4.6957 (avg 4.7644) (26.77 im/s)
+[TRAIN] epoch 253/256 batch loss: 4.6644 (avg 4.7624) (27.93 im/s)
+[TRAIN] epoch 253/256 batch loss: 4.7614 (avg 4.7651) (27.92 im/s)
+Epoch 252 validation: Recall@20: 0.5783, MRR@20: 0.2038 
+
+[TRAIN] epoch 254/256 batch loss: 4.6809 (avg 4.6809) (23.48 im/s)
+[TRAIN] epoch 254/256 batch loss: 4.7964 (avg 4.7744) (26.26 im/s)
+[TRAIN] epoch 254/256 batch loss: 4.7518 (avg 4.7612) (26.84 im/s)
+[TRAIN] epoch 254/256 batch loss: 4.7712 (avg 4.7600) (26.77 im/s)
+[TRAIN] epoch 254/256 batch loss: 4.8123 (avg 4.7649) (28.71 im/s)
+[TRAIN] epoch 254/256 batch loss: 4.7761 (avg 4.7649) (26.57 im/s)
+[TRAIN] epoch 254/256 batch loss: 4.7322 (avg 4.7677) (26.55 im/s)
+Epoch 253 validation: Recall@20: 0.5782, MRR@20: 0.2038 
+
+[TRAIN] epoch 255/256 batch loss: 4.7819 (avg 4.7819) (23.45 im/s)
+[TRAIN] epoch 255/256 batch loss: 4.7309 (avg 4.7710) (26.60 im/s)
+[TRAIN] epoch 255/256 batch loss: 4.8362 (avg 4.7639) (26.97 im/s)
+[TRAIN] epoch 255/256 batch loss: 4.8433 (avg 4.7671) (26.67 im/s)
+[TRAIN] epoch 255/256 batch loss: 4.6300 (avg 4.7657) (26.64 im/s)
+[TRAIN] epoch 255/256 batch loss: 4.6807 (avg 4.7632) (26.95 im/s)
+[TRAIN] epoch 255/256 batch loss: 4.7986 (avg 4.7629) (26.90 im/s)
+Epoch 254 validation: Recall@20: 0.5786, MRR@20: 0.2038 
+
+[TRAIN] epoch 256/256 batch loss: 4.7851 (avg 4.7851) (23.53 im/s)
+[TRAIN] epoch 256/256 batch loss: 4.5912 (avg 4.7625) (26.34 im/s)
+[TRAIN] epoch 256/256 batch loss: 4.7021 (avg 4.7655) (26.64 im/s)
+[TRAIN] epoch 256/256 batch loss: 4.8038 (avg 4.7665) (26.86 im/s)
+[TRAIN] epoch 256/256 batch loss: 4.7894 (avg 4.7678) (26.54 im/s)
+[TRAIN] epoch 256/256 batch loss: 4.9324 (avg 4.7644) (27.42 im/s)
+[TRAIN] epoch 256/256 batch loss: 4.6413 (avg 4.7651) (27.67 im/s)
+Epoch 255 validation: Recall@20: 0.5781, MRR@20: 0.2037 
+

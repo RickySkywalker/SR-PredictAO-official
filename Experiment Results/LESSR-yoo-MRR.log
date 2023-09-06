@@ -1,0 +1,1268 @@
+Namespace(Ks='1,10,20', batch_size=1024, dataset_dir='datasets/yoochoose1_64', embedding_dim=32, epochs=300, feat_drop=0.4, log_interval=100, lr=0.0003, num_layers=3, num_workers=8, patience=8, valid_split=None, weight_decay=0.0001)
+datasets/yoochoose1_64
+reading dataset
+Num trees: 16
+Depth: 11
+LESSR(
+  (embedding): Embedding(17189, 32, max_norm=1)
+  (layers): ModuleList(
+    (0): EOPA(
+      (batch_norm): BatchNorm1d(32, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+      (feat_drop): Dropout(p=0.4, inplace=False)
+      (gru): GRU(32, 32, batch_first=True)
+      (fc_self): Linear(in_features=32, out_features=32, bias=False)
+      (fc_neigh): Linear(in_features=32, out_features=32, bias=False)
+      (activation): PReLU(num_parameters=32)
+    )
+    (1): SGAT(
+      (batch_norm): BatchNorm1d(64, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+      (feat_drop): Dropout(p=0.4, inplace=False)
+      (fc_q): Linear(in_features=64, out_features=32, bias=True)
+      (fc_k): Linear(in_features=64, out_features=32, bias=False)
+      (fc_v): Linear(in_features=64, out_features=32, bias=False)
+      (fc_e): Linear(in_features=32, out_features=1, bias=False)
+      (activation): PReLU(num_parameters=32)
+    )
+    (2): EOPA(
+      (batch_norm): BatchNorm1d(96, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+      (feat_drop): Dropout(p=0.4, inplace=False)
+      (gru): GRU(96, 96, batch_first=True)
+      (fc_self): Linear(in_features=96, out_features=32, bias=False)
+      (fc_neigh): Linear(in_features=96, out_features=32, bias=False)
+      (activation): PReLU(num_parameters=32)
+    )
+  )
+  (readout): AttnReadout(
+    (batch_norm): BatchNorm1d(128, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+    (feat_drop): Dropout(p=0.4, inplace=False)
+    (fc_u): Linear(in_features=128, out_features=32, bias=False)
+    (fc_v): Linear(in_features=128, out_features=32, bias=True)
+    (fc_e): Linear(in_features=32, out_features=1, bias=False)
+    (fc_out): Linear(in_features=128, out_features=32, bias=False)
+    (activation): PReLU(num_parameters=32)
+  )
+  (batch_norm): BatchNorm1d(160, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+  (feat_drop): Dropout(p=0.4, inplace=False)
+  (fc_sr): Linear(in_features=160, out_features=32, bias=False)
+  (RF): NeuralDecisionForest(
+    (ensemble): ModuleList(
+      (0): NeuralDecisionTree(
+        (decision_fn_1): Linear(in_features=96, out_features=64, bias=True)
+        (activation_fn_1): Tanh()
+        (dropout_1): Dropout(p=0.2, inplace=False)
+        (decision_fn_2): Linear(in_features=64, out_features=64, bias=True)
+        (activation_fn_2): Tanh()
+        (dropout_2): Dropout(p=0.2, inplace=False)
+        (decision_fn_3): Linear(in_features=64, out_features=32, bias=True)
+        (activation_fn_3): Sigmoid()
+        (mu_dropout): Dropout(p=0.6, inplace=False)
+      )
+      (1): NeuralDecisionTree(
+        (decision_fn_1): Linear(in_features=96, out_features=64, bias=True)
+        (activation_fn_1): Tanh()
+        (dropout_1): Dropout(p=0.2, inplace=False)
+        (decision_fn_2): Linear(in_features=64, out_features=64, bias=True)
+        (activation_fn_2): Tanh()
+        (dropout_2): Dropout(p=0.2, inplace=False)
+        (decision_fn_3): Linear(in_features=64, out_features=32, bias=True)
+        (activation_fn_3): Sigmoid()
+        (mu_dropout): Dropout(p=0.6, inplace=False)
+      )
+      (2): NeuralDecisionTree(
+        (decision_fn_1): Linear(in_features=96, out_features=64, bias=True)
+        (activation_fn_1): Tanh()
+        (dropout_1): Dropout(p=0.2, inplace=False)
+        (decision_fn_2): Linear(in_features=64, out_features=64, bias=True)
+        (activation_fn_2): Tanh()
+        (dropout_2): Dropout(p=0.2, inplace=False)
+        (decision_fn_3): Linear(in_features=64, out_features=32, bias=True)
+        (activation_fn_3): Sigmoid()
+        (mu_dropout): Dropout(p=0.6, inplace=False)
+      )
+      (3): NeuralDecisionTree(
+        (decision_fn_1): Linear(in_features=96, out_features=64, bias=True)
+        (activation_fn_1): Tanh()
+        (dropout_1): Dropout(p=0.2, inplace=False)
+        (decision_fn_2): Linear(in_features=64, out_features=64, bias=True)
+        (activation_fn_2): Tanh()
+        (dropout_2): Dropout(p=0.2, inplace=False)
+        (decision_fn_3): Linear(in_features=64, out_features=32, bias=True)
+        (activation_fn_3): Sigmoid()
+        (mu_dropout): Dropout(p=0.6, inplace=False)
+      )
+      (4): NeuralDecisionTree(
+        (decision_fn_1): Linear(in_features=96, out_features=64, bias=True)
+        (activation_fn_1): Tanh()
+        (dropout_1): Dropout(p=0.2, inplace=False)
+        (decision_fn_2): Linear(in_features=64, out_features=64, bias=True)
+        (activation_fn_2): Tanh()
+        (dropout_2): Dropout(p=0.2, inplace=False)
+        (decision_fn_3): Linear(in_features=64, out_features=32, bias=True)
+        (activation_fn_3): Sigmoid()
+        (mu_dropout): Dropout(p=0.6, inplace=False)
+      )
+      (5): NeuralDecisionTree(
+        (decision_fn_1): Linear(in_features=96, out_features=64, bias=True)
+        (activation_fn_1): Tanh()
+        (dropout_1): Dropout(p=0.2, inplace=False)
+        (decision_fn_2): Linear(in_features=64, out_features=64, bias=True)
+        (activation_fn_2): Tanh()
+        (dropout_2): Dropout(p=0.2, inplace=False)
+        (decision_fn_3): Linear(in_features=64, out_features=32, bias=True)
+        (activation_fn_3): Sigmoid()
+        (mu_dropout): Dropout(p=0.6, inplace=False)
+      )
+      (6): NeuralDecisionTree(
+        (decision_fn_1): Linear(in_features=96, out_features=64, bias=True)
+        (activation_fn_1): Tanh()
+        (dropout_1): Dropout(p=0.2, inplace=False)
+        (decision_fn_2): Linear(in_features=64, out_features=64, bias=True)
+        (activation_fn_2): Tanh()
+        (dropout_2): Dropout(p=0.2, inplace=False)
+        (decision_fn_3): Linear(in_features=64, out_features=32, bias=True)
+        (activation_fn_3): Sigmoid()
+        (mu_dropout): Dropout(p=0.6, inplace=False)
+      )
+      (7): NeuralDecisionTree(
+        (decision_fn_1): Linear(in_features=96, out_features=64, bias=True)
+        (activation_fn_1): Tanh()
+        (dropout_1): Dropout(p=0.2, inplace=False)
+        (decision_fn_2): Linear(in_features=64, out_features=64, bias=True)
+        (activation_fn_2): Tanh()
+        (dropout_2): Dropout(p=0.2, inplace=False)
+        (decision_fn_3): Linear(in_features=64, out_features=32, bias=True)
+        (activation_fn_3): Sigmoid()
+        (mu_dropout): Dropout(p=0.6, inplace=False)
+      )
+      (8): NeuralDecisionTree(
+        (decision_fn_1): Linear(in_features=96, out_features=64, bias=True)
+        (activation_fn_1): Tanh()
+        (dropout_1): Dropout(p=0.2, inplace=False)
+        (decision_fn_2): Linear(in_features=64, out_features=64, bias=True)
+        (activation_fn_2): Tanh()
+        (dropout_2): Dropout(p=0.2, inplace=False)
+        (decision_fn_3): Linear(in_features=64, out_features=32, bias=True)
+        (activation_fn_3): Sigmoid()
+        (mu_dropout): Dropout(p=0.6, inplace=False)
+      )
+      (9): NeuralDecisionTree(
+        (decision_fn_1): Linear(in_features=96, out_features=64, bias=True)
+        (activation_fn_1): Tanh()
+        (dropout_1): Dropout(p=0.2, inplace=False)
+        (decision_fn_2): Linear(in_features=64, out_features=64, bias=True)
+        (activation_fn_2): Tanh()
+        (dropout_2): Dropout(p=0.2, inplace=False)
+        (decision_fn_3): Linear(in_features=64, out_features=32, bias=True)
+        (activation_fn_3): Sigmoid()
+        (mu_dropout): Dropout(p=0.6, inplace=False)
+      )
+      (10): NeuralDecisionTree(
+        (decision_fn_1): Linear(in_features=96, out_features=64, bias=True)
+        (activation_fn_1): Tanh()
+        (dropout_1): Dropout(p=0.2, inplace=False)
+        (decision_fn_2): Linear(in_features=64, out_features=64, bias=True)
+        (activation_fn_2): Tanh()
+        (dropout_2): Dropout(p=0.2, inplace=False)
+        (decision_fn_3): Linear(in_features=64, out_features=32, bias=True)
+        (activation_fn_3): Sigmoid()
+        (mu_dropout): Dropout(p=0.6, inplace=False)
+      )
+      (11): NeuralDecisionTree(
+        (decision_fn_1): Linear(in_features=96, out_features=64, bias=True)
+        (activation_fn_1): Tanh()
+        (dropout_1): Dropout(p=0.2, inplace=False)
+        (decision_fn_2): Linear(in_features=64, out_features=64, bias=True)
+        (activation_fn_2): Tanh()
+        (dropout_2): Dropout(p=0.2, inplace=False)
+        (decision_fn_3): Linear(in_features=64, out_features=32, bias=True)
+        (activation_fn_3): Sigmoid()
+        (mu_dropout): Dropout(p=0.6, inplace=False)
+      )
+      (12): NeuralDecisionTree(
+        (decision_fn_1): Linear(in_features=96, out_features=64, bias=True)
+        (activation_fn_1): Tanh()
+        (dropout_1): Dropout(p=0.2, inplace=False)
+        (decision_fn_2): Linear(in_features=64, out_features=64, bias=True)
+        (activation_fn_2): Tanh()
+        (dropout_2): Dropout(p=0.2, inplace=False)
+        (decision_fn_3): Linear(in_features=64, out_features=32, bias=True)
+        (activation_fn_3): Sigmoid()
+        (mu_dropout): Dropout(p=0.6, inplace=False)
+      )
+      (13): NeuralDecisionTree(
+        (decision_fn_1): Linear(in_features=96, out_features=64, bias=True)
+        (activation_fn_1): Tanh()
+        (dropout_1): Dropout(p=0.2, inplace=False)
+        (decision_fn_2): Linear(in_features=64, out_features=64, bias=True)
+        (activation_fn_2): Tanh()
+        (dropout_2): Dropout(p=0.2, inplace=False)
+        (decision_fn_3): Linear(in_features=64, out_features=32, bias=True)
+        (activation_fn_3): Sigmoid()
+        (mu_dropout): Dropout(p=0.6, inplace=False)
+      )
+      (14): NeuralDecisionTree(
+        (decision_fn_1): Linear(in_features=96, out_features=64, bias=True)
+        (activation_fn_1): Tanh()
+        (dropout_1): Dropout(p=0.2, inplace=False)
+        (decision_fn_2): Linear(in_features=64, out_features=64, bias=True)
+        (activation_fn_2): Tanh()
+        (dropout_2): Dropout(p=0.2, inplace=False)
+        (decision_fn_3): Linear(in_features=64, out_features=32, bias=True)
+        (activation_fn_3): Sigmoid()
+        (mu_dropout): Dropout(p=0.6, inplace=False)
+      )
+      (15): NeuralDecisionTree(
+        (decision_fn_1): Linear(in_features=96, out_features=64, bias=True)
+        (activation_fn_1): Tanh()
+        (dropout_1): Dropout(p=0.2, inplace=False)
+        (decision_fn_2): Linear(in_features=64, out_features=64, bias=True)
+        (activation_fn_2): Tanh()
+        (dropout_2): Dropout(p=0.2, inplace=False)
+        (decision_fn_3): Linear(in_features=64, out_features=32, bias=True)
+        (activation_fn_3): Sigmoid()
+        (mu_dropout): Dropout(p=0.6, inplace=False)
+      )
+    )
+  )
+)
+start training
+Batch 100: Loss = 9.7568, Time Elapsed = 20.96s
+Batch 200: Loss = 9.3704, Time Elapsed = 17.05s
+Batch 300: Loss = 8.9201, Time Elapsed = 16.74s
+
+Epoch 0:
+Metric	HR@1	MRR@1	NDCG@1	HR@10	MRR@10	NDCG@10	HR@20	MRR@20	NDCG@20
+Value	8.69	8.69	8.69	22.69	12.96	15.28	26.48	13.23	16.25
+Batch 400: Loss = 8.2602, Time Elapsed = 30.69s
+Batch 500: Loss = 7.6282, Time Elapsed = 17.48s
+Batch 600: Loss = 7.1333, Time Elapsed = 17.49s
+
+Epoch 1:
+Metric	HR@1	MRR@1	NDCG@1	HR@10	MRR@10	NDCG@10	HR@20	MRR@20	NDCG@20
+Value	12.01	12.01	12.01	37.31	19.22	23.49	46.71	19.87	25.87
+Batch 700: Loss = 6.8174, Time Elapsed = 29.88s
+Batch 800: Loss = 6.5516, Time Elapsed = 17.61s
+Batch 900: Loss = 6.3946, Time Elapsed = 17.30s
+Batch 1000: Loss = 6.2453, Time Elapsed = 17.05s
+
+Epoch 2:
+Metric	HR@1	MRR@1	NDCG@1	HR@10	MRR@10	NDCG@10	HR@20	MRR@20	NDCG@20
+Value	13.26	13.26	13.26	42.48	21.93	26.81	52.33	22.61	29.30
+Batch 1100: Loss = 6.1133, Time Elapsed = 30.35s
+Batch 1200: Loss = 5.9872, Time Elapsed = 17.22s
+Batch 1300: Loss = 5.9125, Time Elapsed = 17.18s
+
+Epoch 3:
+Metric	HR@1	MRR@1	NDCG@1	HR@10	MRR@10	NDCG@10	HR@20	MRR@20	NDCG@20
+Value	13.99	13.99	13.99	46.21	23.56	28.94	56.04	24.24	31.43
+Batch 1400: Loss = 5.8260, Time Elapsed = 30.19s
+Batch 1500: Loss = 5.7446, Time Elapsed = 17.03s
+Batch 1600: Loss = 5.6810, Time Elapsed = 17.22s
+
+Epoch 4:
+Metric	HR@1	MRR@1	NDCG@1	HR@10	MRR@10	NDCG@10	HR@20	MRR@20	NDCG@20
+Value	14.40	14.40	14.40	48.87	24.66	30.42	58.74	25.35	32.92
+Batch 1700: Loss = 5.6346, Time Elapsed = 29.69s
+Batch 1800: Loss = 5.5477, Time Elapsed = 17.77s
+Batch 1900: Loss = 5.4985, Time Elapsed = 17.32s
+Batch 2000: Loss = 5.4694, Time Elapsed = 17.18s
+
+Epoch 5:
+Metric	HR@1	MRR@1	NDCG@1	HR@10	MRR@10	NDCG@10	HR@20	MRR@20	NDCG@20
+Value	14.71	14.71	14.71	50.72	25.41	31.43	60.57	26.10	33.93
+Batch 2100: Loss = 5.4058, Time Elapsed = 30.34s
+Batch 2200: Loss = 5.3544, Time Elapsed = 17.34s
+Batch 2300: Loss = 5.3381, Time Elapsed = 17.27s
+
+Epoch 6:
+Metric	HR@1	MRR@1	NDCG@1	HR@10	MRR@10	NDCG@10	HR@20	MRR@20	NDCG@20
+Value	14.90	14.90	14.90	52.05	25.96	32.17	61.95	26.65	34.68
+Batch 2400: Loss = 5.2840, Time Elapsed = 29.91s
+Batch 2500: Loss = 5.2342, Time Elapsed = 17.29s
+Batch 2600: Loss = 5.1990, Time Elapsed = 17.28s
+Batch 2700: Loss = 5.2031, Time Elapsed = 17.27s
+
+Epoch 7:
+Metric	HR@1	MRR@1	NDCG@1	HR@10	MRR@10	NDCG@10	HR@20	MRR@20	NDCG@20
+Value	15.16	15.16	15.16	53.23	26.46	32.83	63.13	27.16	35.34
+Batch 2800: Loss = 5.1418, Time Elapsed = 29.84s
+Batch 2900: Loss = 5.1183, Time Elapsed = 17.21s
+Batch 3000: Loss = 5.0830, Time Elapsed = 17.10s
+
+Epoch 8:
+Metric	HR@1	MRR@1	NDCG@1	HR@10	MRR@10	NDCG@10	HR@20	MRR@20	NDCG@20
+Value	15.31	15.31	15.31	54.18	26.88	33.37	64.17	27.58	35.91
+Batch 3100: Loss = 5.0542, Time Elapsed = 30.14s
+Batch 3200: Loss = 5.0258, Time Elapsed = 17.28s
+Batch 3300: Loss = 5.0202, Time Elapsed = 17.06s
+
+Epoch 9:
+Metric	HR@1	MRR@1	NDCG@1	HR@10	MRR@10	NDCG@10	HR@20	MRR@20	NDCG@20
+Value	15.61	15.61	15.61	54.87	27.25	33.82	65.00	27.97	36.40
+Batch 3400: Loss = 4.9854, Time Elapsed = 29.45s
+Batch 3500: Loss = 4.9428, Time Elapsed = 17.89s
+Batch 3600: Loss = 4.9303, Time Elapsed = 17.29s
+Batch 3700: Loss = 4.9238, Time Elapsed = 17.01s
+
+Epoch 10:
+Metric	HR@1	MRR@1	NDCG@1	HR@10	MRR@10	NDCG@10	HR@20	MRR@20	NDCG@20
+Value	15.62	15.62	15.62	55.46	27.50	34.15	65.59	28.21	36.73
+Batch 3800: Loss = 4.8569, Time Elapsed = 30.13s
+Batch 3900: Loss = 4.8676, Time Elapsed = 17.20s
+Batch 4000: Loss = 4.8665, Time Elapsed = 17.06s
+
+Epoch 11:
+Metric	HR@1	MRR@1	NDCG@1	HR@10	MRR@10	NDCG@10	HR@20	MRR@20	NDCG@20
+Value	16.03	16.03	16.03	56.02	27.88	34.58	66.17	28.60	37.15
+Batch 4100: Loss = 4.8214, Time Elapsed = 29.87s
+Batch 4200: Loss = 4.7916, Time Elapsed = 17.60s
+Batch 4300: Loss = 4.7945, Time Elapsed = 17.17s
+Batch 4400: Loss = 4.7854, Time Elapsed = 17.07s
+
+Epoch 12:
+Metric	HR@1	MRR@1	NDCG@1	HR@10	MRR@10	NDCG@10	HR@20	MRR@20	NDCG@20
+Value	16.05	16.05	16.05	56.50	28.05	34.82	66.76	28.77	37.42
+Batch 4500: Loss = 4.7454, Time Elapsed = 30.16s
+Batch 4600: Loss = 4.7321, Time Elapsed = 17.20s
+Batch 4700: Loss = 4.7283, Time Elapsed = 17.08s
+
+Epoch 13:
+Metric	HR@1	MRR@1	NDCG@1	HR@10	MRR@10	NDCG@10	HR@20	MRR@20	NDCG@20
+Value	16.15	16.15	16.15	56.94	28.22	35.05	67.23	28.94	37.66
+Batch 4800: Loss = 4.7159, Time Elapsed = 30.33s
+Batch 4900: Loss = 4.6938, Time Elapsed = 17.61s
+Batch 5000: Loss = 4.6690, Time Elapsed = 17.16s
+
+Epoch 14:
+Metric	HR@1	MRR@1	NDCG@1	HR@10	MRR@10	NDCG@10	HR@20	MRR@20	NDCG@20
+Value	16.31	16.31	16.31	57.24	28.39	35.25	67.46	29.11	37.85
+Batch 5100: Loss = 4.6724, Time Elapsed = 29.46s
+Batch 5200: Loss = 4.6249, Time Elapsed = 18.09s
+Batch 5300: Loss = 4.6363, Time Elapsed = 17.20s
+Batch 5400: Loss = 4.6373, Time Elapsed = 17.24s
+
+Epoch 15:
+Metric	HR@1	MRR@1	NDCG@1	HR@10	MRR@10	NDCG@10	HR@20	MRR@20	NDCG@20
+Value	16.57	16.57	16.57	57.52	28.63	35.50	67.84	29.36	38.13
+Batch 5500: Loss = 4.6167, Time Elapsed = 30.27s
+Batch 5600: Loss = 4.5911, Time Elapsed = 17.36s
+Batch 5700: Loss = 4.5746, Time Elapsed = 17.02s
+
+Epoch 16:
+Metric	HR@1	MRR@1	NDCG@1	HR@10	MRR@10	NDCG@10	HR@20	MRR@20	NDCG@20
+Value	16.53	16.53	16.53	57.81	28.73	35.65	68.07	29.45	38.25
+Batch 5800: Loss = 4.5831, Time Elapsed = 29.94s
+Batch 5900: Loss = 4.5427, Time Elapsed = 17.86s
+Batch 6000: Loss = 4.5477, Time Elapsed = 17.07s
+Batch 6100: Loss = 4.5644, Time Elapsed = 17.24s
+
+Epoch 17:
+Metric	HR@1	MRR@1	NDCG@1	HR@10	MRR@10	NDCG@10	HR@20	MRR@20	NDCG@20
+Value	16.49	16.49	16.49	57.96	28.74	35.70	68.40	29.48	38.35
+Batch 6200: Loss = 4.5008, Time Elapsed = 29.97s
+Batch 6300: Loss = 4.5028, Time Elapsed = 17.55s
+Batch 6400: Loss = 4.5290, Time Elapsed = 17.21s
+
+Epoch 18:
+Metric	HR@1	MRR@1	NDCG@1	HR@10	MRR@10	NDCG@10	HR@20	MRR@20	NDCG@20
+Value	16.68	16.68	16.68	58.35	28.96	35.95	68.55	29.68	38.54
+Batch 6500: Loss = 4.4996, Time Elapsed = 30.89s
+Batch 6600: Loss = 4.4804, Time Elapsed = 17.32s
+Batch 6700: Loss = 4.4877, Time Elapsed = 16.99s
+
+Epoch 19:
+Metric	HR@1	MRR@1	NDCG@1	HR@10	MRR@10	NDCG@10	HR@20	MRR@20	NDCG@20
+Value	16.75	16.75	16.75	58.50	29.05	36.06	68.72	29.78	38.66
+Batch 6800: Loss = 4.4924, Time Elapsed = 30.36s
+Batch 6900: Loss = 4.4483, Time Elapsed = 17.59s
+Batch 7000: Loss = 4.4314, Time Elapsed = 17.47s
+Batch 7100: Loss = 4.4701, Time Elapsed = 17.14s
+
+Epoch 20:
+Metric	HR@1	MRR@1	NDCG@1	HR@10	MRR@10	NDCG@10	HR@20	MRR@20	NDCG@20
+Value	16.70	16.70	16.70	58.68	29.12	36.16	68.96	29.85	38.77
+Batch 7200: Loss = 4.4216, Time Elapsed = 30.46s
+Batch 7300: Loss = 4.4123, Time Elapsed = 16.88s
+Batch 7400: Loss = 4.4297, Time Elapsed = 17.12s
+
+Epoch 21:
+Metric	HR@1	MRR@1	NDCG@1	HR@10	MRR@10	NDCG@10	HR@20	MRR@20	NDCG@20
+Value	16.87	16.87	16.87	58.83	29.22	36.26	69.06	29.94	38.86
+Batch 7500: Loss = 4.4345, Time Elapsed = 30.29s
+Batch 7600: Loss = 4.3892, Time Elapsed = 17.34s
+Batch 7700: Loss = 4.3882, Time Elapsed = 17.26s
+Batch 7800: Loss = 4.4108, Time Elapsed = 17.00s
+
+Epoch 22:
+Metric	HR@1	MRR@1	NDCG@1	HR@10	MRR@10	NDCG@10	HR@20	MRR@20	NDCG@20
+Value	16.98	16.98	16.98	58.97	29.36	36.40	69.38	30.10	39.05
+Batch 7900: Loss = 4.3780, Time Elapsed = 30.57s
+Batch 8000: Loss = 4.3621, Time Elapsed = 17.35s
+Batch 8100: Loss = 4.3935, Time Elapsed = 17.19s
+
+Epoch 23:
+Metric	HR@1	MRR@1	NDCG@1	HR@10	MRR@10	NDCG@10	HR@20	MRR@20	NDCG@20
+Value	16.97	16.97	16.97	59.01	29.37	36.42	69.44	30.11	39.07
+Batch 8200: Loss = 4.3669, Time Elapsed = 29.56s
+Batch 8300: Loss = 4.3491, Time Elapsed = 17.42s
+Batch 8400: Loss = 4.3443, Time Elapsed = 17.56s
+
+Epoch 24:
+Metric	HR@1	MRR@1	NDCG@1	HR@10	MRR@10	NDCG@10	HR@20	MRR@20	NDCG@20
+Value	16.94	16.94	16.94	59.14	29.39	36.47	69.63	30.13	39.14
+Batch 8500: Loss = 4.3658, Time Elapsed = 28.21s
+Batch 8600: Loss = 4.3222, Time Elapsed = 18.74s
+Batch 8700: Loss = 4.3203, Time Elapsed = 16.86s
+Batch 8800: Loss = 4.3461, Time Elapsed = 17.07s
+
+Epoch 25:
+Metric	HR@1	MRR@1	NDCG@1	HR@10	MRR@10	NDCG@10	HR@20	MRR@20	NDCG@20
+Value	17.04	17.04	17.04	59.38	29.49	36.60	69.72	30.22	39.23
+Batch 8900: Loss = 4.3112, Time Elapsed = 30.19s
+Batch 9000: Loss = 4.3181, Time Elapsed = 17.12s
+Batch 9100: Loss = 4.3177, Time Elapsed = 17.43s
+
+Epoch 26:
+Metric	HR@1	MRR@1	NDCG@1	HR@10	MRR@10	NDCG@10	HR@20	MRR@20	NDCG@20
+Value	17.07	17.07	17.07	59.56	29.59	36.72	69.89	30.32	39.35
+Batch 9200: Loss = 4.2999, Time Elapsed = 30.07s
+Batch 9300: Loss = 4.2880, Time Elapsed = 17.26s
+Batch 9400: Loss = 4.3094, Time Elapsed = 17.14s
+Batch 9500: Loss = 4.2903, Time Elapsed = 17.48s
+
+Epoch 27:
+Metric	HR@1	MRR@1	NDCG@1	HR@10	MRR@10	NDCG@10	HR@20	MRR@20	NDCG@20
+Value	17.04	17.04	17.04	59.65	29.61	36.75	69.95	30.34	39.37
+Batch 9600: Loss = 4.2757, Time Elapsed = 30.45s
+Batch 9700: Loss = 4.2610, Time Elapsed = 17.49s
+Batch 9800: Loss = 4.2988, Time Elapsed = 17.22s
+
+Epoch 28:
+Metric	HR@1	MRR@1	NDCG@1	HR@10	MRR@10	NDCG@10	HR@20	MRR@20	NDCG@20
+Value	17.08	17.08	17.08	59.78	29.64	36.81	70.13	30.37	39.44
+Batch 9900: Loss = 4.2749, Time Elapsed = 30.99s
+Batch 10000: Loss = 4.2508, Time Elapsed = 16.98s
+Batch 10100: Loss = 4.2683, Time Elapsed = 17.34s
+
+Epoch 29:
+Metric	HR@1	MRR@1	NDCG@1	HR@10	MRR@10	NDCG@10	HR@20	MRR@20	NDCG@20
+Value	17.23	17.23	17.23	59.65	29.72	36.84	70.09	30.46	39.49
+Batch 10200: Loss = 4.2783, Time Elapsed = 28.96s
+Batch 10300: Loss = 4.2518, Time Elapsed = 18.45s
+Batch 10400: Loss = 4.2324, Time Elapsed = 17.33s
+Batch 10500: Loss = 4.2560, Time Elapsed = 17.18s
+
+Epoch 30:
+Metric	HR@1	MRR@1	NDCG@1	HR@10	MRR@10	NDCG@10	HR@20	MRR@20	NDCG@20
+Value	17.21	17.21	17.21	59.89	29.77	36.93	70.17	30.50	39.55
+Batch 10600: Loss = 4.2335, Time Elapsed = 30.14s
+Batch 10700: Loss = 4.2259, Time Elapsed = 17.18s
+Batch 10800: Loss = 4.2357, Time Elapsed = 17.09s
+
+Epoch 31:
+Metric	HR@1	MRR@1	NDCG@1	HR@10	MRR@10	NDCG@10	HR@20	MRR@20	NDCG@20
+Value	17.23	17.23	17.23	59.95	29.78	36.95	70.29	30.51	39.59
+Batch 10900: Loss = 4.2368, Time Elapsed = 30.04s
+Batch 11000: Loss = 4.2132, Time Elapsed = 17.64s
+Batch 11100: Loss = 4.2069, Time Elapsed = 17.16s
+Batch 11200: Loss = 4.2375, Time Elapsed = 17.24s
+
+Epoch 32:
+Metric	HR@1	MRR@1	NDCG@1	HR@10	MRR@10	NDCG@10	HR@20	MRR@20	NDCG@20
+Value	17.27	17.27	17.27	60.03	29.86	37.03	70.35	30.59	39.66
+Batch 11300: Loss = 4.2106, Time Elapsed = 29.75s
+Batch 11400: Loss = 4.2048, Time Elapsed = 17.81s
+Batch 11500: Loss = 4.2136, Time Elapsed = 17.31s
+
+Epoch 33:
+Metric	HR@1	MRR@1	NDCG@1	HR@10	MRR@10	NDCG@10	HR@20	MRR@20	NDCG@20
+Value	17.30	17.30	17.30	60.14	29.90	37.09	70.50	30.63	39.73
+Batch 11600: Loss = 4.1988, Time Elapsed = 30.11s
+Batch 11700: Loss = 4.1748, Time Elapsed = 17.37s
+Batch 11800: Loss = 4.1922, Time Elapsed = 17.14s
+
+Epoch 34:
+Metric	HR@1	MRR@1	NDCG@1	HR@10	MRR@10	NDCG@10	HR@20	MRR@20	NDCG@20
+Value	17.12	17.12	17.12	60.22	29.84	37.07	70.58	30.58	39.71
+Batch 11900: Loss = 4.2312, Time Elapsed = 28.58s
+Batch 12000: Loss = 4.1645, Time Elapsed = 18.48s
+Batch 12100: Loss = 4.1941, Time Elapsed = 17.38s
+Batch 12200: Loss = 4.1892, Time Elapsed = 16.94s
+
+Epoch 35:
+Metric	HR@1	MRR@1	NDCG@1	HR@10	MRR@10	NDCG@10	HR@20	MRR@20	NDCG@20
+Value	17.27	17.27	17.27	60.22	29.91	37.12	70.57	30.64	39.75
+Batch 12300: Loss = 4.1783, Time Elapsed = 30.08s
+Batch 12400: Loss = 4.1641, Time Elapsed = 17.25s
+Batch 12500: Loss = 4.1802, Time Elapsed = 17.20s
+
+Epoch 36:
+Metric	HR@1	MRR@1	NDCG@1	HR@10	MRR@10	NDCG@10	HR@20	MRR@20	NDCG@20
+Value	17.31	17.31	17.31	60.18	29.92	37.11	70.51	30.65	39.74
+Batch 12600: Loss = 4.1759, Time Elapsed = 30.29s
+Batch 12700: Loss = 4.1462, Time Elapsed = 17.47s
+Batch 12800: Loss = 4.1661, Time Elapsed = 17.62s
+Batch 12900: Loss = 4.1860, Time Elapsed = 17.58s
+
+Epoch 37:
+Metric	HR@1	MRR@1	NDCG@1	HR@10	MRR@10	NDCG@10	HR@20	MRR@20	NDCG@20
+Value	17.25	17.25	17.25	60.34	29.95	37.18	70.73	30.69	39.82
+Batch 13000: Loss = 4.1404, Time Elapsed = 30.79s
+Batch 13100: Loss = 4.1531, Time Elapsed = 17.26s
+Batch 13200: Loss = 4.1638, Time Elapsed = 16.86s
+
+Epoch 38:
+Metric	HR@1	MRR@1	NDCG@1	HR@10	MRR@10	NDCG@10	HR@20	MRR@20	NDCG@20
+Value	17.24	17.24	17.24	60.39	29.93	37.18	70.67	30.66	39.80
+Batch 13300: Loss = 4.1586, Time Elapsed = 30.19s
+Batch 13400: Loss = 4.1298, Time Elapsed = 17.67s
+Batch 13500: Loss = 4.1303, Time Elapsed = 17.37s
+
+Epoch 39:
+Metric	HR@1	MRR@1	NDCG@1	HR@10	MRR@10	NDCG@10	HR@20	MRR@20	NDCG@20
+Value	17.49	17.49	17.49	60.46	30.09	37.31	70.75	30.82	39.93
+Batch 13600: Loss = 4.1711, Time Elapsed = 29.55s
+Batch 13700: Loss = 4.1120, Time Elapsed = 18.08s
+Batch 13800: Loss = 4.1496, Time Elapsed = 17.15s
+Batch 13900: Loss = 4.1355, Time Elapsed = 17.38s
+
+Epoch 40:
+Metric	HR@1	MRR@1	NDCG@1	HR@10	MRR@10	NDCG@10	HR@20	MRR@20	NDCG@20
+Value	17.36	17.36	17.36	60.38	30.05	37.27	70.72	30.79	39.90
+Batch 14000: Loss = 4.1306, Time Elapsed = 31.14s
+Batch 14100: Loss = 4.1141, Time Elapsed = 17.52s
+Batch 14200: Loss = 4.1407, Time Elapsed = 17.42s
+
+Epoch 41:
+Metric	HR@1	MRR@1	NDCG@1	HR@10	MRR@10	NDCG@10	HR@20	MRR@20	NDCG@20
+Value	17.33	17.33	17.33	60.43	30.03	37.26	70.76	30.76	39.89
+Batch 14300: Loss = 4.1393, Time Elapsed = 30.54s
+Batch 14400: Loss = 4.0977, Time Elapsed = 17.41s
+Batch 14500: Loss = 4.1232, Time Elapsed = 17.17s
+Batch 14600: Loss = 4.1332, Time Elapsed = 17.31s
+
+Epoch 42:
+Metric	HR@1	MRR@1	NDCG@1	HR@10	MRR@10	NDCG@10	HR@20	MRR@20	NDCG@20
+Value	17.36	17.36	17.36	60.45	30.08	37.30	70.82	30.81	39.94
+Batch 14700: Loss = 4.0885, Time Elapsed = 30.46s
+Batch 14800: Loss = 4.0897, Time Elapsed = 17.17s
+Batch 14900: Loss = 4.1334, Time Elapsed = 17.39s
+
+Epoch 43:
+Metric	HR@1	MRR@1	NDCG@1	HR@10	MRR@10	NDCG@10	HR@20	MRR@20	NDCG@20
+Value	17.50	17.50	17.50	60.44	30.08	37.30	70.82	30.81	39.94
+Batch 15000: Loss = 4.1128, Time Elapsed = 30.07s
+Batch 15100: Loss = 4.1059, Time Elapsed = 16.87s
+Batch 15200: Loss = 4.0972, Time Elapsed = 17.64s
+
+Epoch 44:
+Metric	HR@1	MRR@1	NDCG@1	HR@10	MRR@10	NDCG@10	HR@20	MRR@20	NDCG@20
+Value	17.51	17.51	17.51	60.69	30.18	37.43	71.01	30.91	40.06
+Batch 15300: Loss = 4.1140, Time Elapsed = 28.51s
+Batch 15400: Loss = 4.0804, Time Elapsed = 18.79s
+Batch 15500: Loss = 4.1045, Time Elapsed = 17.46s
+Batch 15600: Loss = 4.1034, Time Elapsed = 17.13s
+
+Epoch 45:
+Metric	HR@1	MRR@1	NDCG@1	HR@10	MRR@10	NDCG@10	HR@20	MRR@20	NDCG@20
+Value	17.36	17.36	17.36	60.59	30.08	37.34	70.89	30.81	39.96
+Batch 15700: Loss = 4.0749, Time Elapsed = 30.60s
+Batch 15800: Loss = 4.0832, Time Elapsed = 17.32s
+Batch 15900: Loss = 4.0921, Time Elapsed = 17.24s
+
+Epoch 46:
+Metric	HR@1	MRR@1	NDCG@1	HR@10	MRR@10	NDCG@10	HR@20	MRR@20	NDCG@20
+Value	17.74	17.74	17.74	60.64	30.31	37.52	70.95	31.04	40.14
+Batch 16000: Loss = 4.0972, Time Elapsed = 30.30s
+Batch 16100: Loss = 4.0633, Time Elapsed = 17.53s
+Batch 16200: Loss = 4.0870, Time Elapsed = 16.87s
+Batch 16300: Loss = 4.1089, Time Elapsed = 17.70s
+
+Epoch 47:
+Metric	HR@1	MRR@1	NDCG@1	HR@10	MRR@10	NDCG@10	HR@20	MRR@20	NDCG@20
+Value	17.73	17.73	17.73	60.77	30.31	37.55	70.99	31.03	40.15
+Batch 16400: Loss = 4.0690, Time Elapsed = 30.24s
+Batch 16500: Loss = 4.0544, Time Elapsed = 17.01s
+Batch 16600: Loss = 4.0783, Time Elapsed = 17.24s
+
+Epoch 48:
+Metric	HR@1	MRR@1	NDCG@1	HR@10	MRR@10	NDCG@10	HR@20	MRR@20	NDCG@20
+Value	17.47	17.47	17.47	60.70	30.20	37.45	71.00	30.93	40.08
+Batch 16700: Loss = 4.0940, Time Elapsed = 29.84s
+Batch 16800: Loss = 4.0469, Time Elapsed = 17.57s
+Batch 16900: Loss = 4.0698, Time Elapsed = 17.22s
+
+Epoch 49:
+Metric	HR@1	MRR@1	NDCG@1	HR@10	MRR@10	NDCG@10	HR@20	MRR@20	NDCG@20
+Value	17.58	17.58	17.58	60.87	30.26	37.53	71.05	30.98	40.12
+Batch 17000: Loss = 4.0922, Time Elapsed = 29.54s
+Batch 17100: Loss = 4.0597, Time Elapsed = 18.59s
+Batch 17200: Loss = 4.0535, Time Elapsed = 16.66s
+Batch 17300: Loss = 4.0701, Time Elapsed = 17.72s
+
+Epoch 50:
+Metric	HR@1	MRR@1	NDCG@1	HR@10	MRR@10	NDCG@10	HR@20	MRR@20	NDCG@20
+Value	17.50	17.50	17.50	60.79	30.21	37.48	71.14	30.94	40.11
+Batch 17400: Loss = 4.0531, Time Elapsed = 29.79s
+Batch 17500: Loss = 4.0389, Time Elapsed = 17.51s
+Batch 17600: Loss = 4.0644, Time Elapsed = 17.13s
+
+Epoch 51:
+Metric	HR@1	MRR@1	NDCG@1	HR@10	MRR@10	NDCG@10	HR@20	MRR@20	NDCG@20
+Value	17.63	17.63	17.63	60.82	30.29	37.55	71.14	31.02	40.17
+Batch 17700: Loss = 4.0677, Time Elapsed = 30.47s
+Batch 17800: Loss = 4.0464, Time Elapsed = 17.32s
+Batch 17900: Loss = 4.0521, Time Elapsed = 17.33s
+Batch 18000: Loss = 4.0631, Time Elapsed = 16.92s
+
+Epoch 52:
+Metric	HR@1	MRR@1	NDCG@1	HR@10	MRR@10	NDCG@10	HR@20	MRR@20	NDCG@20
+Value	17.67	17.67	17.67	60.76	30.36	37.59	71.08	31.09	40.21
+Batch 18100: Loss = 4.0247, Time Elapsed = 30.55s
+Batch 18200: Loss = 4.0479, Time Elapsed = 17.00s
+Batch 18300: Loss = 4.0657, Time Elapsed = 17.04s
+
+Epoch 53:
+Metric	HR@1	MRR@1	NDCG@1	HR@10	MRR@10	NDCG@10	HR@20	MRR@20	NDCG@20
+Value	17.55	17.55	17.55	60.80	30.24	37.51	71.16	30.97	40.14
+Batch 18400: Loss = 4.0408, Time Elapsed = 30.08s
+Batch 18500: Loss = 4.0237, Time Elapsed = 17.36s
+Batch 18600: Loss = 4.0348, Time Elapsed = 17.00s
+
+Epoch 54:
+Metric	HR@1	MRR@1	NDCG@1	HR@10	MRR@10	NDCG@10	HR@20	MRR@20	NDCG@20
+Value	17.65	17.65	17.65	60.88	30.33	37.59	71.21	31.06	40.22
+Batch 18700: Loss = 4.0699, Time Elapsed = 29.25s
+Batch 18800: Loss = 4.0224, Time Elapsed = 17.85s
+Batch 18900: Loss = 4.0304, Time Elapsed = 17.27s
+Batch 19000: Loss = 4.0477, Time Elapsed = 17.31s
+
+Epoch 55:
+Metric	HR@1	MRR@1	NDCG@1	HR@10	MRR@10	NDCG@10	HR@20	MRR@20	NDCG@20
+Value	17.69	17.69	17.69	60.91	30.38	37.64	71.19	31.11	40.26
+Batch 19100: Loss = 4.0046, Time Elapsed = 30.47s
+Batch 19200: Loss = 4.0246, Time Elapsed = 17.51s
+Batch 19300: Loss = 4.0388, Time Elapsed = 16.89s
+
+Epoch 56:
+Metric	HR@1	MRR@1	NDCG@1	HR@10	MRR@10	NDCG@10	HR@20	MRR@20	NDCG@20
+Value	17.72	17.72	17.72	60.81	30.39	37.63	71.23	31.13	40.28
+Batch 19400: Loss = 4.0428, Time Elapsed = 30.50s
+Batch 19500: Loss = 4.0034, Time Elapsed = 17.50s
+Batch 19600: Loss = 4.0315, Time Elapsed = 17.34s
+Batch 19700: Loss = 4.0414, Time Elapsed = 16.97s
+
+Epoch 57:
+Metric	HR@1	MRR@1	NDCG@1	HR@10	MRR@10	NDCG@10	HR@20	MRR@20	NDCG@20
+Value	17.89	17.89	17.89	60.97	30.51	37.75	71.31	31.24	40.38
+Batch 19800: Loss = 3.9962, Time Elapsed = 30.55s
+Batch 19900: Loss = 4.0181, Time Elapsed = 17.42s
+Batch 20000: Loss = 4.0440, Time Elapsed = 17.22s
+
+Epoch 58:
+Metric	HR@1	MRR@1	NDCG@1	HR@10	MRR@10	NDCG@10	HR@20	MRR@20	NDCG@20
+Value	17.75	17.75	17.75	60.93	30.40	37.65	71.27	31.13	40.29
+Batch 20100: Loss = 4.0196, Time Elapsed = 30.28s
+Batch 20200: Loss = 4.0081, Time Elapsed = 17.47s
+Batch 20300: Loss = 4.0040, Time Elapsed = 16.57s
+
+Epoch 59:
+Metric	HR@1	MRR@1	NDCG@1	HR@10	MRR@10	NDCG@10	HR@20	MRR@20	NDCG@20
+Value	17.68	17.68	17.68	61.02	30.40	37.68	71.37	31.13	40.31
+Batch 20400: Loss = 4.0383, Time Elapsed = 29.63s
+Batch 20500: Loss = 3.9803, Time Elapsed = 18.36s
+Batch 20600: Loss = 4.0016, Time Elapsed = 17.22s
+Batch 20700: Loss = 4.0404, Time Elapsed = 17.22s
+
+Epoch 60:
+Metric	HR@1	MRR@1	NDCG@1	HR@10	MRR@10	NDCG@10	HR@20	MRR@20	NDCG@20
+Value	17.69	17.69	17.69	60.99	30.38	37.66	71.33	31.11	40.29
+Batch 20800: Loss = 3.9920, Time Elapsed = 30.94s
+Batch 20900: Loss = 4.0032, Time Elapsed = 17.39s
+Batch 21000: Loss = 4.0092, Time Elapsed = 17.04s
+
+Epoch 61:
+Metric	HR@1	MRR@1	NDCG@1	HR@10	MRR@10	NDCG@10	HR@20	MRR@20	NDCG@20
+Value	17.65	17.65	17.65	60.99	30.40	37.68	71.30	31.13	40.30
+Batch 21100: Loss = 4.0115, Time Elapsed = 29.54s
+Batch 21200: Loss = 3.9921, Time Elapsed = 17.37s
+Batch 21300: Loss = 3.9980, Time Elapsed = 17.21s
+Batch 21400: Loss = 4.0189, Time Elapsed = 17.04s
+
+Epoch 62:
+Metric	HR@1	MRR@1	NDCG@1	HR@10	MRR@10	NDCG@10	HR@20	MRR@20	NDCG@20
+Value	17.74	17.74	17.74	60.94	30.45	37.70	71.31	31.18	40.34
+Batch 21500: Loss = 3.9840, Time Elapsed = 30.96s
+Batch 21600: Loss = 3.9965, Time Elapsed = 16.99s
+Batch 21700: Loss = 4.0000, Time Elapsed = 17.35s
+
+Epoch 63:
+Metric	HR@1	MRR@1	NDCG@1	HR@10	MRR@10	NDCG@10	HR@20	MRR@20	NDCG@20
+Value	17.81	17.81	17.81	61.03	30.46	37.72	71.32	31.18	40.34
+Batch 21800: Loss = 3.9952, Time Elapsed = 29.98s
+Batch 21900: Loss = 3.9796, Time Elapsed = 17.54s
+Batch 22000: Loss = 3.9953, Time Elapsed = 17.13s
+
+Epoch 64:
+Metric	HR@1	MRR@1	NDCG@1	HR@10	MRR@10	NDCG@10	HR@20	MRR@20	NDCG@20
+Value	17.98	17.98	17.98	60.92	30.53	37.75	71.33	31.26	40.40
+Batch 22100: Loss = 4.0119, Time Elapsed = 29.00s
+Batch 22200: Loss = 3.9655, Time Elapsed = 18.59s
+Batch 22300: Loss = 3.9949, Time Elapsed = 17.02s
+Batch 22400: Loss = 3.9940, Time Elapsed = 17.07s
+
+Epoch 65:
+Metric	HR@1	MRR@1	NDCG@1	HR@10	MRR@10	NDCG@10	HR@20	MRR@20	NDCG@20
+Value	18.06	18.06	18.06	60.97	30.59	37.81	71.26	31.32	40.43
+Batch 22500: Loss = 3.9776, Time Elapsed = 30.55s
+Batch 22600: Loss = 3.9773, Time Elapsed = 17.36s
+Batch 22700: Loss = 3.9906, Time Elapsed = 17.33s
+
+Epoch 66:
+Metric	HR@1	MRR@1	NDCG@1	HR@10	MRR@10	NDCG@10	HR@20	MRR@20	NDCG@20
+Value	17.68	17.68	17.68	61.09	30.41	37.70	71.32	31.13	40.30
+Batch 22800: Loss = 3.9889, Time Elapsed = 30.53s
+Batch 22900: Loss = 3.9696, Time Elapsed = 17.22s
+Batch 23000: Loss = 3.9837, Time Elapsed = 16.82s
+Batch 23100: Loss = 3.9912, Time Elapsed = 17.39s
+
+Epoch 67:
+Metric	HR@1	MRR@1	NDCG@1	HR@10	MRR@10	NDCG@10	HR@20	MRR@20	NDCG@20
+Value	17.74	17.74	17.74	61.01	30.42	37.69	71.39	31.16	40.33
+Batch 23200: Loss = 3.9699, Time Elapsed = 30.18s
+Batch 23300: Loss = 3.9762, Time Elapsed = 17.03s
+Batch 23400: Loss = 3.9851, Time Elapsed = 17.50s
+
+Epoch 68:
+Metric	HR@1	MRR@1	NDCG@1	HR@10	MRR@10	NDCG@10	HR@20	MRR@20	NDCG@20
+Value	17.80	17.80	17.80	61.04	30.49	37.75	71.42	31.22	40.39
+Batch 23500: Loss = 3.9680, Time Elapsed = 30.17s
+Batch 23600: Loss = 3.9503, Time Elapsed = 17.06s
+Batch 23700: Loss = 3.9884, Time Elapsed = 16.98s
+
+Epoch 69:
+Metric	HR@1	MRR@1	NDCG@1	HR@10	MRR@10	NDCG@10	HR@20	MRR@20	NDCG@20
+Value	17.99	17.99	17.99	60.95	30.54	37.77	71.43	31.29	40.44
+Batch 23800: Loss = 3.9879, Time Elapsed = 29.89s
+Batch 23900: Loss = 3.9537, Time Elapsed = 17.73s
+Batch 24000: Loss = 3.9545, Time Elapsed = 17.67s
+Batch 24100: Loss = 3.9862, Time Elapsed = 17.35s
+
+Epoch 70:
+Metric	HR@1	MRR@1	NDCG@1	HR@10	MRR@10	NDCG@10	HR@20	MRR@20	NDCG@20
+Value	17.82	17.82	17.82	61.08	30.52	37.78	71.50	31.25	40.44
+Batch 24200: Loss = 3.9509, Time Elapsed = 30.14s
+Batch 24300: Loss = 3.9624, Time Elapsed = 17.72s
+Batch 24400: Loss = 3.9718, Time Elapsed = 17.24s
+
+Epoch 71:
+Metric	HR@1	MRR@1	NDCG@1	HR@10	MRR@10	NDCG@10	HR@20	MRR@20	NDCG@20
+Value	18.00	18.00	18.00	60.99	30.61	37.83	71.50	31.36	40.51
+Batch 24500: Loss = 3.9751, Time Elapsed = 29.66s
+Batch 24600: Loss = 3.9350, Time Elapsed = 17.17s
+Batch 24700: Loss = 3.9729, Time Elapsed = 17.40s
+Batch 24800: Loss = 3.9790, Time Elapsed = 17.17s
+
+Epoch 72:
+Metric	HR@1	MRR@1	NDCG@1	HR@10	MRR@10	NDCG@10	HR@20	MRR@20	NDCG@20
+Value	17.87	17.87	17.87	61.05	30.59	37.84	71.49	31.33	40.50
+Batch 24900: Loss = 3.9380, Time Elapsed = 30.66s
+Batch 25000: Loss = 3.9299, Time Elapsed = 17.30s
+Batch 25100: Loss = 3.9753, Time Elapsed = 17.22s
+
+Epoch 73:
+Metric	HR@1	MRR@1	NDCG@1	HR@10	MRR@10	NDCG@10	HR@20	MRR@20	NDCG@20
+Value	18.13	18.13	18.13	61.17	30.72	37.96	71.40	31.44	40.56
+Batch 25200: Loss = 3.9758, Time Elapsed = 30.67s
+Batch 25300: Loss = 3.9532, Time Elapsed = 17.70s
+Batch 25400: Loss = 3.9503, Time Elapsed = 17.06s
+
+Epoch 74:
+Metric	HR@1	MRR@1	NDCG@1	HR@10	MRR@10	NDCG@10	HR@20	MRR@20	NDCG@20
+Value	17.96	17.96	17.96	61.07	30.62	37.86	71.45	31.36	40.51
+Batch 25500: Loss = 3.9677, Time Elapsed = 29.76s
+Batch 25600: Loss = 3.9309, Time Elapsed = 17.96s
+Batch 25700: Loss = 3.9456, Time Elapsed = 17.40s
+Batch 25800: Loss = 3.9642, Time Elapsed = 17.13s
+
+Epoch 75:
+Metric	HR@1	MRR@1	NDCG@1	HR@10	MRR@10	NDCG@10	HR@20	MRR@20	NDCG@20
+Value	17.84	17.84	17.84	61.16	30.56	37.84	71.52	31.29	40.47
+Batch 25900: Loss = 3.9485, Time Elapsed = 30.78s
+Batch 26000: Loss = 3.9427, Time Elapsed = 16.81s
+Batch 26100: Loss = 3.9418, Time Elapsed = 17.39s
+
+Epoch 76:
+Metric	HR@1	MRR@1	NDCG@1	HR@10	MRR@10	NDCG@10	HR@20	MRR@20	NDCG@20
+Value	18.06	18.06	18.06	61.00	30.65	37.86	71.49	31.39	40.54
+Batch 26200: Loss = 3.9492, Time Elapsed = 30.04s
+Batch 26300: Loss = 3.9274, Time Elapsed = 17.58s
+Batch 26400: Loss = 3.9388, Time Elapsed = 17.12s
+Batch 26500: Loss = 3.9582, Time Elapsed = 17.38s
+
+Epoch 77:
+Metric	HR@1	MRR@1	NDCG@1	HR@10	MRR@10	NDCG@10	HR@20	MRR@20	NDCG@20
+Value	17.97	17.97	17.97	61.20	30.60	37.88	71.54	31.33	40.51
+Batch 26600: Loss = 3.9330, Time Elapsed = 30.34s
+Batch 26700: Loss = 3.9337, Time Elapsed = 17.36s
+Batch 26800: Loss = 3.9414, Time Elapsed = 16.96s
+
+Epoch 78:
+Metric	HR@1	MRR@1	NDCG@1	HR@10	MRR@10	NDCG@10	HR@20	MRR@20	NDCG@20
+Value	18.20	18.20	18.20	61.17	30.74	37.97	71.46	31.47	40.59
+Batch 26900: Loss = 3.9496, Time Elapsed = 30.36s
+Batch 27000: Loss = 3.9322, Time Elapsed = 17.18s
+Batch 27100: Loss = 3.9411, Time Elapsed = 16.91s
+
+Epoch 79:
+Metric	HR@1	MRR@1	NDCG@1	HR@10	MRR@10	NDCG@10	HR@20	MRR@20	NDCG@20
+Value	18.11	18.11	18.11	61.13	30.72	37.95	71.40	31.44	40.56
+Batch 27200: Loss = 3.9460, Time Elapsed = 29.25s
+Batch 27300: Loss = 3.8981, Time Elapsed = 17.81s
+Batch 27400: Loss = 3.9475, Time Elapsed = 16.91s
+Batch 27500: Loss = 3.9477, Time Elapsed = 17.13s
+
+Epoch 80:
+Metric	HR@1	MRR@1	NDCG@1	HR@10	MRR@10	NDCG@10	HR@20	MRR@20	NDCG@20
+Value	18.04	18.04	18.04	61.07	30.66	37.89	71.51	31.40	40.55
+Batch 27600: Loss = 3.9274, Time Elapsed = 30.04s
+Batch 27700: Loss = 3.9179, Time Elapsed = 17.34s
+Batch 27800: Loss = 3.9368, Time Elapsed = 17.47s
+
+Epoch 81:
+Metric	HR@1	MRR@1	NDCG@1	HR@10	MRR@10	NDCG@10	HR@20	MRR@20	NDCG@20
+Value	18.23	18.23	18.23	61.10	30.74	37.96	71.55	31.48	40.62
+Batch 27900: Loss = 3.9349, Time Elapsed = 30.05s
+Batch 28000: Loss = 3.9205, Time Elapsed = 17.50s
+Batch 28100: Loss = 3.9287, Time Elapsed = 17.28s
+Batch 28200: Loss = 3.9399, Time Elapsed = 16.87s
+
+Epoch 82:
+Metric	HR@1	MRR@1	NDCG@1	HR@10	MRR@10	NDCG@10	HR@20	MRR@20	NDCG@20
+Value	18.19	18.19	18.19	61.12	30.75	37.97	71.47	31.49	40.61
+Batch 28300: Loss = 3.9091, Time Elapsed = 29.93s
+Batch 28400: Loss = 3.9219, Time Elapsed = 17.35s
+Batch 28500: Loss = 3.9256, Time Elapsed = 17.21s
+
+Epoch 83:
+Metric	HR@1	MRR@1	NDCG@1	HR@10	MRR@10	NDCG@10	HR@20	MRR@20	NDCG@20
+Value	18.02	18.02	18.02	61.06	30.65	37.88	71.48	31.39	40.53
+Batch 28600: Loss = 3.9221, Time Elapsed = 30.33s
+Batch 28700: Loss = 3.9036, Time Elapsed = 17.34s
+Batch 28800: Loss = 3.9302, Time Elapsed = 17.32s
+
+Epoch 84:
+Metric	HR@1	MRR@1	NDCG@1	HR@10	MRR@10	NDCG@10	HR@20	MRR@20	NDCG@20
+Value	18.21	18.21	18.21	61.05	30.77	37.97	71.60	31.52	40.66
+Batch 28900: Loss = 3.9354, Time Elapsed = 29.18s
+Batch 29000: Loss = 3.8899, Time Elapsed = 18.12s
+Batch 29100: Loss = 3.9257, Time Elapsed = 17.59s
+Batch 29200: Loss = 3.9235, Time Elapsed = 17.27s
+
+Epoch 85:
+Metric	HR@1	MRR@1	NDCG@1	HR@10	MRR@10	NDCG@10	HR@20	MRR@20	NDCG@20
+Value	18.19	18.19	18.19	61.15	30.77	37.99	71.53	31.51	40.64
+Batch 29300: Loss = 3.9027, Time Elapsed = 30.60s
+Batch 29400: Loss = 3.9132, Time Elapsed = 17.19s
+Batch 29500: Loss = 3.9079, Time Elapsed = 16.90s
+
+Epoch 86:
+Metric	HR@1	MRR@1	NDCG@1	HR@10	MRR@10	NDCG@10	HR@20	MRR@20	NDCG@20
+Value	18.19	18.19	18.19	61.11	30.76	37.97	71.61	31.50	40.64
+Batch 29600: Loss = 3.9274, Time Elapsed = 30.50s
+Batch 29700: Loss = 3.8983, Time Elapsed = 17.40s
+Batch 29800: Loss = 3.9127, Time Elapsed = 17.16s
+Batch 29900: Loss = 3.9244, Time Elapsed = 17.52s
+
+Epoch 87:
+Metric	HR@1	MRR@1	NDCG@1	HR@10	MRR@10	NDCG@10	HR@20	MRR@20	NDCG@20
+Value	18.22	18.22	18.22	61.15	30.76	37.99	71.49	31.49	40.62
+Batch 30000: Loss = 3.8979, Time Elapsed = 30.44s
+Batch 30100: Loss = 3.9015, Time Elapsed = 17.24s
+Batch 30200: Loss = 3.9119, Time Elapsed = 17.32s
+
+Epoch 88:
+Metric	HR@1	MRR@1	NDCG@1	HR@10	MRR@10	NDCG@10	HR@20	MRR@20	NDCG@20
+Value	18.16	18.16	18.16	61.15	30.75	37.97	71.55	31.48	40.62
+Batch 30300: Loss = 3.8987, Time Elapsed = 29.94s
+Batch 30400: Loss = 3.8947, Time Elapsed = 17.21s
+Batch 30500: Loss = 3.9211, Time Elapsed = 17.38s
+
+Epoch 89:
+Metric	HR@1	MRR@1	NDCG@1	HR@10	MRR@10	NDCG@10	HR@20	MRR@20	NDCG@20
+Value	18.23	18.23	18.23	61.16	30.82	38.03	71.54	31.55	40.67
+Batch 30600: Loss = 3.9145, Time Elapsed = 30.02s
+Batch 30700: Loss = 3.8733, Time Elapsed = 17.51s
+Batch 30800: Loss = 3.9020, Time Elapsed = 17.44s
+Batch 30900: Loss = 3.9190, Time Elapsed = 17.18s
+
+Epoch 90:
+Metric	HR@1	MRR@1	NDCG@1	HR@10	MRR@10	NDCG@10	HR@20	MRR@20	NDCG@20
+Value	18.22	18.22	18.22	61.29	30.81	38.06	71.57	31.54	40.67
+Batch 31000: Loss = 3.8941, Time Elapsed = 30.21s
+Batch 31100: Loss = 3.9045, Time Elapsed = 17.38s
+Batch 31200: Loss = 3.8879, Time Elapsed = 17.57s
+
+Epoch 91:
+Metric	HR@1	MRR@1	NDCG@1	HR@10	MRR@10	NDCG@10	HR@20	MRR@20	NDCG@20
+Value	18.19	18.19	18.19	61.23	30.78	38.01	71.51	31.50	40.63
+Batch 31300: Loss = 3.9071, Time Elapsed = 30.18s
+Batch 31400: Loss = 3.8753, Time Elapsed = 17.94s
+Batch 31500: Loss = 3.9097, Time Elapsed = 17.29s
+Batch 31600: Loss = 3.9130, Time Elapsed = 17.25s
+
+Epoch 92:
+Metric	HR@1	MRR@1	NDCG@1	HR@10	MRR@10	NDCG@10	HR@20	MRR@20	NDCG@20
+Value	18.23	18.23	18.23	61.14	30.77	37.99	71.48	31.50	40.62
+Batch 31700: Loss = 3.8652, Time Elapsed = 30.56s
+Batch 31800: Loss = 3.8766, Time Elapsed = 17.04s
+Batch 31900: Loss = 3.9208, Time Elapsed = 17.37s
+
+Epoch 93:
+Metric	HR@1	MRR@1	NDCG@1	HR@10	MRR@10	NDCG@10	HR@20	MRR@20	NDCG@20
+Value	18.22	18.22	18.22	61.17	30.77	37.99	71.42	31.49	40.60
+Batch 32000: Loss = 3.8898, Time Elapsed = 30.68s
+Batch 32100: Loss = 3.8838, Time Elapsed = 17.49s
+Batch 32200: Loss = 3.8950, Time Elapsed = 17.17s
+
+Epoch 94:
+Metric	HR@1	MRR@1	NDCG@1	HR@10	MRR@10	NDCG@10	HR@20	MRR@20	NDCG@20
+Value	18.25	18.25	18.25	61.17	30.81	38.03	71.54	31.54	40.67
+Batch 32300: Loss = 3.9010, Time Elapsed = 29.43s
+Batch 32400: Loss = 3.8728, Time Elapsed = 18.36s
+Batch 32500: Loss = 3.8907, Time Elapsed = 17.05s
+Batch 32600: Loss = 3.8923, Time Elapsed = 17.36s
+
+Epoch 95:
+Metric	HR@1	MRR@1	NDCG@1	HR@10	MRR@10	NDCG@10	HR@20	MRR@20	NDCG@20
+Value	18.23	18.23	18.23	61.19	30.78	38.01	71.51	31.51	40.63
+Batch 32700: Loss = 3.8714, Time Elapsed = 30.33s
+Batch 32800: Loss = 3.8893, Time Elapsed = 17.41s
+Batch 32900: Loss = 3.8897, Time Elapsed = 17.40s
+
+Epoch 96:
+Metric	HR@1	MRR@1	NDCG@1	HR@10	MRR@10	NDCG@10	HR@20	MRR@20	NDCG@20
+Value	18.15	18.15	18.15	61.15	30.73	37.96	71.48	31.46	40.59
+Batch 33000: Loss = 3.8765, Time Elapsed = 30.27s
+Batch 33100: Loss = 3.8715, Time Elapsed = 17.88s
+Batch 33200: Loss = 3.8854, Time Elapsed = 17.16s
+Batch 33300: Loss = 3.8898, Time Elapsed = 16.94s
+
+Epoch 97:
+Metric	HR@1	MRR@1	NDCG@1	HR@10	MRR@10	NDCG@10	HR@20	MRR@20	NDCG@20
+Value	18.35	18.35	18.35	61.18	30.86	38.07	71.52	31.59	40.70
+Batch 33400: Loss = 3.8613, Time Elapsed = 30.16s
+Batch 33500: Loss = 3.8835, Time Elapsed = 17.21s
+Batch 33600: Loss = 3.8913, Time Elapsed = 16.91s
+
+Epoch 98:
+Metric	HR@1	MRR@1	NDCG@1	HR@10	MRR@10	NDCG@10	HR@20	MRR@20	NDCG@20
+Value	18.03	18.03	18.03	61.14	30.67	37.91	71.45	31.40	40.54
+Batch 33700: Loss = 3.8740, Time Elapsed = 30.32s
+Batch 33800: Loss = 3.8554, Time Elapsed = 17.35s
+Batch 33900: Loss = 3.8856, Time Elapsed = 17.38s
+
+Epoch 99:
+Metric	HR@1	MRR@1	NDCG@1	HR@10	MRR@10	NDCG@10	HR@20	MRR@20	NDCG@20
+Value	18.15	18.15	18.15	61.23	30.77	38.01	71.54	31.50	40.63
+Batch 34000: Loss = 3.8955, Time Elapsed = 28.85s
+Batch 34100: Loss = 3.8543, Time Elapsed = 18.63s
+Batch 34200: Loss = 3.8765, Time Elapsed = 17.59s
+Batch 34300: Loss = 3.8786, Time Elapsed = 17.53s
+
+Epoch 100:
+Metric	HR@1	MRR@1	NDCG@1	HR@10	MRR@10	NDCG@10	HR@20	MRR@20	NDCG@20
+Value	18.19	18.19	18.19	61.11	30.75	37.97	71.50	31.49	40.62
+Batch 34400: Loss = 3.8687, Time Elapsed = 30.06s
+Batch 34500: Loss = 3.8595, Time Elapsed = 17.28s
+Batch 34600: Loss = 3.8840, Time Elapsed = 17.20s
+
+Epoch 101:
+Metric	HR@1	MRR@1	NDCG@1	HR@10	MRR@10	NDCG@10	HR@20	MRR@20	NDCG@20
+Value	18.25	18.25	18.25	61.12	30.81	38.01	71.53	31.54	40.66
+Batch 34700: Loss = 3.8749, Time Elapsed = 30.05s
+Batch 34800: Loss = 3.8498, Time Elapsed = 17.79s
+Batch 34900: Loss = 3.8581, Time Elapsed = 17.24s
+Batch 35000: Loss = 3.8870, Time Elapsed = 17.12s
+
+Epoch 102:
+Metric	HR@1	MRR@1	NDCG@1	HR@10	MRR@10	NDCG@10	HR@20	MRR@20	NDCG@20
+Value	18.03	18.03	18.03	61.22	30.69	37.95	71.48	31.42	40.56
+Batch 35100: Loss = 3.8476, Time Elapsed = 30.67s
+Batch 35200: Loss = 3.8662, Time Elapsed = 16.77s
+Batch 35300: Loss = 3.8661, Time Elapsed = 17.97s
+
+Epoch 103:
+Metric	HR@1	MRR@1	NDCG@1	HR@10	MRR@10	NDCG@10	HR@20	MRR@20	NDCG@20
+Value	18.39	18.39	18.39	61.04	30.88	38.05	71.51	31.62	40.72
+Batch 35400: Loss = 3.8610, Time Elapsed = 30.01s
+Batch 35500: Loss = 3.8590, Time Elapsed = 17.32s
+Batch 35600: Loss = 3.8549, Time Elapsed = 16.97s
+
+Epoch 104:
+Metric	HR@1	MRR@1	NDCG@1	HR@10	MRR@10	NDCG@10	HR@20	MRR@20	NDCG@20
+Value	18.27	18.27	18.27	61.11	30.80	38.01	71.60	31.54	40.67
+Batch 35700: Loss = 3.8894, Time Elapsed = 28.99s
+Batch 35800: Loss = 3.8401, Time Elapsed = 18.15s
+Batch 35900: Loss = 3.8648, Time Elapsed = 17.40s
+Batch 36000: Loss = 3.8645, Time Elapsed = 17.13s
+
+Epoch 105:
+Metric	HR@1	MRR@1	NDCG@1	HR@10	MRR@10	NDCG@10	HR@20	MRR@20	NDCG@20
+Value	18.22	18.22	18.22	61.20	30.76	38.00	71.52	31.49	40.62
+Batch 36100: Loss = 3.8507, Time Elapsed = 30.34s
+Batch 36200: Loss = 3.8515, Time Elapsed = 17.24s
+Batch 36300: Loss = 3.8671, Time Elapsed = 17.14s
+
+Epoch 106:
+Metric	HR@1	MRR@1	NDCG@1	HR@10	MRR@10	NDCG@10	HR@20	MRR@20	NDCG@20
+Value	18.36	18.36	18.36	61.19	30.87	38.08	71.61	31.61	40.73
+Batch 36400: Loss = 3.8613, Time Elapsed = 30.21s
+Batch 36500: Loss = 3.8288, Time Elapsed = 17.53s
+Batch 36600: Loss = 3.8596, Time Elapsed = 17.19s
+Batch 36700: Loss = 3.8755, Time Elapsed = 17.68s
+
+Epoch 107:
+Metric	HR@1	MRR@1	NDCG@1	HR@10	MRR@10	NDCG@10	HR@20	MRR@20	NDCG@20
+Value	18.35	18.35	18.35	61.17	30.85	38.06	71.54	31.58	40.70
+Batch 36800: Loss = 3.8362, Time Elapsed = 30.05s
+Batch 36900: Loss = 3.8580, Time Elapsed = 17.05s
+Batch 37000: Loss = 3.8512, Time Elapsed = 17.13s
+
+Epoch 108:
+Metric	HR@1	MRR@1	NDCG@1	HR@10	MRR@10	NDCG@10	HR@20	MRR@20	NDCG@20
+Value	18.41	18.41	18.41	61.13	30.91	38.10	71.62	31.65	40.76
+Batch 37100: Loss = 3.8548, Time Elapsed = 30.23s
+Batch 37200: Loss = 3.8406, Time Elapsed = 17.39s
+Batch 37300: Loss = 3.8531, Time Elapsed = 17.07s
+
+Epoch 109:
+Metric	HR@1	MRR@1	NDCG@1	HR@10	MRR@10	NDCG@10	HR@20	MRR@20	NDCG@20
+Value	18.25	18.25	18.25	61.14	30.79	38.01	71.47	31.53	40.64
+Batch 37400: Loss = 3.8554, Time Elapsed = 29.02s
+Batch 37500: Loss = 3.8289, Time Elapsed = 17.94s
+Batch 37600: Loss = 3.8477, Time Elapsed = 17.27s
+Batch 37700: Loss = 3.8526, Time Elapsed = 17.18s
+
+Epoch 110:
+Metric	HR@1	MRR@1	NDCG@1	HR@10	MRR@10	NDCG@10	HR@20	MRR@20	NDCG@20
+Value	18.38	18.38	18.38	61.18	30.86	38.06	71.53	31.59	40.70
+Batch 37800: Loss = 3.8363, Time Elapsed = 30.57s
+Batch 37900: Loss = 3.8318, Time Elapsed = 16.75s
+Batch 38000: Loss = 3.8597, Time Elapsed = 17.44s
+
+Epoch 111:
+Metric	HR@1	MRR@1	NDCG@1	HR@10	MRR@10	NDCG@10	HR@20	MRR@20	NDCG@20
+Value	18.39	18.39	18.39	61.18	30.90	38.10	71.55	31.64	40.74
+Batch 38100: Loss = 3.8541, Time Elapsed = 29.82s
+Batch 38200: Loss = 3.8313, Time Elapsed = 17.69s
+Batch 38300: Loss = 3.8445, Time Elapsed = 16.94s
+Batch 38400: Loss = 3.8501, Time Elapsed = 17.42s
+
+Epoch 112:
+Metric	HR@1	MRR@1	NDCG@1	HR@10	MRR@10	NDCG@10	HR@20	MRR@20	NDCG@20
+Value	18.27	18.27	18.27	61.24	30.84	38.06	71.55	31.57	40.69
+Batch 38500: Loss = 3.8259, Time Elapsed = 30.23s
+Batch 38600: Loss = 3.8391, Time Elapsed = 16.84s
+Batch 38700: Loss = 3.8557, Time Elapsed = 17.03s
+
+Epoch 113:
+Metric	HR@1	MRR@1	NDCG@1	HR@10	MRR@10	NDCG@10	HR@20	MRR@20	NDCG@20
+Value	18.27	18.27	18.27	61.18	30.85	38.06	71.48	31.58	40.68
+Batch 38800: Loss = 3.8389, Time Elapsed = 30.24s
+Batch 38900: Loss = 3.8259, Time Elapsed = 17.13s
+Batch 39000: Loss = 3.8442, Time Elapsed = 17.50s
+
+Epoch 114:
+Metric	HR@1	MRR@1	NDCG@1	HR@10	MRR@10	NDCG@10	HR@20	MRR@20	NDCG@20
+Value	18.33	18.33	18.33	61.14	30.87	38.06	71.49	31.60	40.70
+Batch 39100: Loss = 3.8499, Time Elapsed = 29.33s
+Batch 39200: Loss = 3.8150, Time Elapsed = 18.24s
+Batch 39300: Loss = 3.8331, Time Elapsed = 17.17s
+Batch 39400: Loss = 3.8409, Time Elapsed = 17.13s
+
+Epoch 115:
+Metric	HR@1	MRR@1	NDCG@1	HR@10	MRR@10	NDCG@10	HR@20	MRR@20	NDCG@20
+Value	18.20	18.20	18.20	61.10	30.81	38.01	71.55	31.55	40.67
+Batch 39500: Loss = 3.8310, Time Elapsed = 30.90s
+Batch 39600: Loss = 3.8172, Time Elapsed = 17.20s
+Batch 39700: Loss = 3.8490, Time Elapsed = 17.04s
+
+Epoch 116:
+Metric	HR@1	MRR@1	NDCG@1	HR@10	MRR@10	NDCG@10	HR@20	MRR@20	NDCG@20
+Value	18.42	18.42	18.42	61.12	30.93	38.11	71.50	31.66	40.75
+Batch 39800: Loss = 3.8383, Time Elapsed = 30.62s
+Batch 39900: Loss = 3.8119, Time Elapsed = 17.27s
+Batch 40000: Loss = 3.8211, Time Elapsed = 17.04s
+Batch 40100: Loss = 3.8526, Time Elapsed = 17.41s
+
+Epoch 117:
+Metric	HR@1	MRR@1	NDCG@1	HR@10	MRR@10	NDCG@10	HR@20	MRR@20	NDCG@20
+Value	18.31	18.31	18.31	61.08	30.86	38.05	71.46	31.59	40.69
+Batch 40200: Loss = 3.8234, Time Elapsed = 30.39s
+Batch 40300: Loss = 3.8181, Time Elapsed = 17.29s
+Batch 40400: Loss = 3.8310, Time Elapsed = 17.35s
+
+Epoch 118:
+Metric	HR@1	MRR@1	NDCG@1	HR@10	MRR@10	NDCG@10	HR@20	MRR@20	NDCG@20
+Value	18.40	18.40	18.40	61.24	30.95	38.15	71.44	31.66	40.74
+Batch 40500: Loss = 3.8287, Time Elapsed = 30.83s
+Batch 40600: Loss = 3.8074, Time Elapsed = 17.16s
+Batch 40700: Loss = 3.8329, Time Elapsed = 17.14s
+
+Epoch 119:
+Metric	HR@1	MRR@1	NDCG@1	HR@10	MRR@10	NDCG@10	HR@20	MRR@20	NDCG@20
+Value	18.39	18.39	18.39	61.14	30.89	38.08	71.48	31.62	40.71
+Batch 40800: Loss = 3.8399, Time Elapsed = 29.76s
+Batch 40900: Loss = 3.8073, Time Elapsed = 18.09s
+Batch 41000: Loss = 3.8263, Time Elapsed = 16.94s
+Batch 41100: Loss = 3.8299, Time Elapsed = 17.12s
+
+Epoch 120:
+Metric	HR@1	MRR@1	NDCG@1	HR@10	MRR@10	NDCG@10	HR@20	MRR@20	NDCG@20
+Value	18.20	18.20	18.20	61.17	30.78	38.01	71.46	31.51	40.62
+Batch 41200: Loss = 3.7988, Time Elapsed = 30.72s
+Batch 41300: Loss = 3.8128, Time Elapsed = 16.91s
+Batch 41400: Loss = 3.8454, Time Elapsed = 17.36s
+
+Epoch 121:
+Metric	HR@1	MRR@1	NDCG@1	HR@10	MRR@10	NDCG@10	HR@20	MRR@20	NDCG@20
+Value	18.45	18.45	18.45	61.10	30.92	38.09	71.40	31.64	40.71
+Batch 41500: Loss = 3.8241, Time Elapsed = 29.59s
+Batch 41600: Loss = 3.7964, Time Elapsed = 17.55s
+Batch 41700: Loss = 3.8242, Time Elapsed = 17.29s
+Batch 41800: Loss = 3.8421, Time Elapsed = 17.07s
+
+Epoch 122:
+Metric	HR@1	MRR@1	NDCG@1	HR@10	MRR@10	NDCG@10	HR@20	MRR@20	NDCG@20
+Value	18.30	18.30	18.30	61.07	30.84	38.03	71.46	31.57	40.67
+Batch 41900: Loss = 3.7900, Time Elapsed = 30.49s
+Batch 42000: Loss = 3.8141, Time Elapsed = 17.23s
+Batch 42100: Loss = 3.8305, Time Elapsed = 17.17s
+
+Epoch 123:
+Metric	HR@1	MRR@1	NDCG@1	HR@10	MRR@10	NDCG@10	HR@20	MRR@20	NDCG@20
+Value	18.51	18.51	18.51	61.10	30.93	38.10	71.50	31.66	40.74
+Batch 42200: Loss = 3.8158, Time Elapsed = 30.88s
+Batch 42300: Loss = 3.7956, Time Elapsed = 17.42s
+Batch 42400: Loss = 3.8137, Time Elapsed = 17.00s
+
+Epoch 124:
+Metric	HR@1	MRR@1	NDCG@1	HR@10	MRR@10	NDCG@10	HR@20	MRR@20	NDCG@20
+Value	18.24	18.24	18.24	61.08	30.81	38.01	71.47	31.55	40.66
+Batch 42500: Loss = 3.8316, Time Elapsed = 29.33s
+Batch 42600: Loss = 3.7797, Time Elapsed = 18.13s
+Batch 42700: Loss = 3.8123, Time Elapsed = 17.32s
+Batch 42800: Loss = 3.8214, Time Elapsed = 17.24s
+
+Epoch 125:
+Metric	HR@1	MRR@1	NDCG@1	HR@10	MRR@10	NDCG@10	HR@20	MRR@20	NDCG@20
+Value	18.37	18.37	18.37	61.11	30.88	38.06	71.43	31.61	40.69
+Batch 42900: Loss = 3.8021, Time Elapsed = 30.64s
+Batch 43000: Loss = 3.7929, Time Elapsed = 17.14s
+Batch 43100: Loss = 3.8200, Time Elapsed = 16.99s
+
+Epoch 126:
+Metric	HR@1	MRR@1	NDCG@1	HR@10	MRR@10	NDCG@10	HR@20	MRR@20	NDCG@20
+Value	18.50	18.50	18.50	61.19	30.93	38.12	71.49	31.66	40.74
+Batch 43200: Loss = 3.8254, Time Elapsed = 30.21s
+Batch 43300: Loss = 3.7881, Time Elapsed = 17.66s
+Batch 43400: Loss = 3.8074, Time Elapsed = 17.36s
+Batch 43500: Loss = 3.8176, Time Elapsed = 17.05s
+
+Epoch 127:
+Metric	HR@1	MRR@1	NDCG@1	HR@10	MRR@10	NDCG@10	HR@20	MRR@20	NDCG@20
+Value	18.47	18.47	18.47	60.98	30.96	38.10	71.44	31.70	40.77
+Batch 43600: Loss = 3.7943, Time Elapsed = 30.56s
+Batch 43700: Loss = 3.7954, Time Elapsed = 17.08s
+Batch 43800: Loss = 3.8156, Time Elapsed = 17.40s
+
+Epoch 128:
+Metric	HR@1	MRR@1	NDCG@1	HR@10	MRR@10	NDCG@10	HR@20	MRR@20	NDCG@20
+Value	18.29	18.29	18.29	61.08	30.81	38.01	71.50	31.55	40.66
+Batch 43900: Loss = 3.8107, Time Elapsed = 30.47s
+Batch 44000: Loss = 3.7889, Time Elapsed = 17.38s
+Batch 44100: Loss = 3.8023, Time Elapsed = 17.32s
+
+Epoch 129:
+Metric	HR@1	MRR@1	NDCG@1	HR@10	MRR@10	NDCG@10	HR@20	MRR@20	NDCG@20
+Value	18.36	18.36	18.36	61.15	30.90	38.09	71.52	31.63	40.72
+Batch 44200: Loss = 3.8176, Time Elapsed = 29.01s
+Batch 44300: Loss = 3.7783, Time Elapsed = 17.81s
+Batch 44400: Loss = 3.7981, Time Elapsed = 17.10s
+Batch 44500: Loss = 3.8197, Time Elapsed = 17.16s
+
+Epoch 130:
+Metric	HR@1	MRR@1	NDCG@1	HR@10	MRR@10	NDCG@10	HR@20	MRR@20	NDCG@20
+Value	18.41	18.41	18.41	61.03	30.87	38.04	71.49	31.61	40.70
+Batch 44600: Loss = 3.7934, Time Elapsed = 30.00s
+Batch 44700: Loss = 3.7872, Time Elapsed = 17.17s
+Batch 44800: Loss = 3.8009, Time Elapsed = 17.44s
+
+Epoch 131:
+Metric	HR@1	MRR@1	NDCG@1	HR@10	MRR@10	NDCG@10	HR@20	MRR@20	NDCG@20
+Value	18.53	18.53	18.53	61.10	30.94	38.11	71.43	31.68	40.74
+Batch 44900: Loss = 3.8016, Time Elapsed = 30.11s
+Batch 45000: Loss = 3.7640, Time Elapsed = 17.41s
+Batch 45100: Loss = 3.8001, Time Elapsed = 17.18s
+Batch 45200: Loss = 3.8210, Time Elapsed = 17.12s
+
+Epoch 132:
+Metric	HR@1	MRR@1	NDCG@1	HR@10	MRR@10	NDCG@10	HR@20	MRR@20	NDCG@20
+Value	18.31	18.31	18.31	61.00	30.84	38.01	71.49	31.58	40.68
+Batch 45300: Loss = 3.7879, Time Elapsed = 30.65s
+Batch 45400: Loss = 3.7856, Time Elapsed = 17.20s
+Batch 45500: Loss = 3.8117, Time Elapsed = 17.57s
+
+Epoch 133:
+Metric	HR@1	MRR@1	NDCG@1	HR@10	MRR@10	NDCG@10	HR@20	MRR@20	NDCG@20
+Value	18.34	18.34	18.34	60.99	30.85	38.01	71.45	31.59	40.68
+Batch 45600: Loss = 3.7773, Time Elapsed = 30.35s
+Batch 45700: Loss = 3.7790, Time Elapsed = 17.49s
+Batch 45800: Loss = 3.7991, Time Elapsed = 17.02s
+
+Epoch 134:
+Metric	HR@1	MRR@1	NDCG@1	HR@10	MRR@10	NDCG@10	HR@20	MRR@20	NDCG@20
+Value	18.38	18.38	18.38	61.06	30.89	38.06	71.47	31.63	40.71
+Batch 45900: Loss = 3.8061, Time Elapsed = 30.04s
+Batch 46000: Loss = 3.7657, Time Elapsed = 17.66s
+Batch 46100: Loss = 3.7900, Time Elapsed = 17.25s
+Batch 46200: Loss = 3.8081, Time Elapsed = 17.43s
+
+Epoch 135:
+Metric	HR@1	MRR@1	NDCG@1	HR@10	MRR@10	NDCG@10	HR@20	MRR@20	NDCG@20
+Value	18.37	18.37	18.37	61.02	30.87	38.04	71.45	31.60	40.69
+Batch 46300: Loss = 3.7795, Time Elapsed = 30.43s
+Batch 46400: Loss = 3.7781, Time Elapsed = 17.34s
+Batch 46500: Loss = 3.7933, Time Elapsed = 17.38s
+
+Epoch 136:
+Metric	HR@1	MRR@1	NDCG@1	HR@10	MRR@10	NDCG@10	HR@20	MRR@20	NDCG@20
+Value	18.44	18.44	18.44	61.08	30.90	38.07	71.49	31.64	40.72
+Batch 46600: Loss = 3.7948, Time Elapsed = 30.08s
+Batch 46700: Loss = 3.7606, Time Elapsed = 17.30s
+Batch 46800: Loss = 3.7850, Time Elapsed = 17.30s
+Batch 46900: Loss = 3.8107, Time Elapsed = 17.23s
+
+Epoch 137:
+Metric	HR@1	MRR@1	NDCG@1	HR@10	MRR@10	NDCG@10	HR@20	MRR@20	NDCG@20
+Value	18.45	18.45	18.45	60.91	30.88	38.02	71.37	31.62	40.68
+Batch 47000: Loss = 3.7727, Time Elapsed = 30.22s
+Batch 47100: Loss = 3.7809, Time Elapsed = 17.14s
+Batch 47200: Loss = 3.7988, Time Elapsed = 17.36s
+
+Epoch 138:
+Metric	HR@1	MRR@1	NDCG@1	HR@10	MRR@10	NDCG@10	HR@20	MRR@20	NDCG@20
+Value	18.31	18.31	18.31	61.03	30.83	38.01	71.45	31.56	40.66
+Batch 47300: Loss = 3.7766, Time Elapsed = 30.29s
+Batch 47400: Loss = 3.7604, Time Elapsed = 17.24s
+Batch 47500: Loss = 3.7877, Time Elapsed = 17.24s
+
+Epoch 139:
+Metric	HR@1	MRR@1	NDCG@1	HR@10	MRR@10	NDCG@10	HR@20	MRR@20	NDCG@20
+Value	18.40	18.40	18.40	61.12	30.91	38.09	71.46	31.64	40.73
+
+Best results
+Metric	HR@1	MRR@1	NDCG@1	HR@10	MRR@10	NDCG@10	HR@20	MRR@20	NDCG@20
+Value	18.53	18.53	18.53	61.29	30.96	38.15	71.62	31.70	40.77
+Epoch	131	131	131	90	127	118	108	127	127

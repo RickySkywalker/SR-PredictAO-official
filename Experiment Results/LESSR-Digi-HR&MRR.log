@@ -1,0 +1,4181 @@
+Namespace(Ks='1,10,20', batch_size=1024, dataset_dir='datasets/diginetica', embedding_dim=32, epochs=300, feat_drop=0.4, log_interval=100, lr=0.0003, num_layers=3, num_workers=8, patience=8, valid_split=None, weight_decay=0.0001)
+datasets/diginetica
+reading dataset
+cuda
+cuda
+cuda
+cuda
+cuda
+cuda
+cuda
+cuda
+cuda
+cuda
+cuda
+cuda
+cuda
+cuda
+cuda
+cuda
+cuda
+cuda
+cuda
+cuda
+cuda
+cuda
+cuda
+cuda
+cuda
+cuda
+cuda
+cuda
+cuda
+cuda
+cuda
+cuda
+cuda
+cuda
+cuda
+cuda
+cuda
+cuda
+cuda
+cuda
+cuda
+cuda
+cuda
+cuda
+cuda
+cuda
+cuda
+cuda
+cuda
+cuda
+cuda
+cuda
+cuda
+cuda
+cuda
+cuda
+cuda
+cuda
+cuda
+cuda
+cuda
+cuda
+cuda
+cuda
+cuda
+cuda
+cuda
+cuda
+cuda
+cuda
+cuda
+cuda
+cuda
+cuda
+cuda
+cuda
+cuda
+cuda
+cuda
+cuda
+cuda
+cuda
+cuda
+cuda
+cuda
+cuda
+cuda
+cuda
+cuda
+cuda
+cuda
+cuda
+cuda
+cuda
+cuda
+cuda
+cuda
+cuda
+cuda
+cuda
+cuda
+cuda
+cuda
+cuda
+cuda
+cuda
+cuda
+cuda
+cuda
+cuda
+cuda
+cuda
+cuda
+cuda
+cuda
+cuda
+cuda
+cuda
+cuda
+cuda
+cuda
+cuda
+cuda
+cuda
+cuda
+cuda
+cuda
+cuda
+cuda
+cuda
+cuda
+cuda
+cuda
+cuda
+cuda
+cuda
+cuda
+cuda
+cuda
+cuda
+cuda
+cuda
+cuda
+cuda
+cuda
+cuda
+cuda
+cuda
+cuda
+cuda
+cuda
+cuda
+cuda
+cuda
+cuda
+cuda
+cuda
+cuda
+cuda
+cuda
+cuda
+cuda
+cuda
+cuda
+cuda
+cuda
+cuda
+cuda
+cuda
+cuda
+cuda
+cuda
+cuda
+cuda
+cuda
+cuda
+cuda
+cuda
+cuda
+cuda
+cuda
+cuda
+cuda
+cuda
+cuda
+cuda
+cuda
+cuda
+cuda
+cuda
+cuda
+cuda
+cuda
+cuda
+cuda
+cuda
+cuda
+cuda
+cuda
+cuda
+cuda
+cuda
+cuda
+cuda
+cuda
+cuda
+cuda
+cuda
+cuda
+cuda
+cuda
+cuda
+cuda
+cuda
+cuda
+cuda
+cuda
+cuda
+cuda
+cuda
+cuda
+cuda
+cuda
+cuda
+cuda
+cuda
+cuda
+cuda
+cuda
+cuda
+cuda
+cuda
+cuda
+cuda
+cuda
+cuda
+cuda
+cuda
+cuda
+cuda
+cuda
+cuda
+cuda
+cuda
+cuda
+cuda
+cuda
+cuda
+cuda
+cuda
+cuda
+cuda
+cuda
+cuda
+cuda
+cuda
+LESSR(
+  (embedding): Embedding(38579, 32, max_norm=1)
+  (layers): ModuleList(
+    (0): EOPA(
+      (batch_norm): BatchNorm1d(32, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+      (feat_drop): Dropout(p=0.4, inplace=False)
+      (gru): GRU(32, 32, batch_first=True)
+      (fc_self): Linear(in_features=32, out_features=32, bias=False)
+      (fc_neigh): Linear(in_features=32, out_features=32, bias=False)
+      (activation): PReLU(num_parameters=32)
+    )
+    (1): SGAT(
+      (batch_norm): BatchNorm1d(64, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+      (feat_drop): Dropout(p=0.4, inplace=False)
+      (fc_q): Linear(in_features=64, out_features=32, bias=True)
+      (fc_k): Linear(in_features=64, out_features=32, bias=False)
+      (fc_v): Linear(in_features=64, out_features=32, bias=False)
+      (fc_e): Linear(in_features=32, out_features=1, bias=False)
+      (activation): PReLU(num_parameters=32)
+    )
+    (2): EOPA(
+      (batch_norm): BatchNorm1d(96, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+      (feat_drop): Dropout(p=0.4, inplace=False)
+      (gru): GRU(96, 96, batch_first=True)
+      (fc_self): Linear(in_features=96, out_features=32, bias=False)
+      (fc_neigh): Linear(in_features=96, out_features=32, bias=False)
+      (activation): PReLU(num_parameters=32)
+    )
+  )
+  (readout): AttnReadout(
+    (batch_norm): BatchNorm1d(128, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+    (feat_drop): Dropout(p=0.4, inplace=False)
+    (fc_u): Linear(in_features=128, out_features=32, bias=False)
+    (fc_v): Linear(in_features=128, out_features=32, bias=True)
+    (fc_e): Linear(in_features=32, out_features=1, bias=False)
+    (fc_out): Linear(in_features=128, out_features=32, bias=False)
+    (activation): PReLU(num_parameters=32)
+  )
+  (batch_norm): BatchNorm1d(160, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+  (feat_drop): Dropout(p=0.4, inplace=False)
+  (fc_sr): Linear(in_features=160, out_features=32, bias=False)
+  (RF): NeuralDecisionForest(
+    (ensemble): ModuleList(
+      (0): NeuralDecisionTree(
+        (decision_fn_1): Linear(in_features=96, out_features=64, bias=True)
+        (activation_fn_1): Tanh()
+        (dropout_1): Dropout(p=0.2, inplace=False)
+        (decision_fn_2): Linear(in_features=64, out_features=64, bias=True)
+        (activation_fn_2): Tanh()
+        (dropout_2): Dropout(p=0.2, inplace=False)
+        (decision_fn_3): Linear(in_features=64, out_features=32, bias=True)
+        (activation_fn_3): Sigmoid()
+        (mu_dropout): Dropout(p=0.6, inplace=False)
+      )
+      (1): NeuralDecisionTree(
+        (decision_fn_1): Linear(in_features=96, out_features=64, bias=True)
+        (activation_fn_1): Tanh()
+        (dropout_1): Dropout(p=0.2, inplace=False)
+        (decision_fn_2): Linear(in_features=64, out_features=64, bias=True)
+        (activation_fn_2): Tanh()
+        (dropout_2): Dropout(p=0.2, inplace=False)
+        (decision_fn_3): Linear(in_features=64, out_features=32, bias=True)
+        (activation_fn_3): Sigmoid()
+        (mu_dropout): Dropout(p=0.6, inplace=False)
+      )
+      (2): NeuralDecisionTree(
+        (decision_fn_1): Linear(in_features=96, out_features=64, bias=True)
+        (activation_fn_1): Tanh()
+        (dropout_1): Dropout(p=0.2, inplace=False)
+        (decision_fn_2): Linear(in_features=64, out_features=64, bias=True)
+        (activation_fn_2): Tanh()
+        (dropout_2): Dropout(p=0.2, inplace=False)
+        (decision_fn_3): Linear(in_features=64, out_features=32, bias=True)
+        (activation_fn_3): Sigmoid()
+        (mu_dropout): Dropout(p=0.6, inplace=False)
+      )
+      (3): NeuralDecisionTree(
+        (decision_fn_1): Linear(in_features=96, out_features=64, bias=True)
+        (activation_fn_1): Tanh()
+        (dropout_1): Dropout(p=0.2, inplace=False)
+        (decision_fn_2): Linear(in_features=64, out_features=64, bias=True)
+        (activation_fn_2): Tanh()
+        (dropout_2): Dropout(p=0.2, inplace=False)
+        (decision_fn_3): Linear(in_features=64, out_features=32, bias=True)
+        (activation_fn_3): Sigmoid()
+        (mu_dropout): Dropout(p=0.6, inplace=False)
+      )
+      (4): NeuralDecisionTree(
+        (decision_fn_1): Linear(in_features=96, out_features=64, bias=True)
+        (activation_fn_1): Tanh()
+        (dropout_1): Dropout(p=0.2, inplace=False)
+        (decision_fn_2): Linear(in_features=64, out_features=64, bias=True)
+        (activation_fn_2): Tanh()
+        (dropout_2): Dropout(p=0.2, inplace=False)
+        (decision_fn_3): Linear(in_features=64, out_features=32, bias=True)
+        (activation_fn_3): Sigmoid()
+        (mu_dropout): Dropout(p=0.6, inplace=False)
+      )
+      (5): NeuralDecisionTree(
+        (decision_fn_1): Linear(in_features=96, out_features=64, bias=True)
+        (activation_fn_1): Tanh()
+        (dropout_1): Dropout(p=0.2, inplace=False)
+        (decision_fn_2): Linear(in_features=64, out_features=64, bias=True)
+        (activation_fn_2): Tanh()
+        (dropout_2): Dropout(p=0.2, inplace=False)
+        (decision_fn_3): Linear(in_features=64, out_features=32, bias=True)
+        (activation_fn_3): Sigmoid()
+        (mu_dropout): Dropout(p=0.6, inplace=False)
+      )
+      (6): NeuralDecisionTree(
+        (decision_fn_1): Linear(in_features=96, out_features=64, bias=True)
+        (activation_fn_1): Tanh()
+        (dropout_1): Dropout(p=0.2, inplace=False)
+        (decision_fn_2): Linear(in_features=64, out_features=64, bias=True)
+        (activation_fn_2): Tanh()
+        (dropout_2): Dropout(p=0.2, inplace=False)
+        (decision_fn_3): Linear(in_features=64, out_features=32, bias=True)
+        (activation_fn_3): Sigmoid()
+        (mu_dropout): Dropout(p=0.6, inplace=False)
+      )
+      (7): NeuralDecisionTree(
+        (decision_fn_1): Linear(in_features=96, out_features=64, bias=True)
+        (activation_fn_1): Tanh()
+        (dropout_1): Dropout(p=0.2, inplace=False)
+        (decision_fn_2): Linear(in_features=64, out_features=64, bias=True)
+        (activation_fn_2): Tanh()
+        (dropout_2): Dropout(p=0.2, inplace=False)
+        (decision_fn_3): Linear(in_features=64, out_features=32, bias=True)
+        (activation_fn_3): Sigmoid()
+        (mu_dropout): Dropout(p=0.6, inplace=False)
+      )
+      (8): NeuralDecisionTree(
+        (decision_fn_1): Linear(in_features=96, out_features=64, bias=True)
+        (activation_fn_1): Tanh()
+        (dropout_1): Dropout(p=0.2, inplace=False)
+        (decision_fn_2): Linear(in_features=64, out_features=64, bias=True)
+        (activation_fn_2): Tanh()
+        (dropout_2): Dropout(p=0.2, inplace=False)
+        (decision_fn_3): Linear(in_features=64, out_features=32, bias=True)
+        (activation_fn_3): Sigmoid()
+        (mu_dropout): Dropout(p=0.6, inplace=False)
+      )
+      (9): NeuralDecisionTree(
+        (decision_fn_1): Linear(in_features=96, out_features=64, bias=True)
+        (activation_fn_1): Tanh()
+        (dropout_1): Dropout(p=0.2, inplace=False)
+        (decision_fn_2): Linear(in_features=64, out_features=64, bias=True)
+        (activation_fn_2): Tanh()
+        (dropout_2): Dropout(p=0.2, inplace=False)
+        (decision_fn_3): Linear(in_features=64, out_features=32, bias=True)
+        (activation_fn_3): Sigmoid()
+        (mu_dropout): Dropout(p=0.6, inplace=False)
+      )
+      (10): NeuralDecisionTree(
+        (decision_fn_1): Linear(in_features=96, out_features=64, bias=True)
+        (activation_fn_1): Tanh()
+        (dropout_1): Dropout(p=0.2, inplace=False)
+        (decision_fn_2): Linear(in_features=64, out_features=64, bias=True)
+        (activation_fn_2): Tanh()
+        (dropout_2): Dropout(p=0.2, inplace=False)
+        (decision_fn_3): Linear(in_features=64, out_features=32, bias=True)
+        (activation_fn_3): Sigmoid()
+        (mu_dropout): Dropout(p=0.6, inplace=False)
+      )
+      (11): NeuralDecisionTree(
+        (decision_fn_1): Linear(in_features=96, out_features=64, bias=True)
+        (activation_fn_1): Tanh()
+        (dropout_1): Dropout(p=0.2, inplace=False)
+        (decision_fn_2): Linear(in_features=64, out_features=64, bias=True)
+        (activation_fn_2): Tanh()
+        (dropout_2): Dropout(p=0.2, inplace=False)
+        (decision_fn_3): Linear(in_features=64, out_features=32, bias=True)
+        (activation_fn_3): Sigmoid()
+        (mu_dropout): Dropout(p=0.6, inplace=False)
+      )
+      (12): NeuralDecisionTree(
+        (decision_fn_1): Linear(in_features=96, out_features=64, bias=True)
+        (activation_fn_1): Tanh()
+        (dropout_1): Dropout(p=0.2, inplace=False)
+        (decision_fn_2): Linear(in_features=64, out_features=64, bias=True)
+        (activation_fn_2): Tanh()
+        (dropout_2): Dropout(p=0.2, inplace=False)
+        (decision_fn_3): Linear(in_features=64, out_features=32, bias=True)
+        (activation_fn_3): Sigmoid()
+        (mu_dropout): Dropout(p=0.6, inplace=False)
+      )
+      (13): NeuralDecisionTree(
+        (decision_fn_1): Linear(in_features=96, out_features=64, bias=True)
+        (activation_fn_1): Tanh()
+        (dropout_1): Dropout(p=0.2, inplace=False)
+        (decision_fn_2): Linear(in_features=64, out_features=64, bias=True)
+        (activation_fn_2): Tanh()
+        (dropout_2): Dropout(p=0.2, inplace=False)
+        (decision_fn_3): Linear(in_features=64, out_features=32, bias=True)
+        (activation_fn_3): Sigmoid()
+        (mu_dropout): Dropout(p=0.6, inplace=False)
+      )
+      (14): NeuralDecisionTree(
+        (decision_fn_1): Linear(in_features=96, out_features=64, bias=True)
+        (activation_fn_1): Tanh()
+        (dropout_1): Dropout(p=0.2, inplace=False)
+        (decision_fn_2): Linear(in_features=64, out_features=64, bias=True)
+        (activation_fn_2): Tanh()
+        (dropout_2): Dropout(p=0.2, inplace=False)
+        (decision_fn_3): Linear(in_features=64, out_features=32, bias=True)
+        (activation_fn_3): Sigmoid()
+        (mu_dropout): Dropout(p=0.6, inplace=False)
+      )
+      (15): NeuralDecisionTree(
+        (decision_fn_1): Linear(in_features=96, out_features=64, bias=True)
+        (activation_fn_1): Tanh()
+        (dropout_1): Dropout(p=0.2, inplace=False)
+        (decision_fn_2): Linear(in_features=64, out_features=64, bias=True)
+        (activation_fn_2): Tanh()
+        (dropout_2): Dropout(p=0.2, inplace=False)
+        (decision_fn_3): Linear(in_features=64, out_features=32, bias=True)
+        (activation_fn_3): Sigmoid()
+        (mu_dropout): Dropout(p=0.6, inplace=False)
+      )
+      (16): NeuralDecisionTree(
+        (decision_fn_1): Linear(in_features=96, out_features=64, bias=True)
+        (activation_fn_1): Tanh()
+        (dropout_1): Dropout(p=0.2, inplace=False)
+        (decision_fn_2): Linear(in_features=64, out_features=64, bias=True)
+        (activation_fn_2): Tanh()
+        (dropout_2): Dropout(p=0.2, inplace=False)
+        (decision_fn_3): Linear(in_features=64, out_features=32, bias=True)
+        (activation_fn_3): Sigmoid()
+        (mu_dropout): Dropout(p=0.6, inplace=False)
+      )
+      (17): NeuralDecisionTree(
+        (decision_fn_1): Linear(in_features=96, out_features=64, bias=True)
+        (activation_fn_1): Tanh()
+        (dropout_1): Dropout(p=0.2, inplace=False)
+        (decision_fn_2): Linear(in_features=64, out_features=64, bias=True)
+        (activation_fn_2): Tanh()
+        (dropout_2): Dropout(p=0.2, inplace=False)
+        (decision_fn_3): Linear(in_features=64, out_features=32, bias=True)
+        (activation_fn_3): Sigmoid()
+        (mu_dropout): Dropout(p=0.6, inplace=False)
+      )
+      (18): NeuralDecisionTree(
+        (decision_fn_1): Linear(in_features=96, out_features=64, bias=True)
+        (activation_fn_1): Tanh()
+        (dropout_1): Dropout(p=0.2, inplace=False)
+        (decision_fn_2): Linear(in_features=64, out_features=64, bias=True)
+        (activation_fn_2): Tanh()
+        (dropout_2): Dropout(p=0.2, inplace=False)
+        (decision_fn_3): Linear(in_features=64, out_features=32, bias=True)
+        (activation_fn_3): Sigmoid()
+        (mu_dropout): Dropout(p=0.6, inplace=False)
+      )
+      (19): NeuralDecisionTree(
+        (decision_fn_1): Linear(in_features=96, out_features=64, bias=True)
+        (activation_fn_1): Tanh()
+        (dropout_1): Dropout(p=0.2, inplace=False)
+        (decision_fn_2): Linear(in_features=64, out_features=64, bias=True)
+        (activation_fn_2): Tanh()
+        (dropout_2): Dropout(p=0.2, inplace=False)
+        (decision_fn_3): Linear(in_features=64, out_features=32, bias=True)
+        (activation_fn_3): Sigmoid()
+        (mu_dropout): Dropout(p=0.6, inplace=False)
+      )
+      (20): NeuralDecisionTree(
+        (decision_fn_1): Linear(in_features=96, out_features=64, bias=True)
+        (activation_fn_1): Tanh()
+        (dropout_1): Dropout(p=0.2, inplace=False)
+        (decision_fn_2): Linear(in_features=64, out_features=64, bias=True)
+        (activation_fn_2): Tanh()
+        (dropout_2): Dropout(p=0.2, inplace=False)
+        (decision_fn_3): Linear(in_features=64, out_features=32, bias=True)
+        (activation_fn_3): Sigmoid()
+        (mu_dropout): Dropout(p=0.6, inplace=False)
+      )
+      (21): NeuralDecisionTree(
+        (decision_fn_1): Linear(in_features=96, out_features=64, bias=True)
+        (activation_fn_1): Tanh()
+        (dropout_1): Dropout(p=0.2, inplace=False)
+        (decision_fn_2): Linear(in_features=64, out_features=64, bias=True)
+        (activation_fn_2): Tanh()
+        (dropout_2): Dropout(p=0.2, inplace=False)
+        (decision_fn_3): Linear(in_features=64, out_features=32, bias=True)
+        (activation_fn_3): Sigmoid()
+        (mu_dropout): Dropout(p=0.6, inplace=False)
+      )
+      (22): NeuralDecisionTree(
+        (decision_fn_1): Linear(in_features=96, out_features=64, bias=True)
+        (activation_fn_1): Tanh()
+        (dropout_1): Dropout(p=0.2, inplace=False)
+        (decision_fn_2): Linear(in_features=64, out_features=64, bias=True)
+        (activation_fn_2): Tanh()
+        (dropout_2): Dropout(p=0.2, inplace=False)
+        (decision_fn_3): Linear(in_features=64, out_features=32, bias=True)
+        (activation_fn_3): Sigmoid()
+        (mu_dropout): Dropout(p=0.6, inplace=False)
+      )
+      (23): NeuralDecisionTree(
+        (decision_fn_1): Linear(in_features=96, out_features=64, bias=True)
+        (activation_fn_1): Tanh()
+        (dropout_1): Dropout(p=0.2, inplace=False)
+        (decision_fn_2): Linear(in_features=64, out_features=64, bias=True)
+        (activation_fn_2): Tanh()
+        (dropout_2): Dropout(p=0.2, inplace=False)
+        (decision_fn_3): Linear(in_features=64, out_features=32, bias=True)
+        (activation_fn_3): Sigmoid()
+        (mu_dropout): Dropout(p=0.6, inplace=False)
+      )
+      (24): NeuralDecisionTree(
+        (decision_fn_1): Linear(in_features=96, out_features=64, bias=True)
+        (activation_fn_1): Tanh()
+        (dropout_1): Dropout(p=0.2, inplace=False)
+        (decision_fn_2): Linear(in_features=64, out_features=64, bias=True)
+        (activation_fn_2): Tanh()
+        (dropout_2): Dropout(p=0.2, inplace=False)
+        (decision_fn_3): Linear(in_features=64, out_features=32, bias=True)
+        (activation_fn_3): Sigmoid()
+        (mu_dropout): Dropout(p=0.6, inplace=False)
+      )
+      (25): NeuralDecisionTree(
+        (decision_fn_1): Linear(in_features=96, out_features=64, bias=True)
+        (activation_fn_1): Tanh()
+        (dropout_1): Dropout(p=0.2, inplace=False)
+        (decision_fn_2): Linear(in_features=64, out_features=64, bias=True)
+        (activation_fn_2): Tanh()
+        (dropout_2): Dropout(p=0.2, inplace=False)
+        (decision_fn_3): Linear(in_features=64, out_features=32, bias=True)
+        (activation_fn_3): Sigmoid()
+        (mu_dropout): Dropout(p=0.6, inplace=False)
+      )
+      (26): NeuralDecisionTree(
+        (decision_fn_1): Linear(in_features=96, out_features=64, bias=True)
+        (activation_fn_1): Tanh()
+        (dropout_1): Dropout(p=0.2, inplace=False)
+        (decision_fn_2): Linear(in_features=64, out_features=64, bias=True)
+        (activation_fn_2): Tanh()
+        (dropout_2): Dropout(p=0.2, inplace=False)
+        (decision_fn_3): Linear(in_features=64, out_features=32, bias=True)
+        (activation_fn_3): Sigmoid()
+        (mu_dropout): Dropout(p=0.6, inplace=False)
+      )
+      (27): NeuralDecisionTree(
+        (decision_fn_1): Linear(in_features=96, out_features=64, bias=True)
+        (activation_fn_1): Tanh()
+        (dropout_1): Dropout(p=0.2, inplace=False)
+        (decision_fn_2): Linear(in_features=64, out_features=64, bias=True)
+        (activation_fn_2): Tanh()
+        (dropout_2): Dropout(p=0.2, inplace=False)
+        (decision_fn_3): Linear(in_features=64, out_features=32, bias=True)
+        (activation_fn_3): Sigmoid()
+        (mu_dropout): Dropout(p=0.6, inplace=False)
+      )
+      (28): NeuralDecisionTree(
+        (decision_fn_1): Linear(in_features=96, out_features=64, bias=True)
+        (activation_fn_1): Tanh()
+        (dropout_1): Dropout(p=0.2, inplace=False)
+        (decision_fn_2): Linear(in_features=64, out_features=64, bias=True)
+        (activation_fn_2): Tanh()
+        (dropout_2): Dropout(p=0.2, inplace=False)
+        (decision_fn_3): Linear(in_features=64, out_features=32, bias=True)
+        (activation_fn_3): Sigmoid()
+        (mu_dropout): Dropout(p=0.6, inplace=False)
+      )
+      (29): NeuralDecisionTree(
+        (decision_fn_1): Linear(in_features=96, out_features=64, bias=True)
+        (activation_fn_1): Tanh()
+        (dropout_1): Dropout(p=0.2, inplace=False)
+        (decision_fn_2): Linear(in_features=64, out_features=64, bias=True)
+        (activation_fn_2): Tanh()
+        (dropout_2): Dropout(p=0.2, inplace=False)
+        (decision_fn_3): Linear(in_features=64, out_features=32, bias=True)
+        (activation_fn_3): Sigmoid()
+        (mu_dropout): Dropout(p=0.6, inplace=False)
+      )
+      (30): NeuralDecisionTree(
+        (decision_fn_1): Linear(in_features=96, out_features=64, bias=True)
+        (activation_fn_1): Tanh()
+        (dropout_1): Dropout(p=0.2, inplace=False)
+        (decision_fn_2): Linear(in_features=64, out_features=64, bias=True)
+        (activation_fn_2): Tanh()
+        (dropout_2): Dropout(p=0.2, inplace=False)
+        (decision_fn_3): Linear(in_features=64, out_features=32, bias=True)
+        (activation_fn_3): Sigmoid()
+        (mu_dropout): Dropout(p=0.6, inplace=False)
+      )
+      (31): NeuralDecisionTree(
+        (decision_fn_1): Linear(in_features=96, out_features=64, bias=True)
+        (activation_fn_1): Tanh()
+        (dropout_1): Dropout(p=0.2, inplace=False)
+        (decision_fn_2): Linear(in_features=64, out_features=64, bias=True)
+        (activation_fn_2): Tanh()
+        (dropout_2): Dropout(p=0.2, inplace=False)
+        (decision_fn_3): Linear(in_features=64, out_features=32, bias=True)
+        (activation_fn_3): Sigmoid()
+        (mu_dropout): Dropout(p=0.6, inplace=False)
+      )
+      (32): NeuralDecisionTree(
+        (decision_fn_1): Linear(in_features=96, out_features=64, bias=True)
+        (activation_fn_1): Tanh()
+        (dropout_1): Dropout(p=0.2, inplace=False)
+        (decision_fn_2): Linear(in_features=64, out_features=64, bias=True)
+        (activation_fn_2): Tanh()
+        (dropout_2): Dropout(p=0.2, inplace=False)
+        (decision_fn_3): Linear(in_features=64, out_features=32, bias=True)
+        (activation_fn_3): Sigmoid()
+        (mu_dropout): Dropout(p=0.6, inplace=False)
+      )
+      (33): NeuralDecisionTree(
+        (decision_fn_1): Linear(in_features=96, out_features=64, bias=True)
+        (activation_fn_1): Tanh()
+        (dropout_1): Dropout(p=0.2, inplace=False)
+        (decision_fn_2): Linear(in_features=64, out_features=64, bias=True)
+        (activation_fn_2): Tanh()
+        (dropout_2): Dropout(p=0.2, inplace=False)
+        (decision_fn_3): Linear(in_features=64, out_features=32, bias=True)
+        (activation_fn_3): Sigmoid()
+        (mu_dropout): Dropout(p=0.6, inplace=False)
+      )
+      (34): NeuralDecisionTree(
+        (decision_fn_1): Linear(in_features=96, out_features=64, bias=True)
+        (activation_fn_1): Tanh()
+        (dropout_1): Dropout(p=0.2, inplace=False)
+        (decision_fn_2): Linear(in_features=64, out_features=64, bias=True)
+        (activation_fn_2): Tanh()
+        (dropout_2): Dropout(p=0.2, inplace=False)
+        (decision_fn_3): Linear(in_features=64, out_features=32, bias=True)
+        (activation_fn_3): Sigmoid()
+        (mu_dropout): Dropout(p=0.6, inplace=False)
+      )
+      (35): NeuralDecisionTree(
+        (decision_fn_1): Linear(in_features=96, out_features=64, bias=True)
+        (activation_fn_1): Tanh()
+        (dropout_1): Dropout(p=0.2, inplace=False)
+        (decision_fn_2): Linear(in_features=64, out_features=64, bias=True)
+        (activation_fn_2): Tanh()
+        (dropout_2): Dropout(p=0.2, inplace=False)
+        (decision_fn_3): Linear(in_features=64, out_features=32, bias=True)
+        (activation_fn_3): Sigmoid()
+        (mu_dropout): Dropout(p=0.6, inplace=False)
+      )
+      (36): NeuralDecisionTree(
+        (decision_fn_1): Linear(in_features=96, out_features=64, bias=True)
+        (activation_fn_1): Tanh()
+        (dropout_1): Dropout(p=0.2, inplace=False)
+        (decision_fn_2): Linear(in_features=64, out_features=64, bias=True)
+        (activation_fn_2): Tanh()
+        (dropout_2): Dropout(p=0.2, inplace=False)
+        (decision_fn_3): Linear(in_features=64, out_features=32, bias=True)
+        (activation_fn_3): Sigmoid()
+        (mu_dropout): Dropout(p=0.6, inplace=False)
+      )
+      (37): NeuralDecisionTree(
+        (decision_fn_1): Linear(in_features=96, out_features=64, bias=True)
+        (activation_fn_1): Tanh()
+        (dropout_1): Dropout(p=0.2, inplace=False)
+        (decision_fn_2): Linear(in_features=64, out_features=64, bias=True)
+        (activation_fn_2): Tanh()
+        (dropout_2): Dropout(p=0.2, inplace=False)
+        (decision_fn_3): Linear(in_features=64, out_features=32, bias=True)
+        (activation_fn_3): Sigmoid()
+        (mu_dropout): Dropout(p=0.6, inplace=False)
+      )
+      (38): NeuralDecisionTree(
+        (decision_fn_1): Linear(in_features=96, out_features=64, bias=True)
+        (activation_fn_1): Tanh()
+        (dropout_1): Dropout(p=0.2, inplace=False)
+        (decision_fn_2): Linear(in_features=64, out_features=64, bias=True)
+        (activation_fn_2): Tanh()
+        (dropout_2): Dropout(p=0.2, inplace=False)
+        (decision_fn_3): Linear(in_features=64, out_features=32, bias=True)
+        (activation_fn_3): Sigmoid()
+        (mu_dropout): Dropout(p=0.6, inplace=False)
+      )
+      (39): NeuralDecisionTree(
+        (decision_fn_1): Linear(in_features=96, out_features=64, bias=True)
+        (activation_fn_1): Tanh()
+        (dropout_1): Dropout(p=0.2, inplace=False)
+        (decision_fn_2): Linear(in_features=64, out_features=64, bias=True)
+        (activation_fn_2): Tanh()
+        (dropout_2): Dropout(p=0.2, inplace=False)
+        (decision_fn_3): Linear(in_features=64, out_features=32, bias=True)
+        (activation_fn_3): Sigmoid()
+        (mu_dropout): Dropout(p=0.6, inplace=False)
+      )
+      (40): NeuralDecisionTree(
+        (decision_fn_1): Linear(in_features=96, out_features=64, bias=True)
+        (activation_fn_1): Tanh()
+        (dropout_1): Dropout(p=0.2, inplace=False)
+        (decision_fn_2): Linear(in_features=64, out_features=64, bias=True)
+        (activation_fn_2): Tanh()
+        (dropout_2): Dropout(p=0.2, inplace=False)
+        (decision_fn_3): Linear(in_features=64, out_features=32, bias=True)
+        (activation_fn_3): Sigmoid()
+        (mu_dropout): Dropout(p=0.6, inplace=False)
+      )
+      (41): NeuralDecisionTree(
+        (decision_fn_1): Linear(in_features=96, out_features=64, bias=True)
+        (activation_fn_1): Tanh()
+        (dropout_1): Dropout(p=0.2, inplace=False)
+        (decision_fn_2): Linear(in_features=64, out_features=64, bias=True)
+        (activation_fn_2): Tanh()
+        (dropout_2): Dropout(p=0.2, inplace=False)
+        (decision_fn_3): Linear(in_features=64, out_features=32, bias=True)
+        (activation_fn_3): Sigmoid()
+        (mu_dropout): Dropout(p=0.6, inplace=False)
+      )
+      (42): NeuralDecisionTree(
+        (decision_fn_1): Linear(in_features=96, out_features=64, bias=True)
+        (activation_fn_1): Tanh()
+        (dropout_1): Dropout(p=0.2, inplace=False)
+        (decision_fn_2): Linear(in_features=64, out_features=64, bias=True)
+        (activation_fn_2): Tanh()
+        (dropout_2): Dropout(p=0.2, inplace=False)
+        (decision_fn_3): Linear(in_features=64, out_features=32, bias=True)
+        (activation_fn_3): Sigmoid()
+        (mu_dropout): Dropout(p=0.6, inplace=False)
+      )
+      (43): NeuralDecisionTree(
+        (decision_fn_1): Linear(in_features=96, out_features=64, bias=True)
+        (activation_fn_1): Tanh()
+        (dropout_1): Dropout(p=0.2, inplace=False)
+        (decision_fn_2): Linear(in_features=64, out_features=64, bias=True)
+        (activation_fn_2): Tanh()
+        (dropout_2): Dropout(p=0.2, inplace=False)
+        (decision_fn_3): Linear(in_features=64, out_features=32, bias=True)
+        (activation_fn_3): Sigmoid()
+        (mu_dropout): Dropout(p=0.6, inplace=False)
+      )
+      (44): NeuralDecisionTree(
+        (decision_fn_1): Linear(in_features=96, out_features=64, bias=True)
+        (activation_fn_1): Tanh()
+        (dropout_1): Dropout(p=0.2, inplace=False)
+        (decision_fn_2): Linear(in_features=64, out_features=64, bias=True)
+        (activation_fn_2): Tanh()
+        (dropout_2): Dropout(p=0.2, inplace=False)
+        (decision_fn_3): Linear(in_features=64, out_features=32, bias=True)
+        (activation_fn_3): Sigmoid()
+        (mu_dropout): Dropout(p=0.6, inplace=False)
+      )
+      (45): NeuralDecisionTree(
+        (decision_fn_1): Linear(in_features=96, out_features=64, bias=True)
+        (activation_fn_1): Tanh()
+        (dropout_1): Dropout(p=0.2, inplace=False)
+        (decision_fn_2): Linear(in_features=64, out_features=64, bias=True)
+        (activation_fn_2): Tanh()
+        (dropout_2): Dropout(p=0.2, inplace=False)
+        (decision_fn_3): Linear(in_features=64, out_features=32, bias=True)
+        (activation_fn_3): Sigmoid()
+        (mu_dropout): Dropout(p=0.6, inplace=False)
+      )
+      (46): NeuralDecisionTree(
+        (decision_fn_1): Linear(in_features=96, out_features=64, bias=True)
+        (activation_fn_1): Tanh()
+        (dropout_1): Dropout(p=0.2, inplace=False)
+        (decision_fn_2): Linear(in_features=64, out_features=64, bias=True)
+        (activation_fn_2): Tanh()
+        (dropout_2): Dropout(p=0.2, inplace=False)
+        (decision_fn_3): Linear(in_features=64, out_features=32, bias=True)
+        (activation_fn_3): Sigmoid()
+        (mu_dropout): Dropout(p=0.6, inplace=False)
+      )
+      (47): NeuralDecisionTree(
+        (decision_fn_1): Linear(in_features=96, out_features=64, bias=True)
+        (activation_fn_1): Tanh()
+        (dropout_1): Dropout(p=0.2, inplace=False)
+        (decision_fn_2): Linear(in_features=64, out_features=64, bias=True)
+        (activation_fn_2): Tanh()
+        (dropout_2): Dropout(p=0.2, inplace=False)
+        (decision_fn_3): Linear(in_features=64, out_features=32, bias=True)
+        (activation_fn_3): Sigmoid()
+        (mu_dropout): Dropout(p=0.6, inplace=False)
+      )
+      (48): NeuralDecisionTree(
+        (decision_fn_1): Linear(in_features=96, out_features=64, bias=True)
+        (activation_fn_1): Tanh()
+        (dropout_1): Dropout(p=0.2, inplace=False)
+        (decision_fn_2): Linear(in_features=64, out_features=64, bias=True)
+        (activation_fn_2): Tanh()
+        (dropout_2): Dropout(p=0.2, inplace=False)
+        (decision_fn_3): Linear(in_features=64, out_features=32, bias=True)
+        (activation_fn_3): Sigmoid()
+        (mu_dropout): Dropout(p=0.6, inplace=False)
+      )
+      (49): NeuralDecisionTree(
+        (decision_fn_1): Linear(in_features=96, out_features=64, bias=True)
+        (activation_fn_1): Tanh()
+        (dropout_1): Dropout(p=0.2, inplace=False)
+        (decision_fn_2): Linear(in_features=64, out_features=64, bias=True)
+        (activation_fn_2): Tanh()
+        (dropout_2): Dropout(p=0.2, inplace=False)
+        (decision_fn_3): Linear(in_features=64, out_features=32, bias=True)
+        (activation_fn_3): Sigmoid()
+        (mu_dropout): Dropout(p=0.6, inplace=False)
+      )
+      (50): NeuralDecisionTree(
+        (decision_fn_1): Linear(in_features=96, out_features=64, bias=True)
+        (activation_fn_1): Tanh()
+        (dropout_1): Dropout(p=0.2, inplace=False)
+        (decision_fn_2): Linear(in_features=64, out_features=64, bias=True)
+        (activation_fn_2): Tanh()
+        (dropout_2): Dropout(p=0.2, inplace=False)
+        (decision_fn_3): Linear(in_features=64, out_features=32, bias=True)
+        (activation_fn_3): Sigmoid()
+        (mu_dropout): Dropout(p=0.6, inplace=False)
+      )
+      (51): NeuralDecisionTree(
+        (decision_fn_1): Linear(in_features=96, out_features=64, bias=True)
+        (activation_fn_1): Tanh()
+        (dropout_1): Dropout(p=0.2, inplace=False)
+        (decision_fn_2): Linear(in_features=64, out_features=64, bias=True)
+        (activation_fn_2): Tanh()
+        (dropout_2): Dropout(p=0.2, inplace=False)
+        (decision_fn_3): Linear(in_features=64, out_features=32, bias=True)
+        (activation_fn_3): Sigmoid()
+        (mu_dropout): Dropout(p=0.6, inplace=False)
+      )
+      (52): NeuralDecisionTree(
+        (decision_fn_1): Linear(in_features=96, out_features=64, bias=True)
+        (activation_fn_1): Tanh()
+        (dropout_1): Dropout(p=0.2, inplace=False)
+        (decision_fn_2): Linear(in_features=64, out_features=64, bias=True)
+        (activation_fn_2): Tanh()
+        (dropout_2): Dropout(p=0.2, inplace=False)
+        (decision_fn_3): Linear(in_features=64, out_features=32, bias=True)
+        (activation_fn_3): Sigmoid()
+        (mu_dropout): Dropout(p=0.6, inplace=False)
+      )
+      (53): NeuralDecisionTree(
+        (decision_fn_1): Linear(in_features=96, out_features=64, bias=True)
+        (activation_fn_1): Tanh()
+        (dropout_1): Dropout(p=0.2, inplace=False)
+        (decision_fn_2): Linear(in_features=64, out_features=64, bias=True)
+        (activation_fn_2): Tanh()
+        (dropout_2): Dropout(p=0.2, inplace=False)
+        (decision_fn_3): Linear(in_features=64, out_features=32, bias=True)
+        (activation_fn_3): Sigmoid()
+        (mu_dropout): Dropout(p=0.6, inplace=False)
+      )
+      (54): NeuralDecisionTree(
+        (decision_fn_1): Linear(in_features=96, out_features=64, bias=True)
+        (activation_fn_1): Tanh()
+        (dropout_1): Dropout(p=0.2, inplace=False)
+        (decision_fn_2): Linear(in_features=64, out_features=64, bias=True)
+        (activation_fn_2): Tanh()
+        (dropout_2): Dropout(p=0.2, inplace=False)
+        (decision_fn_3): Linear(in_features=64, out_features=32, bias=True)
+        (activation_fn_3): Sigmoid()
+        (mu_dropout): Dropout(p=0.6, inplace=False)
+      )
+      (55): NeuralDecisionTree(
+        (decision_fn_1): Linear(in_features=96, out_features=64, bias=True)
+        (activation_fn_1): Tanh()
+        (dropout_1): Dropout(p=0.2, inplace=False)
+        (decision_fn_2): Linear(in_features=64, out_features=64, bias=True)
+        (activation_fn_2): Tanh()
+        (dropout_2): Dropout(p=0.2, inplace=False)
+        (decision_fn_3): Linear(in_features=64, out_features=32, bias=True)
+        (activation_fn_3): Sigmoid()
+        (mu_dropout): Dropout(p=0.6, inplace=False)
+      )
+      (56): NeuralDecisionTree(
+        (decision_fn_1): Linear(in_features=96, out_features=64, bias=True)
+        (activation_fn_1): Tanh()
+        (dropout_1): Dropout(p=0.2, inplace=False)
+        (decision_fn_2): Linear(in_features=64, out_features=64, bias=True)
+        (activation_fn_2): Tanh()
+        (dropout_2): Dropout(p=0.2, inplace=False)
+        (decision_fn_3): Linear(in_features=64, out_features=32, bias=True)
+        (activation_fn_3): Sigmoid()
+        (mu_dropout): Dropout(p=0.6, inplace=False)
+      )
+      (57): NeuralDecisionTree(
+        (decision_fn_1): Linear(in_features=96, out_features=64, bias=True)
+        (activation_fn_1): Tanh()
+        (dropout_1): Dropout(p=0.2, inplace=False)
+        (decision_fn_2): Linear(in_features=64, out_features=64, bias=True)
+        (activation_fn_2): Tanh()
+        (dropout_2): Dropout(p=0.2, inplace=False)
+        (decision_fn_3): Linear(in_features=64, out_features=32, bias=True)
+        (activation_fn_3): Sigmoid()
+        (mu_dropout): Dropout(p=0.6, inplace=False)
+      )
+      (58): NeuralDecisionTree(
+        (decision_fn_1): Linear(in_features=96, out_features=64, bias=True)
+        (activation_fn_1): Tanh()
+        (dropout_1): Dropout(p=0.2, inplace=False)
+        (decision_fn_2): Linear(in_features=64, out_features=64, bias=True)
+        (activation_fn_2): Tanh()
+        (dropout_2): Dropout(p=0.2, inplace=False)
+        (decision_fn_3): Linear(in_features=64, out_features=32, bias=True)
+        (activation_fn_3): Sigmoid()
+        (mu_dropout): Dropout(p=0.6, inplace=False)
+      )
+      (59): NeuralDecisionTree(
+        (decision_fn_1): Linear(in_features=96, out_features=64, bias=True)
+        (activation_fn_1): Tanh()
+        (dropout_1): Dropout(p=0.2, inplace=False)
+        (decision_fn_2): Linear(in_features=64, out_features=64, bias=True)
+        (activation_fn_2): Tanh()
+        (dropout_2): Dropout(p=0.2, inplace=False)
+        (decision_fn_3): Linear(in_features=64, out_features=32, bias=True)
+        (activation_fn_3): Sigmoid()
+        (mu_dropout): Dropout(p=0.6, inplace=False)
+      )
+      (60): NeuralDecisionTree(
+        (decision_fn_1): Linear(in_features=96, out_features=64, bias=True)
+        (activation_fn_1): Tanh()
+        (dropout_1): Dropout(p=0.2, inplace=False)
+        (decision_fn_2): Linear(in_features=64, out_features=64, bias=True)
+        (activation_fn_2): Tanh()
+        (dropout_2): Dropout(p=0.2, inplace=False)
+        (decision_fn_3): Linear(in_features=64, out_features=32, bias=True)
+        (activation_fn_3): Sigmoid()
+        (mu_dropout): Dropout(p=0.6, inplace=False)
+      )
+      (61): NeuralDecisionTree(
+        (decision_fn_1): Linear(in_features=96, out_features=64, bias=True)
+        (activation_fn_1): Tanh()
+        (dropout_1): Dropout(p=0.2, inplace=False)
+        (decision_fn_2): Linear(in_features=64, out_features=64, bias=True)
+        (activation_fn_2): Tanh()
+        (dropout_2): Dropout(p=0.2, inplace=False)
+        (decision_fn_3): Linear(in_features=64, out_features=32, bias=True)
+        (activation_fn_3): Sigmoid()
+        (mu_dropout): Dropout(p=0.6, inplace=False)
+      )
+      (62): NeuralDecisionTree(
+        (decision_fn_1): Linear(in_features=96, out_features=64, bias=True)
+        (activation_fn_1): Tanh()
+        (dropout_1): Dropout(p=0.2, inplace=False)
+        (decision_fn_2): Linear(in_features=64, out_features=64, bias=True)
+        (activation_fn_2): Tanh()
+        (dropout_2): Dropout(p=0.2, inplace=False)
+        (decision_fn_3): Linear(in_features=64, out_features=32, bias=True)
+        (activation_fn_3): Sigmoid()
+        (mu_dropout): Dropout(p=0.6, inplace=False)
+      )
+      (63): NeuralDecisionTree(
+        (decision_fn_1): Linear(in_features=96, out_features=64, bias=True)
+        (activation_fn_1): Tanh()
+        (dropout_1): Dropout(p=0.2, inplace=False)
+        (decision_fn_2): Linear(in_features=64, out_features=64, bias=True)
+        (activation_fn_2): Tanh()
+        (dropout_2): Dropout(p=0.2, inplace=False)
+        (decision_fn_3): Linear(in_features=64, out_features=32, bias=True)
+        (activation_fn_3): Sigmoid()
+        (mu_dropout): Dropout(p=0.6, inplace=False)
+      )
+      (64): NeuralDecisionTree(
+        (decision_fn_1): Linear(in_features=96, out_features=64, bias=True)
+        (activation_fn_1): Tanh()
+        (dropout_1): Dropout(p=0.2, inplace=False)
+        (decision_fn_2): Linear(in_features=64, out_features=64, bias=True)
+        (activation_fn_2): Tanh()
+        (dropout_2): Dropout(p=0.2, inplace=False)
+        (decision_fn_3): Linear(in_features=64, out_features=32, bias=True)
+        (activation_fn_3): Sigmoid()
+        (mu_dropout): Dropout(p=0.6, inplace=False)
+      )
+      (65): NeuralDecisionTree(
+        (decision_fn_1): Linear(in_features=96, out_features=64, bias=True)
+        (activation_fn_1): Tanh()
+        (dropout_1): Dropout(p=0.2, inplace=False)
+        (decision_fn_2): Linear(in_features=64, out_features=64, bias=True)
+        (activation_fn_2): Tanh()
+        (dropout_2): Dropout(p=0.2, inplace=False)
+        (decision_fn_3): Linear(in_features=64, out_features=32, bias=True)
+        (activation_fn_3): Sigmoid()
+        (mu_dropout): Dropout(p=0.6, inplace=False)
+      )
+      (66): NeuralDecisionTree(
+        (decision_fn_1): Linear(in_features=96, out_features=64, bias=True)
+        (activation_fn_1): Tanh()
+        (dropout_1): Dropout(p=0.2, inplace=False)
+        (decision_fn_2): Linear(in_features=64, out_features=64, bias=True)
+        (activation_fn_2): Tanh()
+        (dropout_2): Dropout(p=0.2, inplace=False)
+        (decision_fn_3): Linear(in_features=64, out_features=32, bias=True)
+        (activation_fn_3): Sigmoid()
+        (mu_dropout): Dropout(p=0.6, inplace=False)
+      )
+      (67): NeuralDecisionTree(
+        (decision_fn_1): Linear(in_features=96, out_features=64, bias=True)
+        (activation_fn_1): Tanh()
+        (dropout_1): Dropout(p=0.2, inplace=False)
+        (decision_fn_2): Linear(in_features=64, out_features=64, bias=True)
+        (activation_fn_2): Tanh()
+        (dropout_2): Dropout(p=0.2, inplace=False)
+        (decision_fn_3): Linear(in_features=64, out_features=32, bias=True)
+        (activation_fn_3): Sigmoid()
+        (mu_dropout): Dropout(p=0.6, inplace=False)
+      )
+      (68): NeuralDecisionTree(
+        (decision_fn_1): Linear(in_features=96, out_features=64, bias=True)
+        (activation_fn_1): Tanh()
+        (dropout_1): Dropout(p=0.2, inplace=False)
+        (decision_fn_2): Linear(in_features=64, out_features=64, bias=True)
+        (activation_fn_2): Tanh()
+        (dropout_2): Dropout(p=0.2, inplace=False)
+        (decision_fn_3): Linear(in_features=64, out_features=32, bias=True)
+        (activation_fn_3): Sigmoid()
+        (mu_dropout): Dropout(p=0.6, inplace=False)
+      )
+      (69): NeuralDecisionTree(
+        (decision_fn_1): Linear(in_features=96, out_features=64, bias=True)
+        (activation_fn_1): Tanh()
+        (dropout_1): Dropout(p=0.2, inplace=False)
+        (decision_fn_2): Linear(in_features=64, out_features=64, bias=True)
+        (activation_fn_2): Tanh()
+        (dropout_2): Dropout(p=0.2, inplace=False)
+        (decision_fn_3): Linear(in_features=64, out_features=32, bias=True)
+        (activation_fn_3): Sigmoid()
+        (mu_dropout): Dropout(p=0.6, inplace=False)
+      )
+      (70): NeuralDecisionTree(
+        (decision_fn_1): Linear(in_features=96, out_features=64, bias=True)
+        (activation_fn_1): Tanh()
+        (dropout_1): Dropout(p=0.2, inplace=False)
+        (decision_fn_2): Linear(in_features=64, out_features=64, bias=True)
+        (activation_fn_2): Tanh()
+        (dropout_2): Dropout(p=0.2, inplace=False)
+        (decision_fn_3): Linear(in_features=64, out_features=32, bias=True)
+        (activation_fn_3): Sigmoid()
+        (mu_dropout): Dropout(p=0.6, inplace=False)
+      )
+      (71): NeuralDecisionTree(
+        (decision_fn_1): Linear(in_features=96, out_features=64, bias=True)
+        (activation_fn_1): Tanh()
+        (dropout_1): Dropout(p=0.2, inplace=False)
+        (decision_fn_2): Linear(in_features=64, out_features=64, bias=True)
+        (activation_fn_2): Tanh()
+        (dropout_2): Dropout(p=0.2, inplace=False)
+        (decision_fn_3): Linear(in_features=64, out_features=32, bias=True)
+        (activation_fn_3): Sigmoid()
+        (mu_dropout): Dropout(p=0.6, inplace=False)
+      )
+      (72): NeuralDecisionTree(
+        (decision_fn_1): Linear(in_features=96, out_features=64, bias=True)
+        (activation_fn_1): Tanh()
+        (dropout_1): Dropout(p=0.2, inplace=False)
+        (decision_fn_2): Linear(in_features=64, out_features=64, bias=True)
+        (activation_fn_2): Tanh()
+        (dropout_2): Dropout(p=0.2, inplace=False)
+        (decision_fn_3): Linear(in_features=64, out_features=32, bias=True)
+        (activation_fn_3): Sigmoid()
+        (mu_dropout): Dropout(p=0.6, inplace=False)
+      )
+      (73): NeuralDecisionTree(
+        (decision_fn_1): Linear(in_features=96, out_features=64, bias=True)
+        (activation_fn_1): Tanh()
+        (dropout_1): Dropout(p=0.2, inplace=False)
+        (decision_fn_2): Linear(in_features=64, out_features=64, bias=True)
+        (activation_fn_2): Tanh()
+        (dropout_2): Dropout(p=0.2, inplace=False)
+        (decision_fn_3): Linear(in_features=64, out_features=32, bias=True)
+        (activation_fn_3): Sigmoid()
+        (mu_dropout): Dropout(p=0.6, inplace=False)
+      )
+      (74): NeuralDecisionTree(
+        (decision_fn_1): Linear(in_features=96, out_features=64, bias=True)
+        (activation_fn_1): Tanh()
+        (dropout_1): Dropout(p=0.2, inplace=False)
+        (decision_fn_2): Linear(in_features=64, out_features=64, bias=True)
+        (activation_fn_2): Tanh()
+        (dropout_2): Dropout(p=0.2, inplace=False)
+        (decision_fn_3): Linear(in_features=64, out_features=32, bias=True)
+        (activation_fn_3): Sigmoid()
+        (mu_dropout): Dropout(p=0.6, inplace=False)
+      )
+      (75): NeuralDecisionTree(
+        (decision_fn_1): Linear(in_features=96, out_features=64, bias=True)
+        (activation_fn_1): Tanh()
+        (dropout_1): Dropout(p=0.2, inplace=False)
+        (decision_fn_2): Linear(in_features=64, out_features=64, bias=True)
+        (activation_fn_2): Tanh()
+        (dropout_2): Dropout(p=0.2, inplace=False)
+        (decision_fn_3): Linear(in_features=64, out_features=32, bias=True)
+        (activation_fn_3): Sigmoid()
+        (mu_dropout): Dropout(p=0.6, inplace=False)
+      )
+      (76): NeuralDecisionTree(
+        (decision_fn_1): Linear(in_features=96, out_features=64, bias=True)
+        (activation_fn_1): Tanh()
+        (dropout_1): Dropout(p=0.2, inplace=False)
+        (decision_fn_2): Linear(in_features=64, out_features=64, bias=True)
+        (activation_fn_2): Tanh()
+        (dropout_2): Dropout(p=0.2, inplace=False)
+        (decision_fn_3): Linear(in_features=64, out_features=32, bias=True)
+        (activation_fn_3): Sigmoid()
+        (mu_dropout): Dropout(p=0.6, inplace=False)
+      )
+      (77): NeuralDecisionTree(
+        (decision_fn_1): Linear(in_features=96, out_features=64, bias=True)
+        (activation_fn_1): Tanh()
+        (dropout_1): Dropout(p=0.2, inplace=False)
+        (decision_fn_2): Linear(in_features=64, out_features=64, bias=True)
+        (activation_fn_2): Tanh()
+        (dropout_2): Dropout(p=0.2, inplace=False)
+        (decision_fn_3): Linear(in_features=64, out_features=32, bias=True)
+        (activation_fn_3): Sigmoid()
+        (mu_dropout): Dropout(p=0.6, inplace=False)
+      )
+      (78): NeuralDecisionTree(
+        (decision_fn_1): Linear(in_features=96, out_features=64, bias=True)
+        (activation_fn_1): Tanh()
+        (dropout_1): Dropout(p=0.2, inplace=False)
+        (decision_fn_2): Linear(in_features=64, out_features=64, bias=True)
+        (activation_fn_2): Tanh()
+        (dropout_2): Dropout(p=0.2, inplace=False)
+        (decision_fn_3): Linear(in_features=64, out_features=32, bias=True)
+        (activation_fn_3): Sigmoid()
+        (mu_dropout): Dropout(p=0.6, inplace=False)
+      )
+      (79): NeuralDecisionTree(
+        (decision_fn_1): Linear(in_features=96, out_features=64, bias=True)
+        (activation_fn_1): Tanh()
+        (dropout_1): Dropout(p=0.2, inplace=False)
+        (decision_fn_2): Linear(in_features=64, out_features=64, bias=True)
+        (activation_fn_2): Tanh()
+        (dropout_2): Dropout(p=0.2, inplace=False)
+        (decision_fn_3): Linear(in_features=64, out_features=32, bias=True)
+        (activation_fn_3): Sigmoid()
+        (mu_dropout): Dropout(p=0.6, inplace=False)
+      )
+      (80): NeuralDecisionTree(
+        (decision_fn_1): Linear(in_features=96, out_features=64, bias=True)
+        (activation_fn_1): Tanh()
+        (dropout_1): Dropout(p=0.2, inplace=False)
+        (decision_fn_2): Linear(in_features=64, out_features=64, bias=True)
+        (activation_fn_2): Tanh()
+        (dropout_2): Dropout(p=0.2, inplace=False)
+        (decision_fn_3): Linear(in_features=64, out_features=32, bias=True)
+        (activation_fn_3): Sigmoid()
+        (mu_dropout): Dropout(p=0.6, inplace=False)
+      )
+      (81): NeuralDecisionTree(
+        (decision_fn_1): Linear(in_features=96, out_features=64, bias=True)
+        (activation_fn_1): Tanh()
+        (dropout_1): Dropout(p=0.2, inplace=False)
+        (decision_fn_2): Linear(in_features=64, out_features=64, bias=True)
+        (activation_fn_2): Tanh()
+        (dropout_2): Dropout(p=0.2, inplace=False)
+        (decision_fn_3): Linear(in_features=64, out_features=32, bias=True)
+        (activation_fn_3): Sigmoid()
+        (mu_dropout): Dropout(p=0.6, inplace=False)
+      )
+      (82): NeuralDecisionTree(
+        (decision_fn_1): Linear(in_features=96, out_features=64, bias=True)
+        (activation_fn_1): Tanh()
+        (dropout_1): Dropout(p=0.2, inplace=False)
+        (decision_fn_2): Linear(in_features=64, out_features=64, bias=True)
+        (activation_fn_2): Tanh()
+        (dropout_2): Dropout(p=0.2, inplace=False)
+        (decision_fn_3): Linear(in_features=64, out_features=32, bias=True)
+        (activation_fn_3): Sigmoid()
+        (mu_dropout): Dropout(p=0.6, inplace=False)
+      )
+      (83): NeuralDecisionTree(
+        (decision_fn_1): Linear(in_features=96, out_features=64, bias=True)
+        (activation_fn_1): Tanh()
+        (dropout_1): Dropout(p=0.2, inplace=False)
+        (decision_fn_2): Linear(in_features=64, out_features=64, bias=True)
+        (activation_fn_2): Tanh()
+        (dropout_2): Dropout(p=0.2, inplace=False)
+        (decision_fn_3): Linear(in_features=64, out_features=32, bias=True)
+        (activation_fn_3): Sigmoid()
+        (mu_dropout): Dropout(p=0.6, inplace=False)
+      )
+      (84): NeuralDecisionTree(
+        (decision_fn_1): Linear(in_features=96, out_features=64, bias=True)
+        (activation_fn_1): Tanh()
+        (dropout_1): Dropout(p=0.2, inplace=False)
+        (decision_fn_2): Linear(in_features=64, out_features=64, bias=True)
+        (activation_fn_2): Tanh()
+        (dropout_2): Dropout(p=0.2, inplace=False)
+        (decision_fn_3): Linear(in_features=64, out_features=32, bias=True)
+        (activation_fn_3): Sigmoid()
+        (mu_dropout): Dropout(p=0.6, inplace=False)
+      )
+      (85): NeuralDecisionTree(
+        (decision_fn_1): Linear(in_features=96, out_features=64, bias=True)
+        (activation_fn_1): Tanh()
+        (dropout_1): Dropout(p=0.2, inplace=False)
+        (decision_fn_2): Linear(in_features=64, out_features=64, bias=True)
+        (activation_fn_2): Tanh()
+        (dropout_2): Dropout(p=0.2, inplace=False)
+        (decision_fn_3): Linear(in_features=64, out_features=32, bias=True)
+        (activation_fn_3): Sigmoid()
+        (mu_dropout): Dropout(p=0.6, inplace=False)
+      )
+      (86): NeuralDecisionTree(
+        (decision_fn_1): Linear(in_features=96, out_features=64, bias=True)
+        (activation_fn_1): Tanh()
+        (dropout_1): Dropout(p=0.2, inplace=False)
+        (decision_fn_2): Linear(in_features=64, out_features=64, bias=True)
+        (activation_fn_2): Tanh()
+        (dropout_2): Dropout(p=0.2, inplace=False)
+        (decision_fn_3): Linear(in_features=64, out_features=32, bias=True)
+        (activation_fn_3): Sigmoid()
+        (mu_dropout): Dropout(p=0.6, inplace=False)
+      )
+      (87): NeuralDecisionTree(
+        (decision_fn_1): Linear(in_features=96, out_features=64, bias=True)
+        (activation_fn_1): Tanh()
+        (dropout_1): Dropout(p=0.2, inplace=False)
+        (decision_fn_2): Linear(in_features=64, out_features=64, bias=True)
+        (activation_fn_2): Tanh()
+        (dropout_2): Dropout(p=0.2, inplace=False)
+        (decision_fn_3): Linear(in_features=64, out_features=32, bias=True)
+        (activation_fn_3): Sigmoid()
+        (mu_dropout): Dropout(p=0.6, inplace=False)
+      )
+      (88): NeuralDecisionTree(
+        (decision_fn_1): Linear(in_features=96, out_features=64, bias=True)
+        (activation_fn_1): Tanh()
+        (dropout_1): Dropout(p=0.2, inplace=False)
+        (decision_fn_2): Linear(in_features=64, out_features=64, bias=True)
+        (activation_fn_2): Tanh()
+        (dropout_2): Dropout(p=0.2, inplace=False)
+        (decision_fn_3): Linear(in_features=64, out_features=32, bias=True)
+        (activation_fn_3): Sigmoid()
+        (mu_dropout): Dropout(p=0.6, inplace=False)
+      )
+      (89): NeuralDecisionTree(
+        (decision_fn_1): Linear(in_features=96, out_features=64, bias=True)
+        (activation_fn_1): Tanh()
+        (dropout_1): Dropout(p=0.2, inplace=False)
+        (decision_fn_2): Linear(in_features=64, out_features=64, bias=True)
+        (activation_fn_2): Tanh()
+        (dropout_2): Dropout(p=0.2, inplace=False)
+        (decision_fn_3): Linear(in_features=64, out_features=32, bias=True)
+        (activation_fn_3): Sigmoid()
+        (mu_dropout): Dropout(p=0.6, inplace=False)
+      )
+      (90): NeuralDecisionTree(
+        (decision_fn_1): Linear(in_features=96, out_features=64, bias=True)
+        (activation_fn_1): Tanh()
+        (dropout_1): Dropout(p=0.2, inplace=False)
+        (decision_fn_2): Linear(in_features=64, out_features=64, bias=True)
+        (activation_fn_2): Tanh()
+        (dropout_2): Dropout(p=0.2, inplace=False)
+        (decision_fn_3): Linear(in_features=64, out_features=32, bias=True)
+        (activation_fn_3): Sigmoid()
+        (mu_dropout): Dropout(p=0.6, inplace=False)
+      )
+      (91): NeuralDecisionTree(
+        (decision_fn_1): Linear(in_features=96, out_features=64, bias=True)
+        (activation_fn_1): Tanh()
+        (dropout_1): Dropout(p=0.2, inplace=False)
+        (decision_fn_2): Linear(in_features=64, out_features=64, bias=True)
+        (activation_fn_2): Tanh()
+        (dropout_2): Dropout(p=0.2, inplace=False)
+        (decision_fn_3): Linear(in_features=64, out_features=32, bias=True)
+        (activation_fn_3): Sigmoid()
+        (mu_dropout): Dropout(p=0.6, inplace=False)
+      )
+      (92): NeuralDecisionTree(
+        (decision_fn_1): Linear(in_features=96, out_features=64, bias=True)
+        (activation_fn_1): Tanh()
+        (dropout_1): Dropout(p=0.2, inplace=False)
+        (decision_fn_2): Linear(in_features=64, out_features=64, bias=True)
+        (activation_fn_2): Tanh()
+        (dropout_2): Dropout(p=0.2, inplace=False)
+        (decision_fn_3): Linear(in_features=64, out_features=32, bias=True)
+        (activation_fn_3): Sigmoid()
+        (mu_dropout): Dropout(p=0.6, inplace=False)
+      )
+      (93): NeuralDecisionTree(
+        (decision_fn_1): Linear(in_features=96, out_features=64, bias=True)
+        (activation_fn_1): Tanh()
+        (dropout_1): Dropout(p=0.2, inplace=False)
+        (decision_fn_2): Linear(in_features=64, out_features=64, bias=True)
+        (activation_fn_2): Tanh()
+        (dropout_2): Dropout(p=0.2, inplace=False)
+        (decision_fn_3): Linear(in_features=64, out_features=32, bias=True)
+        (activation_fn_3): Sigmoid()
+        (mu_dropout): Dropout(p=0.6, inplace=False)
+      )
+      (94): NeuralDecisionTree(
+        (decision_fn_1): Linear(in_features=96, out_features=64, bias=True)
+        (activation_fn_1): Tanh()
+        (dropout_1): Dropout(p=0.2, inplace=False)
+        (decision_fn_2): Linear(in_features=64, out_features=64, bias=True)
+        (activation_fn_2): Tanh()
+        (dropout_2): Dropout(p=0.2, inplace=False)
+        (decision_fn_3): Linear(in_features=64, out_features=32, bias=True)
+        (activation_fn_3): Sigmoid()
+        (mu_dropout): Dropout(p=0.6, inplace=False)
+      )
+      (95): NeuralDecisionTree(
+        (decision_fn_1): Linear(in_features=96, out_features=64, bias=True)
+        (activation_fn_1): Tanh()
+        (dropout_1): Dropout(p=0.2, inplace=False)
+        (decision_fn_2): Linear(in_features=64, out_features=64, bias=True)
+        (activation_fn_2): Tanh()
+        (dropout_2): Dropout(p=0.2, inplace=False)
+        (decision_fn_3): Linear(in_features=64, out_features=32, bias=True)
+        (activation_fn_3): Sigmoid()
+        (mu_dropout): Dropout(p=0.6, inplace=False)
+      )
+      (96): NeuralDecisionTree(
+        (decision_fn_1): Linear(in_features=96, out_features=64, bias=True)
+        (activation_fn_1): Tanh()
+        (dropout_1): Dropout(p=0.2, inplace=False)
+        (decision_fn_2): Linear(in_features=64, out_features=64, bias=True)
+        (activation_fn_2): Tanh()
+        (dropout_2): Dropout(p=0.2, inplace=False)
+        (decision_fn_3): Linear(in_features=64, out_features=32, bias=True)
+        (activation_fn_3): Sigmoid()
+        (mu_dropout): Dropout(p=0.6, inplace=False)
+      )
+      (97): NeuralDecisionTree(
+        (decision_fn_1): Linear(in_features=96, out_features=64, bias=True)
+        (activation_fn_1): Tanh()
+        (dropout_1): Dropout(p=0.2, inplace=False)
+        (decision_fn_2): Linear(in_features=64, out_features=64, bias=True)
+        (activation_fn_2): Tanh()
+        (dropout_2): Dropout(p=0.2, inplace=False)
+        (decision_fn_3): Linear(in_features=64, out_features=32, bias=True)
+        (activation_fn_3): Sigmoid()
+        (mu_dropout): Dropout(p=0.6, inplace=False)
+      )
+      (98): NeuralDecisionTree(
+        (decision_fn_1): Linear(in_features=96, out_features=64, bias=True)
+        (activation_fn_1): Tanh()
+        (dropout_1): Dropout(p=0.2, inplace=False)
+        (decision_fn_2): Linear(in_features=64, out_features=64, bias=True)
+        (activation_fn_2): Tanh()
+        (dropout_2): Dropout(p=0.2, inplace=False)
+        (decision_fn_3): Linear(in_features=64, out_features=32, bias=True)
+        (activation_fn_3): Sigmoid()
+        (mu_dropout): Dropout(p=0.6, inplace=False)
+      )
+      (99): NeuralDecisionTree(
+        (decision_fn_1): Linear(in_features=96, out_features=64, bias=True)
+        (activation_fn_1): Tanh()
+        (dropout_1): Dropout(p=0.2, inplace=False)
+        (decision_fn_2): Linear(in_features=64, out_features=64, bias=True)
+        (activation_fn_2): Tanh()
+        (dropout_2): Dropout(p=0.2, inplace=False)
+        (decision_fn_3): Linear(in_features=64, out_features=32, bias=True)
+        (activation_fn_3): Sigmoid()
+        (mu_dropout): Dropout(p=0.6, inplace=False)
+      )
+      (100): NeuralDecisionTree(
+        (decision_fn_1): Linear(in_features=96, out_features=64, bias=True)
+        (activation_fn_1): Tanh()
+        (dropout_1): Dropout(p=0.2, inplace=False)
+        (decision_fn_2): Linear(in_features=64, out_features=64, bias=True)
+        (activation_fn_2): Tanh()
+        (dropout_2): Dropout(p=0.2, inplace=False)
+        (decision_fn_3): Linear(in_features=64, out_features=32, bias=True)
+        (activation_fn_3): Sigmoid()
+        (mu_dropout): Dropout(p=0.6, inplace=False)
+      )
+      (101): NeuralDecisionTree(
+        (decision_fn_1): Linear(in_features=96, out_features=64, bias=True)
+        (activation_fn_1): Tanh()
+        (dropout_1): Dropout(p=0.2, inplace=False)
+        (decision_fn_2): Linear(in_features=64, out_features=64, bias=True)
+        (activation_fn_2): Tanh()
+        (dropout_2): Dropout(p=0.2, inplace=False)
+        (decision_fn_3): Linear(in_features=64, out_features=32, bias=True)
+        (activation_fn_3): Sigmoid()
+        (mu_dropout): Dropout(p=0.6, inplace=False)
+      )
+      (102): NeuralDecisionTree(
+        (decision_fn_1): Linear(in_features=96, out_features=64, bias=True)
+        (activation_fn_1): Tanh()
+        (dropout_1): Dropout(p=0.2, inplace=False)
+        (decision_fn_2): Linear(in_features=64, out_features=64, bias=True)
+        (activation_fn_2): Tanh()
+        (dropout_2): Dropout(p=0.2, inplace=False)
+        (decision_fn_3): Linear(in_features=64, out_features=32, bias=True)
+        (activation_fn_3): Sigmoid()
+        (mu_dropout): Dropout(p=0.6, inplace=False)
+      )
+      (103): NeuralDecisionTree(
+        (decision_fn_1): Linear(in_features=96, out_features=64, bias=True)
+        (activation_fn_1): Tanh()
+        (dropout_1): Dropout(p=0.2, inplace=False)
+        (decision_fn_2): Linear(in_features=64, out_features=64, bias=True)
+        (activation_fn_2): Tanh()
+        (dropout_2): Dropout(p=0.2, inplace=False)
+        (decision_fn_3): Linear(in_features=64, out_features=32, bias=True)
+        (activation_fn_3): Sigmoid()
+        (mu_dropout): Dropout(p=0.6, inplace=False)
+      )
+      (104): NeuralDecisionTree(
+        (decision_fn_1): Linear(in_features=96, out_features=64, bias=True)
+        (activation_fn_1): Tanh()
+        (dropout_1): Dropout(p=0.2, inplace=False)
+        (decision_fn_2): Linear(in_features=64, out_features=64, bias=True)
+        (activation_fn_2): Tanh()
+        (dropout_2): Dropout(p=0.2, inplace=False)
+        (decision_fn_3): Linear(in_features=64, out_features=32, bias=True)
+        (activation_fn_3): Sigmoid()
+        (mu_dropout): Dropout(p=0.6, inplace=False)
+      )
+      (105): NeuralDecisionTree(
+        (decision_fn_1): Linear(in_features=96, out_features=64, bias=True)
+        (activation_fn_1): Tanh()
+        (dropout_1): Dropout(p=0.2, inplace=False)
+        (decision_fn_2): Linear(in_features=64, out_features=64, bias=True)
+        (activation_fn_2): Tanh()
+        (dropout_2): Dropout(p=0.2, inplace=False)
+        (decision_fn_3): Linear(in_features=64, out_features=32, bias=True)
+        (activation_fn_3): Sigmoid()
+        (mu_dropout): Dropout(p=0.6, inplace=False)
+      )
+      (106): NeuralDecisionTree(
+        (decision_fn_1): Linear(in_features=96, out_features=64, bias=True)
+        (activation_fn_1): Tanh()
+        (dropout_1): Dropout(p=0.2, inplace=False)
+        (decision_fn_2): Linear(in_features=64, out_features=64, bias=True)
+        (activation_fn_2): Tanh()
+        (dropout_2): Dropout(p=0.2, inplace=False)
+        (decision_fn_3): Linear(in_features=64, out_features=32, bias=True)
+        (activation_fn_3): Sigmoid()
+        (mu_dropout): Dropout(p=0.6, inplace=False)
+      )
+      (107): NeuralDecisionTree(
+        (decision_fn_1): Linear(in_features=96, out_features=64, bias=True)
+        (activation_fn_1): Tanh()
+        (dropout_1): Dropout(p=0.2, inplace=False)
+        (decision_fn_2): Linear(in_features=64, out_features=64, bias=True)
+        (activation_fn_2): Tanh()
+        (dropout_2): Dropout(p=0.2, inplace=False)
+        (decision_fn_3): Linear(in_features=64, out_features=32, bias=True)
+        (activation_fn_3): Sigmoid()
+        (mu_dropout): Dropout(p=0.6, inplace=False)
+      )
+      (108): NeuralDecisionTree(
+        (decision_fn_1): Linear(in_features=96, out_features=64, bias=True)
+        (activation_fn_1): Tanh()
+        (dropout_1): Dropout(p=0.2, inplace=False)
+        (decision_fn_2): Linear(in_features=64, out_features=64, bias=True)
+        (activation_fn_2): Tanh()
+        (dropout_2): Dropout(p=0.2, inplace=False)
+        (decision_fn_3): Linear(in_features=64, out_features=32, bias=True)
+        (activation_fn_3): Sigmoid()
+        (mu_dropout): Dropout(p=0.6, inplace=False)
+      )
+      (109): NeuralDecisionTree(
+        (decision_fn_1): Linear(in_features=96, out_features=64, bias=True)
+        (activation_fn_1): Tanh()
+        (dropout_1): Dropout(p=0.2, inplace=False)
+        (decision_fn_2): Linear(in_features=64, out_features=64, bias=True)
+        (activation_fn_2): Tanh()
+        (dropout_2): Dropout(p=0.2, inplace=False)
+        (decision_fn_3): Linear(in_features=64, out_features=32, bias=True)
+        (activation_fn_3): Sigmoid()
+        (mu_dropout): Dropout(p=0.6, inplace=False)
+      )
+      (110): NeuralDecisionTree(
+        (decision_fn_1): Linear(in_features=96, out_features=64, bias=True)
+        (activation_fn_1): Tanh()
+        (dropout_1): Dropout(p=0.2, inplace=False)
+        (decision_fn_2): Linear(in_features=64, out_features=64, bias=True)
+        (activation_fn_2): Tanh()
+        (dropout_2): Dropout(p=0.2, inplace=False)
+        (decision_fn_3): Linear(in_features=64, out_features=32, bias=True)
+        (activation_fn_3): Sigmoid()
+        (mu_dropout): Dropout(p=0.6, inplace=False)
+      )
+      (111): NeuralDecisionTree(
+        (decision_fn_1): Linear(in_features=96, out_features=64, bias=True)
+        (activation_fn_1): Tanh()
+        (dropout_1): Dropout(p=0.2, inplace=False)
+        (decision_fn_2): Linear(in_features=64, out_features=64, bias=True)
+        (activation_fn_2): Tanh()
+        (dropout_2): Dropout(p=0.2, inplace=False)
+        (decision_fn_3): Linear(in_features=64, out_features=32, bias=True)
+        (activation_fn_3): Sigmoid()
+        (mu_dropout): Dropout(p=0.6, inplace=False)
+      )
+      (112): NeuralDecisionTree(
+        (decision_fn_1): Linear(in_features=96, out_features=64, bias=True)
+        (activation_fn_1): Tanh()
+        (dropout_1): Dropout(p=0.2, inplace=False)
+        (decision_fn_2): Linear(in_features=64, out_features=64, bias=True)
+        (activation_fn_2): Tanh()
+        (dropout_2): Dropout(p=0.2, inplace=False)
+        (decision_fn_3): Linear(in_features=64, out_features=32, bias=True)
+        (activation_fn_3): Sigmoid()
+        (mu_dropout): Dropout(p=0.6, inplace=False)
+      )
+      (113): NeuralDecisionTree(
+        (decision_fn_1): Linear(in_features=96, out_features=64, bias=True)
+        (activation_fn_1): Tanh()
+        (dropout_1): Dropout(p=0.2, inplace=False)
+        (decision_fn_2): Linear(in_features=64, out_features=64, bias=True)
+        (activation_fn_2): Tanh()
+        (dropout_2): Dropout(p=0.2, inplace=False)
+        (decision_fn_3): Linear(in_features=64, out_features=32, bias=True)
+        (activation_fn_3): Sigmoid()
+        (mu_dropout): Dropout(p=0.6, inplace=False)
+      )
+      (114): NeuralDecisionTree(
+        (decision_fn_1): Linear(in_features=96, out_features=64, bias=True)
+        (activation_fn_1): Tanh()
+        (dropout_1): Dropout(p=0.2, inplace=False)
+        (decision_fn_2): Linear(in_features=64, out_features=64, bias=True)
+        (activation_fn_2): Tanh()
+        (dropout_2): Dropout(p=0.2, inplace=False)
+        (decision_fn_3): Linear(in_features=64, out_features=32, bias=True)
+        (activation_fn_3): Sigmoid()
+        (mu_dropout): Dropout(p=0.6, inplace=False)
+      )
+      (115): NeuralDecisionTree(
+        (decision_fn_1): Linear(in_features=96, out_features=64, bias=True)
+        (activation_fn_1): Tanh()
+        (dropout_1): Dropout(p=0.2, inplace=False)
+        (decision_fn_2): Linear(in_features=64, out_features=64, bias=True)
+        (activation_fn_2): Tanh()
+        (dropout_2): Dropout(p=0.2, inplace=False)
+        (decision_fn_3): Linear(in_features=64, out_features=32, bias=True)
+        (activation_fn_3): Sigmoid()
+        (mu_dropout): Dropout(p=0.6, inplace=False)
+      )
+      (116): NeuralDecisionTree(
+        (decision_fn_1): Linear(in_features=96, out_features=64, bias=True)
+        (activation_fn_1): Tanh()
+        (dropout_1): Dropout(p=0.2, inplace=False)
+        (decision_fn_2): Linear(in_features=64, out_features=64, bias=True)
+        (activation_fn_2): Tanh()
+        (dropout_2): Dropout(p=0.2, inplace=False)
+        (decision_fn_3): Linear(in_features=64, out_features=32, bias=True)
+        (activation_fn_3): Sigmoid()
+        (mu_dropout): Dropout(p=0.6, inplace=False)
+      )
+      (117): NeuralDecisionTree(
+        (decision_fn_1): Linear(in_features=96, out_features=64, bias=True)
+        (activation_fn_1): Tanh()
+        (dropout_1): Dropout(p=0.2, inplace=False)
+        (decision_fn_2): Linear(in_features=64, out_features=64, bias=True)
+        (activation_fn_2): Tanh()
+        (dropout_2): Dropout(p=0.2, inplace=False)
+        (decision_fn_3): Linear(in_features=64, out_features=32, bias=True)
+        (activation_fn_3): Sigmoid()
+        (mu_dropout): Dropout(p=0.6, inplace=False)
+      )
+      (118): NeuralDecisionTree(
+        (decision_fn_1): Linear(in_features=96, out_features=64, bias=True)
+        (activation_fn_1): Tanh()
+        (dropout_1): Dropout(p=0.2, inplace=False)
+        (decision_fn_2): Linear(in_features=64, out_features=64, bias=True)
+        (activation_fn_2): Tanh()
+        (dropout_2): Dropout(p=0.2, inplace=False)
+        (decision_fn_3): Linear(in_features=64, out_features=32, bias=True)
+        (activation_fn_3): Sigmoid()
+        (mu_dropout): Dropout(p=0.6, inplace=False)
+      )
+      (119): NeuralDecisionTree(
+        (decision_fn_1): Linear(in_features=96, out_features=64, bias=True)
+        (activation_fn_1): Tanh()
+        (dropout_1): Dropout(p=0.2, inplace=False)
+        (decision_fn_2): Linear(in_features=64, out_features=64, bias=True)
+        (activation_fn_2): Tanh()
+        (dropout_2): Dropout(p=0.2, inplace=False)
+        (decision_fn_3): Linear(in_features=64, out_features=32, bias=True)
+        (activation_fn_3): Sigmoid()
+        (mu_dropout): Dropout(p=0.6, inplace=False)
+      )
+      (120): NeuralDecisionTree(
+        (decision_fn_1): Linear(in_features=96, out_features=64, bias=True)
+        (activation_fn_1): Tanh()
+        (dropout_1): Dropout(p=0.2, inplace=False)
+        (decision_fn_2): Linear(in_features=64, out_features=64, bias=True)
+        (activation_fn_2): Tanh()
+        (dropout_2): Dropout(p=0.2, inplace=False)
+        (decision_fn_3): Linear(in_features=64, out_features=32, bias=True)
+        (activation_fn_3): Sigmoid()
+        (mu_dropout): Dropout(p=0.6, inplace=False)
+      )
+      (121): NeuralDecisionTree(
+        (decision_fn_1): Linear(in_features=96, out_features=64, bias=True)
+        (activation_fn_1): Tanh()
+        (dropout_1): Dropout(p=0.2, inplace=False)
+        (decision_fn_2): Linear(in_features=64, out_features=64, bias=True)
+        (activation_fn_2): Tanh()
+        (dropout_2): Dropout(p=0.2, inplace=False)
+        (decision_fn_3): Linear(in_features=64, out_features=32, bias=True)
+        (activation_fn_3): Sigmoid()
+        (mu_dropout): Dropout(p=0.6, inplace=False)
+      )
+      (122): NeuralDecisionTree(
+        (decision_fn_1): Linear(in_features=96, out_features=64, bias=True)
+        (activation_fn_1): Tanh()
+        (dropout_1): Dropout(p=0.2, inplace=False)
+        (decision_fn_2): Linear(in_features=64, out_features=64, bias=True)
+        (activation_fn_2): Tanh()
+        (dropout_2): Dropout(p=0.2, inplace=False)
+        (decision_fn_3): Linear(in_features=64, out_features=32, bias=True)
+        (activation_fn_3): Sigmoid()
+        (mu_dropout): Dropout(p=0.6, inplace=False)
+      )
+      (123): NeuralDecisionTree(
+        (decision_fn_1): Linear(in_features=96, out_features=64, bias=True)
+        (activation_fn_1): Tanh()
+        (dropout_1): Dropout(p=0.2, inplace=False)
+        (decision_fn_2): Linear(in_features=64, out_features=64, bias=True)
+        (activation_fn_2): Tanh()
+        (dropout_2): Dropout(p=0.2, inplace=False)
+        (decision_fn_3): Linear(in_features=64, out_features=32, bias=True)
+        (activation_fn_3): Sigmoid()
+        (mu_dropout): Dropout(p=0.6, inplace=False)
+      )
+      (124): NeuralDecisionTree(
+        (decision_fn_1): Linear(in_features=96, out_features=64, bias=True)
+        (activation_fn_1): Tanh()
+        (dropout_1): Dropout(p=0.2, inplace=False)
+        (decision_fn_2): Linear(in_features=64, out_features=64, bias=True)
+        (activation_fn_2): Tanh()
+        (dropout_2): Dropout(p=0.2, inplace=False)
+        (decision_fn_3): Linear(in_features=64, out_features=32, bias=True)
+        (activation_fn_3): Sigmoid()
+        (mu_dropout): Dropout(p=0.6, inplace=False)
+      )
+      (125): NeuralDecisionTree(
+        (decision_fn_1): Linear(in_features=96, out_features=64, bias=True)
+        (activation_fn_1): Tanh()
+        (dropout_1): Dropout(p=0.2, inplace=False)
+        (decision_fn_2): Linear(in_features=64, out_features=64, bias=True)
+        (activation_fn_2): Tanh()
+        (dropout_2): Dropout(p=0.2, inplace=False)
+        (decision_fn_3): Linear(in_features=64, out_features=32, bias=True)
+        (activation_fn_3): Sigmoid()
+        (mu_dropout): Dropout(p=0.6, inplace=False)
+      )
+      (126): NeuralDecisionTree(
+        (decision_fn_1): Linear(in_features=96, out_features=64, bias=True)
+        (activation_fn_1): Tanh()
+        (dropout_1): Dropout(p=0.2, inplace=False)
+        (decision_fn_2): Linear(in_features=64, out_features=64, bias=True)
+        (activation_fn_2): Tanh()
+        (dropout_2): Dropout(p=0.2, inplace=False)
+        (decision_fn_3): Linear(in_features=64, out_features=32, bias=True)
+        (activation_fn_3): Sigmoid()
+        (mu_dropout): Dropout(p=0.6, inplace=False)
+      )
+      (127): NeuralDecisionTree(
+        (decision_fn_1): Linear(in_features=96, out_features=64, bias=True)
+        (activation_fn_1): Tanh()
+        (dropout_1): Dropout(p=0.2, inplace=False)
+        (decision_fn_2): Linear(in_features=64, out_features=64, bias=True)
+        (activation_fn_2): Tanh()
+        (dropout_2): Dropout(p=0.2, inplace=False)
+        (decision_fn_3): Linear(in_features=64, out_features=32, bias=True)
+        (activation_fn_3): Sigmoid()
+        (mu_dropout): Dropout(p=0.6, inplace=False)
+      )
+      (128): NeuralDecisionTree(
+        (decision_fn_1): Linear(in_features=96, out_features=64, bias=True)
+        (activation_fn_1): Tanh()
+        (dropout_1): Dropout(p=0.2, inplace=False)
+        (decision_fn_2): Linear(in_features=64, out_features=64, bias=True)
+        (activation_fn_2): Tanh()
+        (dropout_2): Dropout(p=0.2, inplace=False)
+        (decision_fn_3): Linear(in_features=64, out_features=32, bias=True)
+        (activation_fn_3): Sigmoid()
+        (mu_dropout): Dropout(p=0.6, inplace=False)
+      )
+      (129): NeuralDecisionTree(
+        (decision_fn_1): Linear(in_features=96, out_features=64, bias=True)
+        (activation_fn_1): Tanh()
+        (dropout_1): Dropout(p=0.2, inplace=False)
+        (decision_fn_2): Linear(in_features=64, out_features=64, bias=True)
+        (activation_fn_2): Tanh()
+        (dropout_2): Dropout(p=0.2, inplace=False)
+        (decision_fn_3): Linear(in_features=64, out_features=32, bias=True)
+        (activation_fn_3): Sigmoid()
+        (mu_dropout): Dropout(p=0.6, inplace=False)
+      )
+      (130): NeuralDecisionTree(
+        (decision_fn_1): Linear(in_features=96, out_features=64, bias=True)
+        (activation_fn_1): Tanh()
+        (dropout_1): Dropout(p=0.2, inplace=False)
+        (decision_fn_2): Linear(in_features=64, out_features=64, bias=True)
+        (activation_fn_2): Tanh()
+        (dropout_2): Dropout(p=0.2, inplace=False)
+        (decision_fn_3): Linear(in_features=64, out_features=32, bias=True)
+        (activation_fn_3): Sigmoid()
+        (mu_dropout): Dropout(p=0.6, inplace=False)
+      )
+      (131): NeuralDecisionTree(
+        (decision_fn_1): Linear(in_features=96, out_features=64, bias=True)
+        (activation_fn_1): Tanh()
+        (dropout_1): Dropout(p=0.2, inplace=False)
+        (decision_fn_2): Linear(in_features=64, out_features=64, bias=True)
+        (activation_fn_2): Tanh()
+        (dropout_2): Dropout(p=0.2, inplace=False)
+        (decision_fn_3): Linear(in_features=64, out_features=32, bias=True)
+        (activation_fn_3): Sigmoid()
+        (mu_dropout): Dropout(p=0.6, inplace=False)
+      )
+      (132): NeuralDecisionTree(
+        (decision_fn_1): Linear(in_features=96, out_features=64, bias=True)
+        (activation_fn_1): Tanh()
+        (dropout_1): Dropout(p=0.2, inplace=False)
+        (decision_fn_2): Linear(in_features=64, out_features=64, bias=True)
+        (activation_fn_2): Tanh()
+        (dropout_2): Dropout(p=0.2, inplace=False)
+        (decision_fn_3): Linear(in_features=64, out_features=32, bias=True)
+        (activation_fn_3): Sigmoid()
+        (mu_dropout): Dropout(p=0.6, inplace=False)
+      )
+      (133): NeuralDecisionTree(
+        (decision_fn_1): Linear(in_features=96, out_features=64, bias=True)
+        (activation_fn_1): Tanh()
+        (dropout_1): Dropout(p=0.2, inplace=False)
+        (decision_fn_2): Linear(in_features=64, out_features=64, bias=True)
+        (activation_fn_2): Tanh()
+        (dropout_2): Dropout(p=0.2, inplace=False)
+        (decision_fn_3): Linear(in_features=64, out_features=32, bias=True)
+        (activation_fn_3): Sigmoid()
+        (mu_dropout): Dropout(p=0.6, inplace=False)
+      )
+      (134): NeuralDecisionTree(
+        (decision_fn_1): Linear(in_features=96, out_features=64, bias=True)
+        (activation_fn_1): Tanh()
+        (dropout_1): Dropout(p=0.2, inplace=False)
+        (decision_fn_2): Linear(in_features=64, out_features=64, bias=True)
+        (activation_fn_2): Tanh()
+        (dropout_2): Dropout(p=0.2, inplace=False)
+        (decision_fn_3): Linear(in_features=64, out_features=32, bias=True)
+        (activation_fn_3): Sigmoid()
+        (mu_dropout): Dropout(p=0.6, inplace=False)
+      )
+      (135): NeuralDecisionTree(
+        (decision_fn_1): Linear(in_features=96, out_features=64, bias=True)
+        (activation_fn_1): Tanh()
+        (dropout_1): Dropout(p=0.2, inplace=False)
+        (decision_fn_2): Linear(in_features=64, out_features=64, bias=True)
+        (activation_fn_2): Tanh()
+        (dropout_2): Dropout(p=0.2, inplace=False)
+        (decision_fn_3): Linear(in_features=64, out_features=32, bias=True)
+        (activation_fn_3): Sigmoid()
+        (mu_dropout): Dropout(p=0.6, inplace=False)
+      )
+      (136): NeuralDecisionTree(
+        (decision_fn_1): Linear(in_features=96, out_features=64, bias=True)
+        (activation_fn_1): Tanh()
+        (dropout_1): Dropout(p=0.2, inplace=False)
+        (decision_fn_2): Linear(in_features=64, out_features=64, bias=True)
+        (activation_fn_2): Tanh()
+        (dropout_2): Dropout(p=0.2, inplace=False)
+        (decision_fn_3): Linear(in_features=64, out_features=32, bias=True)
+        (activation_fn_3): Sigmoid()
+        (mu_dropout): Dropout(p=0.6, inplace=False)
+      )
+      (137): NeuralDecisionTree(
+        (decision_fn_1): Linear(in_features=96, out_features=64, bias=True)
+        (activation_fn_1): Tanh()
+        (dropout_1): Dropout(p=0.2, inplace=False)
+        (decision_fn_2): Linear(in_features=64, out_features=64, bias=True)
+        (activation_fn_2): Tanh()
+        (dropout_2): Dropout(p=0.2, inplace=False)
+        (decision_fn_3): Linear(in_features=64, out_features=32, bias=True)
+        (activation_fn_3): Sigmoid()
+        (mu_dropout): Dropout(p=0.6, inplace=False)
+      )
+      (138): NeuralDecisionTree(
+        (decision_fn_1): Linear(in_features=96, out_features=64, bias=True)
+        (activation_fn_1): Tanh()
+        (dropout_1): Dropout(p=0.2, inplace=False)
+        (decision_fn_2): Linear(in_features=64, out_features=64, bias=True)
+        (activation_fn_2): Tanh()
+        (dropout_2): Dropout(p=0.2, inplace=False)
+        (decision_fn_3): Linear(in_features=64, out_features=32, bias=True)
+        (activation_fn_3): Sigmoid()
+        (mu_dropout): Dropout(p=0.6, inplace=False)
+      )
+      (139): NeuralDecisionTree(
+        (decision_fn_1): Linear(in_features=96, out_features=64, bias=True)
+        (activation_fn_1): Tanh()
+        (dropout_1): Dropout(p=0.2, inplace=False)
+        (decision_fn_2): Linear(in_features=64, out_features=64, bias=True)
+        (activation_fn_2): Tanh()
+        (dropout_2): Dropout(p=0.2, inplace=False)
+        (decision_fn_3): Linear(in_features=64, out_features=32, bias=True)
+        (activation_fn_3): Sigmoid()
+        (mu_dropout): Dropout(p=0.6, inplace=False)
+      )
+      (140): NeuralDecisionTree(
+        (decision_fn_1): Linear(in_features=96, out_features=64, bias=True)
+        (activation_fn_1): Tanh()
+        (dropout_1): Dropout(p=0.2, inplace=False)
+        (decision_fn_2): Linear(in_features=64, out_features=64, bias=True)
+        (activation_fn_2): Tanh()
+        (dropout_2): Dropout(p=0.2, inplace=False)
+        (decision_fn_3): Linear(in_features=64, out_features=32, bias=True)
+        (activation_fn_3): Sigmoid()
+        (mu_dropout): Dropout(p=0.6, inplace=False)
+      )
+      (141): NeuralDecisionTree(
+        (decision_fn_1): Linear(in_features=96, out_features=64, bias=True)
+        (activation_fn_1): Tanh()
+        (dropout_1): Dropout(p=0.2, inplace=False)
+        (decision_fn_2): Linear(in_features=64, out_features=64, bias=True)
+        (activation_fn_2): Tanh()
+        (dropout_2): Dropout(p=0.2, inplace=False)
+        (decision_fn_3): Linear(in_features=64, out_features=32, bias=True)
+        (activation_fn_3): Sigmoid()
+        (mu_dropout): Dropout(p=0.6, inplace=False)
+      )
+      (142): NeuralDecisionTree(
+        (decision_fn_1): Linear(in_features=96, out_features=64, bias=True)
+        (activation_fn_1): Tanh()
+        (dropout_1): Dropout(p=0.2, inplace=False)
+        (decision_fn_2): Linear(in_features=64, out_features=64, bias=True)
+        (activation_fn_2): Tanh()
+        (dropout_2): Dropout(p=0.2, inplace=False)
+        (decision_fn_3): Linear(in_features=64, out_features=32, bias=True)
+        (activation_fn_3): Sigmoid()
+        (mu_dropout): Dropout(p=0.6, inplace=False)
+      )
+      (143): NeuralDecisionTree(
+        (decision_fn_1): Linear(in_features=96, out_features=64, bias=True)
+        (activation_fn_1): Tanh()
+        (dropout_1): Dropout(p=0.2, inplace=False)
+        (decision_fn_2): Linear(in_features=64, out_features=64, bias=True)
+        (activation_fn_2): Tanh()
+        (dropout_2): Dropout(p=0.2, inplace=False)
+        (decision_fn_3): Linear(in_features=64, out_features=32, bias=True)
+        (activation_fn_3): Sigmoid()
+        (mu_dropout): Dropout(p=0.6, inplace=False)
+      )
+      (144): NeuralDecisionTree(
+        (decision_fn_1): Linear(in_features=96, out_features=64, bias=True)
+        (activation_fn_1): Tanh()
+        (dropout_1): Dropout(p=0.2, inplace=False)
+        (decision_fn_2): Linear(in_features=64, out_features=64, bias=True)
+        (activation_fn_2): Tanh()
+        (dropout_2): Dropout(p=0.2, inplace=False)
+        (decision_fn_3): Linear(in_features=64, out_features=32, bias=True)
+        (activation_fn_3): Sigmoid()
+        (mu_dropout): Dropout(p=0.6, inplace=False)
+      )
+      (145): NeuralDecisionTree(
+        (decision_fn_1): Linear(in_features=96, out_features=64, bias=True)
+        (activation_fn_1): Tanh()
+        (dropout_1): Dropout(p=0.2, inplace=False)
+        (decision_fn_2): Linear(in_features=64, out_features=64, bias=True)
+        (activation_fn_2): Tanh()
+        (dropout_2): Dropout(p=0.2, inplace=False)
+        (decision_fn_3): Linear(in_features=64, out_features=32, bias=True)
+        (activation_fn_3): Sigmoid()
+        (mu_dropout): Dropout(p=0.6, inplace=False)
+      )
+      (146): NeuralDecisionTree(
+        (decision_fn_1): Linear(in_features=96, out_features=64, bias=True)
+        (activation_fn_1): Tanh()
+        (dropout_1): Dropout(p=0.2, inplace=False)
+        (decision_fn_2): Linear(in_features=64, out_features=64, bias=True)
+        (activation_fn_2): Tanh()
+        (dropout_2): Dropout(p=0.2, inplace=False)
+        (decision_fn_3): Linear(in_features=64, out_features=32, bias=True)
+        (activation_fn_3): Sigmoid()
+        (mu_dropout): Dropout(p=0.6, inplace=False)
+      )
+      (147): NeuralDecisionTree(
+        (decision_fn_1): Linear(in_features=96, out_features=64, bias=True)
+        (activation_fn_1): Tanh()
+        (dropout_1): Dropout(p=0.2, inplace=False)
+        (decision_fn_2): Linear(in_features=64, out_features=64, bias=True)
+        (activation_fn_2): Tanh()
+        (dropout_2): Dropout(p=0.2, inplace=False)
+        (decision_fn_3): Linear(in_features=64, out_features=32, bias=True)
+        (activation_fn_3): Sigmoid()
+        (mu_dropout): Dropout(p=0.6, inplace=False)
+      )
+      (148): NeuralDecisionTree(
+        (decision_fn_1): Linear(in_features=96, out_features=64, bias=True)
+        (activation_fn_1): Tanh()
+        (dropout_1): Dropout(p=0.2, inplace=False)
+        (decision_fn_2): Linear(in_features=64, out_features=64, bias=True)
+        (activation_fn_2): Tanh()
+        (dropout_2): Dropout(p=0.2, inplace=False)
+        (decision_fn_3): Linear(in_features=64, out_features=32, bias=True)
+        (activation_fn_3): Sigmoid()
+        (mu_dropout): Dropout(p=0.6, inplace=False)
+      )
+      (149): NeuralDecisionTree(
+        (decision_fn_1): Linear(in_features=96, out_features=64, bias=True)
+        (activation_fn_1): Tanh()
+        (dropout_1): Dropout(p=0.2, inplace=False)
+        (decision_fn_2): Linear(in_features=64, out_features=64, bias=True)
+        (activation_fn_2): Tanh()
+        (dropout_2): Dropout(p=0.2, inplace=False)
+        (decision_fn_3): Linear(in_features=64, out_features=32, bias=True)
+        (activation_fn_3): Sigmoid()
+        (mu_dropout): Dropout(p=0.6, inplace=False)
+      )
+      (150): NeuralDecisionTree(
+        (decision_fn_1): Linear(in_features=96, out_features=64, bias=True)
+        (activation_fn_1): Tanh()
+        (dropout_1): Dropout(p=0.2, inplace=False)
+        (decision_fn_2): Linear(in_features=64, out_features=64, bias=True)
+        (activation_fn_2): Tanh()
+        (dropout_2): Dropout(p=0.2, inplace=False)
+        (decision_fn_3): Linear(in_features=64, out_features=32, bias=True)
+        (activation_fn_3): Sigmoid()
+        (mu_dropout): Dropout(p=0.6, inplace=False)
+      )
+      (151): NeuralDecisionTree(
+        (decision_fn_1): Linear(in_features=96, out_features=64, bias=True)
+        (activation_fn_1): Tanh()
+        (dropout_1): Dropout(p=0.2, inplace=False)
+        (decision_fn_2): Linear(in_features=64, out_features=64, bias=True)
+        (activation_fn_2): Tanh()
+        (dropout_2): Dropout(p=0.2, inplace=False)
+        (decision_fn_3): Linear(in_features=64, out_features=32, bias=True)
+        (activation_fn_3): Sigmoid()
+        (mu_dropout): Dropout(p=0.6, inplace=False)
+      )
+      (152): NeuralDecisionTree(
+        (decision_fn_1): Linear(in_features=96, out_features=64, bias=True)
+        (activation_fn_1): Tanh()
+        (dropout_1): Dropout(p=0.2, inplace=False)
+        (decision_fn_2): Linear(in_features=64, out_features=64, bias=True)
+        (activation_fn_2): Tanh()
+        (dropout_2): Dropout(p=0.2, inplace=False)
+        (decision_fn_3): Linear(in_features=64, out_features=32, bias=True)
+        (activation_fn_3): Sigmoid()
+        (mu_dropout): Dropout(p=0.6, inplace=False)
+      )
+      (153): NeuralDecisionTree(
+        (decision_fn_1): Linear(in_features=96, out_features=64, bias=True)
+        (activation_fn_1): Tanh()
+        (dropout_1): Dropout(p=0.2, inplace=False)
+        (decision_fn_2): Linear(in_features=64, out_features=64, bias=True)
+        (activation_fn_2): Tanh()
+        (dropout_2): Dropout(p=0.2, inplace=False)
+        (decision_fn_3): Linear(in_features=64, out_features=32, bias=True)
+        (activation_fn_3): Sigmoid()
+        (mu_dropout): Dropout(p=0.6, inplace=False)
+      )
+      (154): NeuralDecisionTree(
+        (decision_fn_1): Linear(in_features=96, out_features=64, bias=True)
+        (activation_fn_1): Tanh()
+        (dropout_1): Dropout(p=0.2, inplace=False)
+        (decision_fn_2): Linear(in_features=64, out_features=64, bias=True)
+        (activation_fn_2): Tanh()
+        (dropout_2): Dropout(p=0.2, inplace=False)
+        (decision_fn_3): Linear(in_features=64, out_features=32, bias=True)
+        (activation_fn_3): Sigmoid()
+        (mu_dropout): Dropout(p=0.6, inplace=False)
+      )
+      (155): NeuralDecisionTree(
+        (decision_fn_1): Linear(in_features=96, out_features=64, bias=True)
+        (activation_fn_1): Tanh()
+        (dropout_1): Dropout(p=0.2, inplace=False)
+        (decision_fn_2): Linear(in_features=64, out_features=64, bias=True)
+        (activation_fn_2): Tanh()
+        (dropout_2): Dropout(p=0.2, inplace=False)
+        (decision_fn_3): Linear(in_features=64, out_features=32, bias=True)
+        (activation_fn_3): Sigmoid()
+        (mu_dropout): Dropout(p=0.6, inplace=False)
+      )
+      (156): NeuralDecisionTree(
+        (decision_fn_1): Linear(in_features=96, out_features=64, bias=True)
+        (activation_fn_1): Tanh()
+        (dropout_1): Dropout(p=0.2, inplace=False)
+        (decision_fn_2): Linear(in_features=64, out_features=64, bias=True)
+        (activation_fn_2): Tanh()
+        (dropout_2): Dropout(p=0.2, inplace=False)
+        (decision_fn_3): Linear(in_features=64, out_features=32, bias=True)
+        (activation_fn_3): Sigmoid()
+        (mu_dropout): Dropout(p=0.6, inplace=False)
+      )
+      (157): NeuralDecisionTree(
+        (decision_fn_1): Linear(in_features=96, out_features=64, bias=True)
+        (activation_fn_1): Tanh()
+        (dropout_1): Dropout(p=0.2, inplace=False)
+        (decision_fn_2): Linear(in_features=64, out_features=64, bias=True)
+        (activation_fn_2): Tanh()
+        (dropout_2): Dropout(p=0.2, inplace=False)
+        (decision_fn_3): Linear(in_features=64, out_features=32, bias=True)
+        (activation_fn_3): Sigmoid()
+        (mu_dropout): Dropout(p=0.6, inplace=False)
+      )
+      (158): NeuralDecisionTree(
+        (decision_fn_1): Linear(in_features=96, out_features=64, bias=True)
+        (activation_fn_1): Tanh()
+        (dropout_1): Dropout(p=0.2, inplace=False)
+        (decision_fn_2): Linear(in_features=64, out_features=64, bias=True)
+        (activation_fn_2): Tanh()
+        (dropout_2): Dropout(p=0.2, inplace=False)
+        (decision_fn_3): Linear(in_features=64, out_features=32, bias=True)
+        (activation_fn_3): Sigmoid()
+        (mu_dropout): Dropout(p=0.6, inplace=False)
+      )
+      (159): NeuralDecisionTree(
+        (decision_fn_1): Linear(in_features=96, out_features=64, bias=True)
+        (activation_fn_1): Tanh()
+        (dropout_1): Dropout(p=0.2, inplace=False)
+        (decision_fn_2): Linear(in_features=64, out_features=64, bias=True)
+        (activation_fn_2): Tanh()
+        (dropout_2): Dropout(p=0.2, inplace=False)
+        (decision_fn_3): Linear(in_features=64, out_features=32, bias=True)
+        (activation_fn_3): Sigmoid()
+        (mu_dropout): Dropout(p=0.6, inplace=False)
+      )
+      (160): NeuralDecisionTree(
+        (decision_fn_1): Linear(in_features=96, out_features=64, bias=True)
+        (activation_fn_1): Tanh()
+        (dropout_1): Dropout(p=0.2, inplace=False)
+        (decision_fn_2): Linear(in_features=64, out_features=64, bias=True)
+        (activation_fn_2): Tanh()
+        (dropout_2): Dropout(p=0.2, inplace=False)
+        (decision_fn_3): Linear(in_features=64, out_features=32, bias=True)
+        (activation_fn_3): Sigmoid()
+        (mu_dropout): Dropout(p=0.6, inplace=False)
+      )
+      (161): NeuralDecisionTree(
+        (decision_fn_1): Linear(in_features=96, out_features=64, bias=True)
+        (activation_fn_1): Tanh()
+        (dropout_1): Dropout(p=0.2, inplace=False)
+        (decision_fn_2): Linear(in_features=64, out_features=64, bias=True)
+        (activation_fn_2): Tanh()
+        (dropout_2): Dropout(p=0.2, inplace=False)
+        (decision_fn_3): Linear(in_features=64, out_features=32, bias=True)
+        (activation_fn_3): Sigmoid()
+        (mu_dropout): Dropout(p=0.6, inplace=False)
+      )
+      (162): NeuralDecisionTree(
+        (decision_fn_1): Linear(in_features=96, out_features=64, bias=True)
+        (activation_fn_1): Tanh()
+        (dropout_1): Dropout(p=0.2, inplace=False)
+        (decision_fn_2): Linear(in_features=64, out_features=64, bias=True)
+        (activation_fn_2): Tanh()
+        (dropout_2): Dropout(p=0.2, inplace=False)
+        (decision_fn_3): Linear(in_features=64, out_features=32, bias=True)
+        (activation_fn_3): Sigmoid()
+        (mu_dropout): Dropout(p=0.6, inplace=False)
+      )
+      (163): NeuralDecisionTree(
+        (decision_fn_1): Linear(in_features=96, out_features=64, bias=True)
+        (activation_fn_1): Tanh()
+        (dropout_1): Dropout(p=0.2, inplace=False)
+        (decision_fn_2): Linear(in_features=64, out_features=64, bias=True)
+        (activation_fn_2): Tanh()
+        (dropout_2): Dropout(p=0.2, inplace=False)
+        (decision_fn_3): Linear(in_features=64, out_features=32, bias=True)
+        (activation_fn_3): Sigmoid()
+        (mu_dropout): Dropout(p=0.6, inplace=False)
+      )
+      (164): NeuralDecisionTree(
+        (decision_fn_1): Linear(in_features=96, out_features=64, bias=True)
+        (activation_fn_1): Tanh()
+        (dropout_1): Dropout(p=0.2, inplace=False)
+        (decision_fn_2): Linear(in_features=64, out_features=64, bias=True)
+        (activation_fn_2): Tanh()
+        (dropout_2): Dropout(p=0.2, inplace=False)
+        (decision_fn_3): Linear(in_features=64, out_features=32, bias=True)
+        (activation_fn_3): Sigmoid()
+        (mu_dropout): Dropout(p=0.6, inplace=False)
+      )
+      (165): NeuralDecisionTree(
+        (decision_fn_1): Linear(in_features=96, out_features=64, bias=True)
+        (activation_fn_1): Tanh()
+        (dropout_1): Dropout(p=0.2, inplace=False)
+        (decision_fn_2): Linear(in_features=64, out_features=64, bias=True)
+        (activation_fn_2): Tanh()
+        (dropout_2): Dropout(p=0.2, inplace=False)
+        (decision_fn_3): Linear(in_features=64, out_features=32, bias=True)
+        (activation_fn_3): Sigmoid()
+        (mu_dropout): Dropout(p=0.6, inplace=False)
+      )
+      (166): NeuralDecisionTree(
+        (decision_fn_1): Linear(in_features=96, out_features=64, bias=True)
+        (activation_fn_1): Tanh()
+        (dropout_1): Dropout(p=0.2, inplace=False)
+        (decision_fn_2): Linear(in_features=64, out_features=64, bias=True)
+        (activation_fn_2): Tanh()
+        (dropout_2): Dropout(p=0.2, inplace=False)
+        (decision_fn_3): Linear(in_features=64, out_features=32, bias=True)
+        (activation_fn_3): Sigmoid()
+        (mu_dropout): Dropout(p=0.6, inplace=False)
+      )
+      (167): NeuralDecisionTree(
+        (decision_fn_1): Linear(in_features=96, out_features=64, bias=True)
+        (activation_fn_1): Tanh()
+        (dropout_1): Dropout(p=0.2, inplace=False)
+        (decision_fn_2): Linear(in_features=64, out_features=64, bias=True)
+        (activation_fn_2): Tanh()
+        (dropout_2): Dropout(p=0.2, inplace=False)
+        (decision_fn_3): Linear(in_features=64, out_features=32, bias=True)
+        (activation_fn_3): Sigmoid()
+        (mu_dropout): Dropout(p=0.6, inplace=False)
+      )
+      (168): NeuralDecisionTree(
+        (decision_fn_1): Linear(in_features=96, out_features=64, bias=True)
+        (activation_fn_1): Tanh()
+        (dropout_1): Dropout(p=0.2, inplace=False)
+        (decision_fn_2): Linear(in_features=64, out_features=64, bias=True)
+        (activation_fn_2): Tanh()
+        (dropout_2): Dropout(p=0.2, inplace=False)
+        (decision_fn_3): Linear(in_features=64, out_features=32, bias=True)
+        (activation_fn_3): Sigmoid()
+        (mu_dropout): Dropout(p=0.6, inplace=False)
+      )
+      (169): NeuralDecisionTree(
+        (decision_fn_1): Linear(in_features=96, out_features=64, bias=True)
+        (activation_fn_1): Tanh()
+        (dropout_1): Dropout(p=0.2, inplace=False)
+        (decision_fn_2): Linear(in_features=64, out_features=64, bias=True)
+        (activation_fn_2): Tanh()
+        (dropout_2): Dropout(p=0.2, inplace=False)
+        (decision_fn_3): Linear(in_features=64, out_features=32, bias=True)
+        (activation_fn_3): Sigmoid()
+        (mu_dropout): Dropout(p=0.6, inplace=False)
+      )
+      (170): NeuralDecisionTree(
+        (decision_fn_1): Linear(in_features=96, out_features=64, bias=True)
+        (activation_fn_1): Tanh()
+        (dropout_1): Dropout(p=0.2, inplace=False)
+        (decision_fn_2): Linear(in_features=64, out_features=64, bias=True)
+        (activation_fn_2): Tanh()
+        (dropout_2): Dropout(p=0.2, inplace=False)
+        (decision_fn_3): Linear(in_features=64, out_features=32, bias=True)
+        (activation_fn_3): Sigmoid()
+        (mu_dropout): Dropout(p=0.6, inplace=False)
+      )
+      (171): NeuralDecisionTree(
+        (decision_fn_1): Linear(in_features=96, out_features=64, bias=True)
+        (activation_fn_1): Tanh()
+        (dropout_1): Dropout(p=0.2, inplace=False)
+        (decision_fn_2): Linear(in_features=64, out_features=64, bias=True)
+        (activation_fn_2): Tanh()
+        (dropout_2): Dropout(p=0.2, inplace=False)
+        (decision_fn_3): Linear(in_features=64, out_features=32, bias=True)
+        (activation_fn_3): Sigmoid()
+        (mu_dropout): Dropout(p=0.6, inplace=False)
+      )
+      (172): NeuralDecisionTree(
+        (decision_fn_1): Linear(in_features=96, out_features=64, bias=True)
+        (activation_fn_1): Tanh()
+        (dropout_1): Dropout(p=0.2, inplace=False)
+        (decision_fn_2): Linear(in_features=64, out_features=64, bias=True)
+        (activation_fn_2): Tanh()
+        (dropout_2): Dropout(p=0.2, inplace=False)
+        (decision_fn_3): Linear(in_features=64, out_features=32, bias=True)
+        (activation_fn_3): Sigmoid()
+        (mu_dropout): Dropout(p=0.6, inplace=False)
+      )
+      (173): NeuralDecisionTree(
+        (decision_fn_1): Linear(in_features=96, out_features=64, bias=True)
+        (activation_fn_1): Tanh()
+        (dropout_1): Dropout(p=0.2, inplace=False)
+        (decision_fn_2): Linear(in_features=64, out_features=64, bias=True)
+        (activation_fn_2): Tanh()
+        (dropout_2): Dropout(p=0.2, inplace=False)
+        (decision_fn_3): Linear(in_features=64, out_features=32, bias=True)
+        (activation_fn_3): Sigmoid()
+        (mu_dropout): Dropout(p=0.6, inplace=False)
+      )
+      (174): NeuralDecisionTree(
+        (decision_fn_1): Linear(in_features=96, out_features=64, bias=True)
+        (activation_fn_1): Tanh()
+        (dropout_1): Dropout(p=0.2, inplace=False)
+        (decision_fn_2): Linear(in_features=64, out_features=64, bias=True)
+        (activation_fn_2): Tanh()
+        (dropout_2): Dropout(p=0.2, inplace=False)
+        (decision_fn_3): Linear(in_features=64, out_features=32, bias=True)
+        (activation_fn_3): Sigmoid()
+        (mu_dropout): Dropout(p=0.6, inplace=False)
+      )
+      (175): NeuralDecisionTree(
+        (decision_fn_1): Linear(in_features=96, out_features=64, bias=True)
+        (activation_fn_1): Tanh()
+        (dropout_1): Dropout(p=0.2, inplace=False)
+        (decision_fn_2): Linear(in_features=64, out_features=64, bias=True)
+        (activation_fn_2): Tanh()
+        (dropout_2): Dropout(p=0.2, inplace=False)
+        (decision_fn_3): Linear(in_features=64, out_features=32, bias=True)
+        (activation_fn_3): Sigmoid()
+        (mu_dropout): Dropout(p=0.6, inplace=False)
+      )
+      (176): NeuralDecisionTree(
+        (decision_fn_1): Linear(in_features=96, out_features=64, bias=True)
+        (activation_fn_1): Tanh()
+        (dropout_1): Dropout(p=0.2, inplace=False)
+        (decision_fn_2): Linear(in_features=64, out_features=64, bias=True)
+        (activation_fn_2): Tanh()
+        (dropout_2): Dropout(p=0.2, inplace=False)
+        (decision_fn_3): Linear(in_features=64, out_features=32, bias=True)
+        (activation_fn_3): Sigmoid()
+        (mu_dropout): Dropout(p=0.6, inplace=False)
+      )
+      (177): NeuralDecisionTree(
+        (decision_fn_1): Linear(in_features=96, out_features=64, bias=True)
+        (activation_fn_1): Tanh()
+        (dropout_1): Dropout(p=0.2, inplace=False)
+        (decision_fn_2): Linear(in_features=64, out_features=64, bias=True)
+        (activation_fn_2): Tanh()
+        (dropout_2): Dropout(p=0.2, inplace=False)
+        (decision_fn_3): Linear(in_features=64, out_features=32, bias=True)
+        (activation_fn_3): Sigmoid()
+        (mu_dropout): Dropout(p=0.6, inplace=False)
+      )
+      (178): NeuralDecisionTree(
+        (decision_fn_1): Linear(in_features=96, out_features=64, bias=True)
+        (activation_fn_1): Tanh()
+        (dropout_1): Dropout(p=0.2, inplace=False)
+        (decision_fn_2): Linear(in_features=64, out_features=64, bias=True)
+        (activation_fn_2): Tanh()
+        (dropout_2): Dropout(p=0.2, inplace=False)
+        (decision_fn_3): Linear(in_features=64, out_features=32, bias=True)
+        (activation_fn_3): Sigmoid()
+        (mu_dropout): Dropout(p=0.6, inplace=False)
+      )
+      (179): NeuralDecisionTree(
+        (decision_fn_1): Linear(in_features=96, out_features=64, bias=True)
+        (activation_fn_1): Tanh()
+        (dropout_1): Dropout(p=0.2, inplace=False)
+        (decision_fn_2): Linear(in_features=64, out_features=64, bias=True)
+        (activation_fn_2): Tanh()
+        (dropout_2): Dropout(p=0.2, inplace=False)
+        (decision_fn_3): Linear(in_features=64, out_features=32, bias=True)
+        (activation_fn_3): Sigmoid()
+        (mu_dropout): Dropout(p=0.6, inplace=False)
+      )
+      (180): NeuralDecisionTree(
+        (decision_fn_1): Linear(in_features=96, out_features=64, bias=True)
+        (activation_fn_1): Tanh()
+        (dropout_1): Dropout(p=0.2, inplace=False)
+        (decision_fn_2): Linear(in_features=64, out_features=64, bias=True)
+        (activation_fn_2): Tanh()
+        (dropout_2): Dropout(p=0.2, inplace=False)
+        (decision_fn_3): Linear(in_features=64, out_features=32, bias=True)
+        (activation_fn_3): Sigmoid()
+        (mu_dropout): Dropout(p=0.6, inplace=False)
+      )
+      (181): NeuralDecisionTree(
+        (decision_fn_1): Linear(in_features=96, out_features=64, bias=True)
+        (activation_fn_1): Tanh()
+        (dropout_1): Dropout(p=0.2, inplace=False)
+        (decision_fn_2): Linear(in_features=64, out_features=64, bias=True)
+        (activation_fn_2): Tanh()
+        (dropout_2): Dropout(p=0.2, inplace=False)
+        (decision_fn_3): Linear(in_features=64, out_features=32, bias=True)
+        (activation_fn_3): Sigmoid()
+        (mu_dropout): Dropout(p=0.6, inplace=False)
+      )
+      (182): NeuralDecisionTree(
+        (decision_fn_1): Linear(in_features=96, out_features=64, bias=True)
+        (activation_fn_1): Tanh()
+        (dropout_1): Dropout(p=0.2, inplace=False)
+        (decision_fn_2): Linear(in_features=64, out_features=64, bias=True)
+        (activation_fn_2): Tanh()
+        (dropout_2): Dropout(p=0.2, inplace=False)
+        (decision_fn_3): Linear(in_features=64, out_features=32, bias=True)
+        (activation_fn_3): Sigmoid()
+        (mu_dropout): Dropout(p=0.6, inplace=False)
+      )
+      (183): NeuralDecisionTree(
+        (decision_fn_1): Linear(in_features=96, out_features=64, bias=True)
+        (activation_fn_1): Tanh()
+        (dropout_1): Dropout(p=0.2, inplace=False)
+        (decision_fn_2): Linear(in_features=64, out_features=64, bias=True)
+        (activation_fn_2): Tanh()
+        (dropout_2): Dropout(p=0.2, inplace=False)
+        (decision_fn_3): Linear(in_features=64, out_features=32, bias=True)
+        (activation_fn_3): Sigmoid()
+        (mu_dropout): Dropout(p=0.6, inplace=False)
+      )
+      (184): NeuralDecisionTree(
+        (decision_fn_1): Linear(in_features=96, out_features=64, bias=True)
+        (activation_fn_1): Tanh()
+        (dropout_1): Dropout(p=0.2, inplace=False)
+        (decision_fn_2): Linear(in_features=64, out_features=64, bias=True)
+        (activation_fn_2): Tanh()
+        (dropout_2): Dropout(p=0.2, inplace=False)
+        (decision_fn_3): Linear(in_features=64, out_features=32, bias=True)
+        (activation_fn_3): Sigmoid()
+        (mu_dropout): Dropout(p=0.6, inplace=False)
+      )
+      (185): NeuralDecisionTree(
+        (decision_fn_1): Linear(in_features=96, out_features=64, bias=True)
+        (activation_fn_1): Tanh()
+        (dropout_1): Dropout(p=0.2, inplace=False)
+        (decision_fn_2): Linear(in_features=64, out_features=64, bias=True)
+        (activation_fn_2): Tanh()
+        (dropout_2): Dropout(p=0.2, inplace=False)
+        (decision_fn_3): Linear(in_features=64, out_features=32, bias=True)
+        (activation_fn_3): Sigmoid()
+        (mu_dropout): Dropout(p=0.6, inplace=False)
+      )
+      (186): NeuralDecisionTree(
+        (decision_fn_1): Linear(in_features=96, out_features=64, bias=True)
+        (activation_fn_1): Tanh()
+        (dropout_1): Dropout(p=0.2, inplace=False)
+        (decision_fn_2): Linear(in_features=64, out_features=64, bias=True)
+        (activation_fn_2): Tanh()
+        (dropout_2): Dropout(p=0.2, inplace=False)
+        (decision_fn_3): Linear(in_features=64, out_features=32, bias=True)
+        (activation_fn_3): Sigmoid()
+        (mu_dropout): Dropout(p=0.6, inplace=False)
+      )
+      (187): NeuralDecisionTree(
+        (decision_fn_1): Linear(in_features=96, out_features=64, bias=True)
+        (activation_fn_1): Tanh()
+        (dropout_1): Dropout(p=0.2, inplace=False)
+        (decision_fn_2): Linear(in_features=64, out_features=64, bias=True)
+        (activation_fn_2): Tanh()
+        (dropout_2): Dropout(p=0.2, inplace=False)
+        (decision_fn_3): Linear(in_features=64, out_features=32, bias=True)
+        (activation_fn_3): Sigmoid()
+        (mu_dropout): Dropout(p=0.6, inplace=False)
+      )
+      (188): NeuralDecisionTree(
+        (decision_fn_1): Linear(in_features=96, out_features=64, bias=True)
+        (activation_fn_1): Tanh()
+        (dropout_1): Dropout(p=0.2, inplace=False)
+        (decision_fn_2): Linear(in_features=64, out_features=64, bias=True)
+        (activation_fn_2): Tanh()
+        (dropout_2): Dropout(p=0.2, inplace=False)
+        (decision_fn_3): Linear(in_features=64, out_features=32, bias=True)
+        (activation_fn_3): Sigmoid()
+        (mu_dropout): Dropout(p=0.6, inplace=False)
+      )
+      (189): NeuralDecisionTree(
+        (decision_fn_1): Linear(in_features=96, out_features=64, bias=True)
+        (activation_fn_1): Tanh()
+        (dropout_1): Dropout(p=0.2, inplace=False)
+        (decision_fn_2): Linear(in_features=64, out_features=64, bias=True)
+        (activation_fn_2): Tanh()
+        (dropout_2): Dropout(p=0.2, inplace=False)
+        (decision_fn_3): Linear(in_features=64, out_features=32, bias=True)
+        (activation_fn_3): Sigmoid()
+        (mu_dropout): Dropout(p=0.6, inplace=False)
+      )
+      (190): NeuralDecisionTree(
+        (decision_fn_1): Linear(in_features=96, out_features=64, bias=True)
+        (activation_fn_1): Tanh()
+        (dropout_1): Dropout(p=0.2, inplace=False)
+        (decision_fn_2): Linear(in_features=64, out_features=64, bias=True)
+        (activation_fn_2): Tanh()
+        (dropout_2): Dropout(p=0.2, inplace=False)
+        (decision_fn_3): Linear(in_features=64, out_features=32, bias=True)
+        (activation_fn_3): Sigmoid()
+        (mu_dropout): Dropout(p=0.6, inplace=False)
+      )
+      (191): NeuralDecisionTree(
+        (decision_fn_1): Linear(in_features=96, out_features=64, bias=True)
+        (activation_fn_1): Tanh()
+        (dropout_1): Dropout(p=0.2, inplace=False)
+        (decision_fn_2): Linear(in_features=64, out_features=64, bias=True)
+        (activation_fn_2): Tanh()
+        (dropout_2): Dropout(p=0.2, inplace=False)
+        (decision_fn_3): Linear(in_features=64, out_features=32, bias=True)
+        (activation_fn_3): Sigmoid()
+        (mu_dropout): Dropout(p=0.6, inplace=False)
+      )
+      (192): NeuralDecisionTree(
+        (decision_fn_1): Linear(in_features=96, out_features=64, bias=True)
+        (activation_fn_1): Tanh()
+        (dropout_1): Dropout(p=0.2, inplace=False)
+        (decision_fn_2): Linear(in_features=64, out_features=64, bias=True)
+        (activation_fn_2): Tanh()
+        (dropout_2): Dropout(p=0.2, inplace=False)
+        (decision_fn_3): Linear(in_features=64, out_features=32, bias=True)
+        (activation_fn_3): Sigmoid()
+        (mu_dropout): Dropout(p=0.6, inplace=False)
+      )
+      (193): NeuralDecisionTree(
+        (decision_fn_1): Linear(in_features=96, out_features=64, bias=True)
+        (activation_fn_1): Tanh()
+        (dropout_1): Dropout(p=0.2, inplace=False)
+        (decision_fn_2): Linear(in_features=64, out_features=64, bias=True)
+        (activation_fn_2): Tanh()
+        (dropout_2): Dropout(p=0.2, inplace=False)
+        (decision_fn_3): Linear(in_features=64, out_features=32, bias=True)
+        (activation_fn_3): Sigmoid()
+        (mu_dropout): Dropout(p=0.6, inplace=False)
+      )
+      (194): NeuralDecisionTree(
+        (decision_fn_1): Linear(in_features=96, out_features=64, bias=True)
+        (activation_fn_1): Tanh()
+        (dropout_1): Dropout(p=0.2, inplace=False)
+        (decision_fn_2): Linear(in_features=64, out_features=64, bias=True)
+        (activation_fn_2): Tanh()
+        (dropout_2): Dropout(p=0.2, inplace=False)
+        (decision_fn_3): Linear(in_features=64, out_features=32, bias=True)
+        (activation_fn_3): Sigmoid()
+        (mu_dropout): Dropout(p=0.6, inplace=False)
+      )
+      (195): NeuralDecisionTree(
+        (decision_fn_1): Linear(in_features=96, out_features=64, bias=True)
+        (activation_fn_1): Tanh()
+        (dropout_1): Dropout(p=0.2, inplace=False)
+        (decision_fn_2): Linear(in_features=64, out_features=64, bias=True)
+        (activation_fn_2): Tanh()
+        (dropout_2): Dropout(p=0.2, inplace=False)
+        (decision_fn_3): Linear(in_features=64, out_features=32, bias=True)
+        (activation_fn_3): Sigmoid()
+        (mu_dropout): Dropout(p=0.6, inplace=False)
+      )
+      (196): NeuralDecisionTree(
+        (decision_fn_1): Linear(in_features=96, out_features=64, bias=True)
+        (activation_fn_1): Tanh()
+        (dropout_1): Dropout(p=0.2, inplace=False)
+        (decision_fn_2): Linear(in_features=64, out_features=64, bias=True)
+        (activation_fn_2): Tanh()
+        (dropout_2): Dropout(p=0.2, inplace=False)
+        (decision_fn_3): Linear(in_features=64, out_features=32, bias=True)
+        (activation_fn_3): Sigmoid()
+        (mu_dropout): Dropout(p=0.6, inplace=False)
+      )
+      (197): NeuralDecisionTree(
+        (decision_fn_1): Linear(in_features=96, out_features=64, bias=True)
+        (activation_fn_1): Tanh()
+        (dropout_1): Dropout(p=0.2, inplace=False)
+        (decision_fn_2): Linear(in_features=64, out_features=64, bias=True)
+        (activation_fn_2): Tanh()
+        (dropout_2): Dropout(p=0.2, inplace=False)
+        (decision_fn_3): Linear(in_features=64, out_features=32, bias=True)
+        (activation_fn_3): Sigmoid()
+        (mu_dropout): Dropout(p=0.6, inplace=False)
+      )
+      (198): NeuralDecisionTree(
+        (decision_fn_1): Linear(in_features=96, out_features=64, bias=True)
+        (activation_fn_1): Tanh()
+        (dropout_1): Dropout(p=0.2, inplace=False)
+        (decision_fn_2): Linear(in_features=64, out_features=64, bias=True)
+        (activation_fn_2): Tanh()
+        (dropout_2): Dropout(p=0.2, inplace=False)
+        (decision_fn_3): Linear(in_features=64, out_features=32, bias=True)
+        (activation_fn_3): Sigmoid()
+        (mu_dropout): Dropout(p=0.6, inplace=False)
+      )
+      (199): NeuralDecisionTree(
+        (decision_fn_1): Linear(in_features=96, out_features=64, bias=True)
+        (activation_fn_1): Tanh()
+        (dropout_1): Dropout(p=0.2, inplace=False)
+        (decision_fn_2): Linear(in_features=64, out_features=64, bias=True)
+        (activation_fn_2): Tanh()
+        (dropout_2): Dropout(p=0.2, inplace=False)
+        (decision_fn_3): Linear(in_features=64, out_features=32, bias=True)
+        (activation_fn_3): Sigmoid()
+        (mu_dropout): Dropout(p=0.6, inplace=False)
+      )
+      (200): NeuralDecisionTree(
+        (decision_fn_1): Linear(in_features=96, out_features=64, bias=True)
+        (activation_fn_1): Tanh()
+        (dropout_1): Dropout(p=0.2, inplace=False)
+        (decision_fn_2): Linear(in_features=64, out_features=64, bias=True)
+        (activation_fn_2): Tanh()
+        (dropout_2): Dropout(p=0.2, inplace=False)
+        (decision_fn_3): Linear(in_features=64, out_features=32, bias=True)
+        (activation_fn_3): Sigmoid()
+        (mu_dropout): Dropout(p=0.6, inplace=False)
+      )
+      (201): NeuralDecisionTree(
+        (decision_fn_1): Linear(in_features=96, out_features=64, bias=True)
+        (activation_fn_1): Tanh()
+        (dropout_1): Dropout(p=0.2, inplace=False)
+        (decision_fn_2): Linear(in_features=64, out_features=64, bias=True)
+        (activation_fn_2): Tanh()
+        (dropout_2): Dropout(p=0.2, inplace=False)
+        (decision_fn_3): Linear(in_features=64, out_features=32, bias=True)
+        (activation_fn_3): Sigmoid()
+        (mu_dropout): Dropout(p=0.6, inplace=False)
+      )
+      (202): NeuralDecisionTree(
+        (decision_fn_1): Linear(in_features=96, out_features=64, bias=True)
+        (activation_fn_1): Tanh()
+        (dropout_1): Dropout(p=0.2, inplace=False)
+        (decision_fn_2): Linear(in_features=64, out_features=64, bias=True)
+        (activation_fn_2): Tanh()
+        (dropout_2): Dropout(p=0.2, inplace=False)
+        (decision_fn_3): Linear(in_features=64, out_features=32, bias=True)
+        (activation_fn_3): Sigmoid()
+        (mu_dropout): Dropout(p=0.6, inplace=False)
+      )
+      (203): NeuralDecisionTree(
+        (decision_fn_1): Linear(in_features=96, out_features=64, bias=True)
+        (activation_fn_1): Tanh()
+        (dropout_1): Dropout(p=0.2, inplace=False)
+        (decision_fn_2): Linear(in_features=64, out_features=64, bias=True)
+        (activation_fn_2): Tanh()
+        (dropout_2): Dropout(p=0.2, inplace=False)
+        (decision_fn_3): Linear(in_features=64, out_features=32, bias=True)
+        (activation_fn_3): Sigmoid()
+        (mu_dropout): Dropout(p=0.6, inplace=False)
+      )
+      (204): NeuralDecisionTree(
+        (decision_fn_1): Linear(in_features=96, out_features=64, bias=True)
+        (activation_fn_1): Tanh()
+        (dropout_1): Dropout(p=0.2, inplace=False)
+        (decision_fn_2): Linear(in_features=64, out_features=64, bias=True)
+        (activation_fn_2): Tanh()
+        (dropout_2): Dropout(p=0.2, inplace=False)
+        (decision_fn_3): Linear(in_features=64, out_features=32, bias=True)
+        (activation_fn_3): Sigmoid()
+        (mu_dropout): Dropout(p=0.6, inplace=False)
+      )
+      (205): NeuralDecisionTree(
+        (decision_fn_1): Linear(in_features=96, out_features=64, bias=True)
+        (activation_fn_1): Tanh()
+        (dropout_1): Dropout(p=0.2, inplace=False)
+        (decision_fn_2): Linear(in_features=64, out_features=64, bias=True)
+        (activation_fn_2): Tanh()
+        (dropout_2): Dropout(p=0.2, inplace=False)
+        (decision_fn_3): Linear(in_features=64, out_features=32, bias=True)
+        (activation_fn_3): Sigmoid()
+        (mu_dropout): Dropout(p=0.6, inplace=False)
+      )
+      (206): NeuralDecisionTree(
+        (decision_fn_1): Linear(in_features=96, out_features=64, bias=True)
+        (activation_fn_1): Tanh()
+        (dropout_1): Dropout(p=0.2, inplace=False)
+        (decision_fn_2): Linear(in_features=64, out_features=64, bias=True)
+        (activation_fn_2): Tanh()
+        (dropout_2): Dropout(p=0.2, inplace=False)
+        (decision_fn_3): Linear(in_features=64, out_features=32, bias=True)
+        (activation_fn_3): Sigmoid()
+        (mu_dropout): Dropout(p=0.6, inplace=False)
+      )
+      (207): NeuralDecisionTree(
+        (decision_fn_1): Linear(in_features=96, out_features=64, bias=True)
+        (activation_fn_1): Tanh()
+        (dropout_1): Dropout(p=0.2, inplace=False)
+        (decision_fn_2): Linear(in_features=64, out_features=64, bias=True)
+        (activation_fn_2): Tanh()
+        (dropout_2): Dropout(p=0.2, inplace=False)
+        (decision_fn_3): Linear(in_features=64, out_features=32, bias=True)
+        (activation_fn_3): Sigmoid()
+        (mu_dropout): Dropout(p=0.6, inplace=False)
+      )
+      (208): NeuralDecisionTree(
+        (decision_fn_1): Linear(in_features=96, out_features=64, bias=True)
+        (activation_fn_1): Tanh()
+        (dropout_1): Dropout(p=0.2, inplace=False)
+        (decision_fn_2): Linear(in_features=64, out_features=64, bias=True)
+        (activation_fn_2): Tanh()
+        (dropout_2): Dropout(p=0.2, inplace=False)
+        (decision_fn_3): Linear(in_features=64, out_features=32, bias=True)
+        (activation_fn_3): Sigmoid()
+        (mu_dropout): Dropout(p=0.6, inplace=False)
+      )
+      (209): NeuralDecisionTree(
+        (decision_fn_1): Linear(in_features=96, out_features=64, bias=True)
+        (activation_fn_1): Tanh()
+        (dropout_1): Dropout(p=0.2, inplace=False)
+        (decision_fn_2): Linear(in_features=64, out_features=64, bias=True)
+        (activation_fn_2): Tanh()
+        (dropout_2): Dropout(p=0.2, inplace=False)
+        (decision_fn_3): Linear(in_features=64, out_features=32, bias=True)
+        (activation_fn_3): Sigmoid()
+        (mu_dropout): Dropout(p=0.6, inplace=False)
+      )
+      (210): NeuralDecisionTree(
+        (decision_fn_1): Linear(in_features=96, out_features=64, bias=True)
+        (activation_fn_1): Tanh()
+        (dropout_1): Dropout(p=0.2, inplace=False)
+        (decision_fn_2): Linear(in_features=64, out_features=64, bias=True)
+        (activation_fn_2): Tanh()
+        (dropout_2): Dropout(p=0.2, inplace=False)
+        (decision_fn_3): Linear(in_features=64, out_features=32, bias=True)
+        (activation_fn_3): Sigmoid()
+        (mu_dropout): Dropout(p=0.6, inplace=False)
+      )
+      (211): NeuralDecisionTree(
+        (decision_fn_1): Linear(in_features=96, out_features=64, bias=True)
+        (activation_fn_1): Tanh()
+        (dropout_1): Dropout(p=0.2, inplace=False)
+        (decision_fn_2): Linear(in_features=64, out_features=64, bias=True)
+        (activation_fn_2): Tanh()
+        (dropout_2): Dropout(p=0.2, inplace=False)
+        (decision_fn_3): Linear(in_features=64, out_features=32, bias=True)
+        (activation_fn_3): Sigmoid()
+        (mu_dropout): Dropout(p=0.6, inplace=False)
+      )
+      (212): NeuralDecisionTree(
+        (decision_fn_1): Linear(in_features=96, out_features=64, bias=True)
+        (activation_fn_1): Tanh()
+        (dropout_1): Dropout(p=0.2, inplace=False)
+        (decision_fn_2): Linear(in_features=64, out_features=64, bias=True)
+        (activation_fn_2): Tanh()
+        (dropout_2): Dropout(p=0.2, inplace=False)
+        (decision_fn_3): Linear(in_features=64, out_features=32, bias=True)
+        (activation_fn_3): Sigmoid()
+        (mu_dropout): Dropout(p=0.6, inplace=False)
+      )
+      (213): NeuralDecisionTree(
+        (decision_fn_1): Linear(in_features=96, out_features=64, bias=True)
+        (activation_fn_1): Tanh()
+        (dropout_1): Dropout(p=0.2, inplace=False)
+        (decision_fn_2): Linear(in_features=64, out_features=64, bias=True)
+        (activation_fn_2): Tanh()
+        (dropout_2): Dropout(p=0.2, inplace=False)
+        (decision_fn_3): Linear(in_features=64, out_features=32, bias=True)
+        (activation_fn_3): Sigmoid()
+        (mu_dropout): Dropout(p=0.6, inplace=False)
+      )
+      (214): NeuralDecisionTree(
+        (decision_fn_1): Linear(in_features=96, out_features=64, bias=True)
+        (activation_fn_1): Tanh()
+        (dropout_1): Dropout(p=0.2, inplace=False)
+        (decision_fn_2): Linear(in_features=64, out_features=64, bias=True)
+        (activation_fn_2): Tanh()
+        (dropout_2): Dropout(p=0.2, inplace=False)
+        (decision_fn_3): Linear(in_features=64, out_features=32, bias=True)
+        (activation_fn_3): Sigmoid()
+        (mu_dropout): Dropout(p=0.6, inplace=False)
+      )
+      (215): NeuralDecisionTree(
+        (decision_fn_1): Linear(in_features=96, out_features=64, bias=True)
+        (activation_fn_1): Tanh()
+        (dropout_1): Dropout(p=0.2, inplace=False)
+        (decision_fn_2): Linear(in_features=64, out_features=64, bias=True)
+        (activation_fn_2): Tanh()
+        (dropout_2): Dropout(p=0.2, inplace=False)
+        (decision_fn_3): Linear(in_features=64, out_features=32, bias=True)
+        (activation_fn_3): Sigmoid()
+        (mu_dropout): Dropout(p=0.6, inplace=False)
+      )
+      (216): NeuralDecisionTree(
+        (decision_fn_1): Linear(in_features=96, out_features=64, bias=True)
+        (activation_fn_1): Tanh()
+        (dropout_1): Dropout(p=0.2, inplace=False)
+        (decision_fn_2): Linear(in_features=64, out_features=64, bias=True)
+        (activation_fn_2): Tanh()
+        (dropout_2): Dropout(p=0.2, inplace=False)
+        (decision_fn_3): Linear(in_features=64, out_features=32, bias=True)
+        (activation_fn_3): Sigmoid()
+        (mu_dropout): Dropout(p=0.6, inplace=False)
+      )
+      (217): NeuralDecisionTree(
+        (decision_fn_1): Linear(in_features=96, out_features=64, bias=True)
+        (activation_fn_1): Tanh()
+        (dropout_1): Dropout(p=0.2, inplace=False)
+        (decision_fn_2): Linear(in_features=64, out_features=64, bias=True)
+        (activation_fn_2): Tanh()
+        (dropout_2): Dropout(p=0.2, inplace=False)
+        (decision_fn_3): Linear(in_features=64, out_features=32, bias=True)
+        (activation_fn_3): Sigmoid()
+        (mu_dropout): Dropout(p=0.6, inplace=False)
+      )
+      (218): NeuralDecisionTree(
+        (decision_fn_1): Linear(in_features=96, out_features=64, bias=True)
+        (activation_fn_1): Tanh()
+        (dropout_1): Dropout(p=0.2, inplace=False)
+        (decision_fn_2): Linear(in_features=64, out_features=64, bias=True)
+        (activation_fn_2): Tanh()
+        (dropout_2): Dropout(p=0.2, inplace=False)
+        (decision_fn_3): Linear(in_features=64, out_features=32, bias=True)
+        (activation_fn_3): Sigmoid()
+        (mu_dropout): Dropout(p=0.6, inplace=False)
+      )
+      (219): NeuralDecisionTree(
+        (decision_fn_1): Linear(in_features=96, out_features=64, bias=True)
+        (activation_fn_1): Tanh()
+        (dropout_1): Dropout(p=0.2, inplace=False)
+        (decision_fn_2): Linear(in_features=64, out_features=64, bias=True)
+        (activation_fn_2): Tanh()
+        (dropout_2): Dropout(p=0.2, inplace=False)
+        (decision_fn_3): Linear(in_features=64, out_features=32, bias=True)
+        (activation_fn_3): Sigmoid()
+        (mu_dropout): Dropout(p=0.6, inplace=False)
+      )
+      (220): NeuralDecisionTree(
+        (decision_fn_1): Linear(in_features=96, out_features=64, bias=True)
+        (activation_fn_1): Tanh()
+        (dropout_1): Dropout(p=0.2, inplace=False)
+        (decision_fn_2): Linear(in_features=64, out_features=64, bias=True)
+        (activation_fn_2): Tanh()
+        (dropout_2): Dropout(p=0.2, inplace=False)
+        (decision_fn_3): Linear(in_features=64, out_features=32, bias=True)
+        (activation_fn_3): Sigmoid()
+        (mu_dropout): Dropout(p=0.6, inplace=False)
+      )
+      (221): NeuralDecisionTree(
+        (decision_fn_1): Linear(in_features=96, out_features=64, bias=True)
+        (activation_fn_1): Tanh()
+        (dropout_1): Dropout(p=0.2, inplace=False)
+        (decision_fn_2): Linear(in_features=64, out_features=64, bias=True)
+        (activation_fn_2): Tanh()
+        (dropout_2): Dropout(p=0.2, inplace=False)
+        (decision_fn_3): Linear(in_features=64, out_features=32, bias=True)
+        (activation_fn_3): Sigmoid()
+        (mu_dropout): Dropout(p=0.6, inplace=False)
+      )
+      (222): NeuralDecisionTree(
+        (decision_fn_1): Linear(in_features=96, out_features=64, bias=True)
+        (activation_fn_1): Tanh()
+        (dropout_1): Dropout(p=0.2, inplace=False)
+        (decision_fn_2): Linear(in_features=64, out_features=64, bias=True)
+        (activation_fn_2): Tanh()
+        (dropout_2): Dropout(p=0.2, inplace=False)
+        (decision_fn_3): Linear(in_features=64, out_features=32, bias=True)
+        (activation_fn_3): Sigmoid()
+        (mu_dropout): Dropout(p=0.6, inplace=False)
+      )
+      (223): NeuralDecisionTree(
+        (decision_fn_1): Linear(in_features=96, out_features=64, bias=True)
+        (activation_fn_1): Tanh()
+        (dropout_1): Dropout(p=0.2, inplace=False)
+        (decision_fn_2): Linear(in_features=64, out_features=64, bias=True)
+        (activation_fn_2): Tanh()
+        (dropout_2): Dropout(p=0.2, inplace=False)
+        (decision_fn_3): Linear(in_features=64, out_features=32, bias=True)
+        (activation_fn_3): Sigmoid()
+        (mu_dropout): Dropout(p=0.6, inplace=False)
+      )
+      (224): NeuralDecisionTree(
+        (decision_fn_1): Linear(in_features=96, out_features=64, bias=True)
+        (activation_fn_1): Tanh()
+        (dropout_1): Dropout(p=0.2, inplace=False)
+        (decision_fn_2): Linear(in_features=64, out_features=64, bias=True)
+        (activation_fn_2): Tanh()
+        (dropout_2): Dropout(p=0.2, inplace=False)
+        (decision_fn_3): Linear(in_features=64, out_features=32, bias=True)
+        (activation_fn_3): Sigmoid()
+        (mu_dropout): Dropout(p=0.6, inplace=False)
+      )
+      (225): NeuralDecisionTree(
+        (decision_fn_1): Linear(in_features=96, out_features=64, bias=True)
+        (activation_fn_1): Tanh()
+        (dropout_1): Dropout(p=0.2, inplace=False)
+        (decision_fn_2): Linear(in_features=64, out_features=64, bias=True)
+        (activation_fn_2): Tanh()
+        (dropout_2): Dropout(p=0.2, inplace=False)
+        (decision_fn_3): Linear(in_features=64, out_features=32, bias=True)
+        (activation_fn_3): Sigmoid()
+        (mu_dropout): Dropout(p=0.6, inplace=False)
+      )
+      (226): NeuralDecisionTree(
+        (decision_fn_1): Linear(in_features=96, out_features=64, bias=True)
+        (activation_fn_1): Tanh()
+        (dropout_1): Dropout(p=0.2, inplace=False)
+        (decision_fn_2): Linear(in_features=64, out_features=64, bias=True)
+        (activation_fn_2): Tanh()
+        (dropout_2): Dropout(p=0.2, inplace=False)
+        (decision_fn_3): Linear(in_features=64, out_features=32, bias=True)
+        (activation_fn_3): Sigmoid()
+        (mu_dropout): Dropout(p=0.6, inplace=False)
+      )
+      (227): NeuralDecisionTree(
+        (decision_fn_1): Linear(in_features=96, out_features=64, bias=True)
+        (activation_fn_1): Tanh()
+        (dropout_1): Dropout(p=0.2, inplace=False)
+        (decision_fn_2): Linear(in_features=64, out_features=64, bias=True)
+        (activation_fn_2): Tanh()
+        (dropout_2): Dropout(p=0.2, inplace=False)
+        (decision_fn_3): Linear(in_features=64, out_features=32, bias=True)
+        (activation_fn_3): Sigmoid()
+        (mu_dropout): Dropout(p=0.6, inplace=False)
+      )
+      (228): NeuralDecisionTree(
+        (decision_fn_1): Linear(in_features=96, out_features=64, bias=True)
+        (activation_fn_1): Tanh()
+        (dropout_1): Dropout(p=0.2, inplace=False)
+        (decision_fn_2): Linear(in_features=64, out_features=64, bias=True)
+        (activation_fn_2): Tanh()
+        (dropout_2): Dropout(p=0.2, inplace=False)
+        (decision_fn_3): Linear(in_features=64, out_features=32, bias=True)
+        (activation_fn_3): Sigmoid()
+        (mu_dropout): Dropout(p=0.6, inplace=False)
+      )
+      (229): NeuralDecisionTree(
+        (decision_fn_1): Linear(in_features=96, out_features=64, bias=True)
+        (activation_fn_1): Tanh()
+        (dropout_1): Dropout(p=0.2, inplace=False)
+        (decision_fn_2): Linear(in_features=64, out_features=64, bias=True)
+        (activation_fn_2): Tanh()
+        (dropout_2): Dropout(p=0.2, inplace=False)
+        (decision_fn_3): Linear(in_features=64, out_features=32, bias=True)
+        (activation_fn_3): Sigmoid()
+        (mu_dropout): Dropout(p=0.6, inplace=False)
+      )
+      (230): NeuralDecisionTree(
+        (decision_fn_1): Linear(in_features=96, out_features=64, bias=True)
+        (activation_fn_1): Tanh()
+        (dropout_1): Dropout(p=0.2, inplace=False)
+        (decision_fn_2): Linear(in_features=64, out_features=64, bias=True)
+        (activation_fn_2): Tanh()
+        (dropout_2): Dropout(p=0.2, inplace=False)
+        (decision_fn_3): Linear(in_features=64, out_features=32, bias=True)
+        (activation_fn_3): Sigmoid()
+        (mu_dropout): Dropout(p=0.6, inplace=False)
+      )
+      (231): NeuralDecisionTree(
+        (decision_fn_1): Linear(in_features=96, out_features=64, bias=True)
+        (activation_fn_1): Tanh()
+        (dropout_1): Dropout(p=0.2, inplace=False)
+        (decision_fn_2): Linear(in_features=64, out_features=64, bias=True)
+        (activation_fn_2): Tanh()
+        (dropout_2): Dropout(p=0.2, inplace=False)
+        (decision_fn_3): Linear(in_features=64, out_features=32, bias=True)
+        (activation_fn_3): Sigmoid()
+        (mu_dropout): Dropout(p=0.6, inplace=False)
+      )
+      (232): NeuralDecisionTree(
+        (decision_fn_1): Linear(in_features=96, out_features=64, bias=True)
+        (activation_fn_1): Tanh()
+        (dropout_1): Dropout(p=0.2, inplace=False)
+        (decision_fn_2): Linear(in_features=64, out_features=64, bias=True)
+        (activation_fn_2): Tanh()
+        (dropout_2): Dropout(p=0.2, inplace=False)
+        (decision_fn_3): Linear(in_features=64, out_features=32, bias=True)
+        (activation_fn_3): Sigmoid()
+        (mu_dropout): Dropout(p=0.6, inplace=False)
+      )
+      (233): NeuralDecisionTree(
+        (decision_fn_1): Linear(in_features=96, out_features=64, bias=True)
+        (activation_fn_1): Tanh()
+        (dropout_1): Dropout(p=0.2, inplace=False)
+        (decision_fn_2): Linear(in_features=64, out_features=64, bias=True)
+        (activation_fn_2): Tanh()
+        (dropout_2): Dropout(p=0.2, inplace=False)
+        (decision_fn_3): Linear(in_features=64, out_features=32, bias=True)
+        (activation_fn_3): Sigmoid()
+        (mu_dropout): Dropout(p=0.6, inplace=False)
+      )
+      (234): NeuralDecisionTree(
+        (decision_fn_1): Linear(in_features=96, out_features=64, bias=True)
+        (activation_fn_1): Tanh()
+        (dropout_1): Dropout(p=0.2, inplace=False)
+        (decision_fn_2): Linear(in_features=64, out_features=64, bias=True)
+        (activation_fn_2): Tanh()
+        (dropout_2): Dropout(p=0.2, inplace=False)
+        (decision_fn_3): Linear(in_features=64, out_features=32, bias=True)
+        (activation_fn_3): Sigmoid()
+        (mu_dropout): Dropout(p=0.6, inplace=False)
+      )
+      (235): NeuralDecisionTree(
+        (decision_fn_1): Linear(in_features=96, out_features=64, bias=True)
+        (activation_fn_1): Tanh()
+        (dropout_1): Dropout(p=0.2, inplace=False)
+        (decision_fn_2): Linear(in_features=64, out_features=64, bias=True)
+        (activation_fn_2): Tanh()
+        (dropout_2): Dropout(p=0.2, inplace=False)
+        (decision_fn_3): Linear(in_features=64, out_features=32, bias=True)
+        (activation_fn_3): Sigmoid()
+        (mu_dropout): Dropout(p=0.6, inplace=False)
+      )
+      (236): NeuralDecisionTree(
+        (decision_fn_1): Linear(in_features=96, out_features=64, bias=True)
+        (activation_fn_1): Tanh()
+        (dropout_1): Dropout(p=0.2, inplace=False)
+        (decision_fn_2): Linear(in_features=64, out_features=64, bias=True)
+        (activation_fn_2): Tanh()
+        (dropout_2): Dropout(p=0.2, inplace=False)
+        (decision_fn_3): Linear(in_features=64, out_features=32, bias=True)
+        (activation_fn_3): Sigmoid()
+        (mu_dropout): Dropout(p=0.6, inplace=False)
+      )
+      (237): NeuralDecisionTree(
+        (decision_fn_1): Linear(in_features=96, out_features=64, bias=True)
+        (activation_fn_1): Tanh()
+        (dropout_1): Dropout(p=0.2, inplace=False)
+        (decision_fn_2): Linear(in_features=64, out_features=64, bias=True)
+        (activation_fn_2): Tanh()
+        (dropout_2): Dropout(p=0.2, inplace=False)
+        (decision_fn_3): Linear(in_features=64, out_features=32, bias=True)
+        (activation_fn_3): Sigmoid()
+        (mu_dropout): Dropout(p=0.6, inplace=False)
+      )
+      (238): NeuralDecisionTree(
+        (decision_fn_1): Linear(in_features=96, out_features=64, bias=True)
+        (activation_fn_1): Tanh()
+        (dropout_1): Dropout(p=0.2, inplace=False)
+        (decision_fn_2): Linear(in_features=64, out_features=64, bias=True)
+        (activation_fn_2): Tanh()
+        (dropout_2): Dropout(p=0.2, inplace=False)
+        (decision_fn_3): Linear(in_features=64, out_features=32, bias=True)
+        (activation_fn_3): Sigmoid()
+        (mu_dropout): Dropout(p=0.6, inplace=False)
+      )
+      (239): NeuralDecisionTree(
+        (decision_fn_1): Linear(in_features=96, out_features=64, bias=True)
+        (activation_fn_1): Tanh()
+        (dropout_1): Dropout(p=0.2, inplace=False)
+        (decision_fn_2): Linear(in_features=64, out_features=64, bias=True)
+        (activation_fn_2): Tanh()
+        (dropout_2): Dropout(p=0.2, inplace=False)
+        (decision_fn_3): Linear(in_features=64, out_features=32, bias=True)
+        (activation_fn_3): Sigmoid()
+        (mu_dropout): Dropout(p=0.6, inplace=False)
+      )
+      (240): NeuralDecisionTree(
+        (decision_fn_1): Linear(in_features=96, out_features=64, bias=True)
+        (activation_fn_1): Tanh()
+        (dropout_1): Dropout(p=0.2, inplace=False)
+        (decision_fn_2): Linear(in_features=64, out_features=64, bias=True)
+        (activation_fn_2): Tanh()
+        (dropout_2): Dropout(p=0.2, inplace=False)
+        (decision_fn_3): Linear(in_features=64, out_features=32, bias=True)
+        (activation_fn_3): Sigmoid()
+        (mu_dropout): Dropout(p=0.6, inplace=False)
+      )
+      (241): NeuralDecisionTree(
+        (decision_fn_1): Linear(in_features=96, out_features=64, bias=True)
+        (activation_fn_1): Tanh()
+        (dropout_1): Dropout(p=0.2, inplace=False)
+        (decision_fn_2): Linear(in_features=64, out_features=64, bias=True)
+        (activation_fn_2): Tanh()
+        (dropout_2): Dropout(p=0.2, inplace=False)
+        (decision_fn_3): Linear(in_features=64, out_features=32, bias=True)
+        (activation_fn_3): Sigmoid()
+        (mu_dropout): Dropout(p=0.6, inplace=False)
+      )
+      (242): NeuralDecisionTree(
+        (decision_fn_1): Linear(in_features=96, out_features=64, bias=True)
+        (activation_fn_1): Tanh()
+        (dropout_1): Dropout(p=0.2, inplace=False)
+        (decision_fn_2): Linear(in_features=64, out_features=64, bias=True)
+        (activation_fn_2): Tanh()
+        (dropout_2): Dropout(p=0.2, inplace=False)
+        (decision_fn_3): Linear(in_features=64, out_features=32, bias=True)
+        (activation_fn_3): Sigmoid()
+        (mu_dropout): Dropout(p=0.6, inplace=False)
+      )
+      (243): NeuralDecisionTree(
+        (decision_fn_1): Linear(in_features=96, out_features=64, bias=True)
+        (activation_fn_1): Tanh()
+        (dropout_1): Dropout(p=0.2, inplace=False)
+        (decision_fn_2): Linear(in_features=64, out_features=64, bias=True)
+        (activation_fn_2): Tanh()
+        (dropout_2): Dropout(p=0.2, inplace=False)
+        (decision_fn_3): Linear(in_features=64, out_features=32, bias=True)
+        (activation_fn_3): Sigmoid()
+        (mu_dropout): Dropout(p=0.6, inplace=False)
+      )
+      (244): NeuralDecisionTree(
+        (decision_fn_1): Linear(in_features=96, out_features=64, bias=True)
+        (activation_fn_1): Tanh()
+        (dropout_1): Dropout(p=0.2, inplace=False)
+        (decision_fn_2): Linear(in_features=64, out_features=64, bias=True)
+        (activation_fn_2): Tanh()
+        (dropout_2): Dropout(p=0.2, inplace=False)
+        (decision_fn_3): Linear(in_features=64, out_features=32, bias=True)
+        (activation_fn_3): Sigmoid()
+        (mu_dropout): Dropout(p=0.6, inplace=False)
+      )
+      (245): NeuralDecisionTree(
+        (decision_fn_1): Linear(in_features=96, out_features=64, bias=True)
+        (activation_fn_1): Tanh()
+        (dropout_1): Dropout(p=0.2, inplace=False)
+        (decision_fn_2): Linear(in_features=64, out_features=64, bias=True)
+        (activation_fn_2): Tanh()
+        (dropout_2): Dropout(p=0.2, inplace=False)
+        (decision_fn_3): Linear(in_features=64, out_features=32, bias=True)
+        (activation_fn_3): Sigmoid()
+        (mu_dropout): Dropout(p=0.6, inplace=False)
+      )
+      (246): NeuralDecisionTree(
+        (decision_fn_1): Linear(in_features=96, out_features=64, bias=True)
+        (activation_fn_1): Tanh()
+        (dropout_1): Dropout(p=0.2, inplace=False)
+        (decision_fn_2): Linear(in_features=64, out_features=64, bias=True)
+        (activation_fn_2): Tanh()
+        (dropout_2): Dropout(p=0.2, inplace=False)
+        (decision_fn_3): Linear(in_features=64, out_features=32, bias=True)
+        (activation_fn_3): Sigmoid()
+        (mu_dropout): Dropout(p=0.6, inplace=False)
+      )
+      (247): NeuralDecisionTree(
+        (decision_fn_1): Linear(in_features=96, out_features=64, bias=True)
+        (activation_fn_1): Tanh()
+        (dropout_1): Dropout(p=0.2, inplace=False)
+        (decision_fn_2): Linear(in_features=64, out_features=64, bias=True)
+        (activation_fn_2): Tanh()
+        (dropout_2): Dropout(p=0.2, inplace=False)
+        (decision_fn_3): Linear(in_features=64, out_features=32, bias=True)
+        (activation_fn_3): Sigmoid()
+        (mu_dropout): Dropout(p=0.6, inplace=False)
+      )
+      (248): NeuralDecisionTree(
+        (decision_fn_1): Linear(in_features=96, out_features=64, bias=True)
+        (activation_fn_1): Tanh()
+        (dropout_1): Dropout(p=0.2, inplace=False)
+        (decision_fn_2): Linear(in_features=64, out_features=64, bias=True)
+        (activation_fn_2): Tanh()
+        (dropout_2): Dropout(p=0.2, inplace=False)
+        (decision_fn_3): Linear(in_features=64, out_features=32, bias=True)
+        (activation_fn_3): Sigmoid()
+        (mu_dropout): Dropout(p=0.6, inplace=False)
+      )
+      (249): NeuralDecisionTree(
+        (decision_fn_1): Linear(in_features=96, out_features=64, bias=True)
+        (activation_fn_1): Tanh()
+        (dropout_1): Dropout(p=0.2, inplace=False)
+        (decision_fn_2): Linear(in_features=64, out_features=64, bias=True)
+        (activation_fn_2): Tanh()
+        (dropout_2): Dropout(p=0.2, inplace=False)
+        (decision_fn_3): Linear(in_features=64, out_features=32, bias=True)
+        (activation_fn_3): Sigmoid()
+        (mu_dropout): Dropout(p=0.6, inplace=False)
+      )
+      (250): NeuralDecisionTree(
+        (decision_fn_1): Linear(in_features=96, out_features=64, bias=True)
+        (activation_fn_1): Tanh()
+        (dropout_1): Dropout(p=0.2, inplace=False)
+        (decision_fn_2): Linear(in_features=64, out_features=64, bias=True)
+        (activation_fn_2): Tanh()
+        (dropout_2): Dropout(p=0.2, inplace=False)
+        (decision_fn_3): Linear(in_features=64, out_features=32, bias=True)
+        (activation_fn_3): Sigmoid()
+        (mu_dropout): Dropout(p=0.6, inplace=False)
+      )
+      (251): NeuralDecisionTree(
+        (decision_fn_1): Linear(in_features=96, out_features=64, bias=True)
+        (activation_fn_1): Tanh()
+        (dropout_1): Dropout(p=0.2, inplace=False)
+        (decision_fn_2): Linear(in_features=64, out_features=64, bias=True)
+        (activation_fn_2): Tanh()
+        (dropout_2): Dropout(p=0.2, inplace=False)
+        (decision_fn_3): Linear(in_features=64, out_features=32, bias=True)
+        (activation_fn_3): Sigmoid()
+        (mu_dropout): Dropout(p=0.6, inplace=False)
+      )
+      (252): NeuralDecisionTree(
+        (decision_fn_1): Linear(in_features=96, out_features=64, bias=True)
+        (activation_fn_1): Tanh()
+        (dropout_1): Dropout(p=0.2, inplace=False)
+        (decision_fn_2): Linear(in_features=64, out_features=64, bias=True)
+        (activation_fn_2): Tanh()
+        (dropout_2): Dropout(p=0.2, inplace=False)
+        (decision_fn_3): Linear(in_features=64, out_features=32, bias=True)
+        (activation_fn_3): Sigmoid()
+        (mu_dropout): Dropout(p=0.6, inplace=False)
+      )
+      (253): NeuralDecisionTree(
+        (decision_fn_1): Linear(in_features=96, out_features=64, bias=True)
+        (activation_fn_1): Tanh()
+        (dropout_1): Dropout(p=0.2, inplace=False)
+        (decision_fn_2): Linear(in_features=64, out_features=64, bias=True)
+        (activation_fn_2): Tanh()
+        (dropout_2): Dropout(p=0.2, inplace=False)
+        (decision_fn_3): Linear(in_features=64, out_features=32, bias=True)
+        (activation_fn_3): Sigmoid()
+        (mu_dropout): Dropout(p=0.6, inplace=False)
+      )
+      (254): NeuralDecisionTree(
+        (decision_fn_1): Linear(in_features=96, out_features=64, bias=True)
+        (activation_fn_1): Tanh()
+        (dropout_1): Dropout(p=0.2, inplace=False)
+        (decision_fn_2): Linear(in_features=64, out_features=64, bias=True)
+        (activation_fn_2): Tanh()
+        (dropout_2): Dropout(p=0.2, inplace=False)
+        (decision_fn_3): Linear(in_features=64, out_features=32, bias=True)
+        (activation_fn_3): Sigmoid()
+        (mu_dropout): Dropout(p=0.6, inplace=False)
+      )
+      (255): NeuralDecisionTree(
+        (decision_fn_1): Linear(in_features=96, out_features=64, bias=True)
+        (activation_fn_1): Tanh()
+        (dropout_1): Dropout(p=0.2, inplace=False)
+        (decision_fn_2): Linear(in_features=64, out_features=64, bias=True)
+        (activation_fn_2): Tanh()
+        (dropout_2): Dropout(p=0.2, inplace=False)
+        (decision_fn_3): Linear(in_features=64, out_features=32, bias=True)
+        (activation_fn_3): Sigmoid()
+        (mu_dropout): Dropout(p=0.6, inplace=False)
+      )
+    )
+  )
+)
+start training
+Batch 100: Loss = 10.7907, Time Elapsed = 122.71s
+Batch 200: Loss = 10.5374, Time Elapsed = 115.48s
+Batch 300: Loss = 10.4727, Time Elapsed = 115.32s
+Batch 400: Loss = 10.4268, Time Elapsed = 115.63s
+Batch 500: Loss = 10.3997, Time Elapsed = 115.32s
+
+Epoch 0:
+Metric	HR@1	MRR@1	NDCG@1	HR@10	MRR@10	NDCG@10	HR@20	MRR@20	NDCG@20
+Value	8.61	8.61	8.61	10.52	9.21	9.52	11.09	9.25	9.67
+Batch 600: Loss = 10.3578, Time Elapsed = 147.01s
+Batch 700: Loss = 10.3018, Time Elapsed = 116.35s
+Batch 800: Loss = 10.2717, Time Elapsed = 115.66s
+Batch 900: Loss = 10.2276, Time Elapsed = 115.52s
+Batch 1000: Loss = 10.1749, Time Elapsed = 115.31s
+Batch 1100: Loss = 10.1211, Time Elapsed = 114.82s
+
+Epoch 1:
+Metric	HR@1	MRR@1	NDCG@1	HR@10	MRR@10	NDCG@10	HR@20	MRR@20	NDCG@20
+Value	8.24	8.24	8.24	12.06	9.45	10.07	13.18	9.53	10.36
+Batch 1200: Loss = 10.0351, Time Elapsed = 146.42s
+Batch 1300: Loss = 9.8989, Time Elapsed = 115.55s
+Batch 1400: Loss = 9.8026, Time Elapsed = 114.54s
+Batch 1500: Loss = 9.6744, Time Elapsed = 114.67s
+Batch 1600: Loss = 9.5406, Time Elapsed = 114.56s
+Batch 1700: Loss = 9.4183, Time Elapsed = 114.70s
+
+Epoch 2:
+Metric	HR@1	MRR@1	NDCG@1	HR@10	MRR@10	NDCG@10	HR@20	MRR@20	NDCG@20
+Value	7.69	7.69	7.69	14.93	9.80	11.02	17.36	9.97	11.63
+Batch 1800: Loss = 9.2448, Time Elapsed = 145.85s
+Batch 1900: Loss = 9.0560, Time Elapsed = 116.32s
+Batch 2000: Loss = 8.9043, Time Elapsed = 115.87s
+Batch 2100: Loss = 8.7757, Time Elapsed = 114.48s
+Batch 2200: Loss = 8.6699, Time Elapsed = 114.55s
+Batch 2300: Loss = 8.5543, Time Elapsed = 114.70s
+
+Epoch 3:
+Metric	HR@1	MRR@1	NDCG@1	HR@10	MRR@10	NDCG@10	HR@20	MRR@20	NDCG@20
+Value	7.71	7.71	7.71	18.58	10.83	12.67	22.77	11.13	13.73
+Batch 2400: Loss = 8.3982, Time Elapsed = 146.31s
+Batch 2500: Loss = 8.2418, Time Elapsed = 118.80s
+Batch 2600: Loss = 8.1230, Time Elapsed = 116.93s
+Batch 2700: Loss = 8.0398, Time Elapsed = 117.87s
+Batch 2800: Loss = 7.9185, Time Elapsed = 116.82s
+Batch 2900: Loss = 7.8405, Time Elapsed = 116.52s
+
+Epoch 4:
+Metric	HR@1	MRR@1	NDCG@1	HR@10	MRR@10	NDCG@10	HR@20	MRR@20	NDCG@20
+Value	7.80	7.80	7.80	22.15	11.79	14.24	27.74	12.18	15.65
+Batch 3000: Loss = 7.7368, Time Elapsed = 149.07s
+Batch 3100: Loss = 7.5855, Time Elapsed = 115.52s
+Batch 3200: Loss = 7.4884, Time Elapsed = 114.60s
+Batch 3300: Loss = 7.4401, Time Elapsed = 114.43s
+Batch 3400: Loss = 7.3681, Time Elapsed = 114.60s
+Batch 3500: Loss = 7.2826, Time Elapsed = 114.67s
+
+Epoch 5:
+Metric	HR@1	MRR@1	NDCG@1	HR@10	MRR@10	NDCG@10	HR@20	MRR@20	NDCG@20
+Value	7.90	7.90	7.90	24.86	12.57	15.46	31.75	13.05	17.20
+Batch 3600: Loss = 7.2122, Time Elapsed = 146.41s
+Batch 3700: Loss = 7.0745, Time Elapsed = 117.06s
+Batch 3800: Loss = 6.9940, Time Elapsed = 114.94s
+Batch 3900: Loss = 6.9677, Time Elapsed = 114.42s
+Batch 4000: Loss = 6.9095, Time Elapsed = 114.54s
+Batch 4100: Loss = 6.8486, Time Elapsed = 114.56s
+
+Epoch 6:
+Metric	HR@1	MRR@1	NDCG@1	HR@10	MRR@10	NDCG@10	HR@20	MRR@20	NDCG@20
+Value	8.01	8.01	8.01	27.23	13.24	16.53	35.01	13.78	18.49
+Batch 4200: Loss = 6.7591, Time Elapsed = 148.38s
+Batch 4300: Loss = 6.6657, Time Elapsed = 122.20s
+Batch 4400: Loss = 6.6188, Time Elapsed = 122.08s
+Batch 4500: Loss = 6.5746, Time Elapsed = 119.96s
+Batch 4600: Loss = 6.5310, Time Elapsed = 116.50s
+Batch 4700: Loss = 6.4961, Time Elapsed = 116.12s
+
+Epoch 7:
+Metric	HR@1	MRR@1	NDCG@1	HR@10	MRR@10	NDCG@10	HR@20	MRR@20	NDCG@20
+Value	8.11	8.11	8.11	29.19	13.85	17.45	37.93	14.45	19.66
+Batch 4800: Loss = 6.4127, Time Elapsed = 148.85s
+Batch 4900: Loss = 6.3234, Time Elapsed = 115.72s
+Batch 5000: Loss = 6.3033, Time Elapsed = 114.57s
+Batch 5100: Loss = 6.2870, Time Elapsed = 114.79s
+Batch 5200: Loss = 6.2470, Time Elapsed = 116.18s
+Batch 5300: Loss = 6.2178, Time Elapsed = 116.53s
+
+Epoch 8:
+Metric	HR@1	MRR@1	NDCG@1	HR@10	MRR@10	NDCG@10	HR@20	MRR@20	NDCG@20
+Value	8.24	8.24	8.24	30.76	14.31	18.17	40.35	14.98	20.60
+Batch 5400: Loss = 6.1212, Time Elapsed = 150.39s
+Batch 5500: Loss = 6.0685, Time Elapsed = 114.96s
+Batch 5600: Loss = 6.0449, Time Elapsed = 114.67s
+Batch 5700: Loss = 6.0457, Time Elapsed = 114.73s
+Batch 5800: Loss = 6.0165, Time Elapsed = 114.81s
+Batch 5900: Loss = 6.0150, Time Elapsed = 114.78s
+
+Epoch 9:
+Metric	HR@1	MRR@1	NDCG@1	HR@10	MRR@10	NDCG@10	HR@20	MRR@20	NDCG@20
+Value	8.44	8.44	8.44	32.18	14.80	18.88	42.22	15.50	21.41
+Batch 6000: Loss = 5.9408, Time Elapsed = 151.99s
+Batch 6100: Loss = 5.8602, Time Elapsed = 121.87s
+Batch 6200: Loss = 5.8598, Time Elapsed = 121.54s
+Batch 6300: Loss = 5.8503, Time Elapsed = 121.12s
+Batch 6400: Loss = 5.8502, Time Elapsed = 121.23s
+Batch 6500: Loss = 5.8332, Time Elapsed = 122.10s
+
+Epoch 10:
+Metric	HR@1	MRR@1	NDCG@1	HR@10	MRR@10	NDCG@10	HR@20	MRR@20	NDCG@20
+Value	8.49	8.49	8.49	32.96	15.00	19.21	43.70	15.75	21.93
+Batch 6600: Loss = 5.7573, Time Elapsed = 153.56s
+Batch 6700: Loss = 5.7105, Time Elapsed = 117.90s
+Batch 6800: Loss = 5.7162, Time Elapsed = 116.61s
+Batch 6900: Loss = 5.7053, Time Elapsed = 115.18s
+Batch 7000: Loss = 5.7037, Time Elapsed = 114.71s
+Batch 7100: Loss = 5.6966, Time Elapsed = 114.70s
+
+Epoch 11:
+Metric	HR@1	MRR@1	NDCG@1	HR@10	MRR@10	NDCG@10	HR@20	MRR@20	NDCG@20
+Value	8.60	8.60	8.60	33.73	15.33	19.65	44.86	16.10	22.46
+Batch 7200: Loss = 5.6022, Time Elapsed = 151.38s
+Batch 7300: Loss = 5.6018, Time Elapsed = 122.67s
+Batch 7400: Loss = 5.6007, Time Elapsed = 126.23s
+Batch 7500: Loss = 5.5977, Time Elapsed = 126.37s
+Batch 7600: Loss = 5.5944, Time Elapsed = 128.40s
+Batch 7700: Loss = 5.6012, Time Elapsed = 126.06s
+
+Epoch 12:
+Metric	HR@1	MRR@1	NDCG@1	HR@10	MRR@10	NDCG@10	HR@20	MRR@20	NDCG@20
+Value	8.65	8.65	8.65	34.35	15.55	19.96	45.68	16.33	22.82
+Batch 7800: Loss = 5.5324, Time Elapsed = 154.12s
+Batch 7900: Loss = 5.4826, Time Elapsed = 115.16s
+Batch 8000: Loss = 5.4907, Time Elapsed = 114.80s
+Batch 8100: Loss = 5.5063, Time Elapsed = 114.84s
+Batch 8200: Loss = 5.5189, Time Elapsed = 114.69s
+Batch 8300: Loss = 5.5053, Time Elapsed = 114.76s
+
+Epoch 13:
+Metric	HR@1	MRR@1	NDCG@1	HR@10	MRR@10	NDCG@10	HR@20	MRR@20	NDCG@20
+Value	8.69	8.69	8.69	35.06	15.70	20.24	46.53	16.50	23.14
+Batch 8400: Loss = 5.4328, Time Elapsed = 148.03s
+Batch 8500: Loss = 5.4191, Time Elapsed = 114.74s
+Batch 8600: Loss = 5.4301, Time Elapsed = 114.38s
+Batch 8700: Loss = 5.4250, Time Elapsed = 114.79s
+Batch 8800: Loss = 5.4342, Time Elapsed = 114.61s
+Batch 8900: Loss = 5.4385, Time Elapsed = 114.73s
+
+Epoch 14:
+Metric	HR@1	MRR@1	NDCG@1	HR@10	MRR@10	NDCG@10	HR@20	MRR@20	NDCG@20
+Value	8.80	8.80	8.80	35.46	15.94	20.52	47.12	16.75	23.46
+Batch 9000: Loss = 5.3496, Time Elapsed = 152.49s
+Batch 9100: Loss = 5.3486, Time Elapsed = 116.14s
+Batch 9200: Loss = 5.3604, Time Elapsed = 116.64s
+Batch 9300: Loss = 5.3703, Time Elapsed = 114.75s
+Batch 9400: Loss = 5.3864, Time Elapsed = 114.51s
+Batch 9500: Loss = 5.3760, Time Elapsed = 114.89s
+
+Epoch 15:
+Metric	HR@1	MRR@1	NDCG@1	HR@10	MRR@10	NDCG@10	HR@20	MRR@20	NDCG@20
+Value	8.81	8.81	8.81	35.75	16.01	20.64	47.80	16.84	23.69
+Batch 9600: Loss = 5.3015, Time Elapsed = 149.19s
+Batch 9700: Loss = 5.2819, Time Elapsed = 115.07s
+Batch 9800: Loss = 5.3147, Time Elapsed = 114.47s
+Batch 9900: Loss = 5.3301, Time Elapsed = 114.89s
+Batch 10000: Loss = 5.3091, Time Elapsed = 114.49s
+Batch 10100: Loss = 5.3252, Time Elapsed = 115.25s
+
+Epoch 16:
+Metric	HR@1	MRR@1	NDCG@1	HR@10	MRR@10	NDCG@10	HR@20	MRR@20	NDCG@20
+Value	8.92	8.92	8.92	36.08	16.18	20.85	48.26	17.02	23.92
+Batch 10200: Loss = 5.2339, Time Elapsed = 151.17s
+Batch 10300: Loss = 5.2539, Time Elapsed = 116.08s
+Batch 10400: Loss = 5.2635, Time Elapsed = 116.38s
+Batch 10500: Loss = 5.2620, Time Elapsed = 116.16s
+Batch 10600: Loss = 5.2811, Time Elapsed = 115.06s
+Batch 10700: Loss = 5.2741, Time Elapsed = 115.65s
+
+Epoch 17:
+Metric	HR@1	MRR@1	NDCG@1	HR@10	MRR@10	NDCG@10	HR@20	MRR@20	NDCG@20
+Value	8.82	8.82	8.82	36.31	16.17	20.89	48.46	17.00	23.96
+Batch 10800: Loss = 5.1990, Time Elapsed = 147.04s
+Batch 10900: Loss = 5.2095, Time Elapsed = 114.99s
+Batch 11000: Loss = 5.2190, Time Elapsed = 114.55s
+Batch 11100: Loss = 5.2248, Time Elapsed = 115.09s
+Batch 11200: Loss = 5.2393, Time Elapsed = 114.46s
+Batch 11300: Loss = 5.2353, Time Elapsed = 114.77s
+
+Epoch 18:
+Metric	HR@1	MRR@1	NDCG@1	HR@10	MRR@10	NDCG@10	HR@20	MRR@20	NDCG@20
+Value	8.95	8.95	8.95	36.47	16.31	21.04	48.82	17.16	24.16
+Batch 11400: Loss = 5.1398, Time Elapsed = 151.01s
+Batch 11500: Loss = 5.1709, Time Elapsed = 117.17s
+Batch 11600: Loss = 5.1969, Time Elapsed = 116.39s
+Batch 11700: Loss = 5.1767, Time Elapsed = 115.01s
+Batch 11800: Loss = 5.1992, Time Elapsed = 115.03s
+
+Epoch 19:
+Metric	HR@1	MRR@1	NDCG@1	HR@10	MRR@10	NDCG@10	HR@20	MRR@20	NDCG@20
+Value	8.94	8.94	8.94	36.92	16.33	21.15	49.18	17.17	24.24
+Batch 11900: Loss = 5.2154, Time Elapsed = 149.05s
+Batch 12000: Loss = 5.1169, Time Elapsed = 116.78s
+Batch 12100: Loss = 5.1317, Time Elapsed = 114.71s
+Batch 12200: Loss = 5.1379, Time Elapsed = 114.76s
+Batch 12300: Loss = 5.1606, Time Elapsed = 114.68s
+Batch 12400: Loss = 5.1649, Time Elapsed = 114.70s
+
+Epoch 20:
+Metric	HR@1	MRR@1	NDCG@1	HR@10	MRR@10	NDCG@10	HR@20	MRR@20	NDCG@20
+Value	8.85	8.85	8.85	37.26	16.39	21.28	49.44	17.23	24.35
+Batch 12500: Loss = 5.1676, Time Elapsed = 145.87s
+Batch 12600: Loss = 5.0922, Time Elapsed = 117.15s
+Batch 12700: Loss = 5.1018, Time Elapsed = 114.67s
+Batch 12800: Loss = 5.1231, Time Elapsed = 114.76s
+Batch 12900: Loss = 5.1251, Time Elapsed = 114.91s
+Batch 13000: Loss = 5.1331, Time Elapsed = 114.68s
+
+Epoch 21:
+Metric	HR@1	MRR@1	NDCG@1	HR@10	MRR@10	NDCG@10	HR@20	MRR@20	NDCG@20
+Value	8.90	8.90	8.90	37.22	16.46	21.33	49.85	17.33	24.52
+Batch 13100: Loss = 5.1418, Time Elapsed = 146.83s
+Batch 13200: Loss = 5.0577, Time Elapsed = 117.35s
+Batch 13300: Loss = 5.0776, Time Elapsed = 114.68s
+Batch 13400: Loss = 5.0942, Time Elapsed = 114.56s
+Batch 13500: Loss = 5.0889, Time Elapsed = 114.67s
+Batch 13600: Loss = 5.1107, Time Elapsed = 114.68s
+
+Epoch 22:
+Metric	HR@1	MRR@1	NDCG@1	HR@10	MRR@10	NDCG@10	HR@20	MRR@20	NDCG@20
+Value	8.92	8.92	8.92	37.51	16.48	21.41	50.00	17.34	24.56
+Batch 13700: Loss = 5.1072, Time Elapsed = 147.24s
+Batch 13800: Loss = 5.0285, Time Elapsed = 122.99s
+Batch 13900: Loss = 5.0406, Time Elapsed = 119.44s
+Batch 14000: Loss = 5.0542, Time Elapsed = 118.17s
+Batch 14100: Loss = 5.0908, Time Elapsed = 117.35s
+Batch 14200: Loss = 5.0923, Time Elapsed = 114.48s
+
+Epoch 23:
+Metric	HR@1	MRR@1	NDCG@1	HR@10	MRR@10	NDCG@10	HR@20	MRR@20	NDCG@20
+Value	8.89	8.89	8.89	37.57	16.49	21.43	50.18	17.36	24.61
+Batch 14300: Loss = 5.0784, Time Elapsed = 146.32s
+Batch 14400: Loss = 5.0031, Time Elapsed = 118.96s
+Batch 14500: Loss = 5.0357, Time Elapsed = 120.05s
+Batch 14600: Loss = 5.0424, Time Elapsed = 119.73s
+Batch 14700: Loss = 5.0629, Time Elapsed = 118.62s
+Batch 14800: Loss = 5.0756, Time Elapsed = 116.24s
+
+Epoch 24:
+Metric	HR@1	MRR@1	NDCG@1	HR@10	MRR@10	NDCG@10	HR@20	MRR@20	NDCG@20
+Value	8.98	8.98	8.98	37.76	16.62	21.58	50.33	17.49	24.75
+Batch 14900: Loss = 5.0354, Time Elapsed = 149.68s
+Batch 15000: Loss = 4.9813, Time Elapsed = 118.82s
+Batch 15100: Loss = 5.0115, Time Elapsed = 116.35s
+Batch 15200: Loss = 5.0303, Time Elapsed = 116.69s
+Batch 15300: Loss = 5.0191, Time Elapsed = 116.17s
+Batch 15400: Loss = 5.0442, Time Elapsed = 116.42s
+
+Epoch 25:
+Metric	HR@1	MRR@1	NDCG@1	HR@10	MRR@10	NDCG@10	HR@20	MRR@20	NDCG@20
+Value	8.93	8.93	8.93	37.79	16.57	21.55	50.64	17.46	24.79
+Batch 15500: Loss = 5.0202, Time Elapsed = 149.25s
+Batch 15600: Loss = 4.9603, Time Elapsed = 115.31s
+Batch 15700: Loss = 4.9949, Time Elapsed = 114.13s
+Batch 15800: Loss = 4.9879, Time Elapsed = 114.55s
+Batch 15900: Loss = 5.0088, Time Elapsed = 114.17s
+Batch 16000: Loss = 5.0331, Time Elapsed = 114.32s
+
+Epoch 26:
+Metric	HR@1	MRR@1	NDCG@1	HR@10	MRR@10	NDCG@10	HR@20	MRR@20	NDCG@20
+Value	8.98	8.98	8.98	38.01	16.66	21.66	50.57	17.52	24.83
+Batch 16100: Loss = 4.9969, Time Elapsed = 147.66s
+Batch 16200: Loss = 4.9446, Time Elapsed = 117.14s
+Batch 16300: Loss = 4.9626, Time Elapsed = 114.85s
+Batch 16400: Loss = 4.9892, Time Elapsed = 114.81s
+Batch 16500: Loss = 4.9928, Time Elapsed = 114.62s
+Batch 16600: Loss = 5.0029, Time Elapsed = 114.61s
+
+Epoch 27:
+Metric	HR@1	MRR@1	NDCG@1	HR@10	MRR@10	NDCG@10	HR@20	MRR@20	NDCG@20
+Value	9.00	9.00	9.00	38.18	16.70	21.73	50.77	17.57	24.91
+Batch 16700: Loss = 4.9749, Time Elapsed = 147.20s
+Batch 16800: Loss = 4.9332, Time Elapsed = 117.43s
+Batch 16900: Loss = 4.9544, Time Elapsed = 116.64s
+Batch 17000: Loss = 4.9596, Time Elapsed = 114.63s
+Batch 17100: Loss = 4.9864, Time Elapsed = 114.73s
+Batch 17200: Loss = 4.9712, Time Elapsed = 114.50s
+
+Epoch 28:
+Metric	HR@1	MRR@1	NDCG@1	HR@10	MRR@10	NDCG@10	HR@20	MRR@20	NDCG@20
+Value	9.01	9.01	9.01	38.14	16.74	21.76	50.93	17.62	24.99
+Batch 17300: Loss = 4.9508, Time Elapsed = 150.29s
+Batch 17400: Loss = 4.9133, Time Elapsed = 122.96s
+Batch 17500: Loss = 4.9409, Time Elapsed = 116.77s
+Batch 17600: Loss = 4.9389, Time Elapsed = 116.80s
+Batch 17700: Loss = 4.9578, Time Elapsed = 116.71s
+Batch 17800: Loss = 4.9773, Time Elapsed = 116.74s
+
+Epoch 29:
+Metric	HR@1	MRR@1	NDCG@1	HR@10	MRR@10	NDCG@10	HR@20	MRR@20	NDCG@20
+Value	9.04	9.04	9.04	38.25	16.80	21.82	51.01	17.68	25.05
+Batch 17900: Loss = 4.9252, Time Elapsed = 148.48s
+Batch 18000: Loss = 4.8971, Time Elapsed = 117.28s
+Batch 18100: Loss = 4.9190, Time Elapsed = 115.03s
+Batch 18200: Loss = 4.9314, Time Elapsed = 114.53s
+Batch 18300: Loss = 4.9575, Time Elapsed = 114.72s
+Batch 18400: Loss = 4.9601, Time Elapsed = 114.69s
+
+Epoch 30:
+Metric	HR@1	MRR@1	NDCG@1	HR@10	MRR@10	NDCG@10	HR@20	MRR@20	NDCG@20
+Value	9.11	9.11	9.11	38.46	16.86	21.91	51.02	17.72	25.09
+Batch 18500: Loss = 4.9164, Time Elapsed = 146.93s
+Batch 18600: Loss = 4.8707, Time Elapsed = 115.40s
+Batch 18700: Loss = 4.8879, Time Elapsed = 114.96s
+Batch 18800: Loss = 4.9148, Time Elapsed = 114.46s
+Batch 18900: Loss = 4.9376, Time Elapsed = 114.86s
+Batch 19000: Loss = 4.9528, Time Elapsed = 114.57s
+
+Epoch 31:
+Metric	HR@1	MRR@1	NDCG@1	HR@10	MRR@10	NDCG@10	HR@20	MRR@20	NDCG@20
+Value	8.99	8.99	8.99	38.42	16.81	21.87	51.15	17.69	25.09
+Batch 19100: Loss = 4.8774, Time Elapsed = 149.17s
+Batch 19200: Loss = 4.8768, Time Elapsed = 114.90s
+Batch 19300: Loss = 4.8920, Time Elapsed = 114.65s
+Batch 19400: Loss = 4.9070, Time Elapsed = 115.16s
+Batch 19500: Loss = 4.9132, Time Elapsed = 115.07s
+Batch 19600: Loss = 4.9281, Time Elapsed = 114.70s
+
+Epoch 32:
+Metric	HR@1	MRR@1	NDCG@1	HR@10	MRR@10	NDCG@10	HR@20	MRR@20	NDCG@20
+Value	9.12	9.12	9.12	38.49	16.92	21.97	51.34	17.80	25.21
+Batch 19700: Loss = 4.8770, Time Elapsed = 147.45s
+Batch 19800: Loss = 4.8484, Time Elapsed = 114.92s
+Batch 19900: Loss = 4.8841, Time Elapsed = 114.81s
+Batch 20000: Loss = 4.8848, Time Elapsed = 114.71s
+Batch 20100: Loss = 4.8964, Time Elapsed = 114.50s
+Batch 20200: Loss = 4.9243, Time Elapsed = 114.75s
+
+Epoch 33:
+Metric	HR@1	MRR@1	NDCG@1	HR@10	MRR@10	NDCG@10	HR@20	MRR@20	NDCG@20
+Value	9.09	9.09	9.09	38.62	16.89	21.98	51.38	17.77	25.20
+Batch 20300: Loss = 4.8366, Time Elapsed = 152.49s
+Batch 20400: Loss = 4.8517, Time Elapsed = 117.65s
+Batch 20500: Loss = 4.8531, Time Elapsed = 114.59s
+Batch 20600: Loss = 4.8899, Time Elapsed = 114.67s
+Batch 20700: Loss = 4.8856, Time Elapsed = 114.76s
+Batch 20800: Loss = 4.9177, Time Elapsed = 114.72s
+
+Epoch 34:
+Metric	HR@1	MRR@1	NDCG@1	HR@10	MRR@10	NDCG@10	HR@20	MRR@20	NDCG@20
+Value	9.11	9.11	9.11	38.63	16.92	22.01	51.50	17.81	25.26
+Batch 20900: Loss = 4.8371, Time Elapsed = 147.07s
+Batch 21000: Loss = 4.8251, Time Elapsed = 114.74s
+Batch 21100: Loss = 4.8597, Time Elapsed = 114.74s
+Batch 21200: Loss = 4.8562, Time Elapsed = 114.81s
+Batch 21300: Loss = 4.8747, Time Elapsed = 114.66s
+Batch 21400: Loss = 4.9022, Time Elapsed = 114.67s
+
+Epoch 35:
+Metric	HR@1	MRR@1	NDCG@1	HR@10	MRR@10	NDCG@10	HR@20	MRR@20	NDCG@20
+Value	9.10	9.10	9.10	38.77	16.97	22.08	51.59	17.85	25.31
+Batch 21500: Loss = 4.8088, Time Elapsed = 148.27s
+Batch 21600: Loss = 4.8197, Time Elapsed = 116.23s
+Batch 21700: Loss = 4.8534, Time Elapsed = 114.63s
+Batch 21800: Loss = 4.8543, Time Elapsed = 114.88s
+Batch 21900: Loss = 4.8691, Time Elapsed = 115.57s
+Batch 22000: Loss = 4.8654, Time Elapsed = 115.08s
+
+Epoch 36:
+Metric	HR@1	MRR@1	NDCG@1	HR@10	MRR@10	NDCG@10	HR@20	MRR@20	NDCG@20
+Value	9.12	9.12	9.12	38.73	16.97	22.07	51.71	17.87	25.35
+Batch 22100: Loss = 4.8092, Time Elapsed = 148.88s
+Batch 22200: Loss = 4.8212, Time Elapsed = 117.14s
+Batch 22300: Loss = 4.8138, Time Elapsed = 114.94s
+Batch 22400: Loss = 4.8431, Time Elapsed = 114.81s
+Batch 22500: Loss = 4.8508, Time Elapsed = 114.75s
+Batch 22600: Loss = 4.8747, Time Elapsed = 114.87s
+
+Epoch 37:
+Metric	HR@1	MRR@1	NDCG@1	HR@10	MRR@10	NDCG@10	HR@20	MRR@20	NDCG@20
+Value	9.19	9.19	9.19	38.95	17.05	22.18	51.90	17.95	25.45
+Batch 22700: Loss = 4.7707, Time Elapsed = 148.73s
+Batch 22800: Loss = 4.8088, Time Elapsed = 114.84s
+Batch 22900: Loss = 4.8064, Time Elapsed = 115.01s
+Batch 23000: Loss = 4.8455, Time Elapsed = 114.63s
+Batch 23100: Loss = 4.8649, Time Elapsed = 114.57s
+Batch 23200: Loss = 4.8465, Time Elapsed = 115.02s
+
+Epoch 38:
+Metric	HR@1	MRR@1	NDCG@1	HR@10	MRR@10	NDCG@10	HR@20	MRR@20	NDCG@20
+Value	9.10	9.10	9.10	39.09	17.01	22.18	51.77	17.89	25.39
+Batch 23300: Loss = 4.7604, Time Elapsed = 147.81s
+Batch 23400: Loss = 4.7773, Time Elapsed = 114.40s
+Batch 23500: Loss = 4.8266, Time Elapsed = 115.54s
+Batch 23600: Loss = 4.8361, Time Elapsed = 114.99s
+Batch 23700: Loss = 4.8455, Time Elapsed = 114.88s
+
+Epoch 39:
+Metric	HR@1	MRR@1	NDCG@1	HR@10	MRR@10	NDCG@10	HR@20	MRR@20	NDCG@20
+Value	9.16	9.16	9.16	38.97	17.06	22.19	51.92	17.96	25.47
+Batch 23800: Loss = 4.8346, Time Elapsed = 146.07s
+Batch 23900: Loss = 4.7451, Time Elapsed = 116.18s
+Batch 24000: Loss = 4.7778, Time Elapsed = 114.68s
+Batch 24100: Loss = 4.7987, Time Elapsed = 114.84s
+Batch 24200: Loss = 4.8173, Time Elapsed = 114.68s
+Batch 24300: Loss = 4.8437, Time Elapsed = 114.69s
+
+Epoch 40:
+Metric	HR@1	MRR@1	NDCG@1	HR@10	MRR@10	NDCG@10	HR@20	MRR@20	NDCG@20
+Value	9.11	9.11	9.11	38.98	17.02	22.17	51.92	17.92	25.44
+Batch 24400: Loss = 4.8264, Time Elapsed = 148.33s
+Batch 24500: Loss = 4.7330, Time Elapsed = 114.80s
+Batch 24600: Loss = 4.7788, Time Elapsed = 114.41s
+Batch 24700: Loss = 4.7840, Time Elapsed = 114.67s
+Batch 24800: Loss = 4.8080, Time Elapsed = 115.05s
+Batch 24900: Loss = 4.8147, Time Elapsed = 114.58s
+
+Epoch 41:
+Metric	HR@1	MRR@1	NDCG@1	HR@10	MRR@10	NDCG@10	HR@20	MRR@20	NDCG@20
+Value	9.15	9.15	9.15	39.13	17.07	22.24	52.01	17.97	25.50
+Batch 25000: Loss = 4.8195, Time Elapsed = 148.82s
+Batch 25100: Loss = 4.7375, Time Elapsed = 124.17s
+Batch 25200: Loss = 4.7551, Time Elapsed = 123.55s
+Batch 25300: Loss = 4.7933, Time Elapsed = 123.79s
+Batch 25400: Loss = 4.8021, Time Elapsed = 122.60s
+Batch 25500: Loss = 4.8229, Time Elapsed = 121.34s
+
+Epoch 42:
+Metric	HR@1	MRR@1	NDCG@1	HR@10	MRR@10	NDCG@10	HR@20	MRR@20	NDCG@20
+Value	9.18	9.18	9.18	39.14	17.08	22.25	51.99	17.98	25.50
+Batch 25600: Loss = 4.7879, Time Elapsed = 149.78s
+Batch 25700: Loss = 4.7187, Time Elapsed = 117.44s
+Batch 25800: Loss = 4.7484, Time Elapsed = 115.76s
+Batch 25900: Loss = 4.7934, Time Elapsed = 114.79s
+Batch 26000: Loss = 4.7929, Time Elapsed = 115.10s
+Batch 26100: Loss = 4.7956, Time Elapsed = 114.57s
+
+Epoch 43:
+Metric	HR@1	MRR@1	NDCG@1	HR@10	MRR@10	NDCG@10	HR@20	MRR@20	NDCG@20
+Value	9.11	9.11	9.11	39.16	17.09	22.26	52.05	17.98	25.52
+Batch 26200: Loss = 4.7879, Time Elapsed = 147.14s
+Batch 26300: Loss = 4.7207, Time Elapsed = 117.31s
+Batch 26400: Loss = 4.7502, Time Elapsed = 114.68s
+Batch 26500: Loss = 4.7549, Time Elapsed = 114.56s
+Batch 26600: Loss = 4.7870, Time Elapsed = 114.68s
+Batch 26700: Loss = 4.8075, Time Elapsed = 114.33s
+
+Epoch 44:
+Metric	HR@1	MRR@1	NDCG@1	HR@10	MRR@10	NDCG@10	HR@20	MRR@20	NDCG@20
+Value	9.21	9.21	9.21	39.27	17.18	22.35	52.17	18.07	25.62
+Batch 26800: Loss = 4.7636, Time Elapsed = 148.36s
+Batch 26900: Loss = 4.7127, Time Elapsed = 122.42s
+Batch 27000: Loss = 4.7455, Time Elapsed = 124.22s
+Batch 27100: Loss = 4.7646, Time Elapsed = 122.53s
+Batch 27200: Loss = 4.7663, Time Elapsed = 120.81s
+Batch 27300: Loss = 4.7799, Time Elapsed = 119.94s
+
+Epoch 45:
+Metric	HR@1	MRR@1	NDCG@1	HR@10	MRR@10	NDCG@10	HR@20	MRR@20	NDCG@20
+Value	9.06	9.06	9.06	39.23	17.10	22.28	52.22	18.00	25.57
+Batch 27400: Loss = 4.7685, Time Elapsed = 152.32s
+Batch 27500: Loss = 4.7008, Time Elapsed = 115.44s
+Batch 27600: Loss = 4.7404, Time Elapsed = 114.86s
+Batch 27700: Loss = 4.7301, Time Elapsed = 114.32s
+Batch 27800: Loss = 4.7790, Time Elapsed = 114.54s
+Batch 27900: Loss = 4.7792, Time Elapsed = 114.65s
+
+Epoch 46:
+Metric	HR@1	MRR@1	NDCG@1	HR@10	MRR@10	NDCG@10	HR@20	MRR@20	NDCG@20
+Value	9.20	9.20	9.20	39.46	17.19	22.40	52.28	18.07	25.64
+Batch 28000: Loss = 4.7469, Time Elapsed = 150.46s
+Batch 28100: Loss = 4.7013, Time Elapsed = 119.41s
+Batch 28200: Loss = 4.7184, Time Elapsed = 117.03s
+Batch 28300: Loss = 4.7335, Time Elapsed = 116.41s
+Batch 28400: Loss = 4.7745, Time Elapsed = 115.40s
+Batch 28500: Loss = 4.7659, Time Elapsed = 114.66s
+
+Epoch 47:
+Metric	HR@1	MRR@1	NDCG@1	HR@10	MRR@10	NDCG@10	HR@20	MRR@20	NDCG@20
+Value	9.19	9.19	9.19	39.24	17.15	22.32	52.30	18.05	25.63
+Batch 28600: Loss = 4.7265, Time Elapsed = 150.31s
+Batch 28700: Loss = 4.6843, Time Elapsed = 120.52s
+Batch 28800: Loss = 4.7322, Time Elapsed = 116.84s
+Batch 28900: Loss = 4.7264, Time Elapsed = 114.77s
+Batch 29000: Loss = 4.7427, Time Elapsed = 114.88s
+Batch 29100: Loss = 4.7700, Time Elapsed = 115.02s
+
+Epoch 48:
+Metric	HR@1	MRR@1	NDCG@1	HR@10	MRR@10	NDCG@10	HR@20	MRR@20	NDCG@20
+Value	9.20	9.20	9.20	39.31	17.18	22.37	52.32	18.08	25.66
+Batch 29200: Loss = 4.7203, Time Elapsed = 150.10s
+Batch 29300: Loss = 4.6896, Time Elapsed = 117.64s
+Batch 29400: Loss = 4.7136, Time Elapsed = 115.38s
+Batch 29500: Loss = 4.7165, Time Elapsed = 114.82s
+Batch 29600: Loss = 4.7539, Time Elapsed = 115.08s
+Batch 29700: Loss = 4.7624, Time Elapsed = 115.11s
+
+Epoch 49:
+Metric	HR@1	MRR@1	NDCG@1	HR@10	MRR@10	NDCG@10	HR@20	MRR@20	NDCG@20
+Value	9.19	9.19	9.19	39.35	17.19	22.39	52.33	18.09	25.66
+Batch 29800: Loss = 4.7016, Time Elapsed = 149.09s
+Batch 29900: Loss = 4.6910, Time Elapsed = 115.96s
+Batch 30000: Loss = 4.7204, Time Elapsed = 116.64s
+Batch 30100: Loss = 4.7277, Time Elapsed = 116.49s
+Batch 30200: Loss = 4.7213, Time Elapsed = 115.41s
+Batch 30300: Loss = 4.7394, Time Elapsed = 114.72s
+
+Epoch 50:
+Metric	HR@1	MRR@1	NDCG@1	HR@10	MRR@10	NDCG@10	HR@20	MRR@20	NDCG@20
+Value	9.17	9.17	9.17	39.38	17.18	22.39	52.42	18.09	25.68
+Batch 30400: Loss = 4.6881, Time Elapsed = 147.72s
+Batch 30500: Loss = 4.6765, Time Elapsed = 115.02s
+Batch 30600: Loss = 4.6999, Time Elapsed = 114.43s
+Batch 30700: Loss = 4.7088, Time Elapsed = 114.31s
+Batch 30800: Loss = 4.7323, Time Elapsed = 114.56s
+Batch 30900: Loss = 4.7492, Time Elapsed = 114.77s
+
+Epoch 51:
+Metric	HR@1	MRR@1	NDCG@1	HR@10	MRR@10	NDCG@10	HR@20	MRR@20	NDCG@20
+Value	9.21	9.21	9.21	39.45	17.24	22.45	52.39	18.14	25.72
+Batch 31000: Loss = 4.6982, Time Elapsed = 146.03s
+Batch 31100: Loss = 4.6636, Time Elapsed = 116.30s
+Batch 31200: Loss = 4.6871, Time Elapsed = 116.22s
+Batch 31300: Loss = 4.6950, Time Elapsed = 116.17s
+Batch 31400: Loss = 4.7352, Time Elapsed = 116.61s
+Batch 31500: Loss = 4.7324, Time Elapsed = 116.12s
+
+Epoch 52:
+Metric	HR@1	MRR@1	NDCG@1	HR@10	MRR@10	NDCG@10	HR@20	MRR@20	NDCG@20
+Value	9.21	9.21	9.21	39.49	17.23	22.45	52.41	18.13	25.72
+Batch 31600: Loss = 4.6639, Time Elapsed = 152.09s
+Batch 31700: Loss = 4.6623, Time Elapsed = 116.57s
+Batch 31800: Loss = 4.6982, Time Elapsed = 115.39s
+Batch 31900: Loss = 4.7123, Time Elapsed = 114.82s
+Batch 32000: Loss = 4.7096, Time Elapsed = 114.57s
+Batch 32100: Loss = 4.7367, Time Elapsed = 114.76s
+
+Epoch 53:
+Metric	HR@1	MRR@1	NDCG@1	HR@10	MRR@10	NDCG@10	HR@20	MRR@20	NDCG@20
+Value	9.21	9.21	9.21	39.50	17.24	22.45	52.37	18.13	25.71
+Batch 32200: Loss = 4.6690, Time Elapsed = 148.35s
+Batch 32300: Loss = 4.6525, Time Elapsed = 116.22s
+Batch 32400: Loss = 4.6843, Time Elapsed = 115.02s
+Batch 32500: Loss = 4.7027, Time Elapsed = 114.71s
+Batch 32600: Loss = 4.6962, Time Elapsed = 114.47s
+Batch 32700: Loss = 4.7257, Time Elapsed = 114.51s
+
+Epoch 54:
+Metric	HR@1	MRR@1	NDCG@1	HR@10	MRR@10	NDCG@10	HR@20	MRR@20	NDCG@20
+Value	9.26	9.26	9.26	39.68	17.28	22.53	52.57	18.17	25.78
+Batch 32800: Loss = 4.6480, Time Elapsed = 149.97s
+Batch 32900: Loss = 4.6495, Time Elapsed = 115.02s
+Batch 33000: Loss = 4.6886, Time Elapsed = 114.79s
+Batch 33100: Loss = 4.6852, Time Elapsed = 114.80s
+Batch 33200: Loss = 4.7062, Time Elapsed = 114.71s
+Batch 33300: Loss = 4.7169, Time Elapsed = 114.80s
+
+Epoch 55:
+Metric	HR@1	MRR@1	NDCG@1	HR@10	MRR@10	NDCG@10	HR@20	MRR@20	NDCG@20
+Value	9.27	9.27	9.27	39.49	17.27	22.48	52.54	18.17	25.78
+Batch 33400: Loss = 4.6501, Time Elapsed = 155.98s
+Batch 33500: Loss = 4.6441, Time Elapsed = 116.53s
+Batch 33600: Loss = 4.6751, Time Elapsed = 124.04s
+Batch 33700: Loss = 4.6765, Time Elapsed = 126.37s
+Batch 33800: Loss = 4.6937, Time Elapsed = 125.55s
+Batch 33900: Loss = 4.7209, Time Elapsed = 128.79s
+
+Epoch 56:
+Metric	HR@1	MRR@1	NDCG@1	HR@10	MRR@10	NDCG@10	HR@20	MRR@20	NDCG@20
+Value	9.18	9.18	9.18	39.49	17.21	22.43	52.62	18.12	25.75
+Batch 34000: Loss = 4.6171, Time Elapsed = 158.19s
+Batch 34100: Loss = 4.6422, Time Elapsed = 127.98s
+Batch 34200: Loss = 4.6726, Time Elapsed = 126.47s
+Batch 34300: Loss = 4.6817, Time Elapsed = 127.17s
+Batch 34400: Loss = 4.6901, Time Elapsed = 127.77s
+Batch 34500: Loss = 4.7106, Time Elapsed = 127.88s
+
+Epoch 57:
+Metric	HR@1	MRR@1	NDCG@1	HR@10	MRR@10	NDCG@10	HR@20	MRR@20	NDCG@20
+Value	9.22	9.22	9.22	39.67	17.27	22.51	52.63	18.16	25.79
+Batch 34600: Loss = 4.6304, Time Elapsed = 150.65s
+Batch 34700: Loss = 4.6323, Time Elapsed = 118.11s
+Batch 34800: Loss = 4.6641, Time Elapsed = 119.24s
+Batch 34900: Loss = 4.6790, Time Elapsed = 118.88s
+Batch 35000: Loss = 4.6806, Time Elapsed = 117.89s
+Batch 35100: Loss = 4.6921, Time Elapsed = 120.28s
+
+Epoch 58:
+Metric	HR@1	MRR@1	NDCG@1	HR@10	MRR@10	NDCG@10	HR@20	MRR@20	NDCG@20
+Value	9.14	9.14	9.14	39.63	17.23	22.48	52.61	18.13	25.76
+Batch 35200: Loss = 4.6160, Time Elapsed = 151.02s
+Batch 35300: Loss = 4.6375, Time Elapsed = 118.66s
+Batch 35400: Loss = 4.6519, Time Elapsed = 117.92s
+Batch 35500: Loss = 4.6668, Time Elapsed = 115.61s
+Batch 35600: Loss = 4.6771, Time Elapsed = 114.97s
+
+Epoch 59:
+Metric	HR@1	MRR@1	NDCG@1	HR@10	MRR@10	NDCG@10	HR@20	MRR@20	NDCG@20
+Value	9.17	9.17	9.17	39.75	17.24	22.51	52.57	18.13	25.75
+Batch 35700: Loss = 4.6925, Time Elapsed = 145.58s
+Batch 35800: Loss = 4.6043, Time Elapsed = 119.61s
+Batch 35900: Loss = 4.6222, Time Elapsed = 114.60s
+Batch 36000: Loss = 4.6473, Time Elapsed = 114.71s
+Batch 36100: Loss = 4.6734, Time Elapsed = 114.63s
+Batch 36200: Loss = 4.6793, Time Elapsed = 114.54s
+
+Epoch 60:
+Metric	HR@1	MRR@1	NDCG@1	HR@10	MRR@10	NDCG@10	HR@20	MRR@20	NDCG@20
+Value	9.12	9.12	9.12	39.58	17.22	22.46	52.58	18.12	25.75
+Batch 36300: Loss = 4.6780, Time Elapsed = 146.65s
+Batch 36400: Loss = 4.5925, Time Elapsed = 117.64s
+Batch 36500: Loss = 4.6209, Time Elapsed = 118.78s
+Batch 36600: Loss = 4.6350, Time Elapsed = 118.09s
+Batch 36700: Loss = 4.6620, Time Elapsed = 114.72s
+Batch 36800: Loss = 4.6828, Time Elapsed = 115.19s
+
+Epoch 61:
+Metric	HR@1	MRR@1	NDCG@1	HR@10	MRR@10	NDCG@10	HR@20	MRR@20	NDCG@20
+Value	9.19	9.19	9.19	39.64	17.29	22.53	52.62	18.19	25.82
+Batch 36900: Loss = 4.6689, Time Elapsed = 148.32s
+Batch 37000: Loss = 4.5945, Time Elapsed = 118.50s
+Batch 37100: Loss = 4.6164, Time Elapsed = 120.09s
+Batch 37200: Loss = 4.6366, Time Elapsed = 121.02s
+Batch 37300: Loss = 4.6434, Time Elapsed = 119.55s
+Batch 37400: Loss = 4.6809, Time Elapsed = 119.87s
+
+Epoch 62:
+Metric	HR@1	MRR@1	NDCG@1	HR@10	MRR@10	NDCG@10	HR@20	MRR@20	NDCG@20
+Value	9.08	9.08	9.08	39.60	17.22	22.47	52.62	18.12	25.76
+Batch 37500: Loss = 4.6666, Time Elapsed = 149.57s
+Batch 37600: Loss = 4.6016, Time Elapsed = 118.00s
+Batch 37700: Loss = 4.6064, Time Elapsed = 121.07s
+Batch 37800: Loss = 4.6340, Time Elapsed = 121.28s
+Batch 37900: Loss = 4.6543, Time Elapsed = 122.34s
+Batch 38000: Loss = 4.6622, Time Elapsed = 124.36s
+
+Epoch 63:
+Metric	HR@1	MRR@1	NDCG@1	HR@10	MRR@10	NDCG@10	HR@20	MRR@20	NDCG@20
+Value	9.23	9.23	9.23	39.59	17.31	22.54	52.69	18.22	25.85
+Batch 38100: Loss = 4.6488, Time Elapsed = 154.00s
+Batch 38200: Loss = 4.5912, Time Elapsed = 121.07s
+Batch 38300: Loss = 4.6006, Time Elapsed = 123.55s
+Batch 38400: Loss = 4.6342, Time Elapsed = 127.97s
+Batch 38500: Loss = 4.6496, Time Elapsed = 127.10s
+Batch 38600: Loss = 4.6608, Time Elapsed = 126.56s
+
+Epoch 64:
+Metric	HR@1	MRR@1	NDCG@1	HR@10	MRR@10	NDCG@10	HR@20	MRR@20	NDCG@20
+Value	9.22	9.22	9.22	39.70	17.32	22.57	52.74	18.22	25.86
+Batch 38700: Loss = 4.6438, Time Elapsed = 158.85s
+Batch 38800: Loss = 4.5939, Time Elapsed = 122.73s
+Batch 38900: Loss = 4.6131, Time Elapsed = 122.02s
+Batch 39000: Loss = 4.6285, Time Elapsed = 120.98s
+Batch 39100: Loss = 4.6372, Time Elapsed = 124.53s
+Batch 39200: Loss = 4.6471, Time Elapsed = 124.95s
+
+Epoch 65:
+Metric	HR@1	MRR@1	NDCG@1	HR@10	MRR@10	NDCG@10	HR@20	MRR@20	NDCG@20
+Value	9.19	9.19	9.19	39.75	17.28	22.55	52.78	18.18	25.84
+Batch 39300: Loss = 4.6209, Time Elapsed = 158.36s
+Batch 39400: Loss = 4.5755, Time Elapsed = 122.97s
+Batch 39500: Loss = 4.5978, Time Elapsed = 123.10s
+Batch 39600: Loss = 4.6368, Time Elapsed = 124.70s
+Batch 39700: Loss = 4.6369, Time Elapsed = 124.46s
+Batch 39800: Loss = 4.6455, Time Elapsed = 125.06s
+
+Epoch 66:
+Metric	HR@1	MRR@1	NDCG@1	HR@10	MRR@10	NDCG@10	HR@20	MRR@20	NDCG@20
+Value	9.09	9.09	9.09	39.65	17.26	22.51	52.76	18.17	25.83
+Batch 39900: Loss = 4.6295, Time Elapsed = 156.39s
+Batch 40000: Loss = 4.5811, Time Elapsed = 124.09s
+Batch 40100: Loss = 4.6091, Time Elapsed = 125.97s
+Batch 40200: Loss = 4.6074, Time Elapsed = 126.50s
+Batch 40300: Loss = 4.6287, Time Elapsed = 126.23s
+Batch 40400: Loss = 4.6373, Time Elapsed = 128.11s
+
+Epoch 67:
+Metric	HR@1	MRR@1	NDCG@1	HR@10	MRR@10	NDCG@10	HR@20	MRR@20	NDCG@20
+Value	9.13	9.13	9.13	39.76	17.25	22.52	52.81	18.16	25.83
+Batch 40500: Loss = 4.6093, Time Elapsed = 159.71s
+Batch 40600: Loss = 4.5807, Time Elapsed = 126.67s
+Batch 40700: Loss = 4.6117, Time Elapsed = 128.04s
+Batch 40800: Loss = 4.6087, Time Elapsed = 127.54s
+Batch 40900: Loss = 4.6352, Time Elapsed = 123.96s
+Batch 41000: Loss = 4.6410, Time Elapsed = 125.61s
+
+Epoch 68:
+Metric	HR@1	MRR@1	NDCG@1	HR@10	MRR@10	NDCG@10	HR@20	MRR@20	NDCG@20
+Value	9.18	9.18	9.18	39.76	17.31	22.57	52.86	18.22	25.88
+Batch 41100: Loss = 4.5850, Time Elapsed = 155.35s
+Batch 41200: Loss = 4.5656, Time Elapsed = 125.37s
+Batch 41300: Loss = 4.5917, Time Elapsed = 124.23s
+Batch 41400: Loss = 4.6090, Time Elapsed = 128.22s
+Batch 41500: Loss = 4.6291, Time Elapsed = 126.23s
+Batch 41600: Loss = 4.6327, Time Elapsed = 126.76s
+
+Epoch 69:
+Metric	HR@1	MRR@1	NDCG@1	HR@10	MRR@10	NDCG@10	HR@20	MRR@20	NDCG@20
+Value	9.12	9.12	9.12	39.62	17.26	22.50	52.75	18.17	25.82
+Batch 41700: Loss = 4.5923, Time Elapsed = 158.70s
+Batch 41800: Loss = 4.5687, Time Elapsed = 122.40s
+Batch 41900: Loss = 4.5870, Time Elapsed = 122.66s
+Batch 42000: Loss = 4.6131, Time Elapsed = 123.76s
+Batch 42100: Loss = 4.6096, Time Elapsed = 127.92s
+Batch 42200: Loss = 4.6296, Time Elapsed = 128.46s
+
+Epoch 70:
+Metric	HR@1	MRR@1	NDCG@1	HR@10	MRR@10	NDCG@10	HR@20	MRR@20	NDCG@20
+Value	9.08	9.08	9.08	39.83	17.27	22.56	52.91	18.18	25.86
+Batch 42300: Loss = 4.5789, Time Elapsed = 160.47s
+Batch 42400: Loss = 4.5660, Time Elapsed = 128.66s
+Batch 42500: Loss = 4.5768, Time Elapsed = 126.74s
+Batch 42600: Loss = 4.6195, Time Elapsed = 126.45s
+Batch 42700: Loss = 4.6255, Time Elapsed = 127.63s
+Batch 42800: Loss = 4.6243, Time Elapsed = 128.22s
+
+Epoch 71:
+Metric	HR@1	MRR@1	NDCG@1	HR@10	MRR@10	NDCG@10	HR@20	MRR@20	NDCG@20
+Value	9.10	9.10	9.10	39.69	17.25	22.51	52.83	18.16	25.83
+Batch 42900: Loss = 4.5706, Time Elapsed = 160.00s
+Batch 43000: Loss = 4.5616, Time Elapsed = 127.24s
+Batch 43100: Loss = 4.5832, Time Elapsed = 128.67s
+Batch 43200: Loss = 4.5925, Time Elapsed = 128.20s
+Batch 43300: Loss = 4.6113, Time Elapsed = 128.07s
+Batch 43400: Loss = 4.6351, Time Elapsed = 128.69s
+
+Epoch 72:
+Metric	HR@1	MRR@1	NDCG@1	HR@10	MRR@10	NDCG@10	HR@20	MRR@20	NDCG@20
+Value	9.20	9.20	9.20	39.79	17.34	22.61	52.79	18.25	25.90
+Batch 43500: Loss = 4.5626, Time Elapsed = 156.25s
+Batch 43600: Loss = 4.5588, Time Elapsed = 128.46s
+Batch 43700: Loss = 4.5787, Time Elapsed = 127.05s
+Batch 43800: Loss = 4.5832, Time Elapsed = 126.25s
+Batch 43900: Loss = 4.6064, Time Elapsed = 128.12s
+Batch 44000: Loss = 4.6247, Time Elapsed = 127.15s
+
+Epoch 73:
+Metric	HR@1	MRR@1	NDCG@1	HR@10	MRR@10	NDCG@10	HR@20	MRR@20	NDCG@20
+Value	9.26	9.26	9.26	39.90	17.37	22.65	52.84	18.27	25.92
+Batch 44100: Loss = 4.5521, Time Elapsed = 160.62s
+Batch 44200: Loss = 4.5548, Time Elapsed = 127.33s
+Batch 44300: Loss = 4.5717, Time Elapsed = 127.89s
+Batch 44400: Loss = 4.6001, Time Elapsed = 120.81s
+Batch 44500: Loss = 4.6023, Time Elapsed = 128.20s
+Batch 44600: Loss = 4.6138, Time Elapsed = 127.29s
+
+Epoch 74:
+Metric	HR@1	MRR@1	NDCG@1	HR@10	MRR@10	NDCG@10	HR@20	MRR@20	NDCG@20
+Value	9.27	9.27	9.27	39.70	17.34	22.59	52.96	18.26	25.94
+Batch 44700: Loss = 4.5373, Time Elapsed = 158.02s
+Batch 44800: Loss = 4.5495, Time Elapsed = 127.44s
+Batch 44900: Loss = 4.5798, Time Elapsed = 128.04s
+Batch 45000: Loss = 4.5967, Time Elapsed = 124.25s
+Batch 45100: Loss = 4.5952, Time Elapsed = 126.42s
+Batch 45200: Loss = 4.6156, Time Elapsed = 128.00s
+
+Epoch 75:
+Metric	HR@1	MRR@1	NDCG@1	HR@10	MRR@10	NDCG@10	HR@20	MRR@20	NDCG@20
+Value	9.20	9.20	9.20	39.65	17.34	22.57	52.79	18.26	25.90
+Batch 45300: Loss = 4.5443, Time Elapsed = 159.82s
+Batch 45400: Loss = 4.5502, Time Elapsed = 128.18s
+Batch 45500: Loss = 4.5702, Time Elapsed = 126.84s
+Batch 45600: Loss = 4.5845, Time Elapsed = 128.15s
+Batch 45700: Loss = 4.5942, Time Elapsed = 126.50s
+Batch 45800: Loss = 4.6043, Time Elapsed = 126.84s
+
+Epoch 76:
+Metric	HR@1	MRR@1	NDCG@1	HR@10	MRR@10	NDCG@10	HR@20	MRR@20	NDCG@20
+Value	9.25	9.25	9.25	39.78	17.33	22.59	52.89	18.24	25.91
+Batch 45900: Loss = 4.5302, Time Elapsed = 158.74s
+Batch 46000: Loss = 4.5429, Time Elapsed = 127.02s
+Batch 46100: Loss = 4.5598, Time Elapsed = 126.45s
+Batch 46200: Loss = 4.5830, Time Elapsed = 127.70s
+Batch 46300: Loss = 4.5987, Time Elapsed = 129.00s
+Batch 46400: Loss = 4.6022, Time Elapsed = 126.46s
+
+Epoch 77:
+Metric	HR@1	MRR@1	NDCG@1	HR@10	MRR@10	NDCG@10	HR@20	MRR@20	NDCG@20
+Value	9.19	9.19	9.19	39.76	17.33	22.59	53.00	18.25	25.94
+Batch 46500: Loss = 4.5049, Time Elapsed = 155.43s
+Batch 46600: Loss = 4.5451, Time Elapsed = 126.75s
+Batch 46700: Loss = 4.5641, Time Elapsed = 127.69s
+Batch 46800: Loss = 4.5817, Time Elapsed = 127.59s
+Batch 46900: Loss = 4.5940, Time Elapsed = 128.67s
+Batch 47000: Loss = 4.6033, Time Elapsed = 126.06s
+
+Epoch 78:
+Metric	HR@1	MRR@1	NDCG@1	HR@10	MRR@10	NDCG@10	HR@20	MRR@20	NDCG@20
+Value	9.20	9.20	9.20	39.86	17.36	22.63	53.03	18.27	25.96
+Batch 47100: Loss = 4.5108, Time Elapsed = 161.33s
+Batch 47200: Loss = 4.5345, Time Elapsed = 127.40s
+Batch 47300: Loss = 4.5688, Time Elapsed = 126.90s
+Batch 47400: Loss = 4.5710, Time Elapsed = 124.35s
+Batch 47500: Loss = 4.5851, Time Elapsed = 126.13s
+
+Epoch 79:
+Metric	HR@1	MRR@1	NDCG@1	HR@10	MRR@10	NDCG@10	HR@20	MRR@20	NDCG@20
+Value	9.21	9.21	9.21	39.85	17.41	22.67	52.92	18.31	25.98
+Batch 47600: Loss = 4.6001, Time Elapsed = 159.96s
+Batch 47700: Loss = 4.4993, Time Elapsed = 127.34s
+Batch 47800: Loss = 4.5362, Time Elapsed = 127.79s
+Batch 47900: Loss = 4.5509, Time Elapsed = 128.38s
+Batch 48000: Loss = 4.5715, Time Elapsed = 128.63s
+Batch 48100: Loss = 4.5967, Time Elapsed = 127.95s
+
+Epoch 80:
+Metric	HR@1	MRR@1	NDCG@1	HR@10	MRR@10	NDCG@10	HR@20	MRR@20	NDCG@20
+Value	9.22	9.22	9.22	39.85	17.37	22.64	53.00	18.28	25.97
+Batch 48200: Loss = 4.5858, Time Elapsed = 155.96s
+Batch 48300: Loss = 4.5104, Time Elapsed = 123.83s
+Batch 48400: Loss = 4.5297, Time Elapsed = 125.37s
+Batch 48500: Loss = 4.5515, Time Elapsed = 124.19s
+Batch 48600: Loss = 4.5769, Time Elapsed = 125.10s
+Batch 48700: Loss = 4.5606, Time Elapsed = 127.77s
+
+Epoch 81:
+Metric	HR@1	MRR@1	NDCG@1	HR@10	MRR@10	NDCG@10	HR@20	MRR@20	NDCG@20
+Value	9.22	9.22	9.22	39.85	17.37	22.64	53.02	18.28	25.96
+Batch 48800: Loss = 4.5751, Time Elapsed = 156.74s
+Batch 48900: Loss = 4.5153, Time Elapsed = 120.91s
+Batch 49000: Loss = 4.5208, Time Elapsed = 118.11s
+Batch 49100: Loss = 4.5569, Time Elapsed = 119.06s
+Batch 49200: Loss = 4.5540, Time Elapsed = 117.42s
+Batch 49300: Loss = 4.5727, Time Elapsed = 117.47s
+
+Epoch 82:
+Metric	HR@1	MRR@1	NDCG@1	HR@10	MRR@10	NDCG@10	HR@20	MRR@20	NDCG@20
+Value	9.16	9.16	9.16	39.93	17.33	22.63	53.01	18.24	25.94
+Batch 49400: Loss = 4.5843, Time Elapsed = 150.33s
+Batch 49500: Loss = 4.4858, Time Elapsed = 115.44s
+Batch 49600: Loss = 4.5276, Time Elapsed = 114.60s
+Batch 49700: Loss = 4.5421, Time Elapsed = 114.21s
+Batch 49800: Loss = 4.5632, Time Elapsed = 114.59s
+Batch 49900: Loss = 4.5805, Time Elapsed = 114.54s
+
+Epoch 83:
+Metric	HR@1	MRR@1	NDCG@1	HR@10	MRR@10	NDCG@10	HR@20	MRR@20	NDCG@20
+Value	9.24	9.24	9.24	39.88	17.39	22.66	53.04	18.30	25.98
+Batch 50000: Loss = 4.5720, Time Elapsed = 146.66s
+Batch 50100: Loss = 4.5066, Time Elapsed = 118.09s
+Batch 50200: Loss = 4.5242, Time Elapsed = 117.24s
+Batch 50300: Loss = 4.5288, Time Elapsed = 115.25s
+Batch 50400: Loss = 4.5608, Time Elapsed = 115.18s
+Batch 50500: Loss = 4.5819, Time Elapsed = 115.11s
+
+Epoch 84:
+Metric	HR@1	MRR@1	NDCG@1	HR@10	MRR@10	NDCG@10	HR@20	MRR@20	NDCG@20
+Value	9.21	9.21	9.21	39.88	17.36	22.64	52.96	18.27	25.95
+Batch 50600: Loss = 4.5385, Time Elapsed = 148.01s
+Batch 50700: Loss = 4.4930, Time Elapsed = 121.23s
+Batch 50800: Loss = 4.5193, Time Elapsed = 117.56s
+Batch 50900: Loss = 4.5368, Time Elapsed = 115.23s
+Batch 51000: Loss = 4.5580, Time Elapsed = 114.65s
+Batch 51100: Loss = 4.5722, Time Elapsed = 114.83s
+
+Epoch 85:
+Metric	HR@1	MRR@1	NDCG@1	HR@10	MRR@10	NDCG@10	HR@20	MRR@20	NDCG@20
+Value	9.32	9.32	9.32	40.06	17.44	22.74	52.95	18.33	26.00
+Batch 51200: Loss = 4.5443, Time Elapsed = 147.64s
+Batch 51300: Loss = 4.4879, Time Elapsed = 119.93s
+Batch 51400: Loss = 4.5038, Time Elapsed = 119.54s
+Batch 51500: Loss = 4.5355, Time Elapsed = 119.93s
+Batch 51600: Loss = 4.5520, Time Elapsed = 120.14s
+Batch 51700: Loss = 4.5639, Time Elapsed = 119.53s
+
+Epoch 86:
+Metric	HR@1	MRR@1	NDCG@1	HR@10	MRR@10	NDCG@10	HR@20	MRR@20	NDCG@20
+Value	9.25	9.25	9.25	40.05	17.41	22.72	52.90	18.30	25.96
+Batch 51800: Loss = 4.5445, Time Elapsed = 150.05s
+Batch 51900: Loss = 4.4916, Time Elapsed = 117.25s
+Batch 52000: Loss = 4.5084, Time Elapsed = 118.16s
+Batch 52100: Loss = 4.5376, Time Elapsed = 116.12s
+Batch 52200: Loss = 4.5577, Time Elapsed = 114.55s
+Batch 52300: Loss = 4.5550, Time Elapsed = 114.74s
+
+Epoch 87:
+Metric	HR@1	MRR@1	NDCG@1	HR@10	MRR@10	NDCG@10	HR@20	MRR@20	NDCG@20
+Value	9.28	9.28	9.28	39.78	17.40	22.65	52.99	18.32	25.99
+Batch 52400: Loss = 4.5246, Time Elapsed = 147.71s
+Batch 52500: Loss = 4.4983, Time Elapsed = 116.12s
+Batch 52600: Loss = 4.5145, Time Elapsed = 116.57s
+Batch 52700: Loss = 4.5284, Time Elapsed = 116.46s
+Batch 52800: Loss = 4.5365, Time Elapsed = 117.32s
+Batch 52900: Loss = 4.5608, Time Elapsed = 116.49s
+
+Epoch 88:
+Metric	HR@1	MRR@1	NDCG@1	HR@10	MRR@10	NDCG@10	HR@20	MRR@20	NDCG@20
+Value	9.25	9.25	9.25	39.91	17.43	22.70	52.90	18.33	25.99
+Batch 53000: Loss = 4.5048, Time Elapsed = 150.23s
+Batch 53100: Loss = 4.4978, Time Elapsed = 116.36s
+Batch 53200: Loss = 4.5144, Time Elapsed = 114.59s
+Batch 53300: Loss = 4.5359, Time Elapsed = 114.50s
+Batch 53400: Loss = 4.5297, Time Elapsed = 114.62s
+Batch 53500: Loss = 4.5521, Time Elapsed = 114.59s
+
+Epoch 89:
+Metric	HR@1	MRR@1	NDCG@1	HR@10	MRR@10	NDCG@10	HR@20	MRR@20	NDCG@20
+Value	9.23	9.23	9.23	39.84	17.36	22.63	52.89	18.27	25.93
+Batch 53600: Loss = 4.5011, Time Elapsed = 148.77s
+Batch 53700: Loss = 4.4806, Time Elapsed = 115.12s
+Batch 53800: Loss = 4.5052, Time Elapsed = 115.12s
+Batch 53900: Loss = 4.5241, Time Elapsed = 115.05s
+Batch 54000: Loss = 4.5371, Time Elapsed = 114.72s
+Batch 54100: Loss = 4.5490, Time Elapsed = 114.73s
+
+Epoch 90:
+Metric	HR@1	MRR@1	NDCG@1	HR@10	MRR@10	NDCG@10	HR@20	MRR@20	NDCG@20
+Value	9.21	9.21	9.21	39.86	17.36	22.64	52.90	18.27	25.94
+Batch 54200: Loss = 4.5103, Time Elapsed = 148.60s
+Batch 54300: Loss = 4.4739, Time Elapsed = 117.49s
+Batch 54400: Loss = 4.5044, Time Elapsed = 118.80s
+Batch 54500: Loss = 4.5277, Time Elapsed = 117.87s
+Batch 54600: Loss = 4.5422, Time Elapsed = 118.19s
+Batch 54700: Loss = 4.5304, Time Elapsed = 118.15s
+
+Epoch 91:
+Metric	HR@1	MRR@1	NDCG@1	HR@10	MRR@10	NDCG@10	HR@20	MRR@20	NDCG@20
+Value	9.26	9.26	9.26	39.84	17.41	22.67	53.10	18.33	26.02
+Batch 54800: Loss = 4.5014, Time Elapsed = 149.81s
+Batch 54900: Loss = 4.4798, Time Elapsed = 114.65s
+Batch 55000: Loss = 4.5068, Time Elapsed = 114.32s
+Batch 55100: Loss = 4.5211, Time Elapsed = 114.83s
+Batch 55200: Loss = 4.5289, Time Elapsed = 114.45s
+Batch 55300: Loss = 4.5413, Time Elapsed = 114.60s
+
+Epoch 92:
+Metric	HR@1	MRR@1	NDCG@1	HR@10	MRR@10	NDCG@10	HR@20	MRR@20	NDCG@20
+Value	9.39	9.39	9.39	39.97	17.47	22.74	52.99	18.37	26.03
+Batch 55400: Loss = 4.4843, Time Elapsed = 147.65s
+Batch 55500: Loss = 4.4742, Time Elapsed = 117.53s
+Batch 55600: Loss = 4.4937, Time Elapsed = 115.44s
+Batch 55700: Loss = 4.5152, Time Elapsed = 114.65s
+Batch 55800: Loss = 4.5348, Time Elapsed = 114.89s
+Batch 55900: Loss = 4.5341, Time Elapsed = 114.71s
+
+Epoch 93:
+Metric	HR@1	MRR@1	NDCG@1	HR@10	MRR@10	NDCG@10	HR@20	MRR@20	NDCG@20
+Value	9.26	9.26	9.26	39.84	17.36	22.63	52.86	18.26	25.92
+Batch 56000: Loss = 4.4799, Time Elapsed = 151.71s
+Batch 56100: Loss = 4.4817, Time Elapsed = 118.34s
+Batch 56200: Loss = 4.4912, Time Elapsed = 118.45s
+Batch 56300: Loss = 4.5178, Time Elapsed = 117.80s
+Batch 56400: Loss = 4.5282, Time Elapsed = 115.35s
+Batch 56500: Loss = 4.5292, Time Elapsed = 114.81s
+
+Epoch 94:
+Metric	HR@1	MRR@1	NDCG@1	HR@10	MRR@10	NDCG@10	HR@20	MRR@20	NDCG@20
+Value	9.20	9.20	9.20	39.89	17.37	22.65	53.00	18.28	25.96
+Batch 56600: Loss = 4.4688, Time Elapsed = 149.78s
+Batch 56700: Loss = 4.4685, Time Elapsed = 115.33s
+Batch 56800: Loss = 4.4842, Time Elapsed = 115.85s
+Batch 56900: Loss = 4.5146, Time Elapsed = 115.56s
+Batch 57000: Loss = 4.5312, Time Elapsed = 115.60s
+Batch 57100: Loss = 4.5387, Time Elapsed = 114.37s
+
+Epoch 95:
+Metric	HR@1	MRR@1	NDCG@1	HR@10	MRR@10	NDCG@10	HR@20	MRR@20	NDCG@20
+Value	9.28	9.28	9.28	39.86	17.41	22.67	52.90	18.32	25.97
+Batch 57200: Loss = 4.4638, Time Elapsed = 146.83s
+Batch 57300: Loss = 4.4810, Time Elapsed = 114.63s
+Batch 57400: Loss = 4.4837, Time Elapsed = 114.43s
+Batch 57500: Loss = 4.5179, Time Elapsed = 114.73s
+Batch 57600: Loss = 4.5013, Time Elapsed = 114.51s
+Batch 57700: Loss = 4.5361, Time Elapsed = 114.48s
+
+Epoch 96:
+Metric	HR@1	MRR@1	NDCG@1	HR@10	MRR@10	NDCG@10	HR@20	MRR@20	NDCG@20
+Value	9.32	9.32	9.32	39.94	17.44	22.72	52.87	18.34	25.98
+Batch 57800: Loss = 4.4599, Time Elapsed = 151.17s
+Batch 57900: Loss = 4.4669, Time Elapsed = 114.97s
+Batch 58000: Loss = 4.4889, Time Elapsed = 114.62s
+Batch 58100: Loss = 4.4945, Time Elapsed = 114.56s
+Batch 58200: Loss = 4.5248, Time Elapsed = 114.62s
+Batch 58300: Loss = 4.5272, Time Elapsed = 114.70s
+
+Epoch 97:
+Metric	HR@1	MRR@1	NDCG@1	HR@10	MRR@10	NDCG@10	HR@20	MRR@20	NDCG@20
+Value	9.37	9.37	9.37	39.94	17.48	22.74	52.89	18.38	26.02
+Batch 58400: Loss = 4.4532, Time Elapsed = 148.68s
+Batch 58500: Loss = 4.4798, Time Elapsed = 117.00s
+Batch 58600: Loss = 4.4766, Time Elapsed = 116.22s
+Batch 58700: Loss = 4.5029, Time Elapsed = 114.53s
+Batch 58800: Loss = 4.5069, Time Elapsed = 115.01s
+Batch 58900: Loss = 4.5205, Time Elapsed = 114.44s
+
+Epoch 98:
+Metric	HR@1	MRR@1	NDCG@1	HR@10	MRR@10	NDCG@10	HR@20	MRR@20	NDCG@20
+Value	9.36	9.36	9.36	39.95	17.44	22.71	52.88	18.34	25.98
+Batch 59000: Loss = 4.4316, Time Elapsed = 146.25s
+Batch 59100: Loss = 4.4697, Time Elapsed = 114.87s
+Batch 59200: Loss = 4.4786, Time Elapsed = 114.90s
+Batch 59300: Loss = 4.5017, Time Elapsed = 114.81s
+Batch 59400: Loss = 4.5129, Time Elapsed = 114.87s
+
+Epoch 99:
+Metric	HR@1	MRR@1	NDCG@1	HR@10	MRR@10	NDCG@10	HR@20	MRR@20	NDCG@20
+Value	9.32	9.32	9.32	39.85	17.45	22.71	52.84	18.35	25.99
+Batch 59500: Loss = 4.5243, Time Elapsed = 146.00s
+Batch 59600: Loss = 4.4438, Time Elapsed = 117.22s
+Batch 59700: Loss = 4.4555, Time Elapsed = 115.27s
+Batch 59800: Loss = 4.4755, Time Elapsed = 114.80s
+Batch 59900: Loss = 4.4924, Time Elapsed = 115.34s
+Batch 60000: Loss = 4.5149, Time Elapsed = 114.97s
+
+Epoch 100:
+Metric	HR@1	MRR@1	NDCG@1	HR@10	MRR@10	NDCG@10	HR@20	MRR@20	NDCG@20
+Value	9.29	9.29	9.29	39.84	17.43	22.69	52.85	18.33	25.97
+Batch 60100: Loss = 4.5090, Time Elapsed = 146.56s
+Batch 60200: Loss = 4.4346, Time Elapsed = 119.27s
+Batch 60300: Loss = 4.4570, Time Elapsed = 124.11s
+Batch 60400: Loss = 4.4782, Time Elapsed = 125.12s
+Batch 60500: Loss = 4.4937, Time Elapsed = 127.33s
+Batch 60600: Loss = 4.5105, Time Elapsed = 125.23s
+
+Epoch 101:
+Metric	HR@1	MRR@1	NDCG@1	HR@10	MRR@10	NDCG@10	HR@20	MRR@20	NDCG@20
+Value	9.28	9.28	9.28	39.74	17.39	22.63	52.81	18.30	25.94
+Batch 60700: Loss = 4.5044, Time Elapsed = 161.57s
+Batch 60800: Loss = 4.4135, Time Elapsed = 126.29s
+Batch 60900: Loss = 4.4628, Time Elapsed = 124.58s
+Batch 61000: Loss = 4.4773, Time Elapsed = 123.68s
+Batch 61100: Loss = 4.4994, Time Elapsed = 126.76s
+Batch 61200: Loss = 4.4963, Time Elapsed = 128.73s
+
+Epoch 102:
+Metric	HR@1	MRR@1	NDCG@1	HR@10	MRR@10	NDCG@10	HR@20	MRR@20	NDCG@20
+Value	9.22	9.22	9.22	39.84	17.35	22.62	52.91	18.26	25.93
+Batch 61300: Loss = 4.5086, Time Elapsed = 160.95s
+Batch 61400: Loss = 4.4341, Time Elapsed = 129.82s
+Batch 61500: Loss = 4.4602, Time Elapsed = 129.60s
+Batch 61600: Loss = 4.4591, Time Elapsed = 130.17s
+Batch 61700: Loss = 4.4765, Time Elapsed = 128.38s
+Batch 61800: Loss = 4.4941, Time Elapsed = 125.62s
+
+Epoch 103:
+Metric	HR@1	MRR@1	NDCG@1	HR@10	MRR@10	NDCG@10	HR@20	MRR@20	NDCG@20
+Value	9.36	9.36	9.36	39.76	17.44	22.67	52.76	18.34	25.96
+Batch 61900: Loss = 4.4894, Time Elapsed = 162.31s
+Batch 62000: Loss = 4.4238, Time Elapsed = 127.10s
+Batch 62100: Loss = 4.4564, Time Elapsed = 128.64s
+Batch 62200: Loss = 4.4613, Time Elapsed = 131.38s
+Batch 62300: Loss = 4.4753, Time Elapsed = 129.10s
+Batch 62400: Loss = 4.5060, Time Elapsed = 129.16s
+
+Epoch 104:
+Metric	HR@1	MRR@1	NDCG@1	HR@10	MRR@10	NDCG@10	HR@20	MRR@20	NDCG@20
+Value	9.31	9.31	9.31	39.78	17.45	22.68	52.89	18.35	26.00
+Batch 62500: Loss = 4.4859, Time Elapsed = 161.47s
+Batch 62600: Loss = 4.4274, Time Elapsed = 130.36s
+Batch 62700: Loss = 4.4523, Time Elapsed = 129.56s
+Batch 62800: Loss = 4.4576, Time Elapsed = 129.33s
+Batch 62900: Loss = 4.4862, Time Elapsed = 130.09s
+Batch 63000: Loss = 4.4906, Time Elapsed = 129.66s
+
+Epoch 105:
+Metric	HR@1	MRR@1	NDCG@1	HR@10	MRR@10	NDCG@10	HR@20	MRR@20	NDCG@20
+Value	9.31	9.31	9.31	39.70	17.39	22.62	52.74	18.29	25.92
+
+Best results
+Metric	HR@1	MRR@1	NDCG@1	HR@10	MRR@10	NDCG@10	HR@20	MRR@20	NDCG@20
+Value	9.39	9.39	9.39	40.06	17.48	22.74	53.10	18.38	26.03
+Epoch	92	92	92	85	97	97	91	97	92
