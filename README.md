@@ -1,4 +1,4 @@
-# Neural Decision Forest Enhancement For Session-based Recommendation
+# SR-PredictAO: Session-based Recommendation with High-Capability Predictor Add-On
 This is the official PyTorch implementation of *SR-PredictAO: Session-based Recommendation with High-Capability Predictor Add-On*.
 
 
